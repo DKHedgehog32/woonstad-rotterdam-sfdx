@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Type of Wocas Status --></label>
+    <name>Type_of_Wocas_Status__c</name>
+    <picklistValues>
+        <masterLabel>Contactmoment</masterLabel>
+        <translation><!-- Contactmoment --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Zaak</masterLabel>
+        <translation><!-- Zaak --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

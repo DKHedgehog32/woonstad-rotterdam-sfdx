@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Enter the duration in minutes. Required for Phone and Face2Face interactions. Maximum 480 minutes (8 hours). --></help>
+    <label><!-- Duration (Minutes) --></label>
+    <name>Duration_Minutes__c</name>
+</CustomFieldTranslation>

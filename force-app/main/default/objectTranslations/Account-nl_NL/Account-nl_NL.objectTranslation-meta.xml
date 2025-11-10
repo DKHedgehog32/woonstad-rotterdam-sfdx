@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Klant</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Klanten</value>
+    </caseValues>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Business Account Layout</layout>
+        <sections>
+            <label><!-- Financial Information --></label>
+            <section>Financial Information</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <aspect>InfoMessage</aspect>
+        <label>Deelnemer toegevoegd aan programma</label>
+        <name>Add_to_Program</name>
+    </quickActions>
+    <quickActions>
+        <aspect>Master</aspect>
+        <label>Voeg toe aan Programma</label>
+        <name>Add_to_Program</name>
+    </quickActions>
+    <quickActions>
+        <aspect>Master</aspect>
+        <label>Adresbeheer</label>
+        <name>Manage_Addresses</name>
+    </quickActions>
+    <quickActions>
+        <aspect>Master</aspect>
+        <label>Relatiebeheer</label>
+        <name>Manage_Relations</name>
+    </quickActions>
+    <quickActions>
+        <aspect>Master</aspect>
+        <label>Nieuwe Aanvraag</label>
+        <name>New_Request</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Record Disbursement --></label>
+        <name>Record_Disbursement</name>
+    </quickActions>
+    <quickActions>
+        <aspect>Master</aspect>
+        <label>Ophalen uit Wocas</label>
+        <name>Request_Person</name>
+    </quickActions>
+    <quickActions>
+        <aspect>Master</aspect>
+        <label>Klant Bewerken</label>
+        <name>Update_Account_Case</name>
+    </quickActions>
+    <recordTypes>
+        <description><!-- Registration of a Business Account --></description>
+        <label>Bedrijfsklant</label>
+        <name>Business_Account</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- industries Person Account for Record Type --></description>
+        <label><!-- Industries Person Acc --></label>
+        <name>Industries_Person_Acc</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage>Het ingegeven telefoonnummer is van onjuist formaat. Het is niet toegestaan om spaties, slashes en haakjes te gebruiken</errorMessage>
+        <name>CorrectMobileBusinessPhonec</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Het ingegeven telefoonnummer is van onjuist formaat. Het is niet toegestaan om spaties, slashes en haakjes te gebruiken</errorMessage>
+        <name>CorrectMobilePhone</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Het ingegeven telefoonnummer is van onjuist formaat. Het is niet toegestaan om spaties, slashes en haakjes te gebruiken</errorMessage>
+        <name>CorrectPhoneNumber</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Een Nederlands nummer mag niet starten met +31 starten, maar dient te starten met het netnummer, zoals 010 voor Rotterdam).</errorMessage>
+        <name>EnforceDutchPhoneMobileNumber</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Ongeldige postcode voor postadres. Voor een Nederlands adres dien je het volgende format aan te houden: 0000AA.</errorMessage>
+        <name>Validate_Dutch_Billing_Postal_Code</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Ongeldige postcode voor bezoekadres. Voor een Nederlands adres dien je het volgende format aan te houden: 0000AA.</errorMessage>
+        <name>Validate_Dutch_Shipping_Postal_Code</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- AltavistaNews --></label>
+        <name>AltavistaNews</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleMaps --></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleNews --></label>
+        <name>GoogleNews</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleSearch --></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- HooversProfile --></label>
+        <name>HooversProfile</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Integration_Test --></label>
+        <name>Integration_Test</name>
+    </webLinks>
+    <webLinks>
+        <label>Nieuw Bedrijf</label>
+        <name>New_Business_Account</name>
+    </webLinks>
+    <webLinks>
+        <label>Nieuwe Persoon</label>
+        <name>New_Person_Account</name>
+    </webLinks>
+    <webLinks>
+        <label>Opvragen Externe Persoon</label>
+        <name>Request_External_Person</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- YahooMaps --></label>
+        <name>YahooMaps</name>
+    </webLinks>
+</CustomObjectTranslation>

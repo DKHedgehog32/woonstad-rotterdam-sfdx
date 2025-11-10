@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>E-mailsjabloon om klanten eraan te herinneren dat ze moeten betalen voor hun serviceafspraak.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Scheduler-betalingen: e-mail met betalingsherinnering voor serviceafspraak</name>
+    <style>none</style>
+    <subject>Uw betaling voltooien</subject>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

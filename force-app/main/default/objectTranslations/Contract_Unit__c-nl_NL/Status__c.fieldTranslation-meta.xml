@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Leg hier de status van de eenheid vast.</help>
+    <label>Status</label>
+    <name>Status__c</name>
+    <picklistValues>
+        <masterLabel>Administrative</masterLabel>
+        <translation>Administratief</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Out of exploitation</masterLabel>
+        <translation>Uit exploitatie</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rented</masterLabel>
+        <translation>Verhuurd</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Under development</masterLabel>
+        <translation>In ontwikkeling</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Vacant</masterLabel>
+        <translation>Leegstand</translation>
+    </picklistValues>
+</CustomFieldTranslation>

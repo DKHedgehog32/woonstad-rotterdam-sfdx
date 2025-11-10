@@ -1,0 +1,61 @@
+<template>
+            <div class="slds-grid slds-wrap slds-is-relative ">
+            <div style="position: fixed;z-index: 999999;top: 0;right: 0;">
+  <omnistudio-toast class="flexcard-toast-element" theme="slds" title="" message="" styletype=""> </omnistudio-toast>
+</div>
+            <div if:true={showLoader} class="slds-is-absolute vloc-loader_override" style="height: 100%; width: 100%; min-height:50px; background: transparent; z-index: 99;">
+  <div>
+   <omnistudio-spinner
+      variant="brand"
+      alternative-text="Loading content..."
+      size="medium"
+      theme="slds"
+      ></omnistudio-spinner>
+  </div>
+</div>
+            <template if:false={hasPermission}>
+              You don't have required permissions to view this card.
+            </template>
+            <template if:true={hasPermission}>
+              <template if:true={hasRecords}>
+                      <omnistudio-flex-card-state   data-statue="true"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12"  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-card slds-p-around_x-small slds-m-bottom_x-small" style="">
+          <div data-style-id="state0element0" class="slds-col   slds-size_8-of-12  " data-rindex={rindex} style="" ><omnistudio-output-field data-style-id="state0element0_child"   card={card}  record={record}  placeholder=""  type="text"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element1" class="slds-col   slds-size_2-of-12  " data-rindex={rindex} style="" ><omnistudio-flex-action data-style-id="state0element1_child"  tracking-obj={_childCardTrackingObj}  class= "state0element1_child flexActionElement" 
+        data-action-element-class="state0element1_child" data-action-key="state0element1" onexecuteaction={performAction} data-show-spinner="false"
+        data-element-label="createaccount"   state-obj={record}  card={card}  record={record}  label="Create Account"  icon-name="standard-default"  action-list='\[{"stateAction":{"id":"flex-action-1656823806428","type":"Flyout","openUrlIn":"Current Window","flyoutType":"childCard","openFlyoutIn":"Modal","channelName":"close_modal","cardName":"CreateAccountFlyoutShortIntake","flyoutLwc":"CreateAccountFlyoutShortIntake"},"key":"1656816509512-1bgbkwjwf","label":"Action","draggable":false,"isOpen":true,"actionIndex":0}]'  hide-action-icon="true"  flyout-channel="close_modal"  flyout-details='\{"openFlyoutIn":"Modal"}'  styles='\{"label":{"color":"#4070BD"}}'  theme="slds"  ><div slot="modalflyout" class="createaccountaction0 " > <c-cf-create-account-flyout-short-intake data-style-id="state0element1_child"  parent-record={record}  records={_records}  parent-mergefields={card}  record-id={recordId}  object-api-name={objectApiName}  parent-attribute='\{}'  ></c-cf-create-account-flyout-short-intake></div></omnistudio-flex-action>
+      </div><div data-style-id="state0element2" class="slds-col   slds-size_2-of-12  " data-rindex={rindex} style="" ><omnistudio-flex-action data-style-id="state0element2_child"  tracking-obj={_childCardTrackingObj}  class= "state0element2_child flexActionElement" 
+        data-action-element-class="state0element2_child" data-action-key="state0element2" onexecuteaction={performAction} data-show-spinner="false"
+        data-element-label="createcontact"   state-obj={record}  card={card}  record={record}  label="Create Contact"  icon-name="standard-default"  action-list='\[{"stateAction":{"id":"flex-action-1656823845378","type":"Flyout","openUrlIn":"Current Window","flyoutType":"childCard","openFlyoutIn":"Modal","channelName":"close_modal","cardName":"CreateContactFlyoutShortIntake","flyoutLwc":"CreateContactFlyoutShortIntake"},"key":"1656823839051-6lf2jui3b","label":"Action","draggable":true,"isOpen":true,"actionIndex":0}]'  hide-action-icon="true"  styles='\{"label":{"color":"#4070BD"}}'  flyout-channel="close_modal"  flyout-details='\{"openFlyoutIn":"Modal"}'  theme="slds"  ><div slot="modalflyout" class="createcontactaction0 " > <c-cf-create-contact-flyout-short-intake data-style-id="state0element2_child"  parent-record={record}  records={_records}  parent-mergefields={card}  record-id={recordId}  object-api-name={objectApiName}  parent-attribute='\{}'  ></c-cf-create-contact-flyout-short-intake></div></omnistudio-flex-action>
+      </div>
+        </div>
+      </omnistudio-flex-card-state>
+                </template>
+                <template if:false={hasRecords}>
+                      <omnistudio-flex-card-state   data-statue="false"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12"  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-card slds-p-around_x-small slds-m-bottom_x-small" style="">
+          <div data-style-id="state0element0" class="slds-col   slds-size_8-of-12  " data-rindex={rindex} style="" ><omnistudio-output-field data-style-id="state0element0_child"   card={card}  record={record}  placeholder=""  type="text"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element1" class="slds-col   slds-size_2-of-12  " data-rindex={rindex} style="" ><omnistudio-flex-action data-style-id="state0element1_child"  tracking-obj={_childCardTrackingObj}  class= "state0element1_child flexActionElement" 
+        data-action-element-class="state0element1_child" data-action-key="state0element1" onexecuteaction={performAction} data-show-spinner="false"
+        data-element-label="createaccount"   state-obj={record}  card={card}  record={record}  label="Create Account"  icon-name="standard-default"  action-list='\[{"stateAction":{"id":"flex-action-1656823806428","type":"Flyout","openUrlIn":"Current Window","flyoutType":"childCard","openFlyoutIn":"Modal","channelName":"close_modal","cardName":"CreateAccountFlyoutShortIntake","flyoutLwc":"CreateAccountFlyoutShortIntake"},"key":"1656816509512-1bgbkwjwf","label":"Action","draggable":false,"isOpen":true,"actionIndex":0}]'  hide-action-icon="true"  flyout-channel="close_modal"  flyout-details='\{"openFlyoutIn":"Modal"}'  styles='\{"label":{"color":"#4070BD"}}'  theme="slds"  ><div slot="modalflyout" class="createaccountaction0 " > <c-cf-create-account-flyout-short-intake data-style-id="state0element1_child"  parent-record={record}  records={_records}  parent-mergefields={card}  record-id={recordId}  object-api-name={objectApiName}  parent-attribute='\{}'  ></c-cf-create-account-flyout-short-intake></div></omnistudio-flex-action>
+      </div><div data-style-id="state0element2" class="slds-col   slds-size_2-of-12  " data-rindex={rindex} style="" ><omnistudio-flex-action data-style-id="state0element2_child"  tracking-obj={_childCardTrackingObj}  class= "state0element2_child flexActionElement" 
+        data-action-element-class="state0element2_child" data-action-key="state0element2" onexecuteaction={performAction} data-show-spinner="false"
+        data-element-label="createcontact"   state-obj={record}  card={card}  record={record}  label="Create Contact"  icon-name="standard-default"  action-list='\[{"stateAction":{"id":"flex-action-1656823845378","type":"Flyout","openUrlIn":"Current Window","flyoutType":"childCard","openFlyoutIn":"Modal","channelName":"close_modal","cardName":"CreateContactFlyoutShortIntake","flyoutLwc":"CreateContactFlyoutShortIntake"},"key":"1656823839051-6lf2jui3b","label":"Action","draggable":true,"isOpen":true,"actionIndex":0}]'  hide-action-icon="true"  styles='\{"label":{"color":"#4070BD"}}'  flyout-channel="close_modal"  flyout-details='\{"openFlyoutIn":"Modal"}'  theme="slds"  ><div slot="modalflyout" class="createcontactaction0 " > <c-cf-create-contact-flyout-short-intake data-style-id="state0element2_child"  parent-record={record}  records={_records}  parent-mergefields={card}  record-id={recordId}  object-api-name={objectApiName}  parent-attribute='\{}'  ></c-cf-create-contact-flyout-short-intake></div></omnistudio-flex-action>
+      </div>
+        </div>
+      </omnistudio-flex-card-state>
+                </template>
+            </template>
+            <template if:true={hasError}>
+            {error}
+            </template>
+            
+      <omnistudio-action action-wrapperclass="slds-hide" re-render-flyout class="action-trigger slds-col" onupdateos={updateOmniscript} onselectcards={updateSelectedCards} onsetvalue={updateAction} onfireactionevent={actionEvtHandler}>
+      
+      </omnistudio-action>
+  
+            <omnistudio-action class="execute-action" re-render-flyout action-wrapperclass="slds-hide" onupdateos={updateOmniscript} onselectcards={updateSelectedCards} onsetvalue={updateAction} onfireactionevent={actionEvtHandler}>
+            
+            </omnistudio-action>
+            </div>
+          </template>

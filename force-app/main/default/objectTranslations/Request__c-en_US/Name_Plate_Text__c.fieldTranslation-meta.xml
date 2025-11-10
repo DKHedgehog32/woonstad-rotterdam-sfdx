@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- What is the name that should be displayed on the name plate? --></help>
+    <label><!-- Name Plate Text --></label>
+    <name>Name_Plate_Text__c</name>
+</CustomFieldTranslation>

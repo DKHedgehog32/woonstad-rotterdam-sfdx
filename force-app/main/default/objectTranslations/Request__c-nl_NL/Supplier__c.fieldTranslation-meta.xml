@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Wijs de leverancier aan die deze aanvraag moet uitvoeren.</help>
+    <label>Leverancier</label>
+    <name>Supplier__c</name>
+    <relationshipLabel>Toegewezen Aanvragen</relationshipLabel>
+</CustomFieldTranslation>

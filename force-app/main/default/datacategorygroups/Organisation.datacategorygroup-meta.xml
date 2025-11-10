@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCategoryGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <dataCategory>
+        <dataCategory>
+            <label>Rental</label>
+            <name>Rental</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Social Management</label>
+            <name>Social_Management</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Maintenance</label>
+            <name>Maintenance</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Collections</label>
+            <name>Collections</name>
+        </dataCategory>
+        <label>All</label>
+        <name>All</name>
+    </dataCategory>
+    <label>Organisation</label>
+    <objectUsage>
+        <object>KnowledgeArticleVersion</object>
+        <object>SvcCatalogItemDef</object>
+    </objectUsage>
+</DataCategoryGroup>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ActionPlanTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionPlanTemplateItem>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>OmniAssessmentTask</itemEntityType>
+            <name>Name</name>
+            <valueLiteral>28Mar - Referral Assessment for Yoga program</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>OmniAssessmentTask</itemEntityType>
+            <name>DefinitionReferenceId</name>
+            <valueLiteral>0os060000008PDwAAM</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <isRequired>false</isRequired>
+        <itemEntityType>OmniAssessmentTask</itemEntityType>
+        <name>28Mar - Referral Assessment for Yoga program</name>
+        <uniqueName>X28Mar_Referral_Assessment_for_Yoga_progra_587cca88_ce1d_11ed_99f5_5b8d43656e01</uniqueName>
+    </actionPlanTemplateItem>
+    <actionPlanType>Retail</actionPlanType>
+    <isAdHocItemCreationEnabled>true</isAdHocItemCreationEnabled>
+    <name>Referral Intake</name>
+    <targetEntityType>Referral</targetEntityType>
+    <uniqueName>Referral_Intake_52f2ca6b_ce1d_11ed_99f5_47549b835b39</uniqueName>
+</ActionPlanTemplate>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Donor_Gift_Summary_Rollups</name>
+        <label>Donor Gift Summary Rollups</label>
+        <locationX>176</locationX>
+        <locationY>252</locationY>
+        <actionName>DonorGiftSummary_Clone</actionName>
+        <actionType>dataProcessingEngineAction</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>CURRENT_CALENDAR_YEAR</name>
+            <value>
+                <dateValue>2023-01-01</dateValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>LAST_CALENDAR_YEAR</name>
+            <value>
+                <dateValue>2022-01-01</dateValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>LAST_TWO_CALENDAR_YEAR</name>
+            <value>
+                <dateValue>2021-01-01</dateValue>
+            </value>
+        </inputParameters>
+        <nameSegment>DonorGiftSummary_Clone</nameSegment>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <apiVersion>59.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>Calculate Donor Gift Summary Rollups</description>
+    <environments>Default</environments>
+    <interviewLabel>Donor Gift Summary Rollups {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Donor Gift Summary Rollups</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Donor_Gift_Summary_Rollups</targetReference>
+        </connector>
+        <schedule>
+            <frequency>Daily</frequency>
+            <startDate>2023-09-07</startDate>
+            <startTime>00:00:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

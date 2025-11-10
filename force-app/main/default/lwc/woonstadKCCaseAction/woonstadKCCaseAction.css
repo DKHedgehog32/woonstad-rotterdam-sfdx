@@ -1,0 +1,70 @@
+/*************************************************************************************************
+ * Component       : woonstadKCCaseAction.css
+ * Layer           : UI Styles (Scoped CSS)
+ * Purpose         : Styles the custom modal used in Woonstad KC for embedding Flows.
+ *
+ * Responsibilities:
+ *  - Blue header bar with title and close button
+ *  - White body area for the Flow
+ *  - Rounded corners and proper spacing
+ *
+ * Accessibility   :
+ *  - Close button is styled but still uses a native <button> with focus/hover states
+ *
+ * Owner           : Woonstad KC
+ * Author          : Dennis van Musschenbroek
+ * Created         : 2025-08-25
+ * Last Modified   : 2025-08-25
+ * ===============================================================================================
+ * Change Log:
+ * 2025-08-25 | DvM | Initial creation with Woonstad blue header and modal body styling.
+ *************************************************************************************************/
+
+/* Main modal container */
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 100%;
+}
+
+/* Header bar (Woonstad blue) */
+.woonstad-header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0061cd;
+    padding: 1rem 2rem;
+    color: white;
+    flex-shrink: 0;
+}
+
+.woonstad-header-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+/* Close button */
+.close-button {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0 0.5rem;
+}
+
+.close-button:hover {
+    opacity: 0.7;
+}
+
+/* Flow content wrapper */
+.flow-wrapper {
+    padding: 1rem;
+    overflow-y: auto;
+    flex-grow: 1;
+}

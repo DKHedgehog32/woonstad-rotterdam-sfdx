@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initialscale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <style type="text/css">@media screen and (max-width: 480px) {slot[style] {margin-right: 0 !important;}.columnDiv {margin-right: 0 !important;}}@media screen and (min-width: 480px) {slot[style] {margin-bottom: 0 !important;}.columnDiv {margin-bottom: 0 !important;}}</style>
+  <style type="text/css">@media screen and (max-width: 480px) {.contentbuilderBaseColumnRow .columnCell {display:inline-block;width:100%}}</style>
+  <style type="text/css">.contentpageDefaultEmailTemplatePageTemplate .contentRoot {width: 600px;}@media only screen and (max-width: 480px) {.contentpageDefaultEmailTemplatePageTemplate .contentRoot {width: 320px;}}</style>
+ </head>
+ <body>
+  <table class="contentpageDefaultEmailTemplatePageTemplate" style="background-color: #E9EAEC;" role="presentation" id="contentpage_emailTemplateBodyContent" width="100%" cellpadding="0" cellspacing="0">
+   <tbody>
+    <tr>
+     <td width="100%" align="center">
+      <table class="contentRoot" style="background-color: #FFFFFF;" role="presentation" width="600" cellpadding="0" cellspacing="0">
+       <tbody>
+        <tr>
+         <td style="padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px;">
+          <table class="contentbuilderBaseColumnRow" style="align-items: flex-start; width: 100%; background-color:#00A75B;" role="presentation" width="100%" cellpadding="0" cellspacing="0">
+           <tbody>
+            <tr valign="top">
+             <td width="100%" class="columnCell" style="vertical-align: top;display: inline-block; float:left">
+              <table cellpadding="0" cellspacing="0" style="width: 100%; border-collapse: collapse; word-break:break-word;">
+               <tbody>
+                <tr>
+                 <td>
+                  <table style="width:100%; border-collapse: collapse; word-break:break-word;" id="contentRegion" role="presentation" cellspacing="0" cellpadding="0" locked="0">
+                   <tbody>
+                    <tr>
+                     <td style="padding-top: 20px;padding-left: 20px;" align="left"><img style="width: 100%; display: block; border: none; max-width: 30%; object-fit: fill;" src="{[devName:StadswonenLogoGroen]}" alt="" width="160" /></td>
+                    </tr>
+                   </tbody>
+                  </table></td>
+                </tr>
+                <tr>
+                 <td>
+                  <table style="width: 100%; border-collapse: collapse; word-break: break-word; font-size: 14px" id="contentRegion" role="presentation" cellspacing="0" cellpadding="0" locked="0">
+                   <tbody>
+                    <tr>
+                     <td style="font-family: Arial, Helvetica, sans-serif;padding-top: 20px;padding-bottom: 20px;padding-left: 20px;"><h1 style="color:#111111;font-family:Arial;font-size:32px;font-weight:bold;margin:0;"><span style="color:#ffffff;"><span style="font-size:24px;"><span style="font-family:Verdana,Arial,Helvetica,sans-serif;">Bericht ontvangen</span></span></span></h1></td>
+                    </tr>
+                   </tbody>
+                  </table></td>
+                </tr>
+               </tbody>
+              </table></td>
+            </tr>
+           </tbody>
+          </table>
+          <table class="contentbuilderBaseColumnRow" style="align-items: flex-start; width: 100%; background-color:;" role="presentation" width="100%" cellpadding="0" cellspacing="0">
+           <tbody>
+            <tr valign="top">
+             <td width="100%" class="columnCell" style="vertical-align: top;display: inline-block; float:left">
+              <table cellpadding="0" cellspacing="0" style="width: 100%; border-collapse: collapse; word-break:break-word;">
+               <tbody>
+                <tr>
+                 <td>
+                  <table style="width: 100%; border-collapse: collapse; word-break: break-word; font-size: 14px" id="contentRegion" role="presentation" cellspacing="0" cellpadding="0" locked="0">
+                   <tbody>
+                    <tr>
+                     <td style="font-family: Arial, Helvetica, sans-serif;padding-top: 10px;padding-right: 20px;padding-bottom: 10px;padding-left: 20px;"><p style="font-size:16px;line-height:24px;margin:0;font-family:Verdana, Arial, sans-serif;color:#00215b"><br /> Beste {{{Case.Email_Template_Salutation__c}}},<br /><br /> Bedankt voor je bericht.<br /><br /> Wij hebben je bericht geregistreerd onder het nummer {{{Case.CaseNumber}}}.<br /><br /><strong>Heb je een algemene vraag?</strong><br /> Je ontvangt binnen 3 werkdagen een reactie.<br /><br /><strong>Heb je een vraag over onderhoud?</strong><br /> Je ontvangt binnen 5 werkdagen een reactie.<br /><br /><strong>Heb je een vraag over betalen?</strong><br /> Je ontvangt binnen 15 werkdagen een reactie.<br /><br /> Veel zaken regel je zelf via <a href="https://mijn.stadswonenrotterdam.nl/">MijnStadswonen</a>. Op onze website vind je antwoorden op <a href="https://www.stadswonenrotterdam.nl/nl/klantenservice">veelgestelde vragen</a>.<br /><br /> Met vriendelijke groeten,</p><p style="font-size:16px;line-height:24px;margin:0;font-family:Verdana, Arial, sans-serif;color:#00215b">Stadswonen Rotterdam<br /> &nbsp;</p></td>
+                    </tr>
+                   </tbody>
+                  </table></td>
+                </tr>
+               </tbody>
+              </table></td>
+            </tr>
+           </tbody>
+          </table>
+          <table class="contentbuilderBaseColumnRow" style="align-items: center; width: 100%; background-color:#FFEFE9;" role="presentation" width="100%" cellpadding="0" cellspacing="0">
+           <tbody>
+            <tr valign="middle">
+             <td width="50%" class="columnCell" style="vertical-align: middle;display: inline-block; float:left">
+              <div class="columnDiv" style="margin-right: 5px;margin-bottom: 5px;">
+               <table cellpadding="0" cellspacing="0" style="width: 100%; border-collapse: collapse; word-break:break-word;">
+                <tbody>
+                 <tr>
+                  <td>
+                   <table style="width: 100%; border-collapse: collapse; word-break: break-word; font-size: 14px" id="contentRegion" role="presentation" cellspacing="0" cellpadding="0" locked="0">
+                    <tbody>
+                     <tr>
+                      <td style="font-family: Arial, Helvetica, sans-serif;padding-top: 20px;padding-bottom: 20px;padding-left: 20px;"><p style="font-size:16px;line-height:24px;margin:0;font-family:Verdana, Arial, sans-serif;color:#00215b"><strong>Kunnen we je helpen?</strong></p>
+                       <table align="left" border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse;display:inline-flex" width="auto">
+                        <tbody style="width:100%">
+                         <tr style="width:100%">
+                          <td class="__react-email-column" style="padding-right:4px"><p style="font-size:16px;line-height:24px;margin:0;font-family:Verdana, Arial, sans-serif;color:#00215b"><a href="https://www.stadswonenrotterdam.nl/contact" style="color:#0061CD;text-decoration:none" target="_blank">Neem contact met ons o</a><a href="https://www.stadswonenrotterdam.nl/contact" style="color:#0061CD;text-decoration:none" target="_blank">p</a>&nbsp;<span lang="EN-US" style="font-size:10.0pt"><span style="font-family:Wingdings"><span style="color:#0060cd"></span></span></span></p></td>
+                          <td class="__react-email-column">&nbsp;</td>
+                         </tr>
+                        </tbody>
+                       </table></td>
+                     </tr>
+                    </tbody>
+                   </table></td>
+                 </tr>
+                </tbody>
+               </table>
+              </div></td>
+             <td width="50%" class="columnCell" style="vertical-align: middle;display: inline-block; float:left">
+              <div class="columnDiv" style="margin-right: 5px;margin-bottom: 5px;">
+               <table cellpadding="0" cellspacing="0" style="width: 100%; border-collapse: collapse; word-break:break-word;">
+                <tbody>
+                 <tr>
+                  <td>
+                   <table style="width: 100%; border-collapse: collapse; word-break: break-word; font-size: 14px" id="contentRegion" role="presentation" cellspacing="0" cellpadding="0" locked="0">
+                    <tbody>
+                     <tr>
+                      <td style="font-family: Arial, Helvetica, sans-serif;padding-top: 20px;padding-right: 20px;padding-bottom: 20px;"><p style="text-align: right;"><span style="line-height:1;"><span style="font-size:12px;"><span style="font-family:Verdana,Arial,Helvetica,sans-serif;"><a href="https://www.stadswonenrotterdam.nl/"><span style="color:#52658a;">© 2025 Stadswonen Rotterdam</span></a><span style="color:#52658a;"></span></span></span></span></p><p style="text-align: right;"><span style="line-height:1;"><span style="font-size:12px;"><span style="font-family:Verdana,Arial,Helvetica,sans-serif;"><a href="https://www.stadswonenrotterdam.nl/privacy-en-cookie-statement"><span style="color:#52658a;">Privacy Statement</span></a><span style="color:#52658a;"> &nbsp;• </span><a href="https://www.stadswonenrotterdam.nl/disclaimer"><span style="color:#52658a;">Disclaimer</span></a><span style="color:#52658a;"></span></span></span></span></p></td>
+                     </tr>
+                    </tbody>
+                   </table></td>
+                 </tr>
+                </tbody>
+               </table>
+              </div></td>
+            </tr>
+           </tbody>
+          </table></td>
+        </tr>
+       </tbody>
+      </table></td>
+    </tr>
+   </tbody>
+  </table>
+ </body>
+</html>

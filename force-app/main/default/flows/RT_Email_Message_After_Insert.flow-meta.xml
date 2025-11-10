@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <description>Undefined should not be possible because it&apos;s a boolean.</description>
+        <name>Incoming_Or_Outbound_Email</name>
+        <label>Incoming Or Outbound Email</label>
+        <locationX>314</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Undefined</defaultConnectorLabel>
+        <rules>
+            <name>Incoming_Email</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Incoming</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>AL_Update_Case_Status_Based_On_Incoming_Email_Message</targetReference>
+            </connector>
+            <label>Incoming Email</label>
+        </rules>
+        <rules>
+            <name>Outbound_Email</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Incoming</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>AL_Update_Case_Status_Based_On_Outbound_Email_Message</targetReference>
+            </connector>
+            <label>Outbound Email</label>
+        </rules>
+    </decisions>
+    <description>Record Trigger for after insert Email Message object</description>
+    <environments>Default</environments>
+    <interviewLabel>RT - Email Message - After Insert {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>RT - Email Message - After Insert</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Incoming_Or_Outbound_Email</targetReference>
+        </connector>
+        <object>EmailMessage</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Draft</status>
+    <subflows>
+        <description>When a new incoming email message is created, the subflow should be triggered to update the Case status</description>
+        <name>AL_Update_Case_Status_Based_On_Incoming_Email_Message</name>
+        <label>AL - Update Case Status Based On Incoming Email Message</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <flowName>AL_Update_Case_Status_Based_On_Incoming_Email_Message</flowName>
+        <inputAssignments>
+            <name>varR_EmailMessage</name>
+            <value>
+                <elementReference>$Record</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <subflows>
+        <description>When a new outbound email message is created, the subflow should be triggered to update the Case status</description>
+        <name>AL_Update_Case_Status_Based_On_Outbound_Email_Message</name>
+        <label>AL - Update Case Status Based On Outbound Email Message</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <flowName>AL_Update_Case_Status_Based_On_Outbound_Email_Message</flowName>
+        <inputAssignments>
+            <name>varR_EmailMessage</name>
+            <value>
+                <elementReference>$Record</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <variables>
+        <name>varT_Recipient</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varT_UserID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Wat voor type klant betreft het: een huurder, voormalig huurder, eigenaar of rekening zonder overeenkomst.</help>
+    <label>Klant Type</label>
+    <name>Account_Type__c</name>
+    <picklistValues>
+        <masterLabel>Account without contract</masterLabel>
+        <translation>Klant zonder overeenkomst</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Co-tenant</masterLabel>
+        <translation>Medehuurder</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Former Tenant</masterLabel>
+        <translation>Ex-huurder</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Owner</masterLabel>
+        <translation>Eigenaar</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Payer</masterLabel>
+        <translation>Betaler</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Tenant</masterLabel>
+        <translation>Huurder</translation>
+    </picklistValues>
+</CustomFieldTranslation>

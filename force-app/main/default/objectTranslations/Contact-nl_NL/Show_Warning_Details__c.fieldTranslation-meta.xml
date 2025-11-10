@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Selecteer deze checkbox als je waarschuwingen/signaleringen op deze relatie wil tonen.</help>
+    <label>Toon Waarschuwingen</label>
+    <name>Show_Warning_Details__c</name>
+</CustomFieldTranslation>

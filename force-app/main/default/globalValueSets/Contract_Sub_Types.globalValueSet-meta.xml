@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>BOG</fullName>
+        <default>false</default>
+        <label>Commercial space rental</label>
+    </customValue>
+    <customValue>
+        <fullName>CAM</fullName>
+        <default>false</default>
+        <label>Campus rental</label>
+    </customValue>
+    <customValue>
+        <fullName>ONB</fullName>
+        <default>false</default>
+        <label>Indefinite rental</label>
+    </customValue>
+    <customValue>
+        <fullName>TIJ</fullName>
+        <default>false</default>
+        <label>Temporary rental</label>
+    </customValue>
+    <customValue>
+        <fullName>SHS</fullName>
+        <default>false</default>
+        <label>Shortstay rental</label>
+    </customValue>
+    <customValue>
+        <fullName>JON</fullName>
+        <default>false</default>
+        <label>Youth rental</label>
+    </customValue>
+    <customValue>
+        <fullName>KGA</fullName>
+        <default>false</default>
+        <label>Purchase guarantee</label>
+    </customValue>
+    <customValue>
+        <fullName>MGE</fullName>
+        <default>false</default>
+        <label>MGE construction</label>
+    </customValue>
+    <customValue>
+        <fullName>UIT</fullName>
+        <default>false</default>
+        <label>Part of sales project</label>
+    </customValue>
+    <masterLabel>Contract Sub Types</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

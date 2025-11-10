@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Type of this relation --></help>
+    <label><!-- Type --></label>
+    <name>Type__c</name>
+    <picklistValues>
+        <masterLabel>Advocaat</masterLabel>
+        <translation><!-- Advocaat --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Bewindvoerder</masterLabel>
+        <translation><!-- Bewindvoerder --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Curator</masterLabel>
+        <translation><!-- Curator --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Deurwaarder</masterLabel>
+        <translation><!-- Deurwaarder --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Erfgenaam</masterLabel>
+        <translation><!-- Erfgenaam --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Executeur-Testamentair</masterLabel>
+        <translation><!-- Executeur-Testamentair --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Expert Wonen Gemeente</masterLabel>
+        <translation><!-- Expert Wonen Gemeente --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Maatschappelijk Werker</masterLabel>
+        <translation><!-- Maatschappelijk Werker --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mantelzorger</masterLabel>
+        <translation><!-- Mantelzorger --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mentorschap</masterLabel>
+        <translation><!-- Mentorschap --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Schuldhulpverlener</masterLabel>
+        <translation><!-- Schuldhulpverlener --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sociaal Wijkteam Gemeente</masterLabel>
+        <translation><!-- Sociaal Wijkteam Gemeente --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Tolk (Beëdigd)</masterLabel>
+        <translation><!-- Tolk (Beëdigd) --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Wijkagent</masterLabel>
+        <translation><!-- Wijkagent --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Zorginstelling</masterLabel>
+        <translation><!-- Zorginstelling --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

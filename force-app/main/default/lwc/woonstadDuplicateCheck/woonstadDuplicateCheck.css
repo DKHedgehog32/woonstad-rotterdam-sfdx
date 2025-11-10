@@ -1,0 +1,171 @@
+/*************************************************************************************************
+ * Stylesheet      : woonstadDuplicateCheck.css
+ * Purpose         : Keep legacy layout and add blue Woonstad SVG pill next to the checkbox.
+ * Last Modified   : 2025-08-27
+ *************************************************************************************************/
+
+/* Root */
+.wc-root { width: 100%; }
+
+/* Title */
+.wc-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ws-text-dark, #002244);
+}
+
+/* Instruction list ABOVE the header */
+.wc-instructions-list {
+  margin: 0 0 0.5rem 1.1rem;
+  padding: 0;
+  list-style: disc;
+  color: var(--ws-text-dark, #002244);
+  font-weight: 500;
+}
+
+.wc-instructions-item { margin: 0.25rem 0; line-height: 1.4; }
+
+.wc-instructions-item--checkbox {
+  list-style: none;               /* no bullet for the checkbox line */
+  margin-top: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;                      /* space between checkbox and pill */
+  flex-wrap: wrap;
+}
+
+.wc-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+/* Header bar (always visible) */
+.wc-header {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  background: #85BDE6;
+  color: var(--ws-text-dark, #002244);
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.06);
+  margin: 0.25rem 0 0.75rem 0;
+}
+
+.wc-col { align-self: center; }
+
+/* Rows wrapper */
+.wc-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Each row as a button */
+.wc-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  background: #ffffff;
+  border: 1px solid #E0E8F6;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  box-shadow: 2px 2px 0 #e3edfa;
+  cursor: pointer;
+  text-align: left;
+}
+.wc-row:focus { outline: 2px solid #0061cd; outline-offset: 2px; }
+.wc-row:hover { transform: translateY(-1px); box-shadow: 3px 3px 0 #d6e6fb; }
+
+.wc-cell { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.wc-sub  { font-size: 0.8rem; color: #4a5568; }
+
+/* Loading */
+.wc-loading { display: flex; align-items: center; gap: .5rem; padding: .5rem 0; }
+.wc-loading__msg { color: #3f6f8f; font-weight: 600; }
+
+/* Empty state + countdown */
+.wc-empty {
+  background: #ffffff;
+  border: 1px dashed #CBD5E0;
+  border-radius: 10px;
+  padding: 1rem;
+  color: #2D3748;
+}
+.wc-empty__msg { margin-bottom: 0.25rem; font-weight: 600; color: var(--ws-text-dark, #002244); }
+.wc-countdown { font-size: .95rem; color: #3f6f8f; }
+.wc-countdown__num { font-variant-numeric: tabular-nums; font-weight: 700; }
+
+/* Optional nav container (if you reuse the pill elsewhere) */
+.nav-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem 0;
+}
+.right-buttons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--ws-blue-600, #003c80);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.back-link:hover { color: var(--ws-blue-400, #005cc1); }
+
+/* --- Woonstad SVG pill button (exact look) --- */
+.woonstad-svg-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 42px;
+  background-color: #85E3F9;  /* Woonstad cyan */
+  border: none;
+  border-radius: 40px;
+  font-family: 'Apercu Pro', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #00215B;
+  padding-left: 16px;
+  padding-right: 48px;
+  position: relative;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.woonstad-svg-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Right circular icon bubble */
+.icon-wrapper {
+  width: 32px;
+  height: 32px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0px 2px 4px rgba(0, 33, 91, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+/* Arrow inside the bubble */
+.arrow-icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+  fill: #00215B;
+}

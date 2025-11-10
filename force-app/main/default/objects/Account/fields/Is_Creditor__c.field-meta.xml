@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Creditor__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>When checked, this account is a creditor, which puts limitations on its use</description>
+    <inlineHelpText>When checked, this account is a creditor, which puts limitations on its use</inlineHelpText>
+    <label>Is Creditor</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

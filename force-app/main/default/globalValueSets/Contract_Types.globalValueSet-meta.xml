@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>HUU</fullName>
+        <default>false</default>
+        <label>Rental agreement</label>
+    </customValue>
+    <customValue>
+        <fullName>KOO</fullName>
+        <default>false</default>
+        <label>Purchasing agreement</label>
+    </customValue>
+    <customValue>
+        <fullName>SER</fullName>
+        <default>false</default>
+        <label>Service Agreement</label>
+    </customValue>
+    <description>VERA: OVEREENKOMSTSOORT
+https://www.coraveraonline.nl/index.php/Referentiedata:OVEREENKOMSTSOORT</description>
+    <masterLabel>Contract Types</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

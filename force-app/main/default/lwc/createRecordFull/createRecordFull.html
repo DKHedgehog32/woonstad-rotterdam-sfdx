@@ -1,0 +1,24 @@
+<template>
+    <div class="slds-modal_medium">
+        <lightning-card title={title} icon-name="standard:record">
+             <lightning-record-edit-form object-api-name={objectApiName} onsubmit={createRecord}>
+                <lightning-messages> </lightning-messages>
+                <div class="slds-grid slds-wrap">
+                    <template for:each={allFields} for:item="field">
+                        <div class="slds-col slds-size_1-of-2" key={field.apiName}>
+                            <lightning-input-field field-name={field.apiName} data-id={field.apiName} value={field.value}
+                                onchange={handleFieldValueChange} required={field.required}>
+                            </lightning-input-field>
+                        </div>
+                    </template>
+                </div>
+                <lightning-button 
+                    class="slds-m-top_small"
+                    type="submit"
+                    label={createButtonLabel}
+                >
+                </lightning-button>
+            </lightning-record-edit-form>
+        </lightning-card>
+    </div> 
+</template>

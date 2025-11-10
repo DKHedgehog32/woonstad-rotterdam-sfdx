@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>E-mailsjabloon om de annulering van een betaalde serviceafspraak te bevestigen.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Scheduler-betalingen: e-mail voor annulering van serviceafspraak</name>
+    <style>none</style>
+    <subject>Afspraak geannuleerd.</subject>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

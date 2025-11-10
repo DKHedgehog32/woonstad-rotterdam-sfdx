@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>60.0</apiVersion>
+  <isExposed>true</isExposed>
+
+  <targets>
+    <target>lightning__RecordPage</target>
+    <target>lightning__FlowScreen</target>
+    <target>lightning__AppPage</target>
+    <target>lightning__HomePage</target>
+  </targets>
+
+  <targetConfigs>
+    <targetConfig targets="lightning__FlowScreen">
+      <!-- Inputs -->
+      <property name="recordId" type="String" label="Account Id" role="inputOnly"/>
+      <property name="limitSize" type="Integer" label="Row limit (server fetch)"/>
+      <property name="pageSize" type="Integer" label="Rows per page" default="5"/>
+      <property name="showNewCaseButton" type="Boolean" label="Show 'Nieuwe zaak' button" default="true"/>
+      <property name="emitNextOnNewCase" type="Boolean" label="Advance Flow on 'Nieuwe zaak'" default="true" role="inputOnly"/>
+      <property name="enableModalFlow" type="Boolean" label="Open Flow in modal if not advancing" default="false"/>
+      <property name="flowApiName" type="String" label="Modal Flow API Name" default="Screen_Flow_Create_New_Request_Case"/>
+      <property name="passRecordIdToModalFlow" type="Boolean" label="Pass Account Id to modal Flow" default="true"/>
+      <property name="autoAdvanceOnSelect" type="Boolean" label="Advance Flow after selecting a case" default="false"/>
+      <!-- Outputs -->
+      <property name="newCaseRequested" type="Boolean" label="New case requested (output)" role="outputOnly"/>
+      <property name="selectedCaseId" type="String" label="Selected Case Id (output)" role="outputOnly"/>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

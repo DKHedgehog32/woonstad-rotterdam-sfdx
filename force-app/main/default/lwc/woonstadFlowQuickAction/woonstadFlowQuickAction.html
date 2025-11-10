@@ -1,0 +1,45 @@
+<!--
+/*************************************************************************************************
+ * Component       : WoonstadFlowQuickAction (meta: woonstadFlowQuickAction.js-meta.xml)
+ * Layer           : Presentation (HTML Template)
+ * Purpose         : Provides a Woonstad-branded modal for Flow Quick Actions.
+ *
+ * Responsibilities:
+ *  - Displays:
+ *      - Blue header bar with title
+ *      - Close button (dispatches CloseActionScreenEvent)
+ *      - Embedded Flow ("Screen_Flow_Create_Update_New_Case_V2")
+ *  - Ensures layout scales with Flow screen content.
+ *
+ * Accessibility   : Close button is keyboard-accessible and labeled with title="Close".
+ * Security        : Flow executes under current user's permissions.
+ *
+ * Owner           : Woonstad KC
+ * Author          : Dennis van Musschenbroek
+ * Created         : 2025-08-06
+ * Last Modified   : 2025-08-25
+ * ===============================================================================================
+ * Change Log
+ * ===============================================================================================
+ * 2025-08-25 | DvM | Added standardized header; confirmed auto-close on Flow completion.
+ * 2025-08-06 | DvM | Initial version with Flow embedding and modal styling.
+ *************************************************************************************************
+-->
+<template>
+    <div class="modal-body">
+        <div class="woonstad-header-bar">
+            <h1 class="woonstad-header-title">{headerTitle}</h1>
+            <button class="close-button" onclick={closeModal} title="Close">×</button>
+        </div>
+
+        <div class="flow-wrapper">
+            <template if:true={recordId}>
+                <lightning-flow
+                    flow-api-name="Screen_Flow_Create_Update_New_Case_V2"
+                    flow-input-variables={flowInputs}
+                    onstatuschange={handleStatusChange}>
+                </lightning-flow>
+            </template>
+        </div>
+    </div>
+</template>

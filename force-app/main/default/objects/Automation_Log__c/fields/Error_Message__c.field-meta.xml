@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Error_Message__c</fullName>
+    <businessStatus>Active</businessStatus>
+    <complianceGroup>GDPR (Financial);GDPR</complianceGroup>
+    <description>This field stores the detailed error message of the Apex Class or Flow.</description>
+    <label>Error Message</label>
+    <length>131072</length>
+    <securityClassification>Confidential</securityClassification>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

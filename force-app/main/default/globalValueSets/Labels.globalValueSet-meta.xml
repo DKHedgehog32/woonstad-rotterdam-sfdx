@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Woonstad</fullName>
+        <default>false</default>
+        <label>Woonstad</label>
+    </customValue>
+    <customValue>
+        <fullName>Stadswonen</fullName>
+        <default>false</default>
+        <label>Stadswonen</label>
+    </customValue>
+    <customValue>
+        <fullName>Unknown</fullName>
+        <default>true</default>
+        <label>Unknown</label>
+    </customValue>
+    <description>The labels we presenting</description>
+    <masterLabel>Labels</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

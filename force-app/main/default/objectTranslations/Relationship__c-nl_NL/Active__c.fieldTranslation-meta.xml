@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>De relatie is actief indien de startdatum in het verleden ligt en de einddatum leeg is of in de toekomst ligt.</help>
+    <label>Actief</label>
+    <name>Active__c</name>
+</CustomFieldTranslation>

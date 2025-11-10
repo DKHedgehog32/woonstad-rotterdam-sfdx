@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>De eenheid gekoppeld aan de overeenkomstregel.</help>
+    <label>Overeenkomsteenheid</label>
+    <name>Contract_Unit__c</name>
+    <relationshipLabel>Overeenkomstregels</relationshipLabel>
+</CustomFieldTranslation>

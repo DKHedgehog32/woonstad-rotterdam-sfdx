@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Subsidiary Relation --></label>
+    <name>Subsidiary_Relation__c</name>
+    <relationshipLabel><!-- Relationships (Subsidiary Relation) --></relationshipLabel>
+</CustomFieldTranslation>

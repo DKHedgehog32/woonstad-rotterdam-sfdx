@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Update van opdracht naar huurder</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Informeren huurder over aanvraag Naamplaatje</name>
+    <relatedEntityType>Case</relatedEntityType>
+    <style>none</style>
+    <subject>Uw aanvraag met kenmerk {{{Case.CaseNumber}}} is in behandeling genomen</subject>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>

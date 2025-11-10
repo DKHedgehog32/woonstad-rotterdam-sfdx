@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Assign the PersonAccount Contact values of the Account to the Case</description>
+        <name>Assign_Contact_Values_to_Case</name>
+        <label>Assign Contact Values to Case</label>
+        <locationX>50</locationX>
+        <locationY>242</locationY>
+        <assignmentItems>
+            <assignToReference>varR_NewCase.ContactId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varR_NewCase.Account.PersonContactId</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Case</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Fill the VarT_FlowElement with &apos;Update_Case&apos; if the Element fails.</description>
+        <name>Assign_VarT_FlowElementUpdate_Case</name>
+        <label>VarT_FlowElement - Update_Case</label>
+        <locationX>314</locationX>
+        <locationY>458</locationY>
+        <assignmentItems>
+            <assignToReference>VarT_FlowElement</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Update_Case</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Subflow_PublishFlowFaultEvent</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Is the Account associated with the Case a Person Account?</description>
+        <name>Is_PersonAccount</name>
+        <label>Is PersonAccount</label>
+        <locationX>314</locationX>
+        <locationY>134</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Person_Account</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varR_NewCase.Account.IsPersonAccount</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Contact_Values_to_Case</targetReference>
+            </connector>
+            <label>Person Account</label>
+        </rules>
+    </decisions>
+    <description>Automatically assign the Contact if the Case is created for a PersonAccount</description>
+    <environments>Default</environments>
+    <interviewLabel>AL - Case - Assign PersonAccount Contact {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>AL - Case - Assign PersonAccount Contact</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>Update the Case</description>
+        <name>Update_Case</name>
+        <label>Case</label>
+        <locationX>50</locationX>
+        <locationY>350</locationY>
+        <faultConnector>
+            <targetReference>Assign_VarT_FlowElementUpdate_Case</targetReference>
+        </faultConnector>
+        <inputReference>varR_NewCase</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Is_PersonAccount</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <description>Publish the Flow Fault Platform Event.</description>
+        <name>Subflow_PublishFlowFaultEvent</name>
+        <label>Publish Flow Fault Event</label>
+        <locationX>314</locationX>
+        <locationY>566</locationY>
+        <flowName>AL_Publish_Flow_Fault_event</flowName>
+        <inputAssignments>
+            <name>faultMessage</name>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>flowContext</name>
+            <value>
+                <stringValue>AL_Case_Assign_PersonAccount_Contact</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>flowElement</name>
+            <value>
+                <elementReference>VarT_FlowElement</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>flowGuid</name>
+            <value>
+                <elementReference>$Flow.InterviewGuid</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>triggeringRecord</name>
+            <value>
+                <elementReference>varR_NewCase.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>userId</name>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <variables>
+        <description>The new Case that triggers the Flow</description>
+        <name>varR_NewCase</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Case</objectType>
+    </variables>
+    <variables>
+        <description>This variable is used to store the Flow Element name if a flow errors.</description>
+        <name>VarT_FlowElement</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

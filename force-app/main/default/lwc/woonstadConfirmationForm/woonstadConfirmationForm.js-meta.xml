@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Woonstad Confirmation Form</masterLabel>
+    <description>
+        LWC confirmation form showing Flow inputs (Naamplaatje, Naam, Reden, Leverancier) 
+        combined with Apex outputs (Adres, Eigenaar) from RealEstateSupplierFlowController.
+    </description>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="recordId" type="String" role="inputOnly" label="Record Id (Account)"/>
+            <property name="flowInputNamePlate" type="String" role="inputOnly" label="Naam op het naamplaatje"/>
+            <property name="flowInputName" type="String" role="inputOnly" label="Naam"/>
+            <property name="flowInputReason" type="String" role="inputOnly" label="Reden / toelichting"/>
+            <property name="flowInputSupplierName" type="String" role="inputOnly" label="Leverancier"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

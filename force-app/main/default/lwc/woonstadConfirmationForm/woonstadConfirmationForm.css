@@ -1,0 +1,173 @@
+/*************************************************************************************************
+ * Component       : WoonstadConfirmationForm (Styles)
+ * Layer           : Presentation (CSS)
+ * Purpose         : Defines layout and branding for the confirmation screen.
+ *
+ * Responsibilities:
+ *  - Layout of form rows, labels, and values
+ *  - Styling of warning banner and navigation buttons
+ *
+ * Accessibility   : Supports proper color contrast for errors and links.
+ * Security        : None (styling only).
+ *
+ * Owner           : Woonstad KC
+ * Author          : Dennis van Musschenbroek
+ * Created         : 2025-08-06
+ * Last Modified   : 2025-08-25
+ * ===============================================================================================
+ * Change Log
+ * ===============================================================================================
+ * 2025-08-25 | DvM | Added error banner styles; standardized header.
+ * 2025-08-06 | DvM | Initial styling for Flow confirmation screen.
+ *************************************************************************************************/
+
+.woonstad-form {
+  padding: 0;
+  background: #ffffff;
+  border: none;
+  box-shadow: none;
+  font-family: 'Apercu Pro', sans-serif;
+  border-radius: 0;
+  margin: 0;
+  width: 100%;
+  max-width: none;
+}
+
+.form-title {
+  font-family: 'Arboria', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ws-blue-600, #003c80);
+  margin: 0 0 1rem 0;
+  text-align: left;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: minmax(200px, 280px) 1fr;
+  align-items: start;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e5e7eb;
+  gap: 1rem;
+}
+
+.form-row:last-child { border-bottom: none; }
+
+.form-label {
+  font-weight: 600;
+  color: var(--ws-text-dark, #002244);
+  text-align: left;
+}
+
+.form-value {
+  color: var(--ws-text-dark, #002244);
+  text-align: left;
+  word-wrap: break-word;
+  white-space: normal;
+  line-height: 1.5;
+}
+
+.form-warning {
+  color: var(--ws-red-600, #d02c2c);
+  font-weight: 600;
+  text-align: left;
+  line-height: 1.4;
+}
+
+/* ===== Error Banner ===== */
+.ws-alert {
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin: 0 0 1rem 0;
+}
+
+.ws-alert--error {
+  background: #fde8e8;
+  border-color: #f8b4b4;
+  color: #7f1d1d;
+}
+
+.ws-alert__title {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.ws-alert__body {
+  margin: 0;
+  line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+  .form-row { grid-template-columns: 1fr; }
+  .form-value, .form-warning { margin-top: 0.5rem; }
+}
+
+/* ===== Footer Nav ===== */
+.nav-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.right-buttons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--ws-blue-600, #003c80);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover { color: var(--ws-blue-400, #005cc1); }
+
+.woonstad-svg-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 42px;
+  background-color: #85E3F9;
+  border: none;
+  border-radius: 40px;
+  font-family: 'Apercu Pro', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #00215B;
+  padding-left: 16px;
+  padding-right: 48px;
+  position: relative;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.icon-wrapper {
+  width: 32px;
+  height: 32px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0px 2px 4px rgba(0, 33, 91, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.arrow-icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+  fill: #00215B;
+}

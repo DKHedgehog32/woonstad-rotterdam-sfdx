@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Overeenkomsteenheid</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Overeenkomsteenheden</value>
+    </caseValues>
+    <gender>Neuter</gender>
+    <layouts>
+        <layout>Contract Unit Layout</layout>
+        <sections>
+            <label>Koppelingen</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Location Details --></label>
+            <section>Location Details</section>
+        </sections>
+        <sections>
+            <label><!-- Property Details --></label>
+            <section>Property Details</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Naam</nameFieldLabel>
+</CustomObjectTranslation>

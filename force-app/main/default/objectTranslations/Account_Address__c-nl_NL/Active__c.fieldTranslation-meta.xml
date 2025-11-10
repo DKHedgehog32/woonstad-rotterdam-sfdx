@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Deze checkbox is geselecteerd als het klant adres actief is op basis van ingevulde start- en einddatum.</help>
+    <label>Actief</label>
+    <name>Active__c</name>
+</CustomFieldTranslation>

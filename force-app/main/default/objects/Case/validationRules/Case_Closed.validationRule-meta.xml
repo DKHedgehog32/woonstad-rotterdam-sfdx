@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Closed</fullName>
+    <active>true</active>
+    <description>A Case in status Closed can only change to Reopened</description>
+    <errorConditionFormula>AND(
+ ISCHANGED(Status),
+    OR(
+        ISPICKVAL(PRIORVALUE(Status), &quot;Closed&quot;),
+        ISPICKVAL(PRIORVALUE(Status), &quot;Closed-Accepted&quot;),
+        ISPICKVAL(PRIORVALUE(Status), &quot;Closed-Rejected&quot;)
+    ),
+    NOT(ISPICKVAL(Status, &quot;Reopened&quot;))
+)</errorConditionFormula>
+    <errorMessage>Een Case mag vanuit status &quot;Gesloten&quot; alleen naar &quot;Heropend&quot;</errorMessage>
+</ValidationRule>

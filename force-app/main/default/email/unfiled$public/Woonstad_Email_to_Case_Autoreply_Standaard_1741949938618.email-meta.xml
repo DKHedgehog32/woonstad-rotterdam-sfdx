@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Sjabloon voor automatische reactie op email-to-case</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>NIET GEBRUIKEN</name>
+    <pageDevName>Woonstad_Email_to_Case_Autoreply_Standaard1</pageDevName>
+    <relatedEntityType>Case</relatedEntityType>
+    <style>none</style>
+    <subject>Bedankt voor uw e-mail</subject>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Primary_Billing_Address__c</fullName>
+    <businessStatus>DeprecateCandidate</businessStatus>
+    <complianceGroup>GDPR</complianceGroup>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Primary Address at this moment</description>
+    <label>Primary Billing Address</label>
+    <referenceTo>Address__c</referenceTo>
+    <relationshipLabel>Primary Billing Address for Accounts</relationshipLabel>
+    <relationshipName>Primary_Billing_Address_for_Accounts</relationshipName>
+    <required>false</required>
+    <securityClassification>Internal</securityClassification>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Lookup</type>
+</CustomField>

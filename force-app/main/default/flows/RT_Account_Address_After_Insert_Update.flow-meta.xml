@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <description>The start date of the Account Address is before today or in the future</description>
+        <name>Start_Date_Is_Already_In_The_Past</name>
+        <label>Start Date Is Already In The Past</label>
+        <locationX>50</locationX>
+        <locationY>276</locationY>
+        <defaultConnector>
+            <targetReference>Run_Update_Account_Address_for_Future_Address_to_OKAPI</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Start Date Is In Future</defaultConnectorLabel>
+        <rules>
+            <name>Start_Date_is_before_Today</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Start_Date__c</leftValueReference>
+                <operator>LessThanOrEqualTo</operator>
+                <rightValue>
+                    <elementReference>forD_CurrentDate</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Run_Update_Account_Primary_Addresses_Subflow</targetReference>
+            </connector>
+            <label>Start Date is before Today</label>
+        </rules>
+    </decisions>
+    <description>Account Address after create or update flow</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>forD_CurrentDate</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()</expression>
+    </formulas>
+    <interviewLabel>RT - Account Address - After Insert/Update {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>RT - Account Address - After Insert/Update</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>100</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Start_Date_Is_Already_In_The_Past</targetReference>
+        </connector>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Is_Primary__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Account_Address__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <scheduledPaths>
+            <name>Update_Primary_Account_address_fields</name>
+            <connector>
+                <targetReference>Run_Update_Account_Primary_Addresses_Subflow</targetReference>
+            </connector>
+            <label>Update Primary Account address fields</label>
+            <offsetNumber>0</offsetNumber>
+            <offsetUnit>Minutes</offsetUnit>
+            <recordField>Start_Date__c</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Draft</status>
+    <subflows>
+        <description>Updates the Account&apos;s future primary Shipping and/or Billing Addresses in Wocas</description>
+        <name>Run_Update_Account_Address_for_Future_Address_to_OKAPI</name>
+        <label>Run Update Account Address for Future Address to OKAPI</label>
+        <locationX>138</locationX>
+        <locationY>384</locationY>
+        <flowName>AL_Send_Future_Account_Addresses_To_OKAPI</flowName>
+        <inputAssignments>
+            <name>varR_AccountAddress</name>
+            <value>
+                <elementReference>$Record</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <subflows>
+        <description>Updates the Account&apos;s primary Shipping and/or Billing Addresses</description>
+        <name>Run_Update_Account_Primary_Addresses_Subflow</name>
+        <label>Run Update Account Primary Addresses Subflow</label>
+        <locationX>226</locationX>
+        <locationY>779</locationY>
+        <flowName>AL_Update_Account_Primary_Addresses</flowName>
+        <inputAssignments>
+            <name>varR_AccountAddress</name>
+            <value>
+                <elementReference>$Record</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <variables>
+        <name>varR_UpdateAccount</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+</Flow>

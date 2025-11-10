@@ -1,0 +1,70 @@
+/*************************************************************************************************
+ * Component       : kadasterLookupFlow (CSS)
+ * Purpose         : Flat centered preview; aligned with left input stack; legacy action bar.
+ * Author          : Dennis van Musschenbroek
+ * Last Modified   : 2025-08-26
+ * ===============================================================================================
+ * Change Log
+ * ===============================================================================================
+ * 2025-08-26 | DvM | Centered preview + bold brand header.
+ *************************************************************************************************/
+
+/* Title */
+.form-title {
+    font-family: 'Arboria', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--ws-blue-600, #003c80);
+    margin-bottom: 1.5rem;
+}
+
+/* Field spacing */
+.form-input {
+    margin-bottom: 1rem;
+}
+
+/* Align the preview column vertically with the left stack */
+.address-layout {
+    align-items: center; /* slds-grid_vertical-align-center also applied in HTML */
+}
+
+/* Flat preview: centered horizontally; header prominent */
+.nl-preview-flat {
+    padding: 0.25rem 0;
+    max-width: 320px;
+    margin: 0 auto;         /* center block in its column */
+    text-align: center;     /* center text */
+}
+.nl-preview-title {
+    font-weight: 700;
+    font-size: 1.05rem;     /* small emphasis */
+    color: var(--ws-blue-600, #003c80);
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+.nl-preview-line {
+    font-size: 0.95rem;
+    line-height: 1.35rem;
+    color: #2d3a4a;
+}
+.nl-preview-placeholder {
+    font-size: 0.95rem;
+    line-height: 1.35rem;
+    color: #8fa0b2;
+}
+
+/* Legacy action bar (right aligned) */
+.nav-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1rem 0 0;
+    margin-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+.right-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Button visuals come from your global .woonstad-svg-button */

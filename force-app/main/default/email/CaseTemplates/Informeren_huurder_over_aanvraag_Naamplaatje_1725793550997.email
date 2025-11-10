@@ -1,0 +1,8 @@
+<html>
+ <head>
+  <title></title>
+ </head>
+ <body style="height: auto; min-height: auto;">
+  Beste&nbsp;{{{Recipient.Salutation}}}&nbsp;{{{Recipient.LastName}}},<br /> <br /> Uw aanvraag met kenmerk {{{Case.Id}}} is in behandeling genomen.<br /> <br /> Met vriendelijke groet,<br /> {{{Sender.FirstName}}}<br /> <br /> Woonstad Rotterdam<br /> <br /> <img alt="Logo-Woonstad-Rotterdam" src="{[devName:LogoWoonstadRotterdam]}" style="max-width: 670.1062499999999px" title="Logo-Woonstad-Rotterdam" />
+ </body>
+</html>

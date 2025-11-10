@@ -1,0 +1,69 @@
+<template>
+            <div class="slds-grid slds-wrap slds-is-relative ">
+            <div style="position: fixed;z-index: 999999;top: 0;right: 0;">
+  <omnistudio-toast class="flexcard-toast-element" theme="slds" title="" message="" styletype=""> </omnistudio-toast>
+</div>
+            <div if:true={showLoader} class="slds-is-absolute vloc-loader_override" style="height: 100%; width: 100%; min-height:50px; background: transparent; z-index: 99;">
+  <div>
+   <omnistudio-spinner
+      variant="brand"
+      alternative-text="Loading content..."
+      size="medium"
+      theme="slds"
+      ></omnistudio-spinner>
+  </div>
+</div>
+            <template if:false={hasPermission}>
+              You don't have required permissions to view this card.
+            </template>
+            <template if:true={hasPermission}>
+              <template if:true={hasRecords}>
+                      <omnistudio-flex-card-state   data-statue="true"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12"  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-card slds-p-around_x-small slds-m-bottom_x-small" style="">
+          <div data-style-id="state0element0" class="slds-col   slds-size_8-of-12  " data-rindex={rindex} style="" ><omnistudio-output-field data-style-id="state0element0_child"   card={card}  record={record}  placeholder=""  type="text"  styles='\{"label":{"textAlign":"center"}}'  label=""  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element1" class="slds-col   slds-size_2-of-12  " data-rindex={rindex} style="" ><omnistudio-flex-action data-style-id="state0element1_child"  tracking-obj={_childCardTrackingObj}  class= "state0element1_child flexActionElement" 
+        data-action-element-class="state0element1_child" data-action-key="state0element1" onexecuteaction={performAction} data-show-spinner="false"
+        data-element-label="createcontactbutton"   state-obj={record}  card={card}  record={record}  label="Create Contact"  icon-name="standard-default"  action-list='\[{"stateAction":{"id":"flex-action-1665724501545","type":"Flyout","openUrlIn":"Current Window","flyoutType":"customLwc","openFlyoutIn":"Modal","channelName":"close_modal","cardName":"CreateContactFlyout","flyoutLwc":"createRecordFull","hasExtraParams":true,"flyoutParams":{"objectApiName":"Contact","objectLabel":"Contact"}},"key":"1647389004903-w0kf0pwx8","label":"Action","draggable":false,"isOpen":true,"actionIndex":0,"reRenderFlyout":true}]'  hide-action-icon="true"  flyout-channel="close_modal"  flyout-details='\{"openFlyoutIn":"Modal"}'  styles='\{"label":{"color":"#4070BD","textAlign":"center"}}'  re-render-flyout="true"  theme="slds"  ><div slot="modalflyout" class="createcontactbuttonaction0 " ><omnistudio-custom-lwc-wrapper element-name="c-create-record-full" property='\{}' records={records} record-id={recordId} record={record}  card={card}  action={modalAction.createcontactbuttonaction0} >
+     <c-create-record-full      object-api-name="Contact"  object-label="Contact"  ></c-create-record-full>
+    </omnistudio-custom-lwc-wrapper></div></omnistudio-flex-action>
+      </div><div data-style-id="state0element2" class="slds-col   slds-size_2-of-12  " data-rindex={rindex} style="" ><omnistudio-flex-action data-style-id="state0element2_child"  tracking-obj={_childCardTrackingObj}  class= "state0element2_child flexActionElement" 
+        data-action-element-class="state0element2_child" data-action-key="state0element2" onexecuteaction={performAction} data-show-spinner="false"
+        data-element-label="createaccountbutton"   state-obj={record}  card={card}  record={record}  label="Create Account"  icon-name="standard-default"  action-list='\[{"stateAction":{"id":"flex-action-1665724550946","type":"Flyout","openUrlIn":"Current Window","flyoutType":"customLwc","openFlyoutIn":"Modal","channelName":"close_modal","cardName":"CreateAccountFlyout","flyoutLwc":"createRecordFull","hasExtraParams":true,"flyoutParams":{"objectApiName":"Account","objectLabel":"Account"}},"key":"1647389215537-h9dry6qs3","label":"Action","draggable":false,"isOpen":true,"actionIndex":0,"reRenderFlyout":true}]'  hide-action-icon="true"  flyout-channel="close_modal"  flyout-details='\{"openFlyoutIn":"Modal"}'  styles='\{"label":{"color":"#4070BD","textAlign":"left"}}'  re-render-flyout="true"  display-as-button="false"  theme="slds"  ><div slot="modalflyout" class="createaccountbuttonaction0 " ><omnistudio-custom-lwc-wrapper element-name="c-create-record-full" property='\{}' records={records} record-id={recordId} record={record}  card={card}  action={modalAction.createaccountbuttonaction0} >
+     <c-create-record-full      object-api-name="Account"  object-label="Account"  ></c-create-record-full>
+    </omnistudio-custom-lwc-wrapper></div></omnistudio-flex-action>
+      </div>
+        </div>
+      </omnistudio-flex-card-state>
+                </template>
+                <template if:false={hasRecords}>
+                      <omnistudio-flex-card-state   data-statue="false"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12"  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-card slds-p-around_x-small slds-m-bottom_x-small" style="">
+          <div data-style-id="state0element0" class="slds-col   slds-size_8-of-12  " data-rindex={rindex} style="" ><omnistudio-output-field data-style-id="state0element0_child"   card={card}  record={record}  placeholder=""  type="text"  styles='\{"label":{"textAlign":"center"}}'  label=""  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element1" class="slds-col   slds-size_2-of-12  " data-rindex={rindex} style="" ><omnistudio-flex-action data-style-id="state0element1_child"  tracking-obj={_childCardTrackingObj}  class= "state0element1_child flexActionElement" 
+        data-action-element-class="state0element1_child" data-action-key="state0element1" onexecuteaction={performAction} data-show-spinner="false"
+        data-element-label="createcontactbutton"   state-obj={record}  card={card}  record={record}  label="Create Contact"  icon-name="standard-default"  action-list='\[{"stateAction":{"id":"flex-action-1665724501545","type":"Flyout","openUrlIn":"Current Window","flyoutType":"customLwc","openFlyoutIn":"Modal","channelName":"close_modal","cardName":"CreateContactFlyout","flyoutLwc":"createRecordFull","hasExtraParams":true,"flyoutParams":{"objectApiName":"Contact","objectLabel":"Contact"}},"key":"1647389004903-w0kf0pwx8","label":"Action","draggable":false,"isOpen":true,"actionIndex":0,"reRenderFlyout":true}]'  hide-action-icon="true"  flyout-channel="close_modal"  flyout-details='\{"openFlyoutIn":"Modal"}'  styles='\{"label":{"color":"#4070BD","textAlign":"center"}}'  re-render-flyout="true"  theme="slds"  ><div slot="modalflyout" class="createcontactbuttonaction0 " ><omnistudio-custom-lwc-wrapper element-name="c-create-record-full" property='\{}' records={records} record-id={recordId} record={record}  card={card}  action={modalAction.createcontactbuttonaction0} >
+     <c-create-record-full      object-api-name="Contact"  object-label="Contact"  ></c-create-record-full>
+    </omnistudio-custom-lwc-wrapper></div></omnistudio-flex-action>
+      </div><div data-style-id="state0element2" class="slds-col   slds-size_2-of-12  " data-rindex={rindex} style="" ><omnistudio-flex-action data-style-id="state0element2_child"  tracking-obj={_childCardTrackingObj}  class= "state0element2_child flexActionElement" 
+        data-action-element-class="state0element2_child" data-action-key="state0element2" onexecuteaction={performAction} data-show-spinner="false"
+        data-element-label="createaccountbutton"   state-obj={record}  card={card}  record={record}  label="Create Account"  icon-name="standard-default"  action-list='\[{"stateAction":{"id":"flex-action-1665724550946","type":"Flyout","openUrlIn":"Current Window","flyoutType":"customLwc","openFlyoutIn":"Modal","channelName":"close_modal","cardName":"CreateAccountFlyout","flyoutLwc":"createRecordFull","hasExtraParams":true,"flyoutParams":{"objectApiName":"Account","objectLabel":"Account"}},"key":"1647389215537-h9dry6qs3","label":"Action","draggable":false,"isOpen":true,"actionIndex":0,"reRenderFlyout":true}]'  hide-action-icon="true"  flyout-channel="close_modal"  flyout-details='\{"openFlyoutIn":"Modal"}'  styles='\{"label":{"color":"#4070BD","textAlign":"left"}}'  re-render-flyout="true"  display-as-button="false"  theme="slds"  ><div slot="modalflyout" class="createaccountbuttonaction0 " ><omnistudio-custom-lwc-wrapper element-name="c-create-record-full" property='\{}' records={records} record-id={recordId} record={record}  card={card}  action={modalAction.createaccountbuttonaction0} >
+     <c-create-record-full      object-api-name="Account"  object-label="Account"  ></c-create-record-full>
+    </omnistudio-custom-lwc-wrapper></div></omnistudio-flex-action>
+      </div>
+        </div>
+      </omnistudio-flex-card-state>
+                </template>
+            </template>
+            <template if:true={hasError}>
+            {error}
+            </template>
+            
+      <omnistudio-action action-wrapperclass="slds-hide" re-render-flyout class="action-trigger slds-col" onupdateos={updateOmniscript} onselectcards={updateSelectedCards} onsetvalue={updateAction} onfireactionevent={actionEvtHandler}>
+      
+      </omnistudio-action>
+  
+            <omnistudio-action class="execute-action" re-render-flyout action-wrapperclass="slds-hide" onupdateos={updateOmniscript} onselectcards={updateSelectedCards} onsetvalue={updateAction} onfireactionevent={actionEvtHandler}>
+            
+            </omnistudio-action>
+            </div>
+          </template>

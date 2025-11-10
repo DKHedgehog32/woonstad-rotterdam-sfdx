@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <!-- Inputs -->
+            <property name="email" type="String" label="Emailadres" description="Exact e-mailadres om op te zoeken" required="true"/>
+            <property name="phone" type="String" label="Telefoonnummer" description="Exact telefoonnummer (optioneel)" required="false"/>
+            <property name="mobile" type="String" label="Mobiel nummer" description="Exact mobielnummer (optioneel)" required="false"/>
+
+            <!-- Kept for compatibility with older screens (not used in logic) -->
+            <property name="autoAdvance" type="Boolean" label="Automatisch door (compat)" description="Compatibel met oudere configuraties" default="false"/>
+            <property name="autoAdvanceDelayMs" type="Integer" label="Vertraging (ms) (compat)" description="Compatibel met oudere configuraties" default="6000"/>
+
+            <!-- Outputs -->
+            <property name="selectedExisting" type="Boolean" label="Bestaande klant geselecteerd" description="True wanneer een rij is aangeklikt" role="outputOnly"/>
+            <property name="selectedAccountId" type="String" label="Geselecteerde Account Id" description="Id van de aangeklikte klant" role="outputOnly"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

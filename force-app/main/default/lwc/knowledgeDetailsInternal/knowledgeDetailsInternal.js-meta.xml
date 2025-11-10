@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+═══════════════════════════════════════════════════════════════════════════════════════════════════
+KNOWLEDGE DETAILS INTERNAL - COMPONENT METADATA
+═══════════════════════════════════════════════════════════════════════════════════════════════════
+
+@description    Lightning Web Component metadata for Knowledge Details Internal component
+                Defines component properties, targets, and configuration options
+
+@author         Dennis van Musschenbroek
+@created        2025-01-24
+@version        2.0.0
+@component      knowledgeDetailsInternal
+
+═══════════════════════════════════════════════════════════════════════════════════════════════════
+COMPONENT CONFIGURATION
+═══════════════════════════════════════════════════════════════════════════════════════════════════
+
+This component can be used in:
+- Experience Cloud Communities (lightningCommunity__Default, lightningCommunity__Page)
+- Lightning Record Pages (lightning__RecordPage)
+
+Configuration Properties:
+- recordId: Knowledge article version ID for direct lookup
+- urlName: SEO-friendly URL name for article lookup
+- language: Language override (defaults to user language)
+- showTopics: Controls topic links display
+
+═══════════════════════════════════════════════════════════════════════════════════════════════════
+CHANGELOG
+═══════════════════════════════════════════════════════════════════════════════════════════════════
+
+Version 2.0.0 (2025-01-24) - Dennis van Musschenbroek
+─────────────────────────────────────────────────────────────────────────────────────────────────
+- ADDED: Comprehensive header documentation
+- ADDED: Enhanced property descriptions with examples
+- IMPROVED: API version updated to latest (61.0)
+- IMPROVED: Better organization and readability
+
+Version 1.0.0 (Original) - Dennis van Musschenbroek
+─────────────────────────────────────────────────────────────────────────────────────────────────
+- Initial metadata configuration
+- Basic target and property definitions
+
+═══════════════════════════════════════════════════════════════════════════════════════════════════
+-->
+
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    
+    <!-- ═══════════════════════════════════════════════════════════════════════════════════════ -->
+    <!-- COMPONENT BASIC INFORMATION                                                              -->
+    <!-- ═══════════════════════════════════════════════════════════════════════════════════════ -->
+    
+    <apiVersion>61.0</apiVersion>
+    <isExposed>true</isExposed>
+    
+    <masterLabel>Knowledge Details Internal</masterLabel>
+    <description>Lightning Web Component for displaying Knowledge articles with Record ID/URL lookup, responsive design, topic navigation, and comprehensive error handling.</description>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════════════════════ -->
+    <!-- SUPPORTED TARGETS                                                                        -->
+    <!-- ═══════════════════════════════════════════════════════════════════════════════════════ -->
+    
+    <targets>
+        <!-- Experience Cloud Communities -->
+        <target>lightningCommunity__Default</target>
+        <target>lightningCommunity__Page</target>
+        
+        <!-- Lightning Record Pages -->
+        <target>lightning__RecordPage</target>
+    </targets>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════════════════════ -->
+    <!-- TARGET CONFIGURATIONS                                                                    -->
+    <!-- ═══════════════════════════════════════════════════════════════════════════════════════ -->
+    
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default,lightning__RecordPage">
+            
+            <!-- Article Identifier Properties -->
+            <property 
+                name="recordId" 
+                type="String" 
+                label="Article Record Id (Version Id)"
+                description="Knowledge article version ID for direct lookup. Use when you have the specific record ID. Leave blank if using URL Name lookup."/>
+            
+            <property 
+                name="urlName" 
+                type="String" 
+                label="Article URL Name"
+                description="SEO-friendly URL name for article lookup (e.g., 'how-to-reset-password'). Use when building user-friendly URLs. Leave blank if using Record ID lookup."/>
+            
+            <!-- Display Configuration Properties -->
+            <property 
+                name="language" 
+                type="String" 
+                label="Language Override"
+                description="Language code override (e.g., 'nl', 'en_US', 'de'). Defaults to user's language if not specified. Use for multilingual sites."/>
+            
+            <property 
+                name="showTopics" 
+                type="Boolean" 
+                label="Show Topic Links"
+                description="Controls whether topic navigation links are displayed below the article content. Enable for better content discoverability."
+                default="false"/>
+            
+        </targetConfig>
+    </targetConfigs>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════════════════════ -->
+    <!-- CAPABILITIES (Future Enhancement Options)                                                -->
+    <!-- ═══════════════════════════════════════════════════════════════════════════════════════ -->
+    
+    <capabilities>
+        <!-- Add capabilities as needed for future enhancements -->
+        <!-- <capability>lightning__hasItemApiNames</capability> -->
+        <!-- <capability>lightning__hasPageReference</capability> -->
+    </capabilities>
+
+</LightningComponentBundle>

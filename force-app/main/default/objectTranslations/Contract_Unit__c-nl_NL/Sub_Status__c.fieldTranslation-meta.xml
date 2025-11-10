@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Om de substatus van de eenheid te registreren.</help>
+    <label>Substatus</label>
+    <name>Sub_Status__c</name>
+    <picklistValues>
+        <masterLabel>Awaiting Energy Performance Advice</masterLabel>
+        <translation>In afwachting van advies over energieprestaties</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Awaiting new tenant - regular</masterLabel>
+        <translation>In afwachting van nieuwe huurder - vaste huurder</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Building plans</masterLabel>
+        <translation>Bouwplannen</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Completion</masterLabel>
+        <translation>Voltooiing</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Loan</masterLabel>
+        <translation>Lening</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mutation</masterLabel>
+        <translation>Mutatie</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New build</masterLabel>
+        <translation>Nieuwbouw</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Permit granted</masterLabel>
+        <translation>Vergunning verleend</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Project vacancy</masterLabel>
+        <translation>Projectvacature</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rented anti-squat</masterLabel>
+        <translation>Gehuurde anti-kraak</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rented out permanently</masterLabel>
+        <translation>Permanent verhuurd</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rented temporary</masterLabel>
+        <translation>Tijdelijk verhuurd</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sale</masterLabel>
+        <translation>Verkoop</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Structural vacancy</masterLabel>
+        <translation>Structurele leegstand</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Waiting for new tenant - non-regular</masterLabel>
+        <translation>In afwachting van nieuwe huurder - niet vaste huurder</translation>
+    </picklistValues>
+</CustomFieldTranslation>

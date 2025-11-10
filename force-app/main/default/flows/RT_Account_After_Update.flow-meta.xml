@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Assign the prior Account values to the variable. This will determine that either the corresponding Billing or Shipping Account Address record will be changed as well.</description>
+        <name>Assign_Prior_Account_Values</name>
+        <label>Assign Prior Account Values</label>
+        <locationX>50</locationX>
+        <locationY>1031</locationY>
+        <assignmentItems>
+            <assignToReference>varR_AccountPriorValues.Primary_Billing_Address__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record__Prior.Primary_Billing_Address__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varR_AccountPriorValues.Primary_Shipping_Address__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record__Prior.Primary_Shipping_Address__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Run_Update_Account_Addresses</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Check whether the preferred phone field is updated</description>
+        <name>Preferred_Phone_Updated</name>
+        <label>Preferred Phone Updated</label>
+        <locationX>182</locationX>
+        <locationY>623</locationY>
+        <defaultConnector>
+            <targetReference>Primary_Billing_or_Shipping_address_has_changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Preferred Phone Not Changed</defaultConnectorLabel>
+        <rules>
+            <name>Preferred_Phone_changed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Preferred_Phone__pc</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Run_Update_Account_Preferred_Phone</targetReference>
+            </connector>
+            <label>Preferred Phone Changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Check whether the primary Billing or Shipping address has changed</description>
+        <name>Primary_Billing_or_Shipping_address_has_changed</name>
+        <label>Primary Billing Or Shipping Address Has Changed</label>
+        <locationX>182</locationX>
+        <locationY>923</locationY>
+        <defaultConnectorLabel>Address Is Not Changed</defaultConnectorLabel>
+        <rules>
+            <name>Address_changed</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Primary_Shipping_Address__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Primary_Billing_Address__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Prior_Account_Values</targetReference>
+            </connector>
+            <label>Address Changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If the UUID is present (not NULL), the update should be sent to OKAPI</description>
+        <name>Should_Be_Sent_To_OKAPI</name>
+        <label>Should Be Sent To OKAPI</label>
+        <locationX>182</locationX>
+        <locationY>323</locationY>
+        <defaultConnector>
+            <targetReference>Preferred_Phone_Updated</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes_send_to_OKAPI</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.UUID__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$User.Is_Integration_User__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Run_Send_Accounts_to_OKAPI</targetReference>
+            </connector>
+            <label>Yes, Send To OKAPI</label>
+        </rules>
+    </decisions>
+    <description>Flow to trigger on Account object after update</description>
+    <environments>Default</environments>
+    <interviewLabel>RT - Account - After Update {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>RT - Account - After Update</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Should_Be_Sent_To_OKAPI</targetReference>
+        </connector>
+        <object>Account</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <description>This sends the Account updates to OKAPI</description>
+        <name>Run_Send_Accounts_to_OKAPI</name>
+        <label>Run Send Accounts to OKAPI</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <connector>
+            <targetReference>Preferred_Phone_Updated</targetReference>
+        </connector>
+        <flowName>AL_Send_Account_to_OKAPI</flowName>
+        <inputAssignments>
+            <name>varT_AccountId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <subflows>
+        <description>Run the Update Account Addresses Subflow to change the corresponding Account Address record</description>
+        <name>Run_Update_Account_Addresses</name>
+        <label>Run Update Account Addresses</label>
+        <locationX>50</locationX>
+        <locationY>1139</locationY>
+        <flowName>AL_Update_Account_Addresses</flowName>
+        <inputAssignments>
+            <name>varR_Account</name>
+            <value>
+                <elementReference>$Record</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>varR_AccountPriorValues</name>
+            <value>
+                <elementReference>$Record__Prior</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <subflows>
+        <description>Trigger the subflow that will update the Preferred Phone value</description>
+        <name>Run_Update_Account_Preferred_Phone</name>
+        <label>Run Update Account Preferred Phone</label>
+        <locationX>50</locationX>
+        <locationY>731</locationY>
+        <connector>
+            <targetReference>Primary_Billing_or_Shipping_address_has_changed</targetReference>
+        </connector>
+        <flowName>AL_Update_Account_Preferred_Phone</flowName>
+        <inputAssignments>
+            <name>varR_Account</name>
+            <value>
+                <elementReference>$Record</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <variables>
+        <description>The prior values of the Account record before changes.</description>
+        <name>varR_AccountPriorValues</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+</Flow>

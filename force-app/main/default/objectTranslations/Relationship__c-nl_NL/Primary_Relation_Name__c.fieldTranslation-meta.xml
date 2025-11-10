@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Beschrijft de relatie van de primaire klant.</help>
+    <label>Primaire Relatie Naam</label>
+    <name>Primary_Relation_Name__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,8 @@
+<html>
+ <head>
+  <title></title>
+ </head>
+ <body style="height: auto; min-height: auto;">
+  Geachte leverancier,<br /> <br /> Hierbij geef ik opdracht voor het plaatsen van een naamplaatje op:<br /> <br /> <strong>Adres:&nbsp;</strong><br /> <br /> {{{Case.Account_Address__c}}}<br /> <br /> <strong>Tekst op het naamplaatje:</strong><br /> <br /> {{{Case.00NTs0000014oNR}}}<br /> <br /> <strong>Vermeld op het factuur a.u.b. het volgende nummer:&nbsp;</strong><br /> <br /> {{{Case.Id}}}<br /> <br /> <img alt="logo2" src="{[devName:logo24]}" style="max-width: 1256.38px; width: 410px; height: 262px;" title="logo2" />
+ </body>
+</html>

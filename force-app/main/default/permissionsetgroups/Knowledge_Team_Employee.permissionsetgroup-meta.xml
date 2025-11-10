@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Provides access to Knowledge team features through the Knowledge Administrator Permission Set.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Kennisteam Medewerker</label>
+    <permissionSets>Customer_Service</permissionSets>
+    <permissionSets>Knowledge_Administrator</permissionSets>
+    <permissionSets>Knowledge_Article_Feedback_Administrator</permissionSets>
+    <permissionSets>Knowledge_Channel_Announcements</permissionSets>
+    <permissionSets>Knowledge_Channel_Stadswonen</permissionSets>
+    <permissionSets>Knowledge_Channel_Website</permissionSets>
+    <permissionSets>Knowledge_Channel_Woonstad</permissionSets>
+    <permissionSets>Knowledge_Organisation_Collections</permissionSets>
+    <permissionSets>Knowledge_Organisation_Maintenance</permissionSets>
+    <permissionSets>Knowledge_Organisation_Rental</permissionSets>
+    <permissionSets>Knowledge_Organisation_Social_Management</permissionSets>
+    <permissionSets>Request_Permissions</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

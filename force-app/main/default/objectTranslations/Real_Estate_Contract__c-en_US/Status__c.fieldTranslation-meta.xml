@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Status of the contract --></help>
+    <label><!-- Status --></label>
+    <name>Status__c</name>
+    <picklistValues>
+        <masterLabel>Beeindigd</masterLabel>
+        <translation><!-- Beeindigd --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Geannuleerd</masterLabel>
+        <translation><!-- Geannuleerd --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Goedgekeurd</masterLabel>
+        <translation><!-- Goedgekeurd --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Lopend</masterLabel>
+        <translation><!-- Lopend --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Ontbonden</masterLabel>
+        <translation><!-- Ontbonden --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Opgezegd</masterLabel>
+        <translation><!-- Opgezegd --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Vernietigd</masterLabel>
+        <translation><!-- Vernietigd --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Voorlopig</masterLabel>
+        <translation><!-- Voorlopig --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Voorlopig opgezegd</masterLabel>
+        <translation><!-- Voorlopig opgezegd --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

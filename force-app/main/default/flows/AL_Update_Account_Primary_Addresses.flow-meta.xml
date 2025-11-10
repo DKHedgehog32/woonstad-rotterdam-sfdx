@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Assign the address to the Billing Lookup</description>
+        <name>Assign_Address_To_Billing_Lookup</name>
+        <label>Assign Address To Billing Lookup</label>
+        <locationX>182</locationX>
+        <locationY>650</locationY>
+        <assignmentItems>
+            <assignToReference>varR_UpdateAccount.Id</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varR_AccountAddress.Account__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varR_UpdateAccount.Primary_Billing_Address__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varR_AccountAddress.Address__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_Updated_For_Billing</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Assign the address to the Shipping Lookup</description>
+        <name>Assign_Address_To_Shipping_Lookup</name>
+        <label>Assign Address To Shipping Lookup</label>
+        <locationX>182</locationX>
+        <locationY>242</locationY>
+        <assignmentItems>
+            <assignToReference>varR_UpdateAccount.Id</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varR_AccountAddress.Account__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varR_UpdateAccount.Primary_Shipping_Address__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varR_AccountAddress.Address__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_Updated_For_Shipping</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Sets flag to denote an update occurred</description>
+        <name>Assign_Updated_For_Billing</name>
+        <label>Assign Updated For Billing</label>
+        <locationX>182</locationX>
+        <locationY>758</locationY>
+        <assignmentItems>
+            <assignToReference>updateNeeded</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Needed</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Sets flag to denote an update occurred</description>
+        <name>Assign_Updated_For_Shipping</name>
+        <label>Assign Updated For Shipping</label>
+        <locationX>182</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>updateNeeded</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Primary_Billing_Needed</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>If true, update the account</description>
+        <name>Update_Needed</name>
+        <label>Update Needed?</label>
+        <locationX>314</locationX>
+        <locationY>950</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Account_Needs_Update</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>updateNeeded</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Account</targetReference>
+            </connector>
+            <label>Account Needs Update</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Update_Primary_Billing_Needed</name>
+        <label>Update Primary Billing Needed</label>
+        <locationX>314</locationX>
+        <locationY>542</locationY>
+        <defaultConnector>
+            <targetReference>Update_Needed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Billing</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varR_AccountAddress.Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>POS</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Address_To_Billing_Lookup</targetReference>
+            </connector>
+            <label>Yes, Billing</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Determines which address should be updated, the Shipping or Billing Address</description>
+        <name>What_Address_Should_Be_Updated</name>
+        <label>What Address Should Be Updated</label>
+        <locationX>314</locationX>
+        <locationY>134</locationY>
+        <defaultConnector>
+            <targetReference>Update_Primary_Billing_Needed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Update_Primary_Shipping</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varR_AccountAddress.Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>WOO</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Address_To_Shipping_Lookup</targetReference>
+            </connector>
+            <label>Update Primary Shipping</label>
+        </rules>
+    </decisions>
+    <description>Updates the Account&apos;s primary addresses based on the Account Addresses (Billing/Post or Shipping/Woon).</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>forD_CurrentDate</name>
+        <dataType>Date</dataType>
+        <expression>{!$Flow.CurrentDate}</expression>
+    </formulas>
+    <interviewLabel>AL - Update Account Primary Addreses {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>AL - Update Account Primary Addresses</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>Update the primary Address information of the Account, based on the assigned value to the variable</description>
+        <name>Update_Account</name>
+        <label>Account</label>
+        <locationX>50</locationX>
+        <locationY>1058</locationY>
+        <faultConnector>
+            <targetReference>Subflow_PublishFlowFaultEvent</targetReference>
+        </faultConnector>
+        <inputReference>varR_UpdateAccount</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>What_Address_Should_Be_Updated</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <description>Publish the Flow Fault Platform Event.</description>
+        <name>Subflow_PublishFlowFaultEvent</name>
+        <label>Publish Flow Fault Event</label>
+        <locationX>314</locationX>
+        <locationY>1166</locationY>
+        <flowName>AL_Publish_Flow_Fault_event</flowName>
+        <inputAssignments>
+            <name>faultMessage</name>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>flowContext</name>
+            <value>
+                <stringValue>AL_Update_Account_Primary_Addresses</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>flowElement</name>
+            <value>
+                <stringValue>Update_Account</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>flowGuid</name>
+            <value>
+                <elementReference>$Flow.InterviewGuid</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>triggeringRecord</name>
+            <value>
+                <elementReference>varR_AccountAddress.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>userId</name>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <variables>
+        <description>If true, record needs an update</description>
+        <name>updateNeeded</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <description>Variable for the Account Address that is being used</description>
+        <name>varR_AccountAddress</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account_Address__c</objectType>
+    </variables>
+    <variables>
+        <name>varR_UpdateAccount</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+</Flow>

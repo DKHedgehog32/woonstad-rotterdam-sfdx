@@ -1,0 +1,70 @@
+/**
+ * =============================================
+ * woonstadFlowBussDataForm.css
+ * =============================================
+ * Date: 2025-08-29
+ * Last Changed: 2025-08-29
+ * Description:
+ * - Keep legacy look; rely on global Woonstad CSS for button visuals.
+ * - Right-align action button.
+ * - Top validation banner styling.
+ * - Required fields indicated with red asterisk using custom labels.
+ * - Same styling as customer form for consistency.
+ * =============================================
+ */
+
+.form-title {
+    font-family: 'Arboria', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--ws-blue-600, #003c80);
+    margin-bottom: 1.5rem;
+}
+
+/* Red asterisk for required fields */
+.red-asterisk {
+    color: #d02c2c;
+    font-weight: bold;
+    margin-right: 4px;
+}
+
+/* Form element spacing to match lightning-input default spacing */
+.slds-form-element {
+    margin-bottom: 1rem;
+}
+
+.slds-form-element__label {
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.25;
+    color: #080707;
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+/* Top validation banner (subtle red) */
+.ws-validation-banner {
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    background: #fdecea;          /* light red */
+    border: 1px solid #f5c2c7;
+    color: var(--ws-red-600, #d02c2c);
+    font-weight: 600;
+}
+
+/* Legacy containers; button aligned to the RIGHT */
+.nav-container {
+    display: flex;
+    justify-content: flex-end;    /* RIGHT aligned */
+    align-items: center;
+    padding: 1rem 0 0;
+    margin-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+.right-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Button visuals come from your global .woonstad-svg-button */

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contract_Role__c</fullName>
+    <description>The contact&apos;s contract role.</description>
+    <externalId>false</externalId>
+    <formula>IF(
+ true,
+ IMAGE(&quot;/resource/1722192631000/WSRhuurder&quot;, &quot;Huurder&quot; , 30, 30) ,
+NULL
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Contract Role</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

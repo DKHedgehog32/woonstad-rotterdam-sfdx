@@ -1,0 +1,113 @@
+<!--
+  =============================================
+  Component       : woonstadLogACallForm
+  File            : woonstadLogACallForm.html
+  Purpose         : "Log a Call" form to register a conversation on an existing Case.
+  Responsibilities: 
+    - Capture subject, comments, and contact (all required fields)
+    - Select the reporting Contact ("Gemeld door")
+    - Show a read-only "Gerelateerd aan" (Case) display
+    - Provide an action button to persist data (handled in JS/Apex)
+    - Display validation errors for missing required fields
+  Accessibility   :
+    - Error banner uses role="alert" + aria-live="assertive"
+    - Labels on all inputs with required indicators
+    - Clear field requirements communicated to screen readers
+  Dependencies    : SLDS, component JS controller, optional Apex controller
+  Owner           : Woonstad KC
+  Author          : Dennis van Musschenbroek
+  Last Modified   : 2025-09-18
+  =============================================
+  Change Log
+  ---------------------------------------------
+  2025-09-18 | D. van Musschenbroek | Added required indicators to Contact and Comments fields, updated accessibility
+  2025-08-25 | D. van Musschenbroek | Standardized header, changelog, a11y, and layout. Added data-test hooks.
+  2025-08-20 | D. van Musschenbroek | Aligned error banner & required styling with other components.
+  2025-08-17 | D. van Musschenbroek | Initial creation.
+  =============================================
+-->
+<template>
+  <div class="woonstad ws-root woonstad-form-container" data-test="lc-container">
+    <div class="woonstad-form slds-card slds-p-around_medium" data-test="lc-card">
+
+      <!-- Title -->
+      <h2 class="form-title slds-text-heading_small slds-m-bottom_medium" data-test="lc-title">
+        Gesprek registreren
+      </h2>
+
+      <!-- Error Banner (assertive for SRs) -->
+      <template if:true={hasError}>
+        <div class="error-banner slds-notify slds-notify_alert slds-theme_error slds-m-bottom_medium"
+             role="alert" aria-live="assertive" data-test="lc-error">
+          <span class="slds-assistive-text">Fout:</span>
+          <p class="slds-text-longform">{errorMessage}</p>
+        </div>
+      </template>
+
+      <!-- Subject (Required) -->
+      <div class={subjectContainerClass} data-test="lc-subject">
+        <lightning-input
+          type="text"
+          label="Onderwerp"
+          value={subject}
+          placeholder="Voer onderwerp in…"
+          required
+          message-when-value-missing="Onderwerp is verplicht."
+          onchange={handleSubjectChange}>
+        </lightning-input>
+      </div>
+
+      <!-- Comments (Required) -->
+      <div class="form-input slds-m-top_medium" data-test="lc-comments">
+        <lightning-textarea
+          label="Opmerkingen"
+          value={comments}
+          placeholder="Voer opmerkingen in…"
+          required
+          message-when-value-missing="Opmerkingen zijn verplicht."
+          onchange={handleCommentsChange}>
+        </lightning-textarea>
+      </div>
+
+      <!-- Reported By (Contact) (Required) -->
+      <div class="form-input slds-m-top_medium" data-test="lc-reported-by">
+        <lightning-combobox
+          name="contact"
+          label="Gemeld door"
+          value={whoId}
+          placeholder="Selecteer een contactpersoon…"
+          options={contactOptions}
+          required
+          message-when-value-missing="Selecteer een contactpersoon."
+          onchange={handleContactChange}
+          dropdown-alignment="auto">
+        </lightning-combobox>
+      </div>
+
+      <!-- Related To (read-only display) -->
+      <div class="form-input slds-m-top_medium" data-test="lc-related-to">
+        <label class="slds-form-element__label">Gerelateerd aan</label>
+        <div class="display-field slds-box slds-box_x-small slds-text-body_regular slds-truncate"
+             title={caseDetails}>{caseDetails}</div>
+      </div>
+
+      <!-- Actions -->
+      <div class="nav-container slds-m-top_large" data-test="lc-actions">
+        <div class="right-buttons">
+          <button class="woonstad-svg-button slds-button slds-button_brand"
+                  onclick={handleSave} disabled={isLoading} data-test="lc-save">
+            <span if:false={isLoading}>Opslaan</span>
+            <span if:true={isLoading}>Bezig…</span>
+            <span class="icon-wrapper" aria-hidden="true">
+              <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg"
+                   viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"/>
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</template>

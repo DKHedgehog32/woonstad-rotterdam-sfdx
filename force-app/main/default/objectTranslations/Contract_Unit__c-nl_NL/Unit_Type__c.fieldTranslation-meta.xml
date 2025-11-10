@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Het type van de contracteenheid.</help>
+    <label>Type</label>
+    <name>Unit_Type__c</name>
+    <picklistValues>
+        <masterLabel>Purchase</masterLabel>
+        <translation>Koop</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rental</masterLabel>
+        <translation>Huur</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>VVE</masterLabel>
+        <translation>VVE</translation>
+    </picklistValues>
+</CustomFieldTranslation>

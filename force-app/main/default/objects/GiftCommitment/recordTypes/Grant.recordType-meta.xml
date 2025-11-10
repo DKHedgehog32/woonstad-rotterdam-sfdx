@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Grant</fullName>
+    <active>true</active>
+    <label>Grant</label>
+    <picklistValues>
+        <picklist>GiftVehicle</picklist>
+        <values>
+            <fullName>Bequest</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Charitable Gift Annuity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Donor Advised Fund</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Life Insurance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pooled Income Fund</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trust</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>GiftVehicleType</picklist>
+        <values>
+            <fullName>Charitable Lead Trust</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Charitable Remainder Trust</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deferred Gift Annuity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Flexible Gift Annuity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Immediate Gift Annuity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Draft</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Failing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lapsed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Paused</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

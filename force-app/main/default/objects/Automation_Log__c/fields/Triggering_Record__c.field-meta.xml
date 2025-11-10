@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Triggering_Record__c</fullName>
+    <businessStatus>Active</businessStatus>
+    <complianceGroup>GDPR (Salesforce Id)</complianceGroup>
+    <description>This field redirects the user to the record where the error occurred.</description>
+    <externalId>false</externalId>
+    <formula>IF(
+NOT(ISBLANK(Triggering_Record_Id__c)), 
+
+HYPERLINK(&apos;/&apos; &amp;  Triggering_Record_Id__c , &apos;Open &apos; &amp;  $Label.TriggeringRecord , &apos;_self&apos;),
+
+$Label.NoTriggeringRecordLinked
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Triggering Record</label>
+    <required>false</required>
+    <securityClassification>Internal</securityClassification>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

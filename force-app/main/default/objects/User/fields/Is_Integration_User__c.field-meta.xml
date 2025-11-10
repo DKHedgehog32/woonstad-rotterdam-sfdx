@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Integration_User__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used to mark the user as integration user in order to exclude updates of this user in automation.</description>
+    <inlineHelpText>Used to mark the user as integration user in order to exclude updates of this user in automation.</inlineHelpText>
+    <label>Is Integration User</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

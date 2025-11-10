@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Type</label>
+    <name>Type__c</name>
+    <picklistValues>
+        <masterLabel>Call ban</masterLabel>
+        <translation>Belverbod</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Visiting ban</masterLabel>
+        <translation>Bezoekverbod</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Visiting with 2</masterLabel>
+        <translation>Op bezoek met 2 personen</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Writing ban</masterLabel>
+        <translation>Schrijfverbod</translation>
+    </picklistValues>
+</CustomFieldTranslation>

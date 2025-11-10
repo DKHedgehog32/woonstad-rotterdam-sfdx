@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/*************************************************************************************************
+ * Component Name   : kadasterLookupFlow
+ * Description      : Flow screen component for NL Kadaster lookup + international manual entry.
+ * Last Modified On : 2025-08-27
+ * Change Log:
+ * 2025-08-27 | DvM | Added ingangsdatumOutput (outputOnly, required in UI).
+ * 2025-08-26 | DvM | Added countryOutput (outputOnly) property.
+ *************************************************************************************************/
+-->
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Kadaster Lookup (Flow)</masterLabel>
+    <description>Zoek adres (NL via Kadaster) of voer handmatig een buitenlands adres in.</description>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <!-- Outputs (subset shown; keep your existing ones) -->
+            <property name="countryOutput" type="String" role="outputOnly" label="Geselecteerd land" />
+            <property name="streetName" type="String" role="outputOnly" label="Straat (NL)" />
+            <property name="houseNumberOutput" type="String" role="outputOnly" label="Huisnummer (NL)" />
+            <property name="houseLetter" type="String" role="outputOnly" label="Huisletter (NL)" />
+            <property name="houseNumberAddition" type="String" role="outputOnly" label="Toevoeging (NL)" />
+            <property name="postalCodeOutput" type="String" role="outputOnly" label="Postcode (NL)" />
+            <property name="city" type="String" role="outputOnly" label="Plaats (NL)" />
+            <property name="addressableObjectIdentification" type="String" role="outputOnly" label="AOI (NL)" />
+            <property name="countryIsoOutput" type="String" label="Land (ISO Code)" role="outputOnly" />
+
+            <!-- NEW: Ingangsdatum output -->
+            <property name="ingangsdatumOutput" type="String" role="outputOnly" label="Ingangsdatum (yyyy-MM-dd)" />
+
+            <property name="intlStreet" type="String" role="outputOnly" label="Straat (INTL)" />
+            <property name="intlHouseNumber" type="String" role="outputOnly" label="Huisnummer (INTL)" />
+            <property name="intlHouseAddition" type="String" role="outputOnly" label="Toevoeging (INTL)" />
+            <property name="intlPostalCode" type="String" role="outputOnly" label="Postcode (INTL)" />
+            <property name="intlCity" type="String" role="outputOnly" label="Plaats (INTL)" />
+            <property name="intlState" type="String" role="outputOnly" label="Staat/Provincie (INTL)" />
+            <property name="intlCountry" type="String" role="outputOnly" label="Land (INTL)" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

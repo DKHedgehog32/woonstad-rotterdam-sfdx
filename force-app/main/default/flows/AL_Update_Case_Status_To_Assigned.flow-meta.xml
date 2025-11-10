@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Assign the status of the case to Assigned.</description>
+        <name>Assign_Case_Status_To_Assigned</name>
+        <label>Case Status To Assigned</label>
+        <locationX>50</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Case.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Assigned</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Case</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Fill the VarT_FlowElement with &apos;Get_Case&apos; if the Element fails.</description>
+        <name>Assign_VarT_FlowElementGet_Case</name>
+        <label>VarT_FlowElement - Get_Case</label>
+        <locationX>842</locationX>
+        <locationY>242</locationY>
+        <assignmentItems>
+            <assignToReference>VarT_FlowElement</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Get_Case</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Subflow_PublishFlowFaultEvent</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Fill the VarT_FlowElement with &apos;Update_Case&apos; if the Element fails.</description>
+        <name>Assign_VarT_FlowElementUpdate_Case</name>
+        <label>VarT_FlowElement - Update_Case</label>
+        <locationX>314</locationX>
+        <locationY>566</locationY>
+        <assignmentItems>
+            <assignToReference>VarT_FlowElement</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Update_Case</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Subflow_PublishFlowFaultEvent</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Only new cases needs to be updated to assigned, because if a case is reopend or external we lose the information if weupdate the status back to assigned.</description>
+        <name>Decision_Is_The_Case_Status_New</name>
+        <label>Is The Case Status New?</label>
+        <locationX>314</locationX>
+        <locationY>242</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Outcome_Case_Status_Is_New</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Case.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Case_Status_To_Assigned</targetReference>
+            </connector>
+            <label>Case Status Is New</label>
+        </rules>
+    </decisions>
+    <description>This Flow is used to update the Case status to assigned. This flow is invoked if a user accepts a Agent Work / Case.</description>
+    <environments>Default</environments>
+    <interviewLabel>AL - Update Case Status To Assigned {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>AL - Update Case Status To Assigned</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Get Case based on the id passed in the VAR_Case_Id</description>
+        <name>Get_Case</name>
+        <label>Case</label>
+        <locationX>314</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Decision_Is_The_Case_Status_New</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Assign_VarT_FlowElementGet_Case</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Var_Case_Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Case</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Update the Case.</description>
+        <name>Update_Case</name>
+        <label>Case</label>
+        <locationX>50</locationX>
+        <locationY>458</locationY>
+        <faultConnector>
+            <targetReference>Assign_VarT_FlowElementUpdate_Case</targetReference>
+        </faultConnector>
+        <inputReference>Get_Case</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Case</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <description>Publish the Flow Fault Platform Event.</description>
+        <name>Subflow_PublishFlowFaultEvent</name>
+        <label>Publish Flow Fault Event</label>
+        <locationX>314</locationX>
+        <locationY>674</locationY>
+        <flowName>AL_Publish_Flow_Fault_event</flowName>
+        <inputAssignments>
+            <name>faultMessage</name>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>flowContext</name>
+            <value>
+                <stringValue>AL_Update_Case_Status_To_Assigned</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>flowElement</name>
+            <value>
+                <elementReference>VarT_FlowElement</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>flowGuid</name>
+            <value>
+                <elementReference>$Flow.InterviewGuid</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>triggeringRecord</name>
+            <value>
+                <elementReference>Var_Case_Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>userId</name>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <variables>
+        <name>Var_Case_Id</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>This variable is used to store the Flow Element name if a flow errors.</description>
+        <name>VarT_FlowElement</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

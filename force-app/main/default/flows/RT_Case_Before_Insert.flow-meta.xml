@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Add the Real Estate Contract Id to the collection variable list.</description>
+        <name>Add_Real_Estate_Contract_Id_To_List</name>
+        <label>Add Real Estate Contract Id To List</label>
+        <locationX>490</locationX>
+        <locationY>719</locationY>
+        <assignmentItems>
+            <assignToReference>varT_RealEstateContractList</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Extract_Real_Estate_Contract_From_Contract_Lines.Real_Estate_Contract__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Extract_Real_Estate_Contract_From_Contract_Lines</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>The Contract Party is added to a collection variable after the last part of the name is trimmed. For instance, Woonstad Feijenoord becomes Woonstad, since we only need either Woonstad or Stadswonen.</description>
+        <name>Assign_Contract_Party_To_List</name>
+        <label>Assign Contract Party To List</label>
+        <locationX>314</locationX>
+        <locationY>1211</locationY>
+        <assignmentItems>
+            <assignToReference>varT_ContractPartyFromRealEstateContractList</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>forT_TrimContractPartyName</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Collect_Contract_Party_From_Real_Estate_Contract</targetReference>
+        </connector>
+    </assignments>
+    <customErrors>
+        <description>Displays error to user</description>
+        <name>User_Error_Message</name>
+        <label>User Error Message</label>
+        <locationX>1194</locationX>
+        <locationY>395</locationY>
+        <customErrorMessages>
+            <errorMessage>De volgende fout is opgetreden: {!$Flow.FaultMessage}</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <decisions>
+        <description>Determine if the Account of the Case has Active Contract Lines. If there are no Contract Lines, the Flow should stop.</description>
+        <name>Does_Account_Have_Active_Contract_Lines</name>
+        <label>Does Account Have Active Contract Lines?</label>
+        <locationX>622</locationX>
+        <locationY>395</locationY>
+        <defaultConnector>
+            <targetReference>Is_The_Case_Origin_Email</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Active Contract Lines</defaultConnectorLabel>
+        <rules>
+            <name>Outcome_1_of_Does_Account_Have_Active_Contract_Lines</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Related_Active_Contract_Lines</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Extract_Real_Estate_Contract_From_Contract_Lines</targetReference>
+            </connector>
+            <label>Account Has Active Contract Lines</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Deduplicate the values.</description>
+        <name>Is_Real_Estate_Contract_Already_In_List</name>
+        <label>Is Real Estate Contract Already In List?</label>
+        <locationX>402</locationX>
+        <locationY>611</locationY>
+        <defaultConnector>
+            <targetReference>Add_Real_Estate_Contract_Id_To_List</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>New</defaultConnectorLabel>
+        <rules>
+            <name>Already_In_List</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varT_RealEstateContractList</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <elementReference>Extract_Real_Estate_Contract_From_Contract_Lines.Real_Estate_Contract__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Extract_Real_Estate_Contract_From_Contract_Lines</targetReference>
+            </connector>
+            <label>Already In List</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Is the origin of the Case email? If so, the &quot;to&quot; address can determine the Case Label.</description>
+        <name>Is_The_Case_Origin_Email</name>
+        <label>Is The Case Origin Email?</label>
+        <locationX>622</locationX>
+        <locationY>1895</locationY>
+        <defaultConnectorLabel>Other</defaultConnectorLabel>
+        <rules>
+            <name>Email</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Origin</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Email</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Where_Was_The_Email_Sent_To</targetReference>
+            </connector>
+            <label>Email</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Now that we have a list of Contract Parties in the collection variable, we can determine if the Case.Label__c should be updated. If the list only contains one of the labels, the label on the Case can be filled. If the list contains neither or both, the label on the Case cannot be filled.</description>
+        <name>What_Contract_Party_Is_Associated</name>
+        <label>What Contract Party Is Associated?</label>
+        <locationX>226</locationX>
+        <locationY>1403</locationY>
+        <defaultConnector>
+            <targetReference>Is_The_Case_Origin_Email</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Other</defaultConnectorLabel>
+        <rules>
+            <name>Both_Woonstad_And_Stadswonen</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varT_ContractPartyFromRealEstateContractList</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Woonstad</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>varT_ContractPartyFromRealEstateContractList</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Stadswonen</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Is_The_Case_Origin_Email</targetReference>
+            </connector>
+            <label>Both Woonstad And Stadswonen</label>
+        </rules>
+        <rules>
+            <name>Only_Stadswonen</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varT_ContractPartyFromRealEstateContractList</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Stadswonen</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Label_To_Stadswonen</targetReference>
+            </connector>
+            <label>Only Stadswonen</label>
+        </rules>
+        <rules>
+            <name>Only_Woonstad</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varT_ContractPartyFromRealEstateContractList</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Woonstad</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Label_To_Woonstad</targetReference>
+            </connector>
+            <label>Only Woonstad</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Was the email sent to an @woonstadrotterdam.nl or @stadswonenrotterdam.nl email address?</description>
+        <name>Where_Was_The_Email_Sent_To</name>
+        <label>Where Was The Email Sent To?</label>
+        <locationX>358</locationX>
+        <locationY>2003</locationY>
+        <defaultConnectorLabel>Other</defaultConnectorLabel>
+        <rules>
+            <name>Woonstad</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Owner:Group.DeveloperName</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Woonstad</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Case_Label_To_Woonstad</targetReference>
+            </connector>
+            <label>Woonstad</label>
+        </rules>
+        <rules>
+            <name>Stadswonen</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Owner:Group.DeveloperName</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Stadswonen</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Case_Label_To_Stadswonen</targetReference>
+            </connector>
+            <label>Stadswonen</label>
+        </rules>
+    </decisions>
+    <description>Triggered before record is saved to the database. Includes determining the Cases Label.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>forT_TrimContractPartyName</name>
+        <dataType>String</dataType>
+        <expression>LEFT({!Collect_Contract_Party_From_Real_Estate_Contract.Contract_Party__r.Name}, FIND(&quot; &quot;, {!Collect_Contract_Party_From_Real_Estate_Contract.Contract_Party__r.Name}) - 1)</expression>
+    </formulas>
+    <interviewLabel>RT - Case - Before Insert {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>RT - Case - Before Insert</label>
+    <loops>
+        <description>For each Real Estate Contract, the Contract Party should be added to a collection variable.</description>
+        <name>Collect_Contract_Party_From_Real_Estate_Contract</name>
+        <label>Collect Contract Party From Real Estate Contract</label>
+        <locationX>226</locationX>
+        <locationY>1103</locationY>
+        <collectionReference>Get_Real_Estate_Contracts_From_List</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Assign_Contract_Party_To_List</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>What_Contract_Party_Is_Associated</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <description>From the Contract Lines, retrieve the associated Real Estate Contracts. The Real Estate Contracts contain the Contract Party (Woonstad or Stadswonen).</description>
+        <name>Extract_Real_Estate_Contract_From_Contract_Lines</name>
+        <label>Extract Real Estate Contract From Contract Lines</label>
+        <locationX>226</locationX>
+        <locationY>503</locationY>
+        <collectionReference>Get_Related_Active_Contract_Lines</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Is_Real_Estate_Contract_Already_In_List</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Get_Real_Estate_Contracts_From_List</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>From the collection variable list, retrieve the Real Estate Contract records. These can be used to get the Contract Party (Woonstad or Stadswonen).</description>
+        <name>Get_Real_Estate_Contracts_From_List</name>
+        <label>Get Real Estate Contracts From List</label>
+        <locationX>226</locationX>
+        <locationY>995</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Collect_Contract_Party_From_Real_Estate_Contract</targetReference>
+        </connector>
+        <faultConnector>
+            <isGoTo>true</isGoTo>
+            <targetReference>User_Error_Message</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>In</operator>
+            <value>
+                <elementReference>varT_RealEstateContractList</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Real_Estate_Contract__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Retrieve the Contract Lines from the Account that is related to the Case. These records can be associated to either Woonstad or Stadswonen.</description>
+        <name>Get_Related_Active_Contract_Lines</name>
+        <label>Get Related Active Contract Lines</label>
+        <locationX>622</locationX>
+        <locationY>287</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Does_Account_Have_Active_Contract_Lines</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>User_Error_Message</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Account__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Account.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Active__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Contract_Line__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Update the Case Label to Stadswonen</description>
+        <name>Update_Case_Label_To_Stadswonen</name>
+        <label>Update Case Label To Stadswonen</label>
+        <locationX>358</locationX>
+        <locationY>2111</locationY>
+        <inputAssignments>
+            <field>Label__c</field>
+            <value>
+                <stringValue>Stadswonen</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update the Case Label to Woonstad</description>
+        <name>Update_Case_Label_To_Woonstad</name>
+        <label>Update Case Label To Woonstad</label>
+        <locationX>94</locationX>
+        <locationY>2111</locationY>
+        <inputAssignments>
+            <field>Label__c</field>
+            <value>
+                <stringValue>Woonstad</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update the Case.Label__c to Stadswonen.</description>
+        <name>Update_Label_To_Stadswonen</name>
+        <label>Update Label To Stadswonen</label>
+        <locationX>50</locationX>
+        <locationY>1511</locationY>
+        <inputAssignments>
+            <field>Label__c</field>
+            <value>
+                <stringValue>Stadswonen</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update the Case.Label__c to Woonstad.</description>
+        <name>Update_Label_To_Woonstad</name>
+        <label>Update Label To Woonstad</label>
+        <locationX>314</locationX>
+        <locationY>1511</locationY>
+        <inputAssignments>
+            <field>Label__c</field>
+            <value>
+                <stringValue>Woonstad</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>496</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Related_Active_Contract_Lines</targetReference>
+        </connector>
+        <object>Case</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Draft</status>
+    <variables>
+        <name>varT_ContractPartyFromRealEstateContractList</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varT_RealEstateContractList</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

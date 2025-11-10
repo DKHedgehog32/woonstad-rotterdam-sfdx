@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomPermission xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Permission used to access the &quot;Manage Addresses&quot; button on the Account page</description>
+    <isLicensed>false</isLicensed>
+    <label>Manage Addresses</label>
+</CustomPermission>

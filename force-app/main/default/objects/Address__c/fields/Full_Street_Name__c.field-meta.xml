@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Full_Street_Name__c</fullName>
+    <description>For use in flow to set billing/shipping street</description>
+    <externalId>false</externalId>
+    <formula>IF(
+OR(ISBLANK(TEXT(Country__c)), TEXT(Country__c) = &apos;NL&apos;),
+IF(
+NOT(ISBLANK(PO_Box_Number__c)),
+&quot;Postbus &quot;&amp;PO_Box_Number__c,
+IF(
+NOT(ISBLANK(Freepost_number__c)),
+&quot;Antwoordnummer &quot;&amp;Freepost_number__c,
+Street__c&amp;&quot; &quot;&amp; House_Number__c&amp;&quot; &quot;&amp;House_Letter__c&amp;&quot; &quot;&amp;House_Number_Addition__c
+)
+),
+TRIM(Address_Line_1__c&amp;&quot; &quot;&amp;Address_Line_2__c)
+)</formula>
+    <label>Full Street Name</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

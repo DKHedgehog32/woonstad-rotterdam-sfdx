@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Used in the Knowledge approval process to validate and publish a Knowledge article.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Approve Knowledge Article</name>
+    <style>none</style>
+    <subject>Beoordeling Kennisartikel</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

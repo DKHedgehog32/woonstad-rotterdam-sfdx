@@ -1,0 +1,79 @@
+<template>
+    <lightning-card footer="" title="">
+        <h1 class="slds-text-heading_medium">{app_welcome_text}</h1>
+        <div class="c-footer" >
+            <a href="/lightning/app/c__Nonprofit_Cloud_Learning_Experience/page/home">Return to Learning Home</a>
+        </div>
+        <div class="c-container">
+            <lightning-layout>
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    <div class="slds-clearfix">
+                        <span>
+                            <template if:true={load_data}>
+                                <lightning-button class="slds-float_right" label="Load Sample Data" onclick={loadDataFromCsv}></lightning-button>
+                            </template>
+                        </span>
+                        <p class="c-description">{app_description}</p>
+                    </div>
+
+                    <c-feature-child
+                        heading="Set Up Programs" 
+                        image="standard:setup_modal" 
+                        app-text="Admins set up Program Management and configure features."
+                        url="https://help.salesforce.com/s/articleView?id=sfdo.NPC_PM_Get_Started_with_Program_Management.htm&type=5"
+                        link-in-new-tab={pass_true}
+                        no-navigation-mixin={pass_true}
+                        link-reference="standard__webPage"></c-feature-child>
+                    
+                    <c-feature-child
+                        heading="Programs and Benefits" 
+                        image="standard:reward" 
+                        app-text="Program managers define and oversee programs and benefits within programs. They manage participant enrolments and track the progress of the programs. "
+                        url="https://help.salesforce.com/s/articleView?id=sfdo.NPC_PM_Programs_and_Benefits.htm"
+                        link-in-new-tab={pass_true}
+                        no-navigation-mixin={pass_true}
+                        link-reference="standard__webPage"></c-feature-child>
+
+                    <c-feature-child
+                        heading="Benefit Schedule and Participants" 
+                        image="standard:schedule_objective" 
+                        app-text="A schedule can have one or more benefit sessions based on the benefit selected. A benefit session is an instance or occurrence within a benefit schedule. You can add participants to all benefit sessions in a schedule or to selected sessions. "
+                        url="https://help.salesforce.com/s/articleView?id=sfdo.NPC_PM_Benefit_Schedules_and_Benefit_Participants.htm"
+                        link-in-new-tab={pass_true}
+                        no-navigation-mixin={pass_true}
+                        link-reference="standard__webPage"></c-feature-child>
+
+                    <template if:false={no_record_report}>
+                        <c-feature-child
+                            heading="Insights from Reports" 
+                            image="standard:insights" 
+                            app-text="One stop easy-to-access quick reporting numbers, such as the count of all program participants, total active program participants, and total disbursed quantity for a benefit. " 
+                            app="standard__ProgramManagementConsole"
+                            link-in-new-tab={pass_true}
+                            object-name="Report"
+                            object-id={reportId}
+                            link-reference="standard__recordPage" ></c-feature-child>
+                    </template>
+                    <template if:true={no_record_report}>
+                        <c-feature-child
+                            heading="Insights from Reports" 
+                            image="standard:insights" 
+                            app-text="One stop easy-to-access quick reporting numbers, such as the count of all program participants, total active program participants, and total disbursed quantity for a benefit. " 
+                            url="" 
+                            no-record={no_record_report} ></c-feature-child>
+                    </template>
+
+                    <c-feature-child
+                        heading="Quick Access to Program and Case Management App" 
+                        image="standard:channel_programs" 
+                        app-text="Track and manage your Cases, Programs, Benefits and Service Deliveries."
+                        app="standard__ProgramManagementConsole"
+                        page="home"
+                        link-in-new-tab={pass_true}
+                        link-reference="standard__namedPage"></c-feature-child>
+                    
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </lightning-card>
+</template>

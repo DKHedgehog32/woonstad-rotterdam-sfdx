@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- The relationship is active if the start date is in the past and the end date is empty or in the future --></help>
+    <label><!-- Active --></label>
+    <name>Active__c</name>
+</CustomFieldTranslation>

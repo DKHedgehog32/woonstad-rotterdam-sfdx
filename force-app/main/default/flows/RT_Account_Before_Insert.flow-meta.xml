@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>64.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>The user wants to be able to search for a account based on the birthdate without a dash. 
+So from 11-09-1979 to 11091979 (dd-mm-yyyy -&gt; ddmmyyyy)</description>
+        <name>Assign_Searchable_Birthdate</name>
+        <label>Searchable Birthdate</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Searchable_Birthdate__pc</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>for_Transform_Birthdate_To_ddmmyyyy</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <description>Is the birthdate of the account filled during creation?</description>
+        <name>Decision_Birthdate_Filled</name>
+        <label>Birthdate Filled?</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Birthdate Empty</defaultConnectorLabel>
+        <rules>
+            <name>Outcome_Birthdate_Filled</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.PersonBirthdate</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Searchable_Birthdate</targetReference>
+            </connector>
+            <label>Birthdate Filled</label>
+        </rules>
+    </decisions>
+    <description>Record-Triggered flow before creation of a new Account record</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>for_Transform_Birthdate_To_ddmmyyyy</name>
+        <dataType>String</dataType>
+        <expression>CASE(
+DAY({!$Record.PersonBirthdate}),
+1, &quot;01&quot;,
+2, &quot;02&quot;,
+3, &quot;03&quot;,
+4, &quot;04&quot;,
+5, &quot;05&quot;,
+6, &quot;06&quot;,
+7, &quot;07&quot;,
+8, &quot;08&quot;,
+9, &quot;09&quot;,
+TEXT(DAY({!$Record.PersonBirthdate}))
+)
+
+&amp;
+
+CASE(
+MONTH({!$Record.PersonBirthdate}),
+1, &quot;01&quot;,
+2, &quot;02&quot;,
+3, &quot;03&quot;,
+4, &quot;04&quot;,
+5, &quot;05&quot;,
+6, &quot;06&quot;,
+7, &quot;07&quot;,
+8, &quot;08&quot;,
+9, &quot;09&quot;,
+TEXT(MONTH({!$Record.PersonBirthdate}))
+)
+
+&amp; 
+TEXT(YEAR({!$Record.PersonBirthdate}))</expression>
+    </formulas>
+    <interviewLabel>RT - Account - Before Insert {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>RT - Account - Before Insert</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Decision_Birthdate_Filled</targetReference>
+        </connector>
+        <object>Account</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

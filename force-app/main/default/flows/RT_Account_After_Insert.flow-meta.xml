@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <description>Check whether the preferred phone field is updated</description>
+        <name>Preferred_Phone_Value</name>
+        <label>Preferred Phone Value</label>
+        <locationX>182</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Preferred Phone Does Not Have A Value</defaultConnectorLabel>
+        <rules>
+            <name>Preferred_Phone_changed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Preferred_Phone__pc</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Run_Update_Account_Preferred_Phone</targetReference>
+            </connector>
+            <label>Preferred Phone Has A Value</label>
+        </rules>
+    </decisions>
+    <description>Record-Triggered flow after creation of a new Account record</description>
+    <environments>Default</environments>
+    <interviewLabel>RT - Account - After Insert {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>RT - Account - After Insert</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Preferred_Phone_Value</targetReference>
+        </connector>
+        <object>Account</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <description>Trigger the subflow that will update the Preferred Phone value</description>
+        <name>Run_Update_Account_Preferred_Phone</name>
+        <label>Run Update Account Preferred Phone</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <flowName>AL_Update_Account_Preferred_Phone</flowName>
+        <inputAssignments>
+            <name>varR_Account</name>
+            <value>
+                <elementReference>$Record</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <variables>
+        <description>Structure to hold account soort (ReferentieCodeModel)</description>
+        <name>accountSoort</name>
+        <apexClass>ReferentieCodeModel</apexClass>
+        <dataType>Apex</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Structure to hold postadres (PersoonAdresModel)</description>
+        <name>postAdres</name>
+        <apexClass>PersoonAdresModel</apexClass>
+        <dataType>Apex</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

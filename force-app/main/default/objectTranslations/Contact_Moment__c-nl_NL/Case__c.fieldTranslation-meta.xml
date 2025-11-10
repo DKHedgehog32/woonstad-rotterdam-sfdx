@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- If this contact moment is related to a specific service request or case, select it here. --></help>
+    <label><!-- Related Case --></label>
+    <name>Case__c</name>
+    <relationshipLabel><!-- Contact Moments --></relationshipLabel>
+</CustomFieldTranslation>

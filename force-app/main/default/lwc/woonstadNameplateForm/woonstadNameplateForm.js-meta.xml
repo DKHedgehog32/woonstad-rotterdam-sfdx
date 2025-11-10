@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/*************************************************************************************************
+ * Component       : woonstadNameplateForm (meta)
+ * Layer           : Metadata (LightningComponentBundle)
+ * Purpose         : Declares the component for use in Screen Flows.
+ *
+ * Responsibilities:
+ *  - Exposes Flow input properties for prefill (recordId, nameplateNameIn, reasonIn, etc.)
+ *  - Exposes Flow output properties (nameplateName, reason, supplierName, etc.)
+ *  - Defines Flow target for Screen Flows.
+ *
+ * Owner           : Woonstad KC
+ * Author          : Dennis van Musschenbroek
+ * Created         : 2025-08-19
+ * Last Modified   : 2025-08-25
+ * ===============================================================================================
+ * Change Log
+ * ===============================================================================================
+ * 2025-08-25 | DvM | Updated description to match deferred validation approach.
+ * 2025-08-19 | DvM | Initial creation with Flow inputs/outputs.
+ *************************************************************************************************/
+-->
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Woonstad Naamplaatje Form</masterLabel>
+    <description>
+        Form for requesting a nameplate. Supports Flow prefill, Flow outputs,
+        Apex supplier prefill, and deferred validation (banner + red borders).
+    </description>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <!-- INPUTS -->
+            <property name="recordId" type="String" role="inputOnly" label="Account Id"/>
+            <property name="nameplateNameIn" type="String" role="inputOnly" label="Naamplaatje Prefill"/>
+            <property name="reasonIn" type="String" role="inputOnly" label="Reden Prefill"/>
+            <property name="supplierNameIn" type="String" role="inputOnly" label="Leverancier Naam Prefill"/>
+            <property name="supplierEmailIn" type="String" role="inputOnly" label="Leverancier Email Prefill"/>
+            <property name="supplierNoteIn" type="String" role="inputOnly" label="Toelichting Prefill"/>
+
+            <!-- OUTPUTS -->
+            <property name="nameplateName" type="String" role="outputOnly" label="Naam op het naamplaatje"/>
+            <property name="reason" type="String" role="outputOnly" label="Reden van opgave"/>
+            <property name="supplierName" type="String" role="outputOnly" label="Leverancier naam"/>
+            <property name="supplierEmail" type="String" role="outputOnly" label="Leverancier e-mail"/>
+            <property name="supplierNote" type="String" role="outputOnly" label="Toelichting voor leverancier"/>
+            <property name="invalidVar" type="Boolean" role="outputOnly" label="Invalid Indicator"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

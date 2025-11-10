@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Wat voor type cluster is het.</help>
+    <label>Type</label>
+    <name>Type__c</name>
+    <picklistValues>
+        <masterLabel>Consumption Costs</masterLabel>
+        <translation>Verbruikskosten</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>District</masterLabel>
+        <translation>Buurt</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Financial</masterLabel>
+        <translation>Financieel</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Maintenance</masterLabel>
+        <translation>Onderhoud</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Market</masterLabel>
+        <translation>Markt</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Neighborhood</masterLabel>
+        <translation>Buurt</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Owners Association</masterLabel>
+        <translation>Vereniging van Eigenaren</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Project</masterLabel>
+        <translation>Project</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rayon</masterLabel>
+        <translation>Rayon</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Service Charges</masterLabel>
+        <translation>Servicekosten</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Strategic</masterLabel>
+        <translation>Strategisch</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Valuation</masterLabel>
+        <translation>Waardering</translation>
+    </picklistValues>
+</CustomFieldTranslation>

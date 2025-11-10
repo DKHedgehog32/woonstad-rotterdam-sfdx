@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/*************************************************************************************************
+ * Meta Configuration: woonstadFlowBussDataForm
+ * Purpose         : Defines Flow screen component properties and available variables.
+ * 
+ * Output Variables: All form fields are configured as output variables for Flow usage.
+ *                  - accountType: Selected account type from picklist (required)
+ *                  - companyName: Business/company name (required)
+ *                  - kvkNumber: KVK (Chamber of Commerce) number (required)
+ *                  - vatNumber: BTW (VAT) number (optional)
+ *                  - phone1: Primary phone number (required)  
+ *                  - phone2: Mobile/secondary phone (optional)
+ *                  - email: Email address (required)
+ *
+ * Flow Support    : Configured for Salesforce Flow screens with navigation support.
+ * Last Modified   : 2025-09-01
+ * 
+ * Changelog:
+ * 2025-08-29 | Initial creation with basic business data fields
+ * 2025-09-01 | Added accountType output variable for Account.Type picklist integration
+ *************************************************************************************************/
+-->
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <isExposed>true</isExposed>
+    <description>Business data form component for Salesforce Flow with company information and contact details including Account Type selection.</description>
+    
+    <!-- Flow screen component configuration -->
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    
+    <!-- Output variables for Flow -->
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            
+            <!-- Account Classification -->
+            <property name="accountType" type="String" role="outputOnly" 
+                      label="Account Type" 
+                      description="Selected account type from Salesforce Account.Type picklist (required field)"/>
+            
+            <!-- Company Information -->
+            <property name="companyName" type="String" role="outputOnly" 
+                      label="Company Name" 
+                      description="Name of the business/company (required field)"/>
+                      
+            <property name="kvkNumber" type="String" role="outputOnly" 
+                      label="KVK Number" 
+                      description="KVK (Chamber of Commerce) registration number (required field)"/>
+                      
+            <property name="vatNumber" type="String" role="outputOnly" 
+                      label="VAT Number" 
+                      description="BTW (VAT) tax identification number (optional field)"/>
+            
+            <!-- Contact Information -->
+            <property name="phone1" type="String" role="outputOnly" 
+                      label="Primary Phone" 
+                      description="Primary/landline phone number (required field)"/>
+                      
+            <property name="phone2" type="String" role="outputOnly" 
+                      label="Mobile Phone" 
+                      description="Mobile/secondary phone number (optional field)"/>
+                      
+            <property name="email" type="String" role="outputOnly" 
+                      label="Email Address" 
+                      description="Business email address (required field)"/>
+            
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

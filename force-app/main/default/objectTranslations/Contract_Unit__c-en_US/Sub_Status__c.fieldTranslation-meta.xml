@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- To register the sub-status of the Contract Unit --></help>
+    <label><!-- Sub Status --></label>
+    <name>Sub_Status__c</name>
+    <picklistValues>
+        <masterLabel>Awaiting Energy Performance Advice</masterLabel>
+        <translation><!-- Awaiting Energy Performance Advice --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Awaiting new tenant - regular</masterLabel>
+        <translation><!-- Awaiting new tenant - regular --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Building plans</masterLabel>
+        <translation><!-- Building plans --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Completion</masterLabel>
+        <translation><!-- Completion --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Loan</masterLabel>
+        <translation><!-- Loan --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mutation</masterLabel>
+        <translation><!-- Mutation --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New build</masterLabel>
+        <translation><!-- New build --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Permit granted</masterLabel>
+        <translation><!-- Permit granted --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Project vacancy</masterLabel>
+        <translation><!-- Project vacancy --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rented anti-squat</masterLabel>
+        <translation><!-- Rented anti-squat --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rented out permanently</masterLabel>
+        <translation><!-- Rented out permanently --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rented temporary</masterLabel>
+        <translation><!-- Rented temporary --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sale</masterLabel>
+        <translation><!-- Sale --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Structural vacancy</masterLabel>
+        <translation><!-- Structural vacancy --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Waiting for new tenant - non-regular</masterLabel>
+        <translation><!-- Waiting for new tenant - non-regular --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

@@ -1,0 +1,55 @@
+<template>
+    <template if:true={showResults}>
+        <div class="slds-p-around_x-small">
+            <div class="slds-border_top">
+                <lightning-datatable key-field="id" 
+                                    data={_recordList} 
+                                    columns={columns}>
+                </lightning-datatable>
+            </div>
+            <div class="slds-grid slds-grid_align-end slds-p-around_x-small">
+                <div class="slds-col">
+                    <lightning-button label="Add Selected" onclick={handleAddSelected}>
+                    </lightning-button>
+                </div>
+            </div>
+        </div>
+    </template>
+    <template if:true={showEmptyMsg}>
+        <div style="text-align:center" class="slds-m-bottom_xx-small">
+            <h2>No matching records found or Invalid Search Criteria</h2>
+        </div>
+    </template>
+    <br/>
+    <template if:true={showSelectedRecords}>
+        <template for:each={selectedRecords} for:item="record">
+            <div key={record.indexNo}>
+                <lightning-record-edit-form object-api-name="CaseParticipant">
+                    <lightning-messages> </lightning-messages>
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_3-of-8">
+                            <lightning-input-field field-name="Name" data-id={record.indexNo} value={record.Name}>
+                            </lightning-input-field>
+                        </div>
+                        <div class="slds-col slds-size_2-of-8">
+                            <lightning-input-field field-name="Role" value={record.Role} data-id={record.indexNo} onchange={handleRoleChange}>
+                            </lightning-input-field>
+                        </div>
+                        <div class="slds-col slds-size_2-of-8">
+                            <lightning-input-field field-name="Status" value={record.Status} data-id={record.indexNo} onchange={handleStatusChange}>
+                            </lightning-input-field>
+                        </div>
+                        <div class="slds-col slds-size_1-of-8" style="margin-top:24px;">
+                            <lightning-button-icon icon-name="utility:delete" alternative-text="Delete" title="Delete" onclick={onDeleteClick} data-id={record.indexNo}
+                                                    disabled={record.isExists}
+                            ></lightning-button-icon>
+                        </div>
+                    </div>
+                </lightning-record-edit-form>
+            </div>
+        </template>
+    </template>
+    <div class="slds-text-color_destructive">
+        {errorMsg}
+    </div>
+</template>

@@ -1,0 +1,334 @@
+/*************************************************************************************************
+ * Component       : woonstadKCCaseCreationForm (woonstadKCCaseCreationForm.css)
+ * Layer           : UI Styling (Lightning Web Component)
+ * Purpose         : Provides 2-column layout styling, Woonstad-branded form controls, and
+ *                   contextual table styling for open cases with enhanced required field indicators.
+ *
+ * Responsibilities:
+ *  - Layout and spacing for the case creation form (left column)
+ *  - Styling for validation messages, info banner, and "Opslaan" button
+ *  - Responsive design for table and pagination controls (right column)
+ *  - Visual indication for required fields via asterisk when data-required="true"
+ *  - Enhanced accessibility and error state styling
+ *
+ * Accessibility   :
+ *  - High contrast for error and info messages
+ *  - Clear visual indicators (asterisk) for all required fields
+ *  - Consistent focus states and form validation styling
+ *
+ * Security        :
+ *  - Contains no sensitive data; purely presentational
+ *
+ * Owner           : Woonstad KC
+ * Author          : Dennis van Musschenbroek
+ * Created         : 2025-08-18
+ * Last Modified   : 2025-09-18
+ * ===============================================================================================
+ * Change Log
+ * -----------------------------------------------------------------------------------------------
+ * 2025-09-18 | DvM | Enhanced required field styling for Contact and Description; improved validation UX
+ * 2025-08-25 | DvM | Added asterisk for data-required fields; reorganized with compact sections.
+ * 2025-08-22 | DvM | Initial styling for 2-column layout, table, buttons.
+ *************************************************************************************************/
+
+/* <---- Variables ----> */
+:host {
+    --color-text-dark:     var(--ws-text-dark, #002244);
+    --color-blue-600:      var(--ws-blue-600, #003c80);
+    --color-accent:        #85E3F9;
+    --color-info-hd:       #85BDE6;
+    --color-border:        #E0E8F6;
+    --color-shadow:        rgba(0, 0, 0, .06);
+    --color-banner-bg:     #FEF2F2;
+    --color-banner-tx:     #B91C1C;
+    --color-required:      #e32; /* Red color for required field asterisks */
+    --table-header-offset: 3.25rem;
+}
+
+/* <---- Layout ----> */
+.grid-root {
+    width: 100%;
+}
+
+.slds-col {
+    min-width: 0;
+}
+
+.woonstad-form-container {
+    padding: 0;
+}
+
+.woonstad-form {
+    margin: 0;
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+}
+
+.form-title {
+    font-family: 'Arboria', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-blue-600);
+    margin-bottom: 1.25rem;
+}
+
+.form-input {
+    margin-bottom: 1.25rem;
+    width: 100%;
+    position: relative;
+}
+
+/* <---- Form Elements ----> */
+
+/* <---- Display Fields ----> */
+.display-field {
+    background-color: #f3f4f6;
+    color: #4b5563;
+    min-height: 2.125rem;
+    height: 2.125rem;
+    padding: 0 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: .25rem;
+    font-size: 1rem;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+/* <---- Buttons ----> */
+.nav-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0;
+}
+
+.right-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.woonstad-svg-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 42px;
+    background-color: var(--color-accent);
+    border: none;
+    border-radius: 40px;
+    font-family: 'Apercu Pro', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #00215B;
+    padding-left: 16px;
+    padding-right: 48px;
+    position: relative;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: opacity 0.2s ease;
+}
+
+.woonstad-svg-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.icon-wrapper {
+    width: 32px;
+    height: 32px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 33, 91, .25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.arrow-icon {
+    width: 18px;
+    height: 18px;
+    display: block;
+    fill: #00215B;
+}
+
+/* <---- Validation & Info ----> */
+.validation-message-box {
+    border: 1px solid var(--color-banner-tx);
+    background-color: var(--color-banner-bg);
+    color: #DC2626;
+    padding: .6rem .75rem;
+    border-radius: .375rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: .875rem;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.info-banner {
+    border: 1px solid var(--color-banner-tx);
+    background-color: var(--color-banner-bg);
+    color: var(--color-banner-tx);
+    font-weight: 700;
+    font-size: .85rem;
+    line-height: 1.2;
+    padding: .5rem .75rem;
+    border-radius: .375rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* <---- Error States for Form Fields ----> */
+/* Style invalid fields with red border */
+.form-input lightning-input.slds-has-error,
+.form-input lightning-combobox.slds-has-error,
+.form-input lightning-textarea.slds-has-error {
+    --slds-c-input-border-color: var(--color-banner-tx);
+    --slds-c-input-border-color-focus: var(--color-banner-tx);
+}
+
+/* <---- Table ----> */
+.table-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top: var(--table-header-offset);
+}
+
+@media (max-width: 48rem) {
+    .table-container {
+        margin-top: 0;
+    }
+}
+
+.wc-header {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    gap: 1rem;
+    background: var(--color-info-hd);
+    color: var(--color-text-dark);
+    font-weight: 700;
+    border-radius: 12px;
+    padding: .65rem 1rem;
+    box-shadow: 0 6px 12px var(--color-shadow);
+    margin-bottom: .65rem;
+}
+
+.wc-rows {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.wc-row {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    gap: 1rem;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: .6rem 1rem;
+    box-shadow: 2px 2px 0 #e3edfa;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.wc-row:hover {
+    transform: translateY(-1px);
+    box-shadow: 3px 3px 0 #d6e6fb;
+}
+
+.wc-row:focus {
+    outline: 2px solid var(--color-blue-600);
+    outline-offset: 2px;
+}
+
+.wc-cell {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    align-self: center;
+}
+
+.wc-empty {
+    text-align: center;
+    color: #555;
+    font-style: italic;
+    border: 1px dashed var(--color-border);
+    border-radius: 10px;
+    background: #fafcff;
+    padding: .75rem;
+}
+
+/* <---- Pagination ----> */
+.pagination-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.page-info {
+    font-weight: 600;
+    color: var(--color-text-dark);
+}
+
+.pagination-svg-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 36px;
+    background-color: var(--color-accent);
+    border: none;
+    border-radius: 40px;
+    font-family: 'Apercu Pro', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #00215B;
+    padding-left: 14px;
+    padding-right: 36px;
+    position: relative;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: opacity 0.2s ease;
+}
+
+.pagination-svg-button:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+.pagination-svg-button:focus {
+    outline: 2px solid var(--color-blue-600);
+    outline-offset: 2px;
+}
+
+.pagination-icon-wrapper {
+    width: 28px;
+    height: 28px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 33, 91, .25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+}
+
+.pagination-arrow-icon {
+    width: 16px;
+    height: 16px;
+    display: block;
+    fill: #00215B;
+}

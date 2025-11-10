@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Assign the supplier / partner organization that has to manage this request --></help>
+    <label><!-- Supplier --></label>
+    <name>Supplier__c</name>
+    <relationshipLabel><!-- Assigned Requests --></relationshipLabel>
+</CustomFieldTranslation>

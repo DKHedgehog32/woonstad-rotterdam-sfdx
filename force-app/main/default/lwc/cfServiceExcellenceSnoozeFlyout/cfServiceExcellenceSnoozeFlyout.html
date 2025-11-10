@@ -1,0 +1,201 @@
+<template>
+            <div class="slds-grid slds-wrap slds-is-relative ">
+            <div style="position: fixed;z-index: 999999;top: 0;right: 0;">
+  <omnistudio-toast class="flexcard-toast-element" theme="slds" title="" message="" styletype=""> </omnistudio-toast>
+</div>
+            <div if:true={showLoader} class="slds-is-absolute vloc-loader_override" style="height: 100%; width: 100%; min-height:50px; background: transparent; z-index: 99;">
+  <div>
+   <omnistudio-spinner
+      variant="brand"
+      alternative-text="Loading content..."
+      size="medium"
+      theme="slds"
+      ></omnistudio-spinner>
+  </div>
+</div>
+            <template if:false={hasPermission}>
+              You don't have required permissions to view this card.
+            </template>
+            <template if:true={hasPermission}>
+              <template if:true={hasRecords}>
+                        <template for:each={_records} for:item="record" for:index="rindex">
+                            <omnistudio-flex-card-state if:true={record}  key={record._flex.uniqueKey} data-recordid={record.Id} record={record} data-statue="true"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12 "  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-card slds-m-around_none " style="      
+         ">
+          <div data-style-id="state0element0" class="slds-col    slds-size_12-of-12  " data-rindex={rindex} style="      
+         " >
+    <omnistudio-block data-style-id="state0element0_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element0" class="slds-col    slds-size_12-of-12  condition-element" data-rindex={rindex} style="      
+         "  data-conditions='\{"id":"state-condition-object","isParent":true,"group":[{"id":"state-new-condition-0","field":"snoozeStatus","operator":"==","value":"Failure","type":"custom","hasMergeField":false},{"id":"state-new-condition-18","field":"snoozeValidationError","operator":"!=","value":"true","type":"custom","hasMergeField":false,"logicalOperator":"&&"}]}' >
+    <omnistudio-block data-style-id="state0element0block_element0_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  data-conditions='\{"id":"state-condition-object","isParent":true,"group":[{"id":"state-new-condition-0","field":"snoozeStatus","operator":"==","value":"Failure","type":"custom","hasMergeField":false},{"id":"state-new-condition-18","field":"snoozeValidationError","operator":"!=","value":"true","type":"custom","hasMergeField":false,"logicalOperator":"&&"}]}'  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element0block_element0" class="slds-col   slds-p-around_small  slds-size_12-of-12  " data-rindex={rindex} style="background-color:#EB011E;      
+         " >
+    <omnistudio-block data-style-id="state0element0block_element0block_element0_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element0block_element0block_element0" class="slds-col   slds-size_12-of-12  " data-rindex={rindex} style="background-color:#EB011E;      
+         " ><omnistudio-output-field data-style-id="state0element0block_element0block_element0block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%20class=%22slds-text-align_center%22%3E%3Cspan%20style=%22font-size:%2024pt;%20color:%20#ffffff;%22%3ESomething%20went%20wrong%3C/span%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element0block_element0block_element1" class="slds-col   slds-p-around_medium  slds-size_12-of-12  " data-rindex={rindex} style="      
+         " >
+    <omnistudio-block data-style-id="state0element0block_element0block_element1_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element0block_element1block_element0" class="slds-col   slds-size_12-of-12 " data-rindex={rindex} style="" ><omnistudio-output-field data-style-id="state0element0block_element0block_element1block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%20class=%22slds-text-align_center%22%3E&nbsp;%3C/div%3E%0A%3Cdiv%20class=%22slds-text-align_center%22%3E%3Cspan%20style=%22font-weight:%20400;%20font-size:%2012pt;%22%3EWe%20can&rsquo;t%20complete%20the%20action%20on%20this%20alert.%20Try%20again%20or%20contact%20your%20Salesforce%20admin%20for%20help.%3C/span%3E%3C/div%3E%0A%3Cdiv%20class=%22slds-text-align_center%22%3E&nbsp;%3C/div%3E%0A%3Cdiv%20class=%22slds-text-align_center%22%3E&nbsp;%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element0block_element1block_element1" class="slds-col  slds-text-align_center  slds-size_12-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-flex-action data-style-id="state0element0block_element0block_element1block_element1_child"  tracking-obj={_childCardTrackingObj}  class= "state0element0block_element0block_element1block_element1_child flexActionElement" 
+        data-action-element-class="state0element0block_element0block_element1block_element1_child" data-action-key="state0element0block_element0block_element1block_element1" onexecuteaction={performAction} data-show-spinner="false"
+        data-element-label="block0block1action3"   state-obj={record}  card={card}  record={record}  label="OK"  icon-name="standard-default"  action-list='\[{"stateAction":{"id":"flex-action-1650577913754","type":"Event","openUrlIn":"Current Window","eventName":"closemodal","subType":"Custom","bubbles":true,"composed":true},"key":"1646795484361-v1asuu6u0","label":"Cancel","draggable":true,"isOpen":true,"actionIndex":0,"isTrackingDisabled":false}]'  hide-action-icon="true"  display-as-button="true"  button-variant="neutral"  flyout-details='\{}'  theme="slds"  ></omnistudio-flex-action>
+      </div>
+        </div></omnistudio-block>
+    </div>
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element0block_element1" class="slds-col    slds-size_12-of-12  condition-element" data-rindex={rindex} style="      
+         "  data-conditions='\{"id":"state-condition-object","isParent":true,"group":[{"id":"state-new-condition-0","field":"snoozeStatus","operator":"!=","value":"Failure","type":"custom","hasMergeField":false}]}' >
+    <omnistudio-block data-style-id="state0element0block_element1_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  data-conditions='\{"id":"state-condition-object","isParent":true,"group":[{"id":"state-new-condition-0","field":"snoozeStatus","operator":"!=","value":"Failure","type":"custom","hasMergeField":false}]}'  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element1block_element0" class="slds-col  slds-border_bottom slds-p-around_small  slds-size_12-of-12  " data-rindex={rindex} style="     border-bottom: #cccccc 1px solid; 
+         " ><omnistudio-output-field data-style-id="state0element0block_element1block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%20class=%22slds-text-align_center%22%3E%3Cspan%20class=%22slds-text-heading_small%22%20style=%22font-size:%2018pt;%22%3ESnooze%20Alert%3C/span%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element1block_element1" class="slds-col   slds-p-around_xx-large  slds-size_12-of-12  condition-element" data-rindex={rindex} style="      
+         "  data-conditions='\{"id":"state-condition-object","isParent":true,"group":[]}' >
+    <omnistudio-block data-style-id="state0element0block_element1block_element1_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  data-conditions='\{"id":"state-condition-object","isParent":true,"group":[]}'  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element1block_element1block_element0" class="slds-col   slds-size_12-of-12 " data-rindex={rindex} style="" ><omnistudio-output-field data-style-id="state0element0block_element1block_element1block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%20class=%22slds-text-align_center%22%3E%3Cspan%20style=%22font-size:%2012pt;%22%3ESnooze%20this%20alert?%3C/span%3E%3C/div%3E%0A%3Cdiv%20class=%22slds-text-align_center%22%3E%3Cspan%20style=%22font-size:%2012pt;%22%3EAlert%20will%20be%20snoozed%20for%2024%20hours.%3C/span%3E%3C/div%3E%0A%3Cdiv%20class=%22slds-text-align_center%22%3E%3Cspan%20style=%22font-size:%2012pt;%22%3E%7BsnoozeStatus%7D%3C/span%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element0block_element1block_element2" class="slds-col   slds-p-around_small  slds-size_12-of-12  " data-rindex={rindex} style="background-color:#F3F2F2;      
+         " >
+    <omnistudio-block data-style-id="state0element0block_element1block_element2_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element1block_element2block_element0" class="slds-col   slds-size_4-of-12  " data-rindex={rindex} style="      
+         width: auto; margin-right: 0px; margin-left: auto;" ><omnistudio-flex-action data-style-id="state0element0block_element1block_element2block_element0_child"  tracking-obj={_childCardTrackingObj}  class= "state0element0block_element1block_element2block_element0_child flexActionElement" 
+        data-action-element-class="state0element0block_element1block_element2block_element0_child" data-action-key="state0element0block_element1block_element2block_element0" onexecuteaction={performAction} data-show-spinner="false"
+        data-element-label="block0block3action0"   record={record}  card={card}  state-obj={record}  hide-action-icon="true"  display-as-button="true"  button-variant="neutral"  styles='\{"label":{"textAlign":"right"}}'  action-list='\[{"key":"1650465901443-d3rqn3tlf","label":"Cancel","draggable":true,"isOpen":true,"card":"{card}","stateAction":{"id":"flex-action-1650465928075","type":"Event","displayName":"Action","vlocityIcon":"standard-default","openUrlIn":"Current Window","subType":"Custom","eventName":"closemodal","composed":true,"bubbles":true},"actionIndex":1}]'  label="Cancel"  icon-name="standard-default"  flyout-details='\{}'  theme="slds"  ></omnistudio-flex-action>
+      </div><div data-style-id="state0element0block_element1block_element2block_element1" class="slds-col  slds-text-align_center  slds-size_8-of-12  " data-rindex={rindex} style="      
+         margin-left: 8px; width: auto; " ><omnistudio-flex-action data-style-id="state0element0block_element1block_element2block_element1_child"  tracking-obj={_childCardTrackingObj}  class= "state0element0block_element1block_element2block_element1_child flexActionElement" 
+        data-action-element-class="state0element0block_element1block_element2block_element1_child" data-action-key="state0element0block_element1block_element2block_element1" onexecuteaction={performAction} data-show-spinner="true"
+        data-element-label="block0block3action1"   record={record}  card={card}  state-obj={record}  hide-action-icon="true"  display-as-button="true"  button-variant="brand"  icon-size="small"  styles='\{"label":{"fontFamily":"","textAlign":"center","fontSize":"14px"}}'  action-list='\[{"stateObj":"{record}","card":"{card}","record":"{record}","stateAction":{"id":"flex-action-1648238291048","type":"DataAction","displayName":"Snooze Alert","vlocityIcon":"standard-default","openUrlIn":"Current Window","subType":"Custom","eventName":"dismissAlert","ignoreResponse":false,"message":"{\"type\":\"IntegrationProcedures\",\"value\":{\"dsDelay\":\"\",\"resultVar\":\"[\\\"SnoozeAlert\\\"]\",\"ipMethod\":\"ServiceExcellenceAlerts_snooze\",\"vlocityAsync\":false,\"inputMap\":{\"id\":\"{id}\",\"isExternal\":\"{isExternal}\"}},\"orderBy\":{\"name\":\"\",\"isReverse\":false},\"contextVariables\":[{\"name\":\"id\",\"val\":\"0qZ06000000TT122AQ\",\"id\":1},{\"name\":\"isExternal\",\"val\":\"false\",\"id\":3}]}"},"hideActionIcon":true,"displayAsButton":true,"buttonVariant":"brand","iconSize":"small","styles":{"label":{"fontFamily":"","textAlign":"center","fontSize":"14px"}},"key":"1643754077728-win4ev5j7","label":"ActionSnooze","draggable":true,"isOpen":true,"actionIndex":0},{"key":"1643754107143-h0r2l7ptv","label":"ActionReload","draggable":true,"isOpen":true,"card":"{card}","stateAction":{"id":"flex-action-1649965083562","type":"Event","displayName":"Action","vlocityIcon":"standard-default","openUrlIn":"Current Window","subType":"PubSub","eventName":"AlertCard","message":"reload","actionConditions":{"id":"state-condition-object","isParent":true,"group":[{"id":"state-new-condition-7","field":"snoozeStatus","operator":"!=","value":"Failure","type":"custom","hasMergeField":false}]}},"actionIndex":1}]'  label="Snooze Alert"  icon-name="standard-default"  flyout-details='\{}'  theme="slds"  ></omnistudio-flex-action>
+      </div>
+        </div></omnistudio-block>
+    </div>
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element0block_element2" class="slds-col    slds-size_12-of-12  condition-element" data-rindex={rindex} style="      
+         "  data-conditions='\{"id":"state-condition-object","isParent":true,"group":[{"id":"state-new-condition-0","field":"snoozeStatus","operator":"==","value":"Failure","type":"custom","hasMergeField":false},{"id":"state-new-condition-8","field":"snoozeValidationError","operator":"==","value":"true","type":"custom","hasMergeField":false,"logicalOperator":"&&"}]}' >
+    <omnistudio-block data-style-id="state0element0block_element2_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  data-conditions='\{"id":"state-condition-object","isParent":true,"group":[{"id":"state-new-condition-0","field":"snoozeStatus","operator":"==","value":"Failure","type":"custom","hasMergeField":false},{"id":"state-new-condition-8","field":"snoozeValidationError","operator":"==","value":"true","type":"custom","hasMergeField":false,"logicalOperator":"&&"}]}'  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element2block_element0" class="slds-col  slds-border_bottom slds-p-around_small  slds-size_12-of-12  " data-rindex={rindex} style="     border-bottom: #cccccc 1px solid; 
+         " ><omnistudio-output-field data-style-id="state0element0block_element2block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%20class=%22slds-text-align_center%22%3E%3Cspan%20class=%22slds-text-heading_small%22%20style=%22font-size:%2018pt;%22%3ECan't%20snooze%20alert%3C/span%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element2block_element1" class="slds-col   slds-p-around_xx-large  slds-size_12-of-12  condition-element" data-rindex={rindex} style="      
+         "  data-conditions='\{"id":"state-condition-object","isParent":true,"group":[]}' >
+    <omnistudio-block data-style-id="state0element0block_element2block_element1_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  data-conditions='\{"id":"state-condition-object","isParent":true,"group":[]}'  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element2block_element1block_element0" class="slds-col   slds-size_12-of-12 " data-rindex={rindex} style="" ><omnistudio-output-field data-style-id="state0element0block_element2block_element1block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%20class=%22slds-text-align_center%22%3E%0A%3Cdiv%20class=%22slds-text-align_center%22%3E%3Cspan%20style=%22font-size:%2012pt;%22%3EThe%20Valid%20Until%20Date%20for%20this%20alert%20is%20within%2024%20hours%20so%20the%20alert%20can't%20be%20snoozed.%3C/span%3E%3C/div%3E%0A%3C/div%3E%0A%3Cdiv%20class=%22slds-text-align_center%22%3E&nbsp;%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element0block_element2block_element2" class="slds-col   slds-p-around_small  slds-size_12-of-12  " data-rindex={rindex} style="background-color:#F3F2F2;      
+         " >
+    <omnistudio-block data-style-id="state0element0block_element2block_element2_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element2block_element2block_element0" class="slds-col  slds-text-align_center  slds-size_12-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-flex-action data-style-id="state0element0block_element2block_element2block_element0_child"  tracking-obj={_childCardTrackingObj}  class= "state0element0block_element2block_element2block_element0_child flexActionElement" 
+        data-action-element-class="state0element0block_element2block_element2block_element0_child" data-action-key="state0element0block_element2block_element2block_element0" onexecuteaction={performAction} data-show-spinner="false"
+        data-element-label="block0block1block1action1clone0"   state-obj={record}  card={card}  record={record}  label="OK"  icon-name="standard-default"  action-list='\[{"stateAction":{"id":"flex-action-1650577687137","type":"Event","openUrlIn":"Current Window","eventName":"closemodal","subType":"Custom","message":"reload","bubbles":true,"composed":true},"key":"1646795484361-v1asuu6u0","label":"Cancel","draggable":true,"isOpen":true,"actionIndex":0}]'  hide-action-icon="true"  display-as-button="true"  button-variant="neutral"  flyout-details='\{}'  theme="slds"  ></omnistudio-flex-action>
+      </div>
+        </div></omnistudio-block>
+    </div>
+        </div></omnistudio-block>
+    </div>
+        </div></omnistudio-block>
+    </div>
+        </div>
+      </omnistudio-flex-card-state>
+                        </template>
+                      </template>
+                      <template if:false={hasRecords}>
+                            <omnistudio-flex-card-state  record={record} data-statue="false"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12 "  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-card slds-m-around_none " style="      
+         ">
+          <div data-style-id="state0element0" class="slds-col    slds-size_12-of-12  " data-rindex={rindex} style="      
+         " >
+    <omnistudio-block data-style-id="state0element0_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element0" class="slds-col    slds-size_12-of-12  condition-element" data-rindex={rindex} style="      
+         "  data-conditions='\{"id":"state-condition-object","isParent":true,"group":[{"id":"state-new-condition-0","field":"snoozeStatus","operator":"==","value":"Failure","type":"custom","hasMergeField":false},{"id":"state-new-condition-18","field":"snoozeValidationError","operator":"!=","value":"true","type":"custom","hasMergeField":false,"logicalOperator":"&&"}]}' >
+    <omnistudio-block data-style-id="state0element0block_element0_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  data-conditions='\{"id":"state-condition-object","isParent":true,"group":[{"id":"state-new-condition-0","field":"snoozeStatus","operator":"==","value":"Failure","type":"custom","hasMergeField":false},{"id":"state-new-condition-18","field":"snoozeValidationError","operator":"!=","value":"true","type":"custom","hasMergeField":false,"logicalOperator":"&&"}]}'  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element0block_element0" class="slds-col   slds-p-around_small  slds-size_12-of-12  " data-rindex={rindex} style="background-color:#EB011E;      
+         " >
+    <omnistudio-block data-style-id="state0element0block_element0block_element0_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element0block_element0block_element0" class="slds-col   slds-size_12-of-12  " data-rindex={rindex} style="background-color:#EB011E;      
+         " ><omnistudio-output-field data-style-id="state0element0block_element0block_element0block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%20class=%22slds-text-align_center%22%3E%3Cspan%20style=%22font-size:%2024pt;%20color:%20#ffffff;%22%3ESomething%20went%20wrong%3C/span%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element0block_element0block_element1" class="slds-col   slds-p-around_medium  slds-size_12-of-12  " data-rindex={rindex} style="      
+         " >
+    <omnistudio-block data-style-id="state0element0block_element0block_element1_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element0block_element1block_element0" class="slds-col   slds-size_12-of-12 " data-rindex={rindex} style="" ><omnistudio-output-field data-style-id="state0element0block_element0block_element1block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%20class=%22slds-text-align_center%22%3E&nbsp;%3C/div%3E%0A%3Cdiv%20class=%22slds-text-align_center%22%3E%3Cspan%20style=%22font-weight:%20400;%20font-size:%2012pt;%22%3EWe%20can&rsquo;t%20complete%20the%20action%20on%20this%20alert.%20Try%20again%20or%20contact%20your%20Salesforce%20admin%20for%20help.%3C/span%3E%3C/div%3E%0A%3Cdiv%20class=%22slds-text-align_center%22%3E&nbsp;%3C/div%3E%0A%3Cdiv%20class=%22slds-text-align_center%22%3E&nbsp;%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element0block_element1block_element1" class="slds-col  slds-text-align_center  slds-size_12-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-flex-action data-style-id="state0element0block_element0block_element1block_element1_child"  tracking-obj={_childCardTrackingObj}  class= "state0element0block_element0block_element1block_element1_child flexActionElement" 
+        data-action-element-class="state0element0block_element0block_element1block_element1_child" data-action-key="state0element0block_element0block_element1block_element1" onexecuteaction={performAction} data-show-spinner="false"
+        data-element-label="block0block1action3"   state-obj={record}  card={card}  record={record}  label="OK"  icon-name="standard-default"  action-list='\[{"stateAction":{"id":"flex-action-1650577913754","type":"Event","openUrlIn":"Current Window","eventName":"closemodal","subType":"Custom","bubbles":true,"composed":true},"key":"1646795484361-v1asuu6u0","label":"Cancel","draggable":true,"isOpen":true,"actionIndex":0,"isTrackingDisabled":false}]'  hide-action-icon="true"  display-as-button="true"  button-variant="neutral"  flyout-details='\{}'  theme="slds"  ></omnistudio-flex-action>
+      </div>
+        </div></omnistudio-block>
+    </div>
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element0block_element1" class="slds-col    slds-size_12-of-12  condition-element" data-rindex={rindex} style="      
+         "  data-conditions='\{"id":"state-condition-object","isParent":true,"group":[{"id":"state-new-condition-0","field":"snoozeStatus","operator":"!=","value":"Failure","type":"custom","hasMergeField":false}]}' >
+    <omnistudio-block data-style-id="state0element0block_element1_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  data-conditions='\{"id":"state-condition-object","isParent":true,"group":[{"id":"state-new-condition-0","field":"snoozeStatus","operator":"!=","value":"Failure","type":"custom","hasMergeField":false}]}'  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element1block_element0" class="slds-col  slds-border_bottom slds-p-around_small  slds-size_12-of-12  " data-rindex={rindex} style="     border-bottom: #cccccc 1px solid; 
+         " ><omnistudio-output-field data-style-id="state0element0block_element1block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%20class=%22slds-text-align_center%22%3E%3Cspan%20class=%22slds-text-heading_small%22%20style=%22font-size:%2018pt;%22%3ESnooze%20Alert%3C/span%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element1block_element1" class="slds-col   slds-p-around_xx-large  slds-size_12-of-12  condition-element" data-rindex={rindex} style="      
+         "  data-conditions='\{"id":"state-condition-object","isParent":true,"group":[]}' >
+    <omnistudio-block data-style-id="state0element0block_element1block_element1_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  data-conditions='\{"id":"state-condition-object","isParent":true,"group":[]}'  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element1block_element1block_element0" class="slds-col   slds-size_12-of-12 " data-rindex={rindex} style="" ><omnistudio-output-field data-style-id="state0element0block_element1block_element1block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%20class=%22slds-text-align_center%22%3E%3Cspan%20style=%22font-size:%2012pt;%22%3ESnooze%20this%20alert?%3C/span%3E%3C/div%3E%0A%3Cdiv%20class=%22slds-text-align_center%22%3E%3Cspan%20style=%22font-size:%2012pt;%22%3EAlert%20will%20be%20snoozed%20for%2024%20hours.%3C/span%3E%3C/div%3E%0A%3Cdiv%20class=%22slds-text-align_center%22%3E%3Cspan%20style=%22font-size:%2012pt;%22%3E%7BsnoozeStatus%7D%3C/span%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element0block_element1block_element2" class="slds-col   slds-p-around_small  slds-size_12-of-12  " data-rindex={rindex} style="background-color:#F3F2F2;      
+         " >
+    <omnistudio-block data-style-id="state0element0block_element1block_element2_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element1block_element2block_element0" class="slds-col   slds-size_4-of-12  " data-rindex={rindex} style="      
+         width: auto; margin-right: 0px; margin-left: auto;" ><omnistudio-flex-action data-style-id="state0element0block_element1block_element2block_element0_child"  tracking-obj={_childCardTrackingObj}  class= "state0element0block_element1block_element2block_element0_child flexActionElement" 
+        data-action-element-class="state0element0block_element1block_element2block_element0_child" data-action-key="state0element0block_element1block_element2block_element0" onexecuteaction={performAction} data-show-spinner="false"
+        data-element-label="block0block3action0"   record={record}  card={card}  state-obj={record}  hide-action-icon="true"  display-as-button="true"  button-variant="neutral"  styles='\{"label":{"textAlign":"right"}}'  action-list='\[{"key":"1650465901443-d3rqn3tlf","label":"Cancel","draggable":true,"isOpen":true,"card":"{card}","stateAction":{"id":"flex-action-1650465928075","type":"Event","displayName":"Action","vlocityIcon":"standard-default","openUrlIn":"Current Window","subType":"Custom","eventName":"closemodal","composed":true,"bubbles":true},"actionIndex":1}]'  label="Cancel"  icon-name="standard-default"  flyout-details='\{}'  theme="slds"  ></omnistudio-flex-action>
+      </div><div data-style-id="state0element0block_element1block_element2block_element1" class="slds-col  slds-text-align_center  slds-size_8-of-12  " data-rindex={rindex} style="      
+         margin-left: 8px; width: auto; " ><omnistudio-flex-action data-style-id="state0element0block_element1block_element2block_element1_child"  tracking-obj={_childCardTrackingObj}  class= "state0element0block_element1block_element2block_element1_child flexActionElement" 
+        data-action-element-class="state0element0block_element1block_element2block_element1_child" data-action-key="state0element0block_element1block_element2block_element1" onexecuteaction={performAction} data-show-spinner="true"
+        data-element-label="block0block3action1"   record={record}  card={card}  state-obj={record}  hide-action-icon="true"  display-as-button="true"  button-variant="brand"  icon-size="small"  styles='\{"label":{"fontFamily":"","textAlign":"center","fontSize":"14px"}}'  action-list='\[{"stateObj":"{record}","card":"{card}","record":"{record}","stateAction":{"id":"flex-action-1648238291048","type":"DataAction","displayName":"Snooze Alert","vlocityIcon":"standard-default","openUrlIn":"Current Window","subType":"Custom","eventName":"dismissAlert","ignoreResponse":false,"message":"{\"type\":\"IntegrationProcedures\",\"value\":{\"dsDelay\":\"\",\"resultVar\":\"[\\\"SnoozeAlert\\\"]\",\"ipMethod\":\"ServiceExcellenceAlerts_snooze\",\"vlocityAsync\":false,\"inputMap\":{\"id\":\"{id}\",\"isExternal\":\"{isExternal}\"}},\"orderBy\":{\"name\":\"\",\"isReverse\":false},\"contextVariables\":[{\"name\":\"id\",\"val\":\"0qZ06000000TT122AQ\",\"id\":1},{\"name\":\"isExternal\",\"val\":\"false\",\"id\":3}]}"},"hideActionIcon":true,"displayAsButton":true,"buttonVariant":"brand","iconSize":"small","styles":{"label":{"fontFamily":"","textAlign":"center","fontSize":"14px"}},"key":"1643754077728-win4ev5j7","label":"ActionSnooze","draggable":true,"isOpen":true,"actionIndex":0},{"key":"1643754107143-h0r2l7ptv","label":"ActionReload","draggable":true,"isOpen":true,"card":"{card}","stateAction":{"id":"flex-action-1649965083562","type":"Event","displayName":"Action","vlocityIcon":"standard-default","openUrlIn":"Current Window","subType":"PubSub","eventName":"AlertCard","message":"reload","actionConditions":{"id":"state-condition-object","isParent":true,"group":[{"id":"state-new-condition-7","field":"snoozeStatus","operator":"!=","value":"Failure","type":"custom","hasMergeField":false}]}},"actionIndex":1}]'  label="Snooze Alert"  icon-name="standard-default"  flyout-details='\{}'  theme="slds"  ></omnistudio-flex-action>
+      </div>
+        </div></omnistudio-block>
+    </div>
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element0block_element2" class="slds-col    slds-size_12-of-12  condition-element" data-rindex={rindex} style="      
+         "  data-conditions='\{"id":"state-condition-object","isParent":true,"group":[{"id":"state-new-condition-0","field":"snoozeStatus","operator":"==","value":"Failure","type":"custom","hasMergeField":false},{"id":"state-new-condition-8","field":"snoozeValidationError","operator":"==","value":"true","type":"custom","hasMergeField":false,"logicalOperator":"&&"}]}' >
+    <omnistudio-block data-style-id="state0element0block_element2_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  data-conditions='\{"id":"state-condition-object","isParent":true,"group":[{"id":"state-new-condition-0","field":"snoozeStatus","operator":"==","value":"Failure","type":"custom","hasMergeField":false},{"id":"state-new-condition-8","field":"snoozeValidationError","operator":"==","value":"true","type":"custom","hasMergeField":false,"logicalOperator":"&&"}]}'  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element2block_element0" class="slds-col  slds-border_bottom slds-p-around_small  slds-size_12-of-12  " data-rindex={rindex} style="     border-bottom: #cccccc 1px solid; 
+         " ><omnistudio-output-field data-style-id="state0element0block_element2block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%20class=%22slds-text-align_center%22%3E%3Cspan%20class=%22slds-text-heading_small%22%20style=%22font-size:%2018pt;%22%3ECan't%20snooze%20alert%3C/span%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element2block_element1" class="slds-col   slds-p-around_xx-large  slds-size_12-of-12  condition-element" data-rindex={rindex} style="      
+         "  data-conditions='\{"id":"state-condition-object","isParent":true,"group":[]}' >
+    <omnistudio-block data-style-id="state0element0block_element2block_element1_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  data-conditions='\{"id":"state-condition-object","isParent":true,"group":[]}'  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element2block_element1block_element0" class="slds-col   slds-size_12-of-12 " data-rindex={rindex} style="" ><omnistudio-output-field data-style-id="state0element0block_element2block_element1block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%20class=%22slds-text-align_center%22%3E%0A%3Cdiv%20class=%22slds-text-align_center%22%3E%3Cspan%20style=%22font-size:%2012pt;%22%3EThe%20Valid%20Until%20Date%20for%20this%20alert%20is%20within%2024%20hours%20so%20the%20alert%20can't%20be%20snoozed.%3C/span%3E%3C/div%3E%0A%3C/div%3E%0A%3Cdiv%20class=%22slds-text-align_center%22%3E&nbsp;%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element0block_element2block_element2" class="slds-col   slds-p-around_small  slds-size_12-of-12  " data-rindex={rindex} style="background-color:#F3F2F2;      
+         " >
+    <omnistudio-block data-style-id="state0element0block_element2block_element2_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element2block_element2block_element0" class="slds-col  slds-text-align_center  slds-size_12-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-flex-action data-style-id="state0element0block_element2block_element2block_element0_child"  tracking-obj={_childCardTrackingObj}  class= "state0element0block_element2block_element2block_element0_child flexActionElement" 
+        data-action-element-class="state0element0block_element2block_element2block_element0_child" data-action-key="state0element0block_element2block_element2block_element0" onexecuteaction={performAction} data-show-spinner="false"
+        data-element-label="block0block1block1action1clone0"   state-obj={record}  card={card}  record={record}  label="OK"  icon-name="standard-default"  action-list='\[{"stateAction":{"id":"flex-action-1650577687137","type":"Event","openUrlIn":"Current Window","eventName":"closemodal","subType":"Custom","message":"reload","bubbles":true,"composed":true},"key":"1646795484361-v1asuu6u0","label":"Cancel","draggable":true,"isOpen":true,"actionIndex":0}]'  hide-action-icon="true"  display-as-button="true"  button-variant="neutral"  flyout-details='\{}'  theme="slds"  ></omnistudio-flex-action>
+      </div>
+        </div></omnistudio-block>
+    </div>
+        </div></omnistudio-block>
+    </div>
+        </div></omnistudio-block>
+    </div>
+        </div>
+      </omnistudio-flex-card-state>
+                      </template>
+            </template>
+            <template if:true={hasError}>
+            {error}
+            </template>
+            
+      <omnistudio-action action-wrapperclass="slds-hide" re-render-flyout class="action-trigger slds-col" onupdateos={updateOmniscript} onselectcards={updateSelectedCards} onsetvalue={updateAction} onfireactionevent={actionEvtHandler}>
+      
+      </omnistudio-action>
+  
+            <omnistudio-action class="execute-action" re-render-flyout action-wrapperclass="slds-hide" onupdateos={updateOmniscript} onselectcards={updateSelectedCards} onsetvalue={updateAction} onfireactionevent={actionEvtHandler}>
+            
+            </omnistudio-action>
+            </div>
+          </template>

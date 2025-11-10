@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>BED</fullName>
+        <default>false</default>
+        <label>Business space</label>
+    </customValue>
+    <customValue>
+        <fullName>INT</fullName>
+        <default>false</default>
+        <label>Inpatient healthcare real estate</label>
+    </customValue>
+    <customValue>
+        <fullName>MOG</fullName>
+        <default>false</default>
+        <label>Social real estate</label>
+    </customValue>
+    <customValue>
+        <fullName>PAR</fullName>
+        <default>false</default>
+        <label>Parking space</label>
+    </customValue>
+    <customValue>
+        <fullName>REC</fullName>
+        <default>false</default>
+        <label>Recreational real estate</label>
+    </customValue>
+    <customValue>
+        <fullName>WOO</fullName>
+        <default>false</default>
+        <label>Living space</label>
+    </customValue>
+    <customValue>
+        <fullName>OVE</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </customValue>
+    <description>Real estate unit types
+
+https://www.coraveraonline.nl/index.php/Referentiedata:EENHEIDSOORT</description>
+    <masterLabel>Unit Types</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

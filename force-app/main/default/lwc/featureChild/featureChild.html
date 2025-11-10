@@ -1,0 +1,48 @@
+<template>
+    <div class="c-description">
+        <lightning-layout-item flexibility="auto">
+            <div class="custom-box">
+                <div>
+                    <lightning-icon icon-name={image} alternative-text={heading} title={heading}></lightning-icon>
+
+                    <template if:false={noNavigationMixin}>
+                        <a class="c-heading" onclick={handleClick}>{heading}</a>
+                    </template>
+
+                    <template if:true={noNavigationMixin}>
+                        <lightning-formatted-url class="c-heading" value={url} label={heading} target="_blank"></lightning-formatted-url>
+                    </template>
+
+                    <template if:true={noRecord}>
+                        <div class="slds-text-body_small c-no-record">
+                            (There are NO records to navigate to - Clickable link will NOT work)
+                        </div>
+                    </template>
+                </div>
+
+                <p class="slds-text-body_regular c-feature-desc">{appText}</p>
+
+                <div class="slds-text-body_regular c-feature-desc-second"> 
+                    <template if:true={secondaryTextPresent}>
+                        <lightning-formatted-rich-text value={secondaryText}></lightning-formatted-rich-text>
+                    </template>
+                </div>
+
+                <div class="slds-text-body_regular c-feature-desc-second"> 
+                    <template if:true={tertiaryTextPresent}>
+                        <lightning-formatted-rich-text value={tertiaryText}></lightning-formatted-rich-text>
+                    </template>
+                </div>
+
+                <template if:true={insideLinkPresent}>
+                    <div class="slds-text-body_regular c-feature-desc-second">
+                        <lightning-formatted-rich-text value={insideLinkBeforeText}></lightning-formatted-rich-text>
+                    	<lightning-formatted-url value={insideLink} label={insideLinkText} target="_blank"></lightning-formatted-url>
+                        <lightning-formatted-rich-text value={insideLinkAfterText}></lightning-formatted-rich-text>
+                    </div>
+                </template>
+
+            </div>
+        </lightning-layout-item>
+    </div>
+</template>

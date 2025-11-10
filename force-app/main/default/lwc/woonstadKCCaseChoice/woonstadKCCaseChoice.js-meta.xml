@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Woonstad KC Case Choice</masterLabel>
+    <description>Keuzekaarten voor Flow: Contactmoment vastleggen en Nieuwe zaak aanmaken. Layout instelbaar (horizontal of vertical).</description>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="var_contactmoment"
+                      type="String"
+                      label="Contactmoment vastleggen"
+                      role="outputOnly"/>
+            <property name="var_nieuweZaak"
+                      type="String"
+                      label="Nieuwe zaak aanmaken"
+                      role="outputOnly"/>
+            <property name="layout"
+                      type="String"
+                      label="Layout"
+                      default="horizontal"
+                      description="horizontal or vertical card layout"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/*************************************************************************************************
+ * Meta Configuration: woonstadBussDuplicateCheck
+ * Purpose         : Defines Flow screen component properties for business duplicate checking.
+ * 
+ * Input Variables : Business search criteria (company name, KVK, VAT, contact info)
+ * Output Variables: Selected business Account ID and selection flag
+ * 
+ * Flow Support    : Configured for Salesforce Flow screens with navigation support.
+ * Last Modified   : 2025-08-29
+ *************************************************************************************************/
+-->
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <isExposed>true</isExposed>
+    <description>Business duplicate checker component for Salesforce Flow with business search criteria and Account selection.</description>
+    
+    <!-- Flow screen component configuration -->
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            
+            <!-- Business Search Input Variables -->
+            <property name="companyName" type="String" 
+                      label="Bedrijfsnaam" 
+                      description="Company/business name to search for duplicates" 
+                      required="false"/>
+                      
+            <property name="kvkNumber" type="String" 
+                      label="KVK nummer" 
+                      description="KVK (Chamber of Commerce) registration number" 
+                      required="false"/>
+                      
+            <property name="vatNumber" type="String" 
+                      label="BTW nummer" 
+                      description="VAT (BTW) tax identification number" 
+                      required="false"/>
+                      
+            <property name="email" type="String" 
+                      label="Emailadres" 
+                      description="Business email address to search for duplicates" 
+                      required="false"/>
+                      
+            <property name="phone" type="String" 
+                      label="Telefoonnummer" 
+                      description="Business phone number (primary)" 
+                      required="false"/>
+                      
+            <property name="mobile" type="String" 
+                      label="Mobiel nummer" 
+                      description="Business mobile/secondary phone number" 
+                      required="false"/>
+            
+            <!-- Compatibility inputs (kept for older Flow configurations) -->
+            <property name="autoAdvance" type="Boolean" 
+                      label="Automatisch door (compat)" 
+                      description="Compatibility with older Flow configurations" 
+                      default="false"/>
+                      
+            <property name="autoAdvanceDelayMs" type="Integer" 
+                      label="Vertraging (ms) (compat)" 
+                      description="Compatibility with older Flow configurations" 
+                      default="6000"/>
+            
+            <!-- Output Variables -->
+            <property name="selectedExisting" type="Boolean" role="outputOnly" 
+                      label="Bestaand bedrijf geselecteerd" 
+                      description="True when an existing business row is clicked/selected"/>
+                      
+            <property name="selectedAccountId" type="String" role="outputOnly" 
+                      label="Geselecteerde Account Id" 
+                      description="Account ID of the selected existing business"/>
+            
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

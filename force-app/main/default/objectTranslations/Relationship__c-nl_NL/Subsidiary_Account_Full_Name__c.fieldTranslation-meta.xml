@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Secundaire Klant Volledige Naam</label>
+    <name>Subsidiary_Account_Full_Name__c</name>
+</CustomFieldTranslation>

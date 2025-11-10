@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Voeg een werkinstructie voor het kennisartikel toe.</help>
+    <label>Bevat Werkinstructie</label>
+    <name>Contains_Work_Instruction__c</name>
+</CustomFieldTranslation>

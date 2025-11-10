@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Sjabloon voor automatische reactie op email-to-case</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Stadswonen Email-to-Case Autoreply Standaard</name>
+    <pageDevName>Woonstad_Email_to_Case_Autoreply_Standaard1</pageDevName>
+    <relatedEntityType>Case</relatedEntityType>
+    <style>none</style>
+    <subject>Bedankt voor uw e-mail</subject>
+    <textOnly>**Bericht ontvangen
+----------------------------------------------------
+
+Beste {{{Case.Email_Template_Salutation__c}}},
+
+Bedankt voor je bericht.
+
+Wij hebben je bericht geregistreerd onder het nummer {{{Case.CaseNumber}}}.
+
+Heb je een algemene vraag?
+
+Je ontvangt binnen 3 werkdagen een reactie.
+
+Heb je een vraag over onderhoud?
+
+Je ontvangt binnen 5 werkdagen een reactie.
+
+Heb je een vraag over betalen?
+
+Je ontvangt binnen 15 werkdagen een reactie.
+
+Veel zaken regel je zelf via MijnStadswonen &lt; https://mijn.stadswonenrotterdam.nl/ &gt; . Op onze website vind je antwoorden op veelgestelde vragen &lt; https://www.stadswonenrotterdam.nl/nl/klantenservice &gt; .
+
+Met vriendelijke groeten,
+
+Stadswonen Rotterdam
+
+Kunnen we je helpen?
+
+Neem contact met ons o &lt; https://www.stadswonenrotterdam.nl/contact &gt; p &lt; https://www.stadswonenrotterdam.nl/contact &gt; 
+
+© 2025 Stadswonen Rotterdam &lt; https://www.stadswonenrotterdam.nl/ &gt; 
+
+Privacy Statement &lt; https://www.stadswonenrotterdam.nl/privacy-en-cookie-statement &gt; • Disclaimer &lt; https://www.stadswonenrotterdam.nl/disclaimer &gt;</textOnly>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>

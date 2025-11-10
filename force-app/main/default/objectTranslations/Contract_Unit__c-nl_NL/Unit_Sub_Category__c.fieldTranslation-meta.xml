@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Om de subcategorie van de eenheid te registreren.</help>
+    <label>Subcategorie</label>
+    <name>Unit_Sub_Category__c</name>
+    <picklistValues>
+        <masterLabel>Allotment</masterLabel>
+        <translation>Volkstuin</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Antenna setup site</masterLabel>
+        <translation>Antenne-opstelplaats</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Berth</masterLabel>
+        <translation>Ligplaats</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Bicycle parking space</masterLabel>
+        <translation>Fietsparkeerplaats/stalling</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Broad school</masterLabel>
+        <translation>Brede school</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Building site</masterLabel>
+        <translation>Bouwkavel</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Car parking space</masterLabel>
+        <translation>Parkeerplaats auto</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Care support center</masterLabel>
+        <translation>Zorgsteunpunt</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Center for work</masterLabel>
+        <translation>Centrum voor werk</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Childcare facility</masterLabel>
+        <translation>Kinderopvanglocatie</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Community center</masterLabel>
+        <translation>Buurthuis</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Corner house</masterLabel>
+        <translation>Hoekwoning</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Corridor apartment</masterLabel>
+        <translation>Corridorflat</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Culture room</masterLabel>
+        <translation>Cultuur ruimte</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Daytime space</masterLabel>
+        <translation>Dagbestedingsruimte</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Detached house</masterLabel>
+        <translation>Half vrijstaande woning</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>District/neighborhood welfare center</masterLabel>
+        <translation>Welzijnswerkruimte wijk-/buurtgericht</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Downstairs apartment</masterLabel>
+        <translation>Benedenwoning</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Elementary school</masterLabel>
+        <translation>Basisschool</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>End house</masterLabel>
+        <translation>Eindwoning</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Gallery flat</masterLabel>
+        <translation>Galerijflat</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Garage</masterLabel>
+        <translation>Garage</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Hospice</masterLabel>
+        <translation>Hospice</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Hospital</masterLabel>
+        <translation>Ziekenhuis</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Hospitality</masterLabel>
+        <translation>Zorgsteunpunt</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Houseboat</masterLabel>
+        <translation><!-- Houseboat --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Indoor parking area</masterLabel>
+        <translation><!-- Indoor parking area --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Institution for the mentally disabled</masterLabel>
+        <translation><!-- Institution for the mentally disabled --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Leasehold plot</masterLabel>
+        <translation><!-- Leasehold plot --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Library</masterLabel>
+        <translation><!-- Library --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Maisonette</masterLabel>
+        <translation><!-- Maisonette --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Meeting space</masterLabel>
+        <translation><!-- Meeting space --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mental institution</masterLabel>
+        <translation><!-- Mental institution --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Mobility scooter spot</masterLabel>
+        <translation><!-- Mobility scooter spot --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Motorcycle parking space</masterLabel>
+        <translation><!-- Motorcycle parking space --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Multipurpose center</masterLabel>
+        <translation><!-- Multipurpose center --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Neighborhood sports facility</masterLabel>
+        <translation><!-- Neighborhood sports facility --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Nursing home</masterLabel>
+        <translation><!-- Nursing home --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Office space</masterLabel>
+        <translation><!-- Office space --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Office space of admitted institution</masterLabel>
+        <translation><!-- Office space of admitted institution --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Physically and mentally disabled institution</masterLabel>
+        <translation><!-- Physically and mentally disabled institution --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Physically challenged institution</masterLabel>
+        <translation><!-- Physically challenged institution --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Porch apartment</masterLabel>
+        <translation><!-- Porch apartment --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Portico apartment</masterLabel>
+        <translation><!-- Portico apartment --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Practice house</masterLabel>
+        <translation><!-- Practice house --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Practice space</masterLabel>
+        <translation><!-- Practice space --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Private residence</masterLabel>
+        <translation><!-- Private residence --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Public center</masterLabel>
+        <translation><!-- Public center --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Recreation hall</masterLabel>
+        <translation><!-- Recreation hall --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Recreational home</masterLabel>
+        <translation><!-- Recreational home --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Residential/commercial building</masterLabel>
+        <translation><!-- Residential/commercial building --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Retail space</masterLabel>
+        <translation><!-- Retail space --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Retirement facility</masterLabel>
+        <translation><!-- Retirement facility --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Room</masterLabel>
+        <translation><!-- Room --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Rowhouse</masterLabel>
+        <translation><!-- Rowhouse --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Safety house</masterLabel>
+        <translation><!-- Safety house --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>School building</masterLabel>
+        <translation><!-- School building --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Semi-detached house</masterLabel>
+        <translation><!-- Semi-detached house --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Shelter</masterLabel>
+        <translation><!-- Shelter --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Social work space district/neighborhood-oriented</masterLabel>
+        <translation><!-- Social work space district/neighborhood-oriented --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Social work space non-neighborhood/neighborhood-oriented</masterLabel>
+        <translation><!-- Social work space non-neighborhood/neighborhood-oriented --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Storage</masterLabel>
+        <translation><!-- Storage --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Studio space</masterLabel>
+        <translation><!-- Studio space --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Support center</masterLabel>
+        <translation><!-- Support center --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Temporary home</masterLabel>
+        <translation><!-- Temporary home --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Terraced house</masterLabel>
+        <translation><!-- Terraced house --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Tiny house</masterLabel>
+        <translation><!-- Tiny house --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Townhouse</masterLabel>
+        <translation><!-- Townhouse --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Trailer</masterLabel>
+        <translation><!-- Trailer --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Trailer site</masterLabel>
+        <translation><!-- Trailer site --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Twin house</masterLabel>
+        <translation><!-- Twin house --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Upstairs apartment</masterLabel>
+        <translation><!-- Upstairs apartment --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Waterfront home</masterLabel>
+        <translation><!-- Waterfront home --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Welfare space non-neighborhood or community-oriented</masterLabel>
+        <translation><!-- Welfare space non-neighborhood or community-oriented --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Youth and family center</masterLabel>
+        <translation><!-- Youth and family center --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Youth center</masterLabel>
+        <translation><!-- Youth center --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

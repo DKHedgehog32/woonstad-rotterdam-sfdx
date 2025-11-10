@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Voor het vastleggen van een postbus.</help>
+    <label>Postbus</label>
+    <name>PO_Box_Number__c</name>
+</CustomFieldTranslation>

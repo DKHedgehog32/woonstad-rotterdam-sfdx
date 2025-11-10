@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Welk label is gekoppeld aan de klant op basis van overeenkomsten.</help>
+    <label><!-- Label --></label>
+    <name>Label__c</name>
+    <picklistValues>
+        <masterLabel>Stadswonen</masterLabel>
+        <translation><!-- Stadswonen --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Woonstad</masterLabel>
+        <translation><!-- Woonstad --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Woonstad &amp; Stadswonen</masterLabel>
+        <translation><!-- Woonstad &amp; Stadswonen --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

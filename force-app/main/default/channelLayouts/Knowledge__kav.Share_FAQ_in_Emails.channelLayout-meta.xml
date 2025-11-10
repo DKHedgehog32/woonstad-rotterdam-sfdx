@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ChannelLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesExcludeFieldLabels>true</doesExcludeFieldLabels>
+    <doesExcludeFiles>false</doesExcludeFiles>
+    <enabledChannels>Email</enabledChannels>
+    <label>Share FAQ in Emails</label>
+    <layoutItems>
+        <field>Question__c</field>
+    </layoutItems>
+    <layoutItems>
+        <field>Web_Answer__c</field>
+    </layoutItems>
+    <recordType>FAQ</recordType>
+</ChannelLayout>

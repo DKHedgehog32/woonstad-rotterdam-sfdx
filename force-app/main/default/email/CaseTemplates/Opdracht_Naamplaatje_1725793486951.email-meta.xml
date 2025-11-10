@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Opdracht geven voor aanmaken naamplaatje</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Opdracht Naamplaatje</name>
+    <relatedEntityType>Case</relatedEntityType>
+    <style>none</style>
+    <subject>Opdracht naamplaatje {{{Case.Id}}}</subject>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>

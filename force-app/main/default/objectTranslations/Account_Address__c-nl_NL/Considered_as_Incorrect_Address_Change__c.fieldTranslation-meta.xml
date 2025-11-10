@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Als deze checkbox geselecteerd is, betekent dit dat de adreswijziging beschouwd wordt als een foutieve invoer. De start- en einddatum zijn gelijk en daarmee wordt verwacht dat nieuwe input het juiste adres is.</help>
+    <label>Beschouwd als incorrecte adreswijziging</label>
+    <name>Considered_as_Incorrect_Address_Change__c</name>
+</CustomFieldTranslation>

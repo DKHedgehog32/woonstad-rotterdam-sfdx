@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>Campus rental</masterLabel>
+        <translation>Campus verhuur</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Commercial space rental</masterLabel>
+        <translation>Commerciële verhuur</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Indefinite rental</masterLabel>
+        <translation>Onbepaalde tijd huur</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>MGE construction</masterLabel>
+        <translation>MGE constructie</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Part of sales project</masterLabel>
+        <translation>Deel van verkoop project</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Purchase guarantee</masterLabel>
+        <translation>Aankoop garantie</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Shortstay rental</masterLabel>
+        <translation>Kortverblijf verhuur</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Temporary rental</masterLabel>
+        <translation>Tijdelijke verhuur</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Youth rental</masterLabel>
+        <translation>Jongerenverhuur</translation>
+    </valueTranslation>
+</GlobalValueSetTranslation>

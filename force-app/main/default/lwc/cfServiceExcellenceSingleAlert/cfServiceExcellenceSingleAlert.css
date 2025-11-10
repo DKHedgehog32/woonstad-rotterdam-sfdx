@@ -1,0 +1,57 @@
+.chevron button {
+    width: auto !important; 
+    height: auto !important;
+    background-color: white !important;
+    color: #747474 !important;
+    border: 0px !important;
+    padding: 0px !important;
+    margin-left: 18px !important;
+}
+
+.chevron button:hover {
+    width: auto !important; 
+    height: auto !important;
+    background-color: white !important;
+    color: #747474 !important;
+    border: 0px !important;
+    padding: 0px !important;
+    margin-left: 18px !important;
+}
+
+.chevron button:focus {
+    width: auto !important; 
+    height: auto !important;
+    background-color: white !important;
+    color: #747474 !important;
+    border: 0px !important;
+    padding: 0px !important;
+    margin-left: 18px !important;
+}
+
+.icon {
+    margin-top: 10px !important;
+    margin-left: 0px !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+.subject {
+    margin-top: 8px !important;
+    margin-left: 10px !important;
+}
+
+.subjectContainer {
+    margin-top: 8px !important;
+    margin-left: 10px !important;
+    font-size: 13px !important;
+    font-family: 'Segoe UI', Arial, sans-serif !important;
+}
+
+.actionContainer svg {
+  border-radius: 2px !important;
+  padding: 4px !important;
+}
+
+.menu-item-label.slds-action_text span {
+    color: black !important;
+}

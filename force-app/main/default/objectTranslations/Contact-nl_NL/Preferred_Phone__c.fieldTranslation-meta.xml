@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Voorkeur Telefoonnummer</label>
+    <name>Preferred_Phone__c</name>
+    <picklistValues>
+        <masterLabel>Mobiel</masterLabel>
+        <translation>📱 Telefoonnnummer 2</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Vast</masterLabel>
+        <translation>☎️ Telefoonnummer 1</translation>
+    </picklistValues>
+</CustomFieldTranslation>

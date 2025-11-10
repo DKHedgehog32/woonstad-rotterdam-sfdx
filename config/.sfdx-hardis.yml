@@ -1,0 +1,99 @@
+# ============================================================================
+# SFDX HARDIS CONFIGURATION - Woonstad Rotterdam
+# ============================================================================
+# Description: Main configuration file for SFDX Hardis CI/CD pipeline
+# This file controls deployments, org mappings, and automation behavior
+# ============================================================================
+
+projectName: "Woonstad Rotterdam"
+
+# ============================================================================
+# BRANCH TO ORG MAPPING
+# ============================================================================
+# Each Git branch corresponds to a Salesforce org
+# Changes flow through branches via Pull Requests
+# ============================================================================
+branches:
+  # Production Environment
+  main:
+    org: wsrprod
+    branchType: production
+    requiresApproval: true
+    runAllTests: true
+    
+  # Pre-Production Environment  
+  wsrpreprod:
+    org: wsrpreprod
+    branchType: integration
+    requiresApproval: true
+    runAllTests: true
+    
+  # User Acceptance Testing
+  wsruat:
+    org: wsruat
+    branchType: integration
+    requiresApproval: true
+    runAllTests: false
+    
+  # Training Environment (parallel to UAT)
+  wsrtrain:
+    org: wsrtrain
+    branchType: training
+    requiresApproval: false
+    runAllTests: false
+    
+  # Test/Integration Environment (default for development)
+  wsrtest:
+    org: wsrtest
+    branchType: integration
+    requiresApproval: false
+    runAllTests: false
+
+# ============================================================================
+# DELTA DEPLOYMENT CONFIGURATION
+# ============================================================================
+# Only deploy metadata that has changed between branches
+# Dramatically improves deployment speed
+# ============================================================================
+deltaDeployment:
+  enabled: true
+
+# ============================================================================
+# SMART APEX TESTS
+# ============================================================================
+# Intelligently skip Apex tests when not needed
+# Example: Skip tests on wsrtest if only Flow metadata changed
+# ============================================================================
+smartTests:
+  enabled: true
+  skipApexTestsIfNoApexChange: true
+
+# ============================================================================
+# OVERWRITE MANAGEMENT
+# ============================================================================
+# Protect specific metadata from being overwritten during deployment
+# Useful for Profiles and Permission Sets managed directly in Production
+# ============================================================================
+overwriteManagement:
+  enabled: true
+  protectedMetadata:
+    - "Profile:*"
+    - "PermissionSet:*"
+
+# ============================================================================
+# SOURCE CLEANING
+# ============================================================================
+# Automatically clean metadata before commits to reduce noise in diffs
+# ============================================================================
+cleaning:
+  minimizeProfiles: true      # Remove redundant profile permissions
+  flowPositions: true         # Standardize Flow element positions
+  listViewsMine: true         # Clean up "My X" list views
+  
+# ============================================================================
+# DEPLOYMENT SETTINGS
+# ============================================================================
+deploymentPlan:
+  ignoreWarnings: false        # Fail deployment on warnings
+  testLevel: "RunLocalTests"   # Default test level for deployments
+  checkOnly: false             # Actually deploy (not just validate)

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ManagedTopics xmlns="http://soap.sforce.com/2006/04/metadata">
+    <managedTopic>
+        <fullName>Woonstad Medewerker Kennisbank.Featured:Incasso</fullName>
+        <managedTopicType>Featured</managedTopicType>
+        <name>Incasso</name>
+        <parentName></parentName>
+        <position>1</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>Woonstad Medewerker Kennisbank.Featured:Onderhoud</fullName>
+        <managedTopicType>Featured</managedTopicType>
+        <name>Onderhoud</name>
+        <parentName></parentName>
+        <position>0</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>Woonstad Medewerker Kennisbank.Featured:Sociaal-beheer</fullName>
+        <managedTopicType>Featured</managedTopicType>
+        <name>Sociaal-beheer</name>
+        <parentName></parentName>
+        <position>3</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>Woonstad Medewerker Kennisbank.Featured:Verhuur</fullName>
+        <managedTopicType>Featured</managedTopicType>
+        <name>Verhuur</name>
+        <parentName></parentName>
+        <position>2</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>Woonstad Medewerker Kennisbank.Navigational:Incasso</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>Incasso</name>
+        <parentName></parentName>
+        <position>3</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>Woonstad Medewerker Kennisbank.Navigational:Mededelingen</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>Mededelingen</name>
+        <parentName></parentName>
+        <position>6</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>Woonstad Medewerker Kennisbank.Navigational:Onderhoud</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>Onderhoud</name>
+        <parentName></parentName>
+        <position>2</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>Woonstad Medewerker Kennisbank.Navigational:Sociaal-beheer</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>Sociaal-beheer</name>
+        <parentName></parentName>
+        <position>1</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>Woonstad Medewerker Kennisbank.Navigational:Stadswonen</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>Stadswonen</name>
+        <parentName></parentName>
+        <position>5</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>Woonstad Medewerker Kennisbank.Navigational:Verhuur</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>Verhuur</name>
+        <parentName></parentName>
+        <position>0</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>Woonstad Medewerker Kennisbank.Navigational:Website</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>Website</name>
+        <parentName></parentName>
+        <position>7</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+    <managedTopic>
+        <fullName>Woonstad Medewerker Kennisbank.Navigational:Woonstad</fullName>
+        <managedTopicType>Navigational</managedTopicType>
+        <name>Woonstad</name>
+        <parentName></parentName>
+        <position>4</position>
+        <topicDescription> </topicDescription>
+    </managedTopic>
+</ManagedTopics>

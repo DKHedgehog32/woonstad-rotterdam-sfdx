@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Date the next change in rent price will occur --></help>
+    <label><!-- Next Rent Price Change Date --></label>
+    <name>Next_Rent_Price_Change_Date__c</name>
+</CustomFieldTranslation>

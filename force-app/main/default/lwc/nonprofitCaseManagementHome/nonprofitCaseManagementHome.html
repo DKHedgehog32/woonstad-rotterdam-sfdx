@@ -1,0 +1,157 @@
+<template>
+    <lightning-card footer="" title="">
+        <h1 class="slds-text-heading_medium">{app_welcome_text}</h1>
+        <div class="c-footer" >
+            <a href="/lightning/app/c__Nonprofit_Cloud_Learning_Experience/page/home">Return to Learning Home</a>
+        </div>
+        <div class="c-container">
+            <lightning-layout>
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    <div class="slds-clearfix">
+                        <span>
+                            <template if:true={load_data}>
+                                <lightning-button class="slds-float_right" label="Load Sample Data" onclick={loadDataFromCsv}></lightning-button>
+                            </template>
+                        </span>
+                        <p class="c-description">{app_description}</p>
+                    </div>
+
+                    <c-feature-child
+                        heading="Set Up Case Management" 
+                        image="standard:case_milestone" 
+                        app-text="Case Management drives participant achievements by helping case managers see the full picture of every participant, deliver individualised participant experiences, and collaborate widely on support. Admins set up Case Management and configure features that help in creating care plans. "
+                        url="https://help.salesforce.com/s/articleView?id=sfdo.NPC_CM_Learn_About_Case_Management_for_Nonprofits.htm"
+                        link-in-new-tab={pass_true}
+                        no-navigation-mixin={pass_true}
+                        link-reference="standard__webPage"></c-feature-child>
+
+                    <c-feature-child
+                        heading="Care Plan Templates" 
+                        image="standard:template" 
+                        app-text="Save time and improve consistency by creating care plans from templates and personalising them to the participant’s unique needs. "
+                        url="https://help.salesforce.com/s/articleView?id=sfdo.NPC_CM_Care_Plan_Template.htm"
+                        link-in-new-tab={pass_true}
+                        no-navigation-mixin={pass_true}
+                        link-reference="standard__webPage"></c-feature-child>
+                    
+                    <c-feature-child
+                        heading="Set Up Care Plans" 
+                        image="standard:care_request_reviewer" 
+                        app-text="A care plan contains the elements that case managers need to help participants and is viewed on a participants case page. A care plan can consist of a broad goal and subgoals, benefits or services, and specific tasks or actions to help the participant reach their goal. "
+                        url="https://help.salesforce.com/s/articleView?id=sfdo.NPC_CM_Set_Up_Care_Plans.htm"
+                        link-in-new-tab={pass_true}
+                        no-navigation-mixin={pass_true}
+                        link-reference="standard__webPage"></c-feature-child>
+
+                    <c-feature-child
+                        heading="Interaction summaries for taking notes" 
+                        image="utility:summarydetail" 
+                        app-text="Use Interaction Summaries to take and store detailed notes of meetings and conversations. You can specify the confidentiality level of the notes, add action items or next steps, and quickly search for and filter summaries to find notes from past interactions. "
+                        url="/lightning/setup/IndustriesInteractionSummarySettings/home"
+                        link-in-new-tab={pass_true}
+                        link-reference="standard__webPage"></c-feature-child>
+
+                    <c-feature-child
+                        heading="Dynamic Assessments" 
+                        image="standard:dynamic_record_choice" 
+                        app-text="Design a guided questionnaire to assess participants by using detailed assessment questions and tasks that include conditional logic and dependencies. Then assign a care plan that provides the services and support the participants need based on the assessment results. "
+                        url="https://help.salesforce.com/s/articleView?id=sfdo.NPC_CM_Set_Up_Dynamic_Assessments.htm"
+                        link-in-new-tab={pass_true}
+                        no-navigation-mixin={pass_true}
+                        link-reference="standard__webPage"></c-feature-child>
+
+                    <c-feature-child
+                        heading="Complaints" 
+                        image="utility:report_issue" 
+                        app-text="A complaint, or incident, can be any number of things. Perhaps a participant has an altercation with another participant or doesn't take a mock interview seriously. Creating an Complaint record, called Public Complaint in Public Sector Solutions, helps you track these events and keep a complete participant record. "
+                        url="https://help.salesforce.com/s/articleView?id=sfdo.NPC_CM_Complaints.htm"
+                        link-in-new-tab={pass_true}
+                        no-navigation-mixin={pass_true}
+                        link-reference="standard__webPage"></c-feature-child>
+
+                    <c-feature-child
+                        heading="Case Referrals" 
+                        image="utility:add" 
+                        app-text="Deliver additional services and support to participants by referring them to service providers within or outside of your organization. "
+                        url="https://help.salesforce.com/s/articleView?id=sfdo.NPC_CM_Case_Referrals.htm"
+                        link-in-new-tab={pass_true}
+                        no-navigation-mixin={pass_true}
+                        link-reference="standard__webPage"></c-feature-child>
+                    
+                    <c-feature-child
+                        heading="Quick Access to Program and Case Management App" 
+                        image="standard:channel_programs" 
+                        app-text="Track and manage your Cases, Programs, Benefits and Service Deliveries."
+                        app="standard__ProgramManagementConsole"
+                        page="home"
+                        link-in-new-tab={pass_true}
+                        link-reference="standard__namedPage"></c-feature-child>
+                    
+
+                    <template if:false={no_record_referral}>
+                        <c-feature-child
+                        heading="Review the Story of Referral Intake" 
+                        image="standard:number_input" 
+                        app-text="Review this story which is pre-configured in the org. This helps in navigating through the process of Referral Intake after a dynamic assessment."
+                        app="standard__ProgramManagementConsole"
+                        link-in-new-tab={pass_true}
+                        object-name="Referral"
+                        object-id={referralId}
+                        link-reference="standard__recordPage"
+                        secondary-text-present={pass_true}
+                        secondary-text="&lt;strong&gt;*&lt;/strong&gt; Patrick Lozano submitted a Referral (&lt;strong&gt;REF-0000000011&lt;/strong&gt;) to refer his neighbour Amanda Harmon (Client) who is seeking a mentor for guided meditation."
+                        tertiary-text-present={pass_true}
+                        tertiary-text="&lt;strong&gt;*&lt;/strong&gt; The intake agent completed an Assessment (28Mar - Assess Eligibility Requirements to Yoga) as part of the Referral intake."
+                        inside-link-present={pass_true}
+                        inside-link="/lightning/app/standard__ProgramManagementConsole/n/omnistudio__OmniScriptHome"
+                        inside-link-before-text="&lt;strong&gt;*&lt;/strong&gt; You can review the questions in the assessment by searching with the assessment name in the "
+                        inside-link-text="Omniscripts"
+                        inside-link-after-text=" Tab and Activate the assessment if you wish to re-use." ></c-feature-child>
+                    </template>
+                    <template if:true={no_record_referral}>
+                        <c-feature-child
+                            heading="Review the Story of Referral Intake" 
+                            image="standard:number_input" 
+                            app-text="Review this story which is pre-configured in the org. This helps in navigating through the process of Referral Intake after a dynamic assessment."
+                            url="" 
+                            no-record={no_record_referral} 
+                            secondary-text-present={pass_true}
+                            secondary-text="&lt;strong&gt;*&lt;/strong&gt; Patrick Lozano submitted a Referral (&lt;strong&gt;REF-0000000011&lt;/strong&gt;) to refer his neighbour Amanda Harmon (Client) who is seeking a mentor for guided meditation."
+                            tertiary-text-present={pass_true}
+                            tertiary-text="&lt;strong&gt;*&lt;/strong&gt; The intake agent completed an Assessment (28Mar - Assess Eligibility Requirements to Yoga) as part of the Referral intake."
+                            inside-link-present={pass_true}
+                            inside-link="/lightning/app/standard__ProgramManagementConsole/n/omnistudio__OmniScriptHome"
+                            inside-link-before-text="&lt;strong&gt;*&lt;/strong&gt; You can review the questions in the assessment by searching with the assessment name in the "
+                            inside-link-text="Omniscripts"
+                            inside-link-after-text=" Tab and Activate the assessment if you wish to re-use." ></c-feature-child>
+                    </template>
+
+                    <template if:false={no_record_case}>
+                        <c-feature-child
+                        heading="Review the Story of Case Creation" 
+                        image="standard:currency_input" 
+                        app-text="Review this story which is pre-configured in the org. This helps in navigating through the process of creating a Case, Care Plan and an Action Plan."
+                        app="standard__ProgramManagementConsole"
+                        link-in-new-tab={pass_true}
+                        object-name="Case"
+                        object-id={caseId}
+                        link-reference="standard__recordPage"
+                        secondary-text-present={pass_true}
+                        secondary-text="&lt;strong&gt;*&lt;/strong&gt; The intake agent created a Case (&lt;strong&gt;00001022&lt;/strong&gt;) for Georg Neumann who is seeking enrolmnent to Yoga Programs. Intake agent has captured interaction summary and notes. &lt;br&gt; &lt;strong&gt;*&lt;/strong&gt; A Care Plan is created for Georg (28Mar - Care Pan for Georg). &lt;br&gt; &lt;strong&gt;*&lt;/strong&gt; As part of the Care Plan, an Action Plan (28Mar - Assess Georg's eligibility to Yoga Program) is created. &lt;br&gt; &lt;strong&gt;*&lt;/strong&gt; An Assessment (28Mar - Assess Eligibility Requirements to Yoga Program) is completed as part of the Action Plan. &lt;br&gt; &lt;strong&gt;*&lt;/strong&gt; After Assessment, Georg Neumann is referred to the Program 'Mental Health’ and assigned to the Benefit 'Yoga for Wellness'." ></c-feature-child>
+                    </template>
+                    <template if:true={no_record_case}>
+                        <c-feature-child
+                            heading="Review the Story of Case Creation" 
+                            image="standard:currency_input" 
+                            app-text="Review this story which is pre-configured in the org. This helps in navigating through the process of creating a Case, Care Plan and an Action Plan."
+                            url="" 
+                            no-record={no_record_case} 
+                            secondary-text-present={pass_true}
+                            secondary-text="&lt;strong&gt;*&lt;/strong&gt; The intake agent created a Case (&lt;strong&gt;00001022&lt;/strong&gt;) for Georg Neumann who is seeking enrolmnent to Yoga Programs. Intake agent has captured interaction summary and notes. &lt;br&gt; &lt;strong&gt;*&lt;/strong&gt; A Care Plan is created for Georg (28Mar - Care Pan for Georg). &lt;br&gt; &lt;strong&gt;*&lt;/strong&gt; As part of the Care Plan, an Action Plan (28Mar - Assess Georg's eligibility to Yoga Program) is created. &lt;br&gt; &lt;strong&gt;*&lt;/strong&gt; An Assessment (28Mar - Assess Eligibility Requirements to Yoga Program) is completed as part of the Action Plan. &lt;br&gt; &lt;strong&gt;*&lt;/strong&gt; After Assessment, Georg Neumann is referred to the Program 'Mental Health’ and assigned to the Benefit 'Yoga for Wellness'." ></c-feature-child>
+                    </template>
+                    
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </lightning-card>
+</template>

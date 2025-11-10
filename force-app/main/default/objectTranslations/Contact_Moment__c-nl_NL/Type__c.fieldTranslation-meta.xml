@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Select how the customer contacted you or how you contacted the customer. This field is required. --></help>
+    <label><!-- Interaction Type --></label>
+    <name>Type__c</name>
+    <picklistValues>
+        <masterLabel>Email</masterLabel>
+        <translation><!-- Email --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Face2Face</masterLabel>
+        <translation><!-- Face2Face --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Letter</masterLabel>
+        <translation><!-- Letter --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Phone</masterLabel>
+        <translation><!-- Phone --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Self Service</masterLabel>
+        <translation><!-- Self Service --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Service Desk</masterLabel>
+        <translation><!-- Service Desk --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Website</masterLabel>
+        <translation><!-- Website --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

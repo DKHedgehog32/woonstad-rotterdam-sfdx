@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Type van het klant adres, postadres komt overeen met factuur adres en eenheidadres met verzendadres.</help>
+    <label>Type</label>
+    <name>Type__c</name>
+    <picklistValues>
+        <masterLabel>Postadres</masterLabel>
+        <translation>Postadres</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Woonadres</masterLabel>
+        <translation><!-- Woonadres --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

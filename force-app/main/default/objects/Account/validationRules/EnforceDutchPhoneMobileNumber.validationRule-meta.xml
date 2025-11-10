@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EnforceDutchPhoneMobileNumber</fullName>
+    <active>true</active>
+    <description>Extra validation rule with error message on its own in order to enforce users not to use +31 for Dutch phone and mobile numbers.</description>
+    <errorConditionFormula>OR(
+    LEFT(Phone, 4) = &quot;+31&quot;, 
+    LEFT(PersonMobilePhone , 4) = &quot;+316&quot;
+)</errorConditionFormula>
+    <errorMessage>A Dutch phone or mobile number cannot start with +31. Please change your input of the phone or mobile number to a number that starts with 0 instead of +31.</errorMessage>
+</ValidationRule>

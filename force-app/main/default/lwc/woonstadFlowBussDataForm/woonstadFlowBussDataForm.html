@@ -1,0 +1,158 @@
+<!--
+/*************************************************************************************************
+ * Component       : woonstadFlowBussDataForm (HTML)
+ * Layer           : Presentation (HTML Template)
+ * Purpose         : Legacy two-column business form + single right-aligned "Volgende" button.
+ *
+ * Notes           :
+ *  - Validation runs ONLY on click of Volgende - no HTML required attributes.
+ *  - Required fields marked with red asterisk (*) directly in label text.
+ *  - Account Type field added above Business Name (fetches from Account.Type picklist).
+ *  - Left column contains company information: account type, name, KVK number, VAT number.
+ *  - Right column maintains all contact information fields.
+ *  - We keep legacy markup and class names for consistent styling.
+ * Last Modified   : 2025-08-29
+ *************************************************************************************************/
+-->
+<template>
+    <div class="woonstad">
+        <!-- Top validation banner (only toggled on Volgende) -->
+        <template if:true={showValidationBanner}>
+            <div class="ws-validation-banner" role="alert">
+                Zorg dat alle verplichte velden ingevuld zijn.
+            </div>
+        </template>
+
+        <div class="slds-grid slds-wrap slds-gutters">
+            <!-- Left Column - Company information -->
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <h2 class="form-title">Bedrijfsgegevens</h2>
+
+                <!-- Account Type dropdown (required) -->
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label">
+                        <span class="red-asterisk">*</span> Account Type
+                    </label>
+                    <div class="slds-form-element__control">
+                        <template if:true={loading}>
+                            <lightning-spinner size="small" alternative-text="Loading account types..."></lightning-spinner>
+                        </template>
+                        <template if:false={loading}>
+                            <lightning-combobox
+                                name="accountType"
+                                variant="label-hidden"
+                                value={accountType}
+                                options={accountTypeOptions}
+                                placeholder="Maak een keuze"
+                                onchange={handleAccountTypeChange}
+                                class="form-input"
+                                data-field="accountType">
+                            </lightning-combobox>
+                        </template>
+                    </div>
+                </div>
+
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label">
+                        <span class="red-asterisk">*</span> Bedrijfsnaam
+                    </label>
+                    <div class="slds-form-element__control">
+                        <lightning-input
+                            name="companyName"
+                            variant="label-hidden"
+                            value={companyName}
+                            onchange={handleInputChange}
+                            class="form-input"
+                            data-field="companyName">
+                        </lightning-input>
+                    </div>
+                </div>
+
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label">
+                        <span class="red-asterisk">*</span> KVK nummer
+                    </label>
+                    <div class="slds-form-element__control">
+                        <lightning-input
+                            name="kvkNumber"
+                            variant="label-hidden"
+                            value={kvkNumber}
+                            onchange={handleInputChange}
+                            class="form-input"
+                            data-field="kvkNumber">
+                        </lightning-input>
+                    </div>
+                </div>
+
+                <lightning-input
+                    name="vatNumber"
+                    label="BTW nummer"
+                    value={vatNumber}
+                    onchange={handleInputChange}
+                    class="form-input">
+                </lightning-input>
+            </div>
+
+            <!-- Right Column - Contact information -->
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <h2 class="form-title">Contactgegevens</h2>
+
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label">
+                        <span class="red-asterisk">*</span> Telefoonnummer
+                    </label>
+                    <div class="slds-form-element__control">
+                        <lightning-input
+                            name="phone1"
+                            variant="label-hidden"
+                            value={phone1}
+                            onchange={handleInputChange}
+                            class="form-input"
+                            data-field="phone1">
+                        </lightning-input>
+                    </div>
+                </div>
+
+                <lightning-input
+                    name="phone2"
+                    label="Mobielnummer"
+                    value={phone2}
+                    onchange={handleInputChange}
+                    class="form-input">
+                </lightning-input>
+
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label">
+                        <span class="red-asterisk">*</span> E-mail
+                    </label>
+                    <div class="slds-form-element__control">
+                        <lightning-input
+                            name="email"
+                            type="email"
+                            variant="label-hidden"
+                            value={email}
+                            onchange={handleInputChange}
+                            class="form-input"
+                            data-field="email">
+                        </lightning-input>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Legacy action bar: right-aligned single "Volgende" -->
+        <div class="nav-container">
+            <div class="right-buttons">
+                <button class="woonstad-svg-button" onclick={handleNext} title="Volgende">
+                    <span>Volgende</span>
+                    <span class="icon-wrapper">
+                        <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</template>

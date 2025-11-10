@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>⏳ Waiting on Customer</masterLabel>
+        <translation>⏳ Wachten op Klant</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>⏳ Waiting on Third Party</masterLabel>
+        <translation>⏳ Wachten op Derden</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>✅ Closed</masterLabel>
+        <translation>✅ Afgesloten</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>✅ Closed-Accepted</masterLabel>
+        <translation>✅ Afgesloten-Geaccepteerd</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>✉️ Response Sent</masterLabel>
+        <translation>✉️ Reactie Gestuurd</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>✋ On Hold</masterLabel>
+        <translation>✋ Wachtend</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>❌ Closed-Rejected</masterLabel>
+        <translation>❌ Afgesloten-Afgewezen</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>⬆️ Escalated</masterLabel>
+        <translation>⬆️ Geëscaleerd</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>⭐️ New</masterLabel>
+        <translation>⭐️ Nieuw</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>📋 Assigned</masterLabel>
+        <translation>📋 Toegewezen</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>📨 Response Received</masterLabel>
+        <translation>📨 Antwoord Ontvangen</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>📬 Reopened</masterLabel>
+        <translation>📬 Heropend</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>🧑🏽‍💻 External</masterLabel>
+        <translation>🧑🏽‍💻 Extern</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>🧠 In Progress</masterLabel>
+        <translation>🧠 In Behandeling</translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

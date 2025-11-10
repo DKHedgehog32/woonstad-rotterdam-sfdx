@@ -1,0 +1,107 @@
+<template>
+            <div class="slds-grid slds-wrap slds-is-relative ">
+            <div style="position: fixed;z-index: 999999;top: 0;right: 0;">
+  <omnistudio-toast class="flexcard-toast-element" theme="slds" title="" message="" styletype=""> </omnistudio-toast>
+</div>
+            <div if:true={showLoader} class="slds-is-absolute vloc-loader_override" style="height: 100%; width: 100%; min-height:50px; background: transparent; z-index: 99;">
+  <div>
+   <omnistudio-spinner
+      variant="brand"
+      alternative-text="Loading content..."
+      size="medium"
+      theme="slds"
+      ></omnistudio-spinner>
+  </div>
+</div>
+            <template if:false={hasPermission}>
+              You don't have required permissions to view this card.
+            </template>
+            <template if:true={hasPermission}>
+              <template if:true={hasRecords}>
+                        <template for:each={_records} for:item="record" for:index="rindex">
+                            <omnistudio-flex-card-state if:true={record}  key={record._flex.uniqueKey} data-recordid={record.Id} record={record} data-statue="true"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12 "  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-p-vertical_x-small slds-m-around_none " style="      
+         ">
+          <div data-style-id="state0element0" class="slds-col   slds-p-around_x-small  slds-size_12-of-12  " data-rindex={rindex} style="background-color:#F3F3F3;      
+         box-shadow: 0px 1px 0px #C9C9C9;" >
+    <omnistudio-block data-style-id="state0element0_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element0" class="slds-col   slds-size_2-of-12  " data-rindex={rindex} style="      
+        color:#444444; " ><omnistudio-output-field data-style-id="state0element0block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%3E%3Cstrong%3EPost%20Date%3C/strong%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element1" class="slds-col   slds-size_4-of-12  " data-rindex={rindex} style="      
+        color:#444444; " ><omnistudio-output-field data-style-id="state0element0block_element1_child"   card={card}  record={record}  merge-field="%3Cdiv%3E%3Cstrong%3EDescription%3C/strong%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element2" class="slds-col   slds-size_3-of-12  " data-rindex={rindex} style="      
+        color:#444444; " ><omnistudio-output-field data-style-id="state0element0block_element2_child"   card={card}  record={record}  merge-field="%3Cdiv%3E%3Cstrong%3EType%3C/strong%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element3" class="slds-col   slds-size_3-of-12  " data-rindex={rindex} style="      
+        color:#444444; " ><omnistudio-output-field data-style-id="state0element0block_element3_child"   card={card}  record={record}  merge-field="%3Cdiv%3E%3Cstrong%3EAmount%3C/strong%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element1" class="slds-col   slds-size_12-of-12 " data-rindex={rindex} style="" ><c-cf-insurance-f-s-c-i-s-e-policy-transactions-child data-style-id="state0element1_child"  tracking-obj={_childCardTrackingObj}  is-inside-parent={insideParent} parent-uniquekey={uniqueKey}  card-node="\{record.transaction}"  parent-record={record}  records={_records}  parent-mergefields={card}  record-id={recordId}  is-child-card-tracking-enabled="false"  object-api-name={objectApiName}  theme="slds"   onupdateparent={updateParentData}></c-cf-insurance-f-s-c-i-s-e-policy-transactions-child>
+    </div><div data-style-id="state0element2" class="slds-col  slds-text-align_center slds-p-top_x-small  slds-size_12-of-12  condition-element" data-rindex={rindex} style="      
+         "  data-conditions='\{"id":"state-condition-object","isParent":true,"group":[{"id":"state-new-condition-0","field":"ShowViewMore","operator":"==","value":"true","type":"custom","hasMergeField":false}]}' ><omnistudio-flex-action data-style-id="state0element2_child"  tracking-obj={_childCardTrackingObj}  class= "state0element2_child flexActionElement" 
+        data-action-element-class="state0element2_child" data-action-key="state0element2" onexecuteaction={performAction} data-show-spinner="false"
+        data-element-label="action3"   state-obj={record}  card={card}  record={record}  label="View More"  icon-name="utility:description"  action-list='\[{"stateAction":{"id":"flex-action-1644589064013","type":"Custom","targetType":"Record Relationship","openUrlIn":"New Tab/Window","Record Relationship":{"targetName":"InsurancePolicy","targetAction":"view","targetId":"{OriginalPolicyId}","targetRelationship":"InsurancePolicyTransactions"}},"key":"1644569816849-mk0ahg54p","label":"Action","draggable":false,"isOpen":true,"actionIndex":0}]'  hide-action-icon="true"  styles='\{"label":{"color":"#0080F9","fontSize":"13px"}}'  data-conditions='\{"id":"state-condition-object","isParent":true,"group":[{"id":"state-new-condition-0","field":"ShowViewMore","operator":"==","value":"true","type":"custom","hasMergeField":false}]}'  flyout-details='\{}'  theme="slds"  ></omnistudio-flex-action>
+      </div>
+        </div>
+      </omnistudio-flex-card-state><omnistudio-flex-card-state if:true={record}  key={record._flex.uniqueKey} data-recordid={record.Id} record={record} data-statue="true"  data-index="1" data-rindex={rindex} class="cf-vlocity-state-1 cf-vlocity-state slds-size_12-of-12 "  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-p-around_x-small slds-m-around_none " style="      
+         ">
+          <div data-style-id="state1element0" class="slds-col   slds-size_12-of-12 " data-rindex={rindex} style="" ><omnistudio-flex-img data-style-id="state1element0_child"   card={card}  record={record}  size=""  extraclass="slds-align_absolute-center"  state-img='\{"imgsrc":"/_slds/images/illustrations/empty-states/desertSmall.svg","alternativeText":""}'  theme="slds"  ></omnistudio-flex-img>
+      </div><div data-style-id="state1element1" class="slds-col  slds-text-align_center slds-p-bottom_x-small slds-text-title_bold slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#444444; " ><omnistudio-output-field data-style-id="state1element1_child"   card={card}  record={record}  merge-field="%3Cdiv%3ENo%20transactions%20yet.%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state1element2" class="slds-col  slds-text-align_center  slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#444444; " ><omnistudio-output-field data-style-id="state1element2_child"   card={card}  record={record}  merge-field="%3Cdiv%3E%3Cspan%20style=%22font-weight:%20400;%22%3EWhen%20policyholders%20make%20premium%20payments,%20you&rsquo;ll%20see%20the%20transaction%20details%20here.%3C/span%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div>
+      </omnistudio-flex-card-state>
+                        </template>
+                      </template>
+                      <template if:false={hasRecords}>
+                            <omnistudio-flex-card-state  record={record} data-statue="false"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12 "  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-p-vertical_x-small slds-m-around_none " style="      
+         ">
+          <div data-style-id="state0element0" class="slds-col   slds-p-around_x-small  slds-size_12-of-12  " data-rindex={rindex} style="background-color:#F3F3F3;      
+         box-shadow: 0px 1px 0px #C9C9C9;" >
+    <omnistudio-block data-style-id="state0element0_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element0" class="slds-col   slds-size_2-of-12  " data-rindex={rindex} style="      
+        color:#444444; " ><omnistudio-output-field data-style-id="state0element0block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%3E%3Cstrong%3EPost%20Date%3C/strong%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element1" class="slds-col   slds-size_4-of-12  " data-rindex={rindex} style="      
+        color:#444444; " ><omnistudio-output-field data-style-id="state0element0block_element1_child"   card={card}  record={record}  merge-field="%3Cdiv%3E%3Cstrong%3EDescription%3C/strong%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element2" class="slds-col   slds-size_3-of-12  " data-rindex={rindex} style="      
+        color:#444444; " ><omnistudio-output-field data-style-id="state0element0block_element2_child"   card={card}  record={record}  merge-field="%3Cdiv%3E%3Cstrong%3EType%3C/strong%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element3" class="slds-col   slds-size_3-of-12  " data-rindex={rindex} style="      
+        color:#444444; " ><omnistudio-output-field data-style-id="state0element0block_element3_child"   card={card}  record={record}  merge-field="%3Cdiv%3E%3Cstrong%3EAmount%3C/strong%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element1" class="slds-col   slds-size_12-of-12 " data-rindex={rindex} style="" ><c-cf-insurance-f-s-c-i-s-e-policy-transactions-child data-style-id="state0element1_child"  tracking-obj={_childCardTrackingObj}  is-inside-parent={insideParent} parent-uniquekey={uniqueKey}  card-node="\{record.transaction}"  parent-record={record}  records={_records}  parent-mergefields={card}  record-id={recordId}  is-child-card-tracking-enabled="false"  object-api-name={objectApiName}  theme="slds"   onupdateparent={updateParentData}></c-cf-insurance-f-s-c-i-s-e-policy-transactions-child>
+    </div><div data-style-id="state0element2" class="slds-col  slds-text-align_center slds-p-top_x-small  slds-size_12-of-12  condition-element" data-rindex={rindex} style="      
+         "  data-conditions='\{"id":"state-condition-object","isParent":true,"group":[{"id":"state-new-condition-0","field":"ShowViewMore","operator":"==","value":"true","type":"custom","hasMergeField":false}]}' ><omnistudio-flex-action data-style-id="state0element2_child"  tracking-obj={_childCardTrackingObj}  class= "state0element2_child flexActionElement" 
+        data-action-element-class="state0element2_child" data-action-key="state0element2" onexecuteaction={performAction} data-show-spinner="false"
+        data-element-label="action3"   state-obj={record}  card={card}  record={record}  label="View More"  icon-name="utility:description"  action-list='\[{"stateAction":{"id":"flex-action-1644589064013","type":"Custom","targetType":"Record Relationship","openUrlIn":"New Tab/Window","Record Relationship":{"targetName":"InsurancePolicy","targetAction":"view","targetId":"{OriginalPolicyId}","targetRelationship":"InsurancePolicyTransactions"}},"key":"1644569816849-mk0ahg54p","label":"Action","draggable":false,"isOpen":true,"actionIndex":0}]'  hide-action-icon="true"  styles='\{"label":{"color":"#0080F9","fontSize":"13px"}}'  data-conditions='\{"id":"state-condition-object","isParent":true,"group":[{"id":"state-new-condition-0","field":"ShowViewMore","operator":"==","value":"true","type":"custom","hasMergeField":false}]}'  flyout-details='\{}'  theme="slds"  ></omnistudio-flex-action>
+      </div>
+        </div>
+      </omnistudio-flex-card-state><omnistudio-flex-card-state  record={record} data-statue="false"  data-index="1" data-rindex={rindex} class="cf-vlocity-state-1 cf-vlocity-state slds-size_12-of-12 "  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-p-around_x-small slds-m-around_none " style="      
+         ">
+          <div data-style-id="state1element0" class="slds-col   slds-size_12-of-12 " data-rindex={rindex} style="" ><omnistudio-flex-img data-style-id="state1element0_child"   card={card}  record={record}  size=""  extraclass="slds-align_absolute-center"  state-img='\{"imgsrc":"/_slds/images/illustrations/empty-states/desertSmall.svg","alternativeText":""}'  theme="slds"  ></omnistudio-flex-img>
+      </div><div data-style-id="state1element1" class="slds-col  slds-text-align_center slds-p-bottom_x-small slds-text-title_bold slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#444444; " ><omnistudio-output-field data-style-id="state1element1_child"   card={card}  record={record}  merge-field="%3Cdiv%3ENo%20transactions%20yet.%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state1element2" class="slds-col  slds-text-align_center  slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#444444; " ><omnistudio-output-field data-style-id="state1element2_child"   card={card}  record={record}  merge-field="%3Cdiv%3E%3Cspan%20style=%22font-weight:%20400;%22%3EWhen%20policyholders%20make%20premium%20payments,%20you&rsquo;ll%20see%20the%20transaction%20details%20here.%3C/span%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div>
+      </omnistudio-flex-card-state>
+                      </template>
+            </template>
+            <template if:true={hasError}>
+            {error}
+            </template>
+            
+      <omnistudio-action action-wrapperclass="slds-hide" re-render-flyout class="action-trigger slds-col" onupdateos={updateOmniscript} onselectcards={updateSelectedCards} onsetvalue={updateAction} onfireactionevent={actionEvtHandler}>
+      
+      </omnistudio-action>
+  
+            <omnistudio-action class="execute-action" re-render-flyout action-wrapperclass="slds-hide" onupdateos={updateOmniscript} onselectcards={updateSelectedCards} onsetvalue={updateAction} onfireactionevent={actionEvtHandler}>
+            
+            </omnistudio-action>
+            </div>
+          </template>

@@ -1,0 +1,297 @@
+<!-- **********************************************************************************************
+     Component       : woonstadFlowCustConfirmForm (HTML)
+     Layer           : Template
+     Purpose         : Two-column confirmation with inline editing capability.
+     Notes           : Supports both read-only confirmation and editable modes.
+     Last Modified   : 2025-09-02
+************************************************************************************************* -->
+<template>
+    <div class="woonstad">
+        <!-- Header with instruction banner and edit toggle -->
+        <div class="header-container">
+            <!-- Dynamic instruction banner -->
+            <div class="ws-info-banner" role="status">
+                {bannerMessage}
+            </div>
+
+                            <!-- Edit toggle button (top-right corner) -->
+            <div class="edit-toggle-container">
+                <button class="edit-toggle-button" onclick={handleEditToggle} 
+                        title={editButtonTitle}>
+                    <template if:false={isEditMode}>
+                        <!-- Edit icon -->
+                        <svg class="edit-icon" xmlns="http://www.w3.org/2000/svg" 
+                             viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M15.7279 9.57627L14.3137 8.16206L5 17.4758V18.89H6.41421L15.7279 9.57627ZM17.1421 8.16206L18.5563 6.74785L17.1421 5.33363L15.7279 6.74785L17.1421 8.16206ZM7.24264 20.89H3V16.6473L16.435 3.21231C16.8256 2.82179 17.4587 2.82179 17.8492 3.21231L20.6777 6.04074C21.0682 6.43126 21.0682 7.06443 20.6777 7.45495L7.24264 20.89Z"/>
+                        </svg>
+                        Bewerken
+                    </template>
+                    <template if:true={isEditMode}>
+                        <!-- Cancel icon -->
+                        <svg class="edit-icon" xmlns="http://www.w3.org/2000/svg" 
+                             viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M12 10.586L16.95 5.636L18.364 7.05L13.414 12L18.364 16.95L16.95 18.364L12 13.414L7.05 18.364L5.636 16.95L10.586 12L5.636 7.05L7.05 5.636L12 10.586Z"/>
+                        </svg>
+                        Annuleren
+                    </template>
+                </button>
+            </div>
+        </div>
+
+        <!-- Error banner (only when validation fails) -->
+        <template if:true={showValidationBanner}>
+            <div class="ws-alert ws-alert--error" role="alert" data-id="validationBanner">
+                <span class="ws-alert__title">Validatie</span>
+                <p class="ws-alert__body">
+                    Zorg dat alle verplichte velden ingevuld zijn.
+                </p>
+            </div>
+        </template>
+
+        <div class="slds-grid slds-wrap slds-gutters">
+            <!-- LEFT COLUMN: Customer Data -->
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <h2 class="form-title">Persoonsgegevens</h2>
+
+                <!-- Salutation Row -->
+                <div class="form-row">
+                    <span class="form-label">Aanhef</span>
+                    <template if:false={isEditMode}>
+                        <span class="form-value">{salutation}</span>
+                    </template>
+                    <template if:true={isEditMode}>
+                        <div class="form-input-container">
+                            <lightning-combobox
+                                value={salutation}
+                                placeholder="Selecteer aanhef"
+                                options={salutationOptions}
+                                onchange={handleSalutationChange}
+                                variant="label-hidden">
+                            </lightning-combobox>
+                        </div>
+                    </template>
+                </div>
+
+                <!-- First Name Row -->
+                <div class="form-row">
+                    <span class="form-label">Voornaam *</span>
+                    <template if:false={isEditMode}>
+                        <span class="form-value">{displayFirstName}</span>
+                    </template>
+                    <template if:true={isEditMode}>
+                        <div class="form-input-container">
+                            <lightning-input
+                                type="text"
+                                value={firstName}
+                                onchange={handleFirstNameChange}
+                                variant="label-hidden"
+                                required>
+                            </lightning-input>
+                        </div>
+                    </template>
+                </div>
+
+                <!-- Middle Name Row -->
+                <div class="form-row">
+                    <span class="form-label">Tussenvoegsel</span>
+                    <template if:false={isEditMode}>
+                        <span class="form-value">{middleName}</span>
+                    </template>
+                    <template if:true={isEditMode}>
+                        <div class="form-input-container">
+                            <lightning-input
+                                type="text"
+                                value={middleName}
+                                onchange={handleMiddleNameChange}
+                                variant="label-hidden">
+                            </lightning-input>
+                        </div>
+                    </template>
+                </div>
+
+                <!-- Last Name Row -->
+                <div class="form-row">
+                    <span class="form-label">Achternaam *</span>
+                    <template if:false={isEditMode}>
+                        <span class="form-value">{lastName}</span>
+                    </template>
+                    <template if:true={isEditMode}>
+                        <div class="form-input-container">
+                            <lightning-input
+                                type="text"
+                                value={lastName}
+                                onchange={handleLastNameChange}
+                                variant="label-hidden"
+                                required>
+                            </lightning-input>
+                        </div>
+                    </template>
+                </div>
+
+                <!-- Birthdate Row -->
+                <div class="form-row">
+                    <span class="form-label">Geboortedatum *</span>
+                    <template if:false={isEditMode}>
+                        <span class="form-value">{displayBirthdate}</span>
+                    </template>
+                    <template if:true={isEditMode}>
+                        <div class="form-input-container">
+                            <lightning-input
+                                type="date"
+                                value={birthdate}
+                                onchange={handleBirthdateChange}
+                                variant="label-hidden"
+                                required>
+                            </lightning-input>
+                        </div>
+                    </template>
+                </div>
+
+                <!-- Phone 1 Row -->
+                <div class="form-row">
+                    <span class="form-label">Telefoonnummer *</span>
+                    <template if:false={isEditMode}>
+                        <span class="form-value">{displayPhone1}</span>
+                    </template>
+                    <template if:true={isEditMode}>
+                        <div class="form-input-container">
+                            <lightning-input
+                                type="tel"
+                                value={phone1}
+                                onchange={handlePhone1Change}
+                                variant="label-hidden"
+                                required>
+                            </lightning-input>
+                        </div>
+                    </template>
+                </div>
+
+                <!-- Phone 2 Row -->
+                <div class="form-row">
+                    <span class="form-label">Mobielnummer</span>
+                    <template if:false={isEditMode}>
+                        <span class="form-value">{displayPhone2}</span>
+                    </template>
+                    <template if:true={isEditMode}>
+                        <div class="form-input-container">
+                            <lightning-input
+                                type="tel"
+                                value={phone2}
+                                onchange={handlePhone2Change}
+                                variant="label-hidden">
+                            </lightning-input>
+                        </div>
+                    </template>
+                </div>
+
+                <!-- Email Row -->
+                <div class="form-row">
+                    <span class="form-label">E-mail *</span>
+                    <template if:false={isEditMode}>
+                        <span class="form-value">{displayEmail}</span>
+                    </template>
+                    <template if:true={isEditMode}>
+                        <div class="form-input-container">
+                            <lightning-input
+                                type="email"
+                                value={email}
+                                onchange={handleEmailChange}
+                                variant="label-hidden"
+                                required>
+                            </lightning-input>
+                        </div>
+                    </template>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Address Data -->
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <h2 class="form-title">Adres</h2>
+
+                <!-- Dutch Address Display (Always Read-Only) -->
+                <template if:true={hasNlAddress}>
+                    <!-- Street Name Row -->
+                    <div class="form-row">
+                        <span class="form-label">Straat</span>
+                        <span class="form-value">{nlStreetLine}</span>
+                    </div>
+
+                    <!-- Postal Code & City Row -->
+                    <div class="form-row">
+                        <span class="form-label">Postcode & Plaats</span>
+                        <span class="form-value">{nlCityLine}</span>
+                    </div>
+
+                    <!-- Country Row -->
+                    <div class="form-row">
+                        <span class="form-label">Land</span>
+                        <span class="form-value">{nlCountryLabel}</span>
+                    </div>
+
+                    <!-- AOI Row (if present) -->
+                    <template if:true={addressableObjectIdentification}>
+                        <div class="form-row">
+                            <span class="form-label">AOI</span>
+                            <span class="form-value">{addressableObjectIdentification}</span>
+                        </div>
+                    </template>
+                </template>
+
+                <!-- International Address Display (Always Read-Only) -->
+                <template if:false={hasNlAddress}>
+                    <!-- International Street Row -->
+                    <div class="form-row">
+                        <span class="form-label">Straat</span>
+                        <span class="form-value">{intlStreetLine}</span>
+                    </div>
+
+                    <!-- International City Row -->
+                    <div class="form-row">
+                        <span class="form-label">Postcode & Plaats</span>
+                        <span class="form-value">{intlCityLine}</span>
+                    </div>
+
+                    <!-- Country Row -->
+                    <div class="form-row">
+                        <span class="form-label">Land</span>
+                        <span class="form-value">{intlCountryLabel}</span>
+                    </div>
+                </template>
+
+                <!-- Address Edit Notice (shown only in edit mode) -->
+                <template if:true={isEditMode}>
+                    <div class="address-notice">
+                        <div class="ws-info-banner ws-info-banner--small">
+                            <strong>Adres wijzigen:</strong> Gebruik de "Terug" knop om het adres te wijzigen via de vorige stappen.
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- Footer Navigation Actions -->
+        <div class="nav-container">
+            <div class="right-buttons">
+                <!-- Back Link -->
+                <a class="back-link" onclick={handleBack}>
+                    <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M7.82843 10.9999L13.1924 5.63589L11.7782 4.22168L4 11.9999L11.7782 19.778L13.1924 18.3638L7.82843 12.9999H20V10.9999H7.82843Z"/>
+                    </svg>
+                    Terug
+                </a>
+
+                <!-- Next/Save Button -->
+                <button class="woonstad-svg-button" onclick={handleNext} title={nextButtonLabel}>
+                    <span>{nextButtonLabel}</span>
+                    <span class="icon-wrapper">
+                        <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"/>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</template>

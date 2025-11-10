@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Considered_as_Incorrect_Address_Change__c</fullName>
+    <description>When the checkbox is selected, then the address input seems to be a mistake. The Start and End Date of the Account Address are the same date, which appears after a correction on the address input.</description>
+    <formula>IF(
+AND(
+NOT(ISBLANK(Start_Date__c)),
+Start_Date__c = End_Date__c
+),
+TRUE, False
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>When the checkbox is selected, then the address input seems to be a mistake. The Start and End Date of the Account Address are the same date, which appears after a correction on the address input.</inlineHelpText>
+    <label>Considered as Incorrect Address Change</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

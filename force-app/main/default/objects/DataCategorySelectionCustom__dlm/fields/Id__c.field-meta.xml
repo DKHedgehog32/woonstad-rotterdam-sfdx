@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Id__c</fullName>
+    <label>Selectie-ID van entiteit voor gegevensca</label>
+    <length>60</length>
+    <mktDataModelFieldAttributes>
+        <definitionCreationType>Custom</definitionCreationType>
+        <isDynamicLookup>false</isDynamicLookup>
+        <labelOverride>Selectie-ID van entiteit voor gegevensca</labelOverride>
+        <masterLabel>Selectie-ID van entiteit voor gegevensca</masterLabel>
+        <primaryIndexOrder>1</primaryIndexOrder>
+        <usageTag>None</usageTag>
+    </mktDataModelFieldAttributes>
+    <required>false</required>
+    <type>Text</type>
+</CustomField>

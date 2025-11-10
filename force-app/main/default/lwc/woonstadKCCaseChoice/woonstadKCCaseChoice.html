@@ -1,0 +1,52 @@
+<!--
+****************************************************************************************************
+* Component       : woonstadCockpitKC.html
+* Layer           : UI (Lightning Web Component)
+* Purpose         : Displays action cards in the Woonstad cockpit for key KC actions:
+*                   - Contactmoment (opens a flow/screen for logging a contact moment)
+*                   - Nieuwe Zaak (launches flow to create a new Case)
+*
+* Responsibilities:
+*  - Provide a clean UI with Woonstad-styled "choice cards"
+*  - Emit click events for parent components or trigger internal handlers to launch Flows
+*
+* Security        :
+*  - UI only; security enforced server-side (Apex controllers) or via Flow access checks
+*
+* Owner           : Woonstad KC
+* Author          : Dennis van Musschenbroek
+* Created         : 2025-08-25
+* Last Modified   : 2025-08-25
+* ================================================================================================
+* Change Log:
+* 2025-08-25 | DvM | Initial creation with WoonstadGlobalCSS-styled cards and click handlers.
+****************************************************************************************************
+-->
+
+<template>
+    <div class="woonstad">
+        <div class="button-container">
+            
+            <!-- Contactmoment Card -->
+            <button class="choice-card"
+                    onclick={handleContactmomentClick}
+                    title="Open contactmoment">
+                <div class="card-content horizontal">
+                    <img src={iconContactmoment} alt="Contactmoment Icon" class="card-icon" />
+                    <span class="card-label">Contactmoment</span>
+                </div>
+            </button>
+
+            <!-- Nieuwe Zaak Card -->
+            <button class="choice-card"
+                    onclick={handleNieuweZaakClick}
+                    title="Maak een nieuwe zaak aan">
+                <div class="card-content horizontal">
+                    <img src={iconNieuweZaak} alt="Nieuwe Zaak Icon" class="card-icon" />
+                    <span class="card-label">Nieuwe zaak aanmaken</span>
+                </div>
+            </button>
+
+        </div>
+    </div>
+</template>

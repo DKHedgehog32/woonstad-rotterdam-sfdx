@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- When checked, this account is a creditor, which puts limitations on its use --></help>
+    <label><!-- Is Creditor --></label>
+    <name>Is_Creditor__c</name>
+</CustomFieldTranslation>

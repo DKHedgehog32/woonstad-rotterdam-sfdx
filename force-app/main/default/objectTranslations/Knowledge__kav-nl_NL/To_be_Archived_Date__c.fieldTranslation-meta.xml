@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Dit veld wordt gebruikt om de archiveerdatum te noteren voor het kennisartikel.</help>
+    <label>Archiveerdatum</label>
+    <name>To_be_Archived_Date__c</name>
+</CustomFieldTranslation>

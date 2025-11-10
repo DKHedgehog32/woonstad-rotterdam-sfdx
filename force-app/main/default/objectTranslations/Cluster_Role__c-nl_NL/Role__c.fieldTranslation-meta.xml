@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Type rol die de klant heeft bij de cluster.</help>
+    <label>Rol</label>
+    <name>Role__c</name>
+    <picklistValues>
+        <masterLabel>Placeholder</masterLabel>
+        <translation><!-- Placeholder --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>VVE</masterLabel>
+        <translation>VvE</translation>
+    </picklistValues>
+</CustomFieldTranslation>

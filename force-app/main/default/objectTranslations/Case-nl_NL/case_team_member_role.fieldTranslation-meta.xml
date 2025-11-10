@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Rol van Zaakteamlid</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Rollen van Zaakteamleden</value>
+    </caseValues>
+    <gender>Feminine</gender>
+    <name>case_team_member_role</name>
+</CustomFieldTranslation>

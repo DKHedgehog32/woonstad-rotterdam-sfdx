@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>E-mailsjabloon om nieuwe planning van een betaalde serviceafspraak voor gastgebruikers te bevestigen.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Scheduler-betalingen: e-mail voor opnieuw ingeplande serviceafspraak: gastgebrui</name>
+    <style>none</style>
+    <subject>Uw serviceafspraak is opnieuw ingepland!</subject>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

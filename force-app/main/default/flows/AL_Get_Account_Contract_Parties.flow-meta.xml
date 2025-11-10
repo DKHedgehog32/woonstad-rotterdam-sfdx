@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Assign Stadswonen as the output value for this flow</description>
+        <name>Assign_Stadswonen_As_Output_Value</name>
+        <label>Assign Stadswonen As Output Value</label>
+        <locationX>314</locationX>
+        <locationY>842</locationY>
+        <assignmentItems>
+            <assignToReference>varT_AccountContractParty</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Stadswonen</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>Set Stadswonen variable to true</description>
+        <name>Assign_Stadswonen_Label</name>
+        <label>Assign Stadswonen Label</label>
+        <locationX>578</locationX>
+        <locationY>458</locationY>
+        <assignmentItems>
+            <assignToReference>varB_Stadswonen</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Through_Contract_Role_Contract_Parties</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Leave output variable Unknown if no Contract Lines or Real Estate Contracts are found.</description>
+        <name>Assign_Unknown_Output_Variable</name>
+        <label>Assign Unknown Output Variable</label>
+        <locationX>226</locationX>
+        <locationY>1142</locationY>
+        <assignmentItems>
+            <assignToReference>varT_AccountContractParty</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Unknown</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>Assign Woonstad as the output value for this flow</description>
+        <name>Assign_Woonstad_As_Output_Value</name>
+        <label>Assign Woonstad As Output Value</label>
+        <locationX>50</locationX>
+        <locationY>842</locationY>
+        <assignmentItems>
+            <assignToReference>varT_AccountContractParty</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Woonstad</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>Set Woonstad variable to true</description>
+        <name>Assign_Woonstad_Label</name>
+        <label>Assign Woonstad Label</label>
+        <locationX>314</locationX>
+        <locationY>458</locationY>
+        <assignmentItems>
+            <assignToReference>varB_Woonstad</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Through_Contract_Role_Contract_Parties</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Fill the VarT_FlowElement with &apos;Get_ContractRoles&apos; if the Element fails.</description>
+        <name>VarT_FlowElement_Get_ContractRoles</name>
+        <label>VarT_FlowElement - Get_ContractRoles</label>
+        <locationX>754</locationX>
+        <locationY>242</locationY>
+        <assignmentItems>
+            <assignToReference>VarT_FlowElement</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Get_ContractRoles</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Subflow_PublishFlowFaultEvent</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>What Contract Party is associated with the Contract Roles?</description>
+        <name>What_Contract_Party_Is_Associated</name>
+        <label>What Contract Party Is Associated</label>
+        <locationX>578</locationX>
+        <locationY>350</locationY>
+        <defaultConnector>
+            <targetReference>Loop_Through_Contract_Role_Contract_Parties</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Label_Woonstad</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>forT_TrimContractPartyName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Woonstad</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Woonstad_Label</targetReference>
+            </connector>
+            <label>Label Woonstad</label>
+        </rules>
+        <rules>
+            <name>Label_Stadswonen</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>forT_TrimContractPartyName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Stadswonen</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Stadswonen_Label</targetReference>
+            </connector>
+            <label>Label Stadswonen</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Based on the Contract Parties that are retrieved, can we determine one Contract Party? If both are true, the label should be &quot;unknown&quot;</description>
+        <name>What_Label_Should_Be_Set</name>
+        <label>What Label Should Be Set?</label>
+        <locationX>226</locationX>
+        <locationY>734</locationY>
+        <defaultConnector>
+            <targetReference>Assign_Unknown_Output_Variable</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Undetermined</defaultConnectorLabel>
+        <rules>
+            <name>Woonstad_And_Stadswonen</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varB_Woonstad</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>varB_Stadswonen</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Unknown_Output_Variable</targetReference>
+            </connector>
+            <label>Woonstad And Stadswonen</label>
+        </rules>
+        <rules>
+            <name>Woonstad</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varB_Woonstad</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Woonstad_As_Output_Value</targetReference>
+            </connector>
+            <label>Woonstad</label>
+        </rules>
+        <rules>
+            <name>Stadswonen</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varB_Stadswonen</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Stadswonen_As_Output_Value</targetReference>
+            </connector>
+            <label>Stadswonen</label>
+        </rules>
+    </decisions>
+    <description>Retrieve the Contract Parties that are on the Account&apos;s Real Estate Contract</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>forT_TrimContractPartyName</name>
+        <dataType>String</dataType>
+        <expression>LEFT({!Loop_Through_Contract_Role_Contract_Parties.Real_Estate_Contract__r.Contract_Party__r.Name}, FIND(&quot; &quot;, {!Loop_Through_Contract_Role_Contract_Parties.Real_Estate_Contract__r.Contract_Party__r.Name}) - 1)</expression>
+    </formulas>
+    <interviewLabel>AL - Get Account Contract Parties {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>AL - Get Account Contract Parties</label>
+    <loops>
+        <description>Loop through the Contract Parties of the retrieved Contract Roles</description>
+        <name>Loop_Through_Contract_Role_Contract_Parties</name>
+        <label>Loop Through Contract Role Contract Parties</label>
+        <locationX>226</locationX>
+        <locationY>242</locationY>
+        <collectionReference>Get_ContractRoles</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>What_Contract_Party_Is_Associated</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>What_Label_Should_Be_Set</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Retrieve the Contract Roles related to the Account. These records can be associated to either Woonstad or Stadswonen.</description>
+        <name>Get_ContractRoles</name>
+        <label>Contract Roles</label>
+        <locationX>226</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_Through_Contract_Role_Contract_Parties</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>VarT_FlowElement_Get_ContractRoles</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Contact_Account__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Contract_Contact_Role__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>100</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_ContractRoles</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <description>Publish the Flow Fault Platform Event.</description>
+        <name>Subflow_PublishFlowFaultEvent</name>
+        <label>Publish Flow Fault Event</label>
+        <locationX>754</locationX>
+        <locationY>350</locationY>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Assign_Unknown_Output_Variable</targetReference>
+        </connector>
+        <flowName>AL_Publish_Flow_Fault_event</flowName>
+        <inputAssignments>
+            <name>faultMessage</name>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>flowContext</name>
+            <value>
+                <stringValue>AL_Get_Account_Contract_Parties</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>flowElement</name>
+            <value>
+                <elementReference>VarT_FlowElement</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>flowGuid</name>
+            <value>
+                <elementReference>$Flow.InterviewGuid</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>triggeringRecord</name>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>userId</name>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <variables>
+        <description>AccountId input for this Flow.</description>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varB_Stadswonen</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varB_Woonstad</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>What is the Account&apos;s Contract Party</description>
+        <name>varT_AccountContractParty</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>This variable is used to store the Flow Element name if a flow errors.</description>
+        <name>VarT_FlowElement</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

@@ -1,0 +1,160 @@
+<!--
+****************************************************************************************************
+* Component       : woonstadFlowKCCaseForm.html
+* Layer           : UI (Lightning Web Component)
+* Purpose         : Displays open Cases for an Account with the legacy Woonstad look.
+*
+* Responsibilities:
+*  - Show open Cases in a custom grid (clickable, keyboard accessible)
+*  - Provide search input, pagination, and a warning list for open Cases
+*  - Offer a "Nieuwe zaak aanmaken" button with a Flow modal
+*  - Use legacy Woonstad header bar (2-row layout: title + search/pagination, then field headers)
+*
+* Accessibility   :
+*  - Search input labeled with <label> (assistive-text)
+*  - Rows keyboard-accessible via role="button" + tabindex
+*  - Flow modal uses role="dialog" with aria attributes
+*
+* Security        :
+*  - UI-only: data is provided by Apex with CRUD/FLS enforcement
+*
+* Owner           : Woonstad KC
+* Author          : Dennis van Musschenbroek
+* Created         : 2025-08-14
+* Last Modified   : 2025-08-25
+* ================================================================================================
+* Change Log:
+* 2025-08-25 | DvM | Added standard header, modal ARIA attributes, and in-template documentation.
+* 2025-08-14 | DvM | Initial version: legacy Woonstad styling with search/pagination.
+****************************************************************************************************
+-->
+
+<template>
+  <div class="woonstad ws-root">
+
+    <!-- Page header with title and "Nieuwe zaak" button -->
+    <div class="ws-pagebar">
+      <h2 class="ws-pagebar__title">Zakenoverzicht</h2>
+      <template if:true={showNewCaseButtonEffective}>
+        <button class="ws-new-pill"
+                onclick={handleNewCaseClick}
+                title="Nieuwe zaak aanmaken">
+          <span class="ws-icon-circle"></span>
+          <span class="ws-new-pill__label">Een nieuwe zaak aanmaken</span>
+        </button>
+      </template>
+    </div>
+
+    <!-- Section: Openstaande zaken -->
+    <section class="ws-section" aria-label="Openstaande zaken">
+      
+      <!-- Warning if open cases exist -->
+      <template if:true={hasOpenCases}>
+        <ul class="ws-warning-list">
+          <li>
+            <b>Let op:</b> We hebben onderstaande openstaande zaken gevonden. Weet je zeker dat je een nieuwe zaak wilt aanmaken?
+          </li>
+        </ul>
+      </template>
+
+      <!-- Band with title, search input, and pager -->
+      <div class="ws-band">
+        <div class="ws-band__left">
+          <span class="ws-band__title">Openstaande zaken</span>
+          <span class="ws-badge">{openCount}</span>
+        </div>
+
+        <div class="ws-band__right">
+          <!-- Search bar -->
+          <div class="ws-input-wrap" role="search">
+            <label class="slds-assistive-text" for="openSearch">Zoekterm openstaande zaken</label>
+            <input id="openSearch"
+                   class="ws-search-input"
+                   type="text"
+                   placeholder="Zoek in openstaande zaken…"
+                   value={openSearchTerm}
+                   oninput={handleOpenSearch}
+                   autocomplete="off" />
+            <button class="ws-search-button"
+                    title="Zoeken"
+                    onclick={noop}
+                    aria-label="Zoeken">
+              <lightning-icon icon-name="utility:search"
+                              size="x-small"
+                              alternative-text="Zoeken">
+              </lightning-icon>
+            </button>
+          </div>
+
+          <!-- Pager -->
+          <div class="ws-pager">
+            <button class="ws-pill-btn"
+                    onclick={openPrev}
+                    disabled={openPageIsFirst}>Vorige</button>
+            <span class="ws-pill-info">{openPage} / {openTotalPages}</span>
+            <button class="ws-pill-btn ws-pill-primary"
+                    onclick={openNext}
+                    disabled={openPageIsLast}>Volgende</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grid header -->
+      <div class="ws-headgrid">
+        <div class="ws-headcell ws-c-zaaknr">Zaaknr</div>
+        <div class="ws-headcell ws-c-status">Status</div>
+        <div class="ws-headcell ws-c-type">Type</div>
+        <div class="ws-headcell ws-c-subject">Onderwerp</div>
+        <div class="ws-headcell ws-c-desc">Omschrijving</div>
+        <div class="ws-headcell ws-c-created">Aangemaakt</div>
+      </div>
+
+      <!-- Grid rows -->
+      <div class="ws-rows">
+        <template for:each={openPageRows} for:item="r">
+          <div key={r.Id}
+               class="ws-row ws-row--click"
+               role="button"
+               tabindex="0"
+               aria-selected={r._isSelected}
+               data-id={r.Id}
+               onclick={handleRowClick}
+               onkeydown={handleRowKeydown}
+               title="Selecteer zaak">
+            <div class="ws-cell ws-c-zaaknr ws-nowrap" title={r.CaseNumber}>{r.CaseNumber}</div>
+            <div class="ws-cell ws-c-status ws-nowrap" title={r.Status}>{r.Status}</div>
+            <div class="ws-cell ws-c-type ws-nowrap" title={r.Type}>{r.Type}</div>
+            <div class="ws-cell ws-c-subject ws-clamp-2" title={r.Subject}>{r.Subject}</div>
+            <div class="ws-cell ws-c-desc ws-clamp-2" title={r.Description}>{r.Description}</div>
+            <div class="ws-cell ws-c-created ws-nowrap" title={r.CreatedDateDisplay}>{r.CreatedDateDisplay}</div>
+          </div>
+        </template>
+
+        <!-- Empty state -->
+        <template if:true={openIsEmpty}>
+          <div class="ws-empty">Geen openstaande zaken gevonden.</div>
+        </template>
+      </div>
+    </section>
+
+    <!-- Flow Modal -->
+    <template if:true={showFlowModal}>
+      <section class="ws-modal"
+               role="dialog"
+               aria-modal="true"
+               aria-label="Nieuwe zaak">
+        <div class="ws-modal__container">
+          <header class="ws-modal__header">
+            <h2 class="ws-modal__title">Nieuwe zaak</h2>
+          </header>
+          <div class="ws-modal__content">
+            <lightning-flow
+              flow-api-name={flowApiName}
+              onstatuschange={handleFlowStatusChange}>
+            </lightning-flow>
+          </div>
+        </div>
+      </section>
+    </template>
+  </div>
+</template>

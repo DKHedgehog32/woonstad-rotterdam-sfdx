@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Select the specific person who was involved in this contact moment. Required for Phone, Email, and Face2Face interactions. --></help>
+    <label><!-- Contact Name --></label>
+    <name>Contact_Name__c</name>
+    <relationshipLabel><!-- Contact Moments --></relationshipLabel>
+</CustomFieldTranslation>

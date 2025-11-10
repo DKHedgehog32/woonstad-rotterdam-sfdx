@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- To register the Unit Category of the Contract Unit --></help>
+    <label><!-- Unit Category --></label>
+    <name>Unit_Category__c</name>
+    <picklistValues>
+        <masterLabel>Business Area</masterLabel>
+        <translation><!-- Business Area --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Intramural Care Property</masterLabel>
+        <translation><!-- Intramural Care Property --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other</masterLabel>
+        <translation><!-- Other --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Parking</masterLabel>
+        <translation><!-- Parking --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Recreational</masterLabel>
+        <translation><!-- Recreational --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Residential</masterLabel>
+        <translation><!-- Residential --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Social Property</masterLabel>
+        <translation><!-- Social Property --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

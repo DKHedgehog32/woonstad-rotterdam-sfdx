@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AccountingModelConfig xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accountingType>Revenue</accountingType>
+    <defaultAccrualAccountCode>Unrestricted</defaultAccrualAccountCode>
+    <defaultWriteOffAccountCode>Written Off</defaultWriteOffAccountCode>
+    <earliestCreatedDate>2023-09-01T07:00:00.000Z</earliestCreatedDate>
+    <expectedCashFlowGrouping>GroupByFundAccount</expectedCashFlowGrouping>
+    <internalMappingDetails>{&quot;numberOfObjects&quot;:&quot;3&quot;,&quot;primaryObject&quot;:&quot;GiftTransaction&quot;,&quot;secondaryObject&quot;:&quot;GiftTransactionDesignation:GiftTransactionId:GiftTransaction&quot;,&quot;fundObject&quot;:&quot;GiftDesignation:GiftDesignationId:GiftDesignation&quot;,&quot;fieldAmount&quot;:&quot;CurrentAmount&quot;,&quot;fieldCreateLedgerEntries&quot;:&quot;Generate_Expected_Revenue_Expense__c&quot;,&quot;fieldTransactionDate&quot;:&quot;TransactionDate&quot;,&quot;fieldCheckReferenceNumberLabel&quot;:&quot;PaymentIdentifier&quot;,&quot;fieldPaidPayment&quot;:&quot;IsPaid&quot;,&quot;fieldWrittenOffPayment&quot;:&quot;IsWrittenOff&quot;,&quot;fieldPaymentScheduleDate&quot;:&quot;TransactionDueDate&quot;,&quot;fieldPaymentPaidDate&quot;:&quot;TransactionDate&quot;,&quot;fieldPaymentMethod&quot;:&quot;PaymentMethod&quot;,&quot;fieldFundName&quot;:&quot;Name&quot;,&quot;fieldTertiaryAmount&quot;:&quot;Amount&quot;,&quot;objectNames&quot;:[&quot;GiftTransaction&quot;,&quot;GiftTransactionDesignation&quot;,&quot;GiftDesignation&quot;]}</internalMappingDetails>
+    <isActive>true</isActive>
+    <isGroupedByFundAccount>false</isGroupedByFundAccount>
+    <isUsed>true</isUsed>
+    <masterLabel>Incoming Gift Transactions</masterLabel>
+    <paidCashFlowGrouping>GroupBySummary</paidCashFlowGrouping>
+</AccountingModelConfig>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Sjabloon voor automatische reactie op email-to-case</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Woonstad Email-to-Case Autoreply Standaard</name>
+    <pageDevName>Woonstad_Email_to_Case_Autoreply_Standaard</pageDevName>
+    <relatedEntityType>Case</relatedEntityType>
+    <style>none</style>
+    <subject>Bedankt voor uw e-mail</subject>
+    <textOnly>**Bericht ontvangen
+----------------------------------------------------
+
+Beste {{{Case.Email_Template_Salutation__c}}},
+
+Bedankt voor je bericht.
+
+Wij hebben je bericht geregistreerd onder het nummer {{{Case.CaseNumber}}}.
+
+Heb je een algemene vraag?
+
+Je ontvangt binnen 3 werkdagen een reactie.
+
+Heb je een vraag over onderhoud?
+
+Je ontvangt binnen 5 werkdagen een reactie.
+
+Heb je een vraag over betalen?
+
+Je ontvangt binnen 15 werkdagen een reactie.
+
+Veel zaken regel je zelf via MijnWoonstad &lt; https://mijn.woonstadrotterdam.nl/ &gt; . Op onze website vind je antwoorden op veelgestelde vragen &lt; https://www.woonstadrotterdam.nl/informatie-en-regelen &gt; .
+
+Met vriendelijke groeten,
+
+Woonstad Rotterdam
+
+Kunnen we je helpen?
+
+Neem contact met ons op &lt; https://www.woonstadrotterdam.nl/contact &gt; 
+
+© 2025 Woonstad Rotterdam &lt; https://www.woonstadrotterdam.nl/ &gt; 
+
+Privacy Statement &lt; https://www.woonstadrotterdam.nl/privacy-en-cookie-statement &gt; • Disclaimer &lt; https://mijn.woonstadrotterdam.nl/Resources/Documents/Gebruikersvoorwaarden-MijnWoonstad.pdf &gt;</textOnly>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>

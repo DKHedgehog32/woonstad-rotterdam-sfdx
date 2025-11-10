@@ -1,0 +1,27 @@
+.c-container {
+    border: 1px solid #d8dde6;
+    margin: 3px 0 15px 0;
+    background-color: #e8e8e8;  
+    padding: 10px 10px 10px;
+}
+.custom-box {
+    text-align: left;
+    margin: 10px 0 10px 0;
+    background-color: white;
+    border: 1px solid #d8dde6;
+    font-size: 14px;
+    padding: 0px 15px 0px;
+}
+.slds-text-heading_medium {
+    padding: 10px 2px 5px;
+}
+.c-heading {
+    padding: 0px 10px 0px;
+}
+.c-footer {
+    padding: 0px 10px 0px ;
+}
+.side-box {
+    text-align: left;
+    padding: 0px 0px 8px ;   
+}

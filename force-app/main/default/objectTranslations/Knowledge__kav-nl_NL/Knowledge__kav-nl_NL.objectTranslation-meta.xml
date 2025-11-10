@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Kennisartikel</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Kennisartikelen</value>
+    </caseValues>
+    <gender>Neuter</gender>
+    <layouts>
+        <layout>Knowledge Layout</layout>
+        <sections>
+            <label>Koppelingen</label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <description>Vraag en Antwoord</description>
+        <label>Vraag en Antwoord</label>
+        <name>FAQ</name>
+    </recordTypes>
+    <webLinks>
+        <label>Ter Goedkeuring Indienen</label>
+        <name>Submit_for_Approval</name>
+    </webLinks>
+</CustomObjectTranslation>

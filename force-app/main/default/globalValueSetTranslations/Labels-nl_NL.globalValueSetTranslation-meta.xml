@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>Stadswonen</masterLabel>
+        <translation><!-- Stadswonen --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Unknown</masterLabel>
+        <translation>Onbekend</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Woonstad</masterLabel>
+        <translation><!-- Woonstad --></translation>
+    </valueTranslation>
+</GlobalValueSetTranslation>

@@ -1,0 +1,158 @@
+/**
+ * =============================================
+ * Component       : woonstadLogACallForm
+ * File            : woonstadLogACallForm.css
+ * Purpose         : Local CSS styling for the Woonstad “Log a Call” form LWC.
+ * Responsibilities:
+ *  - Layout alignment (form container & inner form)
+ *  - Local styling for title, inputs, error banner, and action button
+ *  - Uses global WoonstadGlobalCSS for SLDS combobox overrides
+ * Accessibility   :
+ *  - Error banner uses strong color contrast and clear borders
+ *  - Input error state provides visible red outline and subtle background
+ * Dependencies    :
+ *  - Requires global WoonstadGlobalCSS for base SLDS integration
+ * Owner           : Woonstad KC
+ * Author          : Dennis van Musschenbroek
+ * Last Modified   : 2025-08-25
+ * =============================================
+ * Change Log
+ * ---------------------------------------------
+ * 2025-08-25 | D. van Musschenbroek | Standardized header, clarified structure, no functional CSS changes.
+ * 2025-08-20 | D. van Musschenbroek | Updated error banner style and added required field highlight.
+ * 2025-08-18 | D. van Musschenbroek | Increased form width to 500px.
+ * =============================================
+ */
+
+/* ========== Layout Containers ========== */
+
+.woonstad-form-container {
+    display: flex;
+    justify-content: flex-start; /* Aligns form to the left */
+    padding: 1rem;
+}
+
+.woonstad-form {
+    padding: 0;
+    margin: 0;
+    background: #ffffff;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    font-family: 'Apercu Pro', sans-serif;
+    width: 500px; /* Fixed width for consistent layout */
+}
+
+/* ========== Title ========== */
+
+.form-title {
+    font-family: 'Arboria', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--ws-blue-600, #003c80);
+    margin: 0 0 1.5rem 0;
+    text-align: left;
+}
+
+/* ========== Form Inputs ========== */
+
+.form-input {
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.display-field {
+    background-color: #f3f4f6;
+    color: #4b5563;
+    min-height: 40px;
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: .25rem;
+    font-size: 1rem;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+/* ========== Error Banner ========== */
+
+.error-banner {
+    background-color: #fef2f2;
+    border: 1px solid var(--ws-red-600, #d02c2c);
+    color: var(--ws-red-600, #d02c2c);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.error-banner p {
+    margin: 0;
+    font-weight: 600;
+}
+
+/* ========== Input Error State ========== */
+
+.input-error lightning-input .slds-input {
+    border-color: var(--ws-red-600, #d02c2c);
+    background-color: #fef2f2;
+}
+
+/* ========== Action Buttons ========== */
+
+.nav-container {
+    display: flex;
+    justify-content: flex-end; /* Aligns action buttons to the right */
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.right-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.woonstad-svg-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 42px;
+    background-color: #85E3F9;
+    border: none;
+    border-radius: 40px;
+    font-family: 'Apercu Pro', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #00215B;
+    padding-left: 16px;
+    padding-right: 48px;
+    position: relative;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+/* Icon inside action button */
+.icon-wrapper {
+    width: 32px;
+    height: 32px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0px 2px 4px rgba(0, 33, 91, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.arrow-icon {
+    width: 18px;
+    height: 18px;
+    display: block;
+    fill: #00215B;
+}

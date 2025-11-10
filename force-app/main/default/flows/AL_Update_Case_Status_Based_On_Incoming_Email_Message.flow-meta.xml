@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Asynchronously clone the Case, Email Message and Content Document Links</description>
+        <name>Apex_CloneCaseEmailMessageAndContentDocumentLinks</name>
+        <label>Clone Case, EmailMessage And ContentDocumentLinks</label>
+        <locationX>842</locationX>
+        <locationY>566</locationY>
+        <actionName>EmailCaseCloneInvocable</actionName>
+        <actionType>apex</actionType>
+        <faultConnector>
+            <targetReference>Assign_VarT_FlowElement_Apex_CloneCaseEmailMessageAndContentDocumentLinks</targetReference>
+        </faultConnector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>caseId</name>
+            <value>
+                <elementReference>Get_Case.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailMessageId</name>
+            <value>
+                <elementReference>varR_EmailMessage.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>EmailCaseCloneInvocable</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Assign Case status based on received message to status &apos;Reopened&apos;</description>
+        <name>Assign_CaseStatusReopened</name>
+        <label>Case Status - Reopened</label>
+        <locationX>578</locationX>
+        <locationY>566</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Case.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Reopened</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Case</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Assign Case status based on received message to status &apos;Response Received&apos;</description>
+        <name>Assign_CaseStatusResponseReceived</name>
+        <label>Case Status - Response Received</label>
+        <locationX>50</locationX>
+        <locationY>458</locationY>
+        <assignmentItems>
+            <assignToReference>Get_Case.Status</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Response Received</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Case</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Fill the VarT_FlowElement with &apos;Apex_CloneCaseEmailMessageAndContentDocumentLinks&apos; if the Element fails.</description>
+        <name>Assign_VarT_FlowElement_Apex_CloneCaseEmailMessageAndContentDocumentLinks</name>
+        <label>VarT_FlowElement - Apex_CloneCaseEmailMessageAndContentDocumentLinks</label>
+        <locationX>1106</locationX>
+        <locationY>674</locationY>
+        <assignmentItems>
+            <assignToReference>VarT_FlowElement</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Apex_CloneCaseEmailMessageAndContentDocumentLinks</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Publish_Fault_Event</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Fill the VarT_FlowElement with &apos;Get_Case&apos; if the Element fails.</description>
+        <name>Assign_VarT_FlowElement_Get_Case</name>
+        <label>VarT_FlowElement - Get_Case</label>
+        <locationX>1898</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>VarT_FlowElement</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Get_Case</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Publish_Fault_Event</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Fill the VarT_FlowElement with &apos;Update_Case&apos; if the Element fails.</description>
+        <name>Assign_VarT_FlowElement_Update_Case</name>
+        <label>VarT_FlowElement - Update_Case</label>
+        <locationX>1634</locationX>
+        <locationY>1148</locationY>
+        <assignmentItems>
+            <assignToReference>VarT_FlowElement</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Update_Case</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Publish_Fault_Event</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Decision to determine if it is a new incoming email message.</description>
+        <name>New_Incoming_Email_Message</name>
+        <label>New Incoming Email Message</label>
+        <locationX>1370</locationX>
+        <locationY>134</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Incoming_Email_Message</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varR_EmailMessage.Incoming</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Case</targetReference>
+            </connector>
+            <label>Incoming Email Message</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If the current Case status is Waiting on Customer, Waiting on Third Party or External, the Case status should become Response Received. If the current Case status is Closed, the status should be Reopened or a new Case should be opened. This way, the contact center employee can again accept the Case from Omni-channel.</description>
+        <name>What_Is_The_Case_Status</name>
+        <label>What Is The Case Status</label>
+        <locationX>578</locationX>
+        <locationY>350</locationY>
+        <defaultConnectorLabel>Other</defaultConnectorLabel>
+        <rules>
+            <name>Waiting_On_Customer</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Case.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Waiting on Customer</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <isGoTo>true</isGoTo>
+                <targetReference>Assign_CaseStatusResponseReceived</targetReference>
+            </connector>
+            <label>Waiting On Customer</label>
+        </rules>
+        <rules>
+            <name>Waiting_on_Third_Party</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Case.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Waiting on Third Party</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_CaseStatusResponseReceived</targetReference>
+            </connector>
+            <label>Waiting on Third Party</label>
+        </rules>
+        <rules>
+            <name>External</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Case.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>External</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <isGoTo>true</isGoTo>
+                <targetReference>Assign_CaseStatusResponseReceived</targetReference>
+            </connector>
+            <label>External</label>
+        </rules>
+        <rules>
+            <name>Closed</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Case.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Case.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed-Accepted</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Case.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed-Rejected</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>When_Was_The_Case_Closed</targetReference>
+            </connector>
+            <label>Closed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>When was the associated Case closed?</description>
+        <name>When_Was_The_Case_Closed</name>
+        <label>When Was The Case Closed</label>
+        <locationX>710</locationX>
+        <locationY>458</locationY>
+        <defaultConnector>
+            <targetReference>Apex_CloneCaseEmailMessageAndContentDocumentLinks</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>More Than Two Week Ago</defaultConnectorLabel>
+        <rules>
+            <name>Two_Weeks_Ago_Or_Less</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Case.ClosedDate</leftValueReference>
+                <operator>GreaterThan</operator>
+                <rightValue>
+                    <elementReference>varF_TwoWeeksAgo</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_CaseStatusReopened</targetReference>
+            </connector>
+            <label>Two Weeks Ago Or Less</label>
+        </rules>
+    </decisions>
+    <description>Update the Case status when a customer or supplier responds to an email message that was sent from the Case.</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>The current Date and Time</description>
+        <name>varF_Now</name>
+        <dataType>DateTime</dataType>
+        <expression>NOW()</expression>
+    </formulas>
+    <formulas>
+        <description>The calculated date of two weeks ago</description>
+        <name>varF_TwoWeeksAgo</name>
+        <dataType>DateTime</dataType>
+        <expression>NOW() -14</expression>
+    </formulas>
+    <interviewLabel>AL - Update Case Status Based On Incoming Email Message {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>AL - Update Case Status Based On Incoming Email Message</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Retrieve original Case related to the Email Message</description>
+        <name>Get_Case</name>
+        <label>Case</label>
+        <locationX>578</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>What_Is_The_Case_Status</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Assign_VarT_FlowElement_Get_Case</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varR_EmailMessage.ParentId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Case</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Update Case record</description>
+        <name>Update_Case</name>
+        <label>Case</label>
+        <locationX>578</locationX>
+        <locationY>1040</locationY>
+        <faultConnector>
+            <targetReference>Assign_VarT_FlowElement_Update_Case</targetReference>
+        </faultConnector>
+        <inputReference>Get_Case</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>1244</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>New_Incoming_Email_Message</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <description>Publish flow fault</description>
+        <name>Publish_Fault_Event</name>
+        <label>Publish Fault Event</label>
+        <locationX>1634</locationX>
+        <locationY>1256</locationY>
+        <flowName>AL_Publish_Flow_Fault_event</flowName>
+        <inputAssignments>
+            <name>faultMessage</name>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>flowContext</name>
+            <value>
+                <stringValue>AL_Update_Case_Status_Based_On_Incoming_Email_Message</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>flowGuid</name>
+            <value>
+                <elementReference>$Flow.InterviewGuid</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>userId</name>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <variables>
+        <name>currentItemFromSourceCollection</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>CaseFeed</objectType>
+    </variables>
+    <variables>
+        <description>Input variable Email Message to trigger the flow</description>
+        <name>varR_EmailMessage</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>EmailMessage</objectType>
+    </variables>
+    <variables>
+        <description>This variable is used to store the Flow Element name if a flow errors.</description>
+        <name>VarT_FlowElement</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>varT_Recipient</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

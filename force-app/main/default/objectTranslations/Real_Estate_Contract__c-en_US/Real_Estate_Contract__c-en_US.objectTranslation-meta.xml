@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Real Estate Contract</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Real Estate Contracts</value>
+    </caseValues>
+    <layouts>
+        <layout>Real Estate Contract Layout</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel><!-- Real Estate Contract Id --></nameFieldLabel>
+    <recordTypes>
+        <description><!-- Rental contracts --></description>
+        <label><!-- Rental --></label>
+        <name>Rental</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Sales contract --></description>
+        <label><!-- Sales --></label>
+        <name>Sales</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- For service agreements --></description>
+        <label><!-- Service --></label>
+        <name>Service</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

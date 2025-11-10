@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <recordTypes>
+        <description>Vastleggen van een huurovereenkomst</description>
+        <label>Verhuur</label>
+        <name>RentalStd</name>
+    </recordTypes>
+    <recordTypes>
+        <description>Vastleggen van een huurovereenkomst</description>
+        <label>Verhuur</label>
+        <name>Rental_Std2</name>
+    </recordTypes>
+    <recordTypes>
+        <description>Vastleggen van een verkoopovereenkomst</description>
+        <label>Verkoop</label>
+        <name>SalesStd</name>
+    </recordTypes>
+    <recordTypes>
+        <description>Vastleggen van een verkoopovereenkomst</description>
+        <label>Verkoop</label>
+        <name>SalesStd2</name>
+    </recordTypes>
+</CustomObjectTranslation>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Klant Adres</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Klant Adressen</value>
+    </caseValues>
+    <gender>Neuter</gender>
+    <layouts>
+        <layout>Account Address Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Klant Adres Id</nameFieldLabel>
+    <validationRules>
+        <errorMessage>De startdatum van dit klant adres kan niet later zijn dan de geselecteerde einddatum.</errorMessage>
+        <name>AccountAddress_EndDate_after_StartDate</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Data_Quality_Score__c</fullName>
+    <businessStatus>Active</businessStatus>
+    <description>Measures the data quality score of a Business Account</description>
+    <formula>IF( LEN( Chamber_Of_Commerce_Number__c ) = 0, 0,0.25) + 
+IF( LEN( Organisation_Type__c ) = 0, 0,0.25) + 
+IF( ISPICKVAL( Industry ,&quot;&quot;), 0,0.20) +
+IF( LEN( Primary_Shipping_Address__c ) = 0, 0,0.20) + 
+IF( LEN( Primary_Billing_Address__c ) = 0, 0,0.10)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Measures the data quality score of a Business Account</inlineHelpText>
+    <label>Data Quality Score</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <securityClassification>Internal</securityClassification>
+    <type>Percent</type>
+</CustomField>

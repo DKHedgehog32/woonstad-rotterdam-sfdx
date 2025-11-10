@@ -1,0 +1,21 @@
+<template>
+    <div class="woonstad">
+        <div class="button-container">
+            <!-- Bedrijfsaccount -->
+            <div class="choice-card" onclick={handleCompanyClick}>
+                <div class={cardLayout}>
+                    <img src={iconCompany} alt="Bedrijfsaccount" class="card-icon" />
+                    <span class="card-label">Bedrijf</span>
+                </div>
+            </div>
+
+            <!-- Persoonsaccount -->
+            <div class="choice-card" onclick={handlePersonClick}>
+                <div class={cardLayout}>
+                    <img src={iconPerson} alt="Persoonsaccount" class="card-icon" />
+                    <span class="card-label">Persoon</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

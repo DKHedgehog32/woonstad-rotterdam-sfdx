@@ -1,0 +1,137 @@
+<!--
+/*************************************************************************************************
+ * Component       : woonstadFlowCustDataForm (HTML)
+ * Layer           : Presentation (HTML Template)
+ * Purpose         : Legacy two-column form + single right-aligned "Volgende" button.
+ *
+ * Notes           :
+ *  - Validation runs ONLY on click of Volgende.
+ *  - Required fields show red asterisk but don't validate on blur/change.
+ *  - Geboortedatum is required, Dutch format (dd-mm-jjjj), manual typing supported.
+ *  - We keep legacy markup and class names.
+ * Last Modified   : 2025-09-03
+ *************************************************************************************************/
+-->
+<template>
+    <div class="woonstad">
+        <!-- Top validation banner (only toggled on Volgende) -->
+        <template if:true={showValidationBanner}>
+            <div class="ws-validation-banner" role="alert">
+                Zorg dat alle verplichte velden ingevuld zijn.
+            </div>
+        </template>
+
+        <div class="slds-grid slds-wrap slds-gutters">
+            <!-- Left Column -->
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <h2 class="form-title">Persoonsgegevens</h2>
+
+                <!-- Aanhef + Voornaam side-by-side -->
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_1-of-3">
+                        <lightning-combobox
+                            name="salutation"
+                            label="Aanhef"
+                            value={salutation}
+                            options={salutationOptions}
+                            placeholder="Maak een keuze"
+                            onchange={handleSalutationChange}
+                            class="form-input">
+                        </lightning-combobox>
+                    </div>
+                    <div class="slds-col slds-size_2-of-3">
+                        <lightning-input
+                            name="firstName"
+                            label="Voornaam"
+                            value={firstName}
+                            onchange={handleInputChange}
+                            class="form-input required-field"
+                            required
+                            data-field="firstName">
+                        </lightning-input>
+                    </div>
+                </div>
+
+                <lightning-input
+                    name="middleName"
+                    label="Tussenvoegsel"
+                    value={middleName}
+                    onchange={handleInputChange}
+                    class="form-input">
+                </lightning-input>
+
+                <lightning-input
+                    name="lastName"
+                    label="Achternaam"
+                    value={lastName}
+                    onchange={handleInputChange}
+                    class="form-input required-field"
+                    required
+                    data-field="lastName">
+                </lightning-input>
+
+                <!-- Geboortedatum: Dutch format + manual typing -->
+                <lightning-input
+                    name="birthdateDisplay"
+                    label="Geboortedatum"
+                    type="text"
+                    placeholder="dd-mm-jjjj"
+                    value={birthdateDisplay}
+                    oninput={handleBirthdateTyping}
+                    onchange={handleBirthdateChange}
+                    class="form-input required-field"
+                    required
+                    data-field="birthdate">
+                </lightning-input>
+            </div>
+
+            <!-- Right Column -->
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <h2 class="form-title">Contactgegevens</h2>
+
+                <lightning-input
+                    name="phone1"
+                    label="Telefoonnummer"
+                    value={phone1}
+                    onchange={handleInputChange}
+                    class="form-input required-field"
+                    required
+                    data-field="phone1">
+                </lightning-input>
+
+                <lightning-input
+                    name="phone2"
+                    label="Mobielnummer"
+                    value={phone2}
+                    onchange={handleInputChange}
+                    class="form-input">
+                </lightning-input>
+
+                <lightning-input
+                    name="email"
+                    label="E-mail"
+                    type="email"
+                    value={email}
+                    onchange={handleInputChange}
+                    class="form-input required-field"
+                    data-field="email">
+                </lightning-input>
+            </div>
+        </div>
+
+        <!-- Legacy action bar: right-aligned single "Volgende" -->
+        <div class="nav-container">
+            <div class="right-buttons">
+                <button class="woonstad-svg-button" onclick={handleNext} title="Volgende">
+                    <span>Volgende</span>
+                    <span class="icon-wrapper">
+                        <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</template>

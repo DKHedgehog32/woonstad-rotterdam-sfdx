@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buckets>
+        <bucketType>text</bucketType>
+        <developerName>BucketField_77703236</developerName>
+        <masterLabel>Migrated</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>CONTACT_LAST_UPDATE_BY</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Integration OKAPI</sourceValue>
+            </sourceValues>
+            <value>Migrated</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Cobra Support</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Damian van Beveren</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Drilona Rexhepi</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Harm Korten</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Justus Hoogendoorn</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Matthew Goch, van</sourceValue>
+            </sourceValues>
+            <value>Not migrated</value>
+        </values>
+    </buckets>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_77703236</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Migrated Accounts</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>ContactList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

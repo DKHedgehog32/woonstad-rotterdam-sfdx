@@ -1,0 +1,33 @@
+<!-- Address Entry -->
+<template>
+    <template lwc:if={errorMessage}>
+
+        <div class="slds-notify slds-notify_alert slds-alert_warning" role="alert">
+            <span class="slds-assistive-text">warning</span>
+            <span class="slds-icon_container slds-icon-utility-warning slds-m-right_x-small" title="Description of icon when needed">
+            <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+              <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#warning"></use>
+            </svg>
+          </span>
+            <h2>{errorMessage}</h2>
+
+        </div>
+    </template>
+    <lightning-layout multiple-rows>
+        <lightning-layout-item size="6" padding="around-small">
+            <div class="custom-box slds-box slds-p-around_medium slds-text-align_left">
+                <lightning-input type="text" value={postalCode} onchange={handlePostalCodeChange} onblur={doQuery} label="Postcode"></lightning-input>
+                <lightning-input type="text" value={houseNumber} onchange={handleHouseNumberChange} onblur={doQuery} label="Huisnummer"></lightning-input>
+                <lightning-input type="text" value={houseLetter} onchange={handleHouseLetterChange} onblur={doQuery} label="Huisletter"></lightning-input>
+                <lightning-input type="text" value={houseNumberAddition} onblur={doQuery} onchange={handleHouseNumberAdditionChange} label="Toevoeging"></lightning-input>
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="6" padding="around-small">
+            <div class="custom-box slds-box slds-p-around_medium slds-text-align_left">
+                <lightning-input type="text" value={streetName} onchange={handleStreetNameChange} label="Straat"></lightning-input>
+                <lightning-input type="text" value={city} onchange={handleCityChange} label="Stad"></lightning-input>
+                <lightning-input type="text" value={country} onchange={handleCountryChange} read-only="true" label="Land"></lightning-input>
+            </div>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

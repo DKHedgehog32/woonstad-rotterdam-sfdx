@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Valid_IBAN_NL</fullName>
+    <active>false</active>
+    <description>To validate if the NL IBAN is correct.</description>
+    <errorConditionFormula>AND(
+    ISPICKVAL(Account__r.BillingCountryCode, &quot;NL&quot;), 
+    LEN(IBAN__c) &lt;&gt; 18)</errorConditionFormula>
+    <errorDisplayField>IBAN__c</errorDisplayField>
+    <errorMessage>Check if the IBAN is valid.</errorMessage>
+</ValidationRule>

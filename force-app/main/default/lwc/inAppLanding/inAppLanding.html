@@ -1,0 +1,51 @@
+<template>
+    <lightning-card footer="" title="">
+        <h1 class="slds-text-heading_medium">{welcome_text}</h1>
+        <div class="c-container">
+            <lightning-layout>
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    <p class="c-description">{description}</p>
+
+                    <c-in-app-landing-child
+                        heading="Program Management" 
+                        cloud-detail="The new Nonprofit Cloud hosts features created using the power of the Salesforce Platform. Program Management serves as a one-stop shop of key program and benefit details that helps organisations with insights into the most up-to-date information. You can use the power of the streamlined workflows to schedule benefits, enrol participants, track their attendance, and manage the benefit deliveries, with efficiency and ease." 
+                        app="c__Nonprofit_Cloud_Learning_Experience"
+                        page="Program_Management_Page"
+                        link-in-new-tab={pass_false}
+                        link-reference="standard__navItemPage"
+                        inside-link-present={pass_true}
+                        inside-link="/lightning/setup/BenefitManagementSettings/home"
+                        inside-link-before-text="To get started ensure that "
+                        inside-link-text="'Program and Benefit Management Settings'"
+                        inside-link-after-text=" is enabled."></c-in-app-landing-child>
+
+                    <c-in-app-landing-child
+                        heading="Case Management"
+                        cloud-detail="This next-generation Case Management built using the power of Salesforce Platform enables you to track and manage your cases and participants using efficient and streamlined tools. Case Management offers care plans for organizing services, dynamic questionnaires to streamline intake and referrals, and visuals for seeing participants’ relationships and timelines along with tools for recording incidents, creating notes, and tracking participation." 
+                        app="c__Nonprofit_Cloud_Learning_Experience"
+                        page="Case_Management_Page"
+                        link-in-new-tab={pass_false}
+                        link-reference="standard__navItemPage"
+                        inside-link-present={pass_true}
+                        inside-link="/lightning/setup/CarePlanSettings/home"
+                        inside-link-before-text="To get started ensure that "
+                        inside-link-text="'Care Plan Settings'"
+                        inside-link-after-text=" is enabled."></c-in-app-landing-child>
+                    
+                    <c-in-app-landing-child
+                        heading="Grantmaking"
+                        cloud-detail="The new Nonprofit Cloud for Grantmaking, built using the power of the Salesforce Platform, hosts features to manage the full grantmaking lifecycle in one place. Set up programs and budgets, publish funding opportunities in the grantmaking portal, administer applications and reviews, and manage post-award requirements and disbursements."
+                        app="c__Nonprofit_Cloud_Learning_Experience"
+                        url="/lightning/setup/GrantmakingSettings/home"
+                        link-in-new-tab={pass_true}
+                        link-reference="standard__webPage"
+                        inside-link-present={pass_true}
+                        inside-link="/lightning/setup/GrantmakingSettings/home"
+                        inside-link-before-text="To get started, ensure that "
+                        inside-link-text="'Grantmaking Settings'"
+                        inside-link-after-text=" is enabled."></c-in-app-landing-child>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </lightning-card>
+</template>

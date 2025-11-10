@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Outdated contract lines should be updated with an end date in order to keep the last contract line as &apos;active&apos; only. Previous versions with old price or previous status will be shown in the contract history component while the active contract line with last updated version will be shown as &apos;active&apos;</description>
+        <name>Assign_Active_To_Date_To_Previous_Contract_Line_Versions</name>
+        <label>Assign Active To Date To Previous Contract Line Versions</label>
+        <locationX>138</locationX>
+        <locationY>566</locationY>
+        <assignmentItems>
+            <assignToReference>varR_SingleContractLineToUpdate.Id</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Through_Contract_Line_Collection.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varR_SingleContractLineToUpdate.Active_to_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>forD_ContractLineActiveToDate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_Single_Values_To_Collection_To_Be_Updated</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Assignment of single values to the collection in order to update a set of contract lines for history tracking on the real estate contract (different related lists with inactive and active contract lines)</description>
+        <name>Assign_Single_Values_To_Collection_To_Be_Updated</name>
+        <label>Assign Single Values To Collection To Be Updated</label>
+        <locationX>138</locationX>
+        <locationY>674</locationY>
+        <assignmentItems>
+            <assignToReference>varR_ContractLineCollection</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>varR_SingleContractLineToUpdate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Through_Contract_Line_Collection</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Fill the VarT_FlowElement with &apos;Get_ContractLine&apos; if the Element fails.</description>
+        <name>Assign_VarT_FlowElementGet_ContractLine</name>
+        <label>VarT_FlowElement - Get_ContractLine</label>
+        <locationX>1282</locationX>
+        <locationY>242</locationY>
+        <assignmentItems>
+            <assignToReference>VarT_FlowElement</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Get_ContractLine</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Subflow_PublishFlowFaultEvent</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Fill the VarT_FlowElement with &apos;Get_ContractLines&apos; if the Element fails.</description>
+        <name>Assign_VarT_FlowElementGet_ContractLines</name>
+        <label>VarT_FlowElement - Get_ContractLines</label>
+        <locationX>1018</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>VarT_FlowElement</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Get_ContractLines</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Subflow_PublishFlowFaultEvent</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Fill the VarT_FlowElement with &apos;Update_ContractLines&apos; if the Element fails.</description>
+        <name>Assign_VarT_FlowElementUpdate_ContractLines</name>
+        <label>VarT_FlowElement - Update_ContractLines</label>
+        <locationX>314</locationX>
+        <locationY>974</locationY>
+        <assignmentItems>
+            <assignToReference>VarT_FlowElement</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Update_ContractLines</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Subflow_PublishFlowFaultEvent</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Fill the VarT_FlowElement with &apos;Update_RealEstateContract&apos; if the Element fails.</description>
+        <name>Assign_VarT_FlowElementUpdate_RealEstateContract</name>
+        <label>VarT_FlowElement - Update_RealEstateContract</label>
+        <locationX>754</locationX>
+        <locationY>1364</locationY>
+        <assignmentItems>
+            <assignToReference>VarT_FlowElement</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Update_RealEstateContract</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Subflow_PublishFlowFaultEvent</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Determine if there are related contract lines to update based on the newly created contract line</description>
+        <name>Other_Contract_Lines_With_Same_Contract_Number_Found</name>
+        <label>Other Contract Lines With Same Contract Number Found</label>
+        <locationX>314</locationX>
+        <locationY>350</locationY>
+        <defaultConnector>
+            <targetReference>Update_RealEstateContract</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Update Needed</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Contract_Lines_To_Be_Updated</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_ContractLines</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Loop_Through_Contract_Line_Collection</targetReference>
+            </connector>
+            <label>Yes, Contract Lines To Be Updated</label>
+        </rules>
+    </decisions>
+    <description>Autolaunched Flow to update the previous contract line versions with same contract number in order to build up the contract history and status on the real estate contract</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>forD_ContractLineActiveToDate</name>
+        <dataType>Date</dataType>
+        <expression>IF(
+{!Loop_Through_Contract_Line_Collection.Active_from_Date__c} &lt; {!varR_ContractLine.Active_from_Date__c},
+{!varR_ContractLine.Active_from_Date__c} -1,
+{!Loop_Through_Contract_Line_Collection.Active_from_Date__c}
+)</expression>
+    </formulas>
+    <interviewLabel>AL - Update Contract Line History &amp; Real Estate Contract Status {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>AL - Update Contract Line History &amp; Real Estate Contract Status</label>
+    <loops>
+        <description>Loop through the collection of contract lines which are related with the newly created contract line</description>
+        <name>Loop_Through_Contract_Line_Collection</name>
+        <label>Loop Through Contract Line Collection</label>
+        <locationX>50</locationX>
+        <locationY>458</locationY>
+        <collectionReference>Get_ContractLines</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Assign_Active_To_Date_To_Previous_Contract_Line_Versions</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Update_ContractLines</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Get the contract line that is launched in the flow</description>
+        <name>Get_ContractLine</name>
+        <label>Contract Line</label>
+        <locationX>314</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_ContractLines</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Assign_VarT_FlowElementGet_ContractLine</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varR_ContractLine.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Contract_Line__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Get a collection of contract lines that belongs to the same parent real estate contract with the same contract number but with a previous OID/External ID</description>
+        <name>Get_ContractLines</name>
+        <label>Contract Lines</label>
+        <locationX>314</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Other_Contract_Lines_With_Same_Contract_Number_Found</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Assign_VarT_FlowElementGet_ContractLines</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Contract_Number__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varR_ContractLine.Contract_Number__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Real_Estate_Contract__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varR_ContractLine.Real_Estate_Contract__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Id</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>varR_ContractLine.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Active_to_Date__c</field>
+            <operator>EqualTo</operator>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Contract_Line__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Based on the assignment, update the collection of contract lines that are &apos;inactive&apos;</description>
+        <name>Update_ContractLines</name>
+        <label>Contract Lines</label>
+        <locationX>50</locationX>
+        <locationY>866</locationY>
+        <connector>
+            <targetReference>Update_RealEstateContract</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Assign_VarT_FlowElementUpdate_ContractLines</targetReference>
+        </faultConnector>
+        <inputReference>varR_ContractLineCollection</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Status update on the real estate contract based on newly created contract line status</description>
+        <name>Update_RealEstateContract</name>
+        <label>Real Estate Contract</label>
+        <locationX>314</locationX>
+        <locationY>1256</locationY>
+        <faultConnector>
+            <targetReference>Assign_VarT_FlowElementUpdate_RealEstateContract</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varR_ContractLine.Real_Estate_Contract__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <elementReference>varR_ContractLine.Status__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Real_Estate_Contract__c</object>
+    </recordUpdates>
+    <runInMode>SystemModeWithoutSharing</runInMode>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_ContractLine</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <description>Publish the Flow Fault Platform Event.</description>
+        <name>Subflow_PublishFlowFaultEvent</name>
+        <label>Publish Flow Fault Event</label>
+        <locationX>754</locationX>
+        <locationY>1472</locationY>
+        <flowName>AL_Publish_Flow_Fault_event</flowName>
+        <inputAssignments>
+            <name>faultMessage</name>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>flowContext</name>
+            <value>
+                <stringValue>AL_Update_Contract_Line_History_Real_Estate_Contract_Status</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>flowElement</name>
+            <value>
+                <elementReference>VarT_FlowElement</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>flowGuid</name>
+            <value>
+                <elementReference>$Flow.InterviewGuid</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>triggeringRecord</name>
+            <value>
+                <elementReference>varR_ContractLine.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>userId</name>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <variables>
+        <name>varR_ContractLine</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Contract_Line__c</objectType>
+    </variables>
+    <variables>
+        <name>varR_ContractLineCollection</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Contract_Line__c</objectType>
+    </variables>
+    <variables>
+        <name>varR_SingleContractLineToUpdate</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Contract_Line__c</objectType>
+    </variables>
+    <variables>
+        <description>This variable is used to store the Flow Element name if a flow errors.</description>
+        <name>VarT_FlowElement</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

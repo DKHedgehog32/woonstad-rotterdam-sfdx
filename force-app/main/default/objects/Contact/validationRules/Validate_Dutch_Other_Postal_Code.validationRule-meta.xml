@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_Dutch_Other_Postal_Code</fullName>
+    <active>true</active>
+    <description>Checks the other postal code</description>
+    <errorConditionFormula>AND(
+AND(
+ISPICKVAL( OtherCountryCode , &quot;NL&quot;),
+OR(
+AND(
+NOT(ISBLANK( OtherPostalCode )),
+NOT(REGEX(OtherPostalCode, &quot;^\\d{4}[ ]?[a-zA-Z]{2}$&quot;))
+)
+)
+))</errorConditionFormula>
+    <errorDisplayField>OtherPostalCode</errorDisplayField>
+    <errorMessage>Invalid other postal code</errorMessage>
+</ValidationRule>

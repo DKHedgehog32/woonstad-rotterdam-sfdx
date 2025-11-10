@@ -1,0 +1,97 @@
+<!--
+/*************************************************************************************************
+ * Component       : woonstadNameplateForm (meta: woonstadNameplateForm.js-meta.xml)
+ * Layer           : Presentation (HTML Template)
+ * Purpose         : Nameplate request form for Flow with deferred validation.
+ *
+ * Notes           :
+ *  - Uses native Lightning validation via setCustomValidity()/reportValidity()
+ *    so red borders ALWAYS show, even if CSS is blocked.
+ *  - Required asterisks shown via [required] + CSS where possible (nice-to-have).
+ *************************************************************************************************/
+-->
+<template>
+  <div class="woonstad-form">
+    <template if:true={showErrorMessage}>
+      <div class="woonstad-error-banner slds-notify slds-notify_alert" role="alert">
+        <span class="slds-assistive-text">error</span>
+        <span class="slds-icon_container slds-icon-utility-error slds-m-right_x-small" title="error">
+          <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#error"></use>
+          </svg>
+        </span>
+        <h2>Alle verplichte velden moeten gevuld zijn.</h2>
+      </div>
+    </template>
+
+    <lightning-messages></lightning-messages>
+    <h2 class="form-title">Naamplaatje aanvragen</h2>
+
+    <!-- Naam op het naamplaatje (required) -->
+    <lightning-input
+      data-field="name"
+      type="text"
+      label="Naam op het naamplaatje"
+      value={nameplateName}
+      onchange={handleNameChange}
+      maxlength="50"
+      class="form-input"
+      required
+      message-when-value-missing="Vul de naam voor het naamplaatje in.">
+    </lightning-input>
+
+    <div class="suggestion-text" onclick={handleSuggestionClick}>
+      Suggestie: {accountNameSuggestion}
+    </div>
+
+    <!-- Reden van aanvraag (required) -->
+    <lightning-combobox
+      data-field="reason"
+      name="reason"
+      label="Reden van aanvraag"
+      value={reason}
+      options={reasonOptions}
+      onchange={handleReasonChange}
+      class="form-input"
+      required
+      message-when-value-missing="Selecteer een reden.">
+    </lightning-combobox>
+
+    <!-- Leverancier (required) -->
+    <lightning-combobox
+      data-field="supplier"
+      name="supplier"
+      label="Leverancier"
+      value={supplierName}
+      options={supplierOptions}
+      onchange={handleSupplierChange}
+      class="form-input"
+      required
+      message-when-value-missing="Selecteer een leverancier.">
+    </lightning-combobox>
+
+    <!-- Optional: Toelichting -->
+    <lightning-input
+      data-field="note"
+      type="text"
+      label="Toelichting voor de leverancier (niet verplicht)"
+      maxlength="255"
+      value={supplierNote}
+      onchange={handleNoteChange}
+      class="form-input">
+    </lightning-input>
+
+    <div class="nav-container">
+      <div class="right-buttons">
+        <button class="woonstad-svg-button" onclick={handleConfirm}>
+          <span>Bevestigen</span>
+          <span class="icon-wrapper">
+            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Add the Account Address to the list to be updated</description>
+        <name>Add_Record_To_List</name>
+        <label>Add Record To List</label>
+        <locationX>138</locationX>
+        <locationY>1580</locationY>
+        <assignmentItems>
+            <assignToReference>varR_UpdateAccountAddresses</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Iterate_Previous_Primary_Shipping</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Iterate_Previous_Primary_Shipping</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Add the Account Address to the list to be updated</description>
+        <name>Add_To_New_List</name>
+        <label>Add To New List</label>
+        <locationX>138</locationX>
+        <locationY>566</locationY>
+        <assignmentItems>
+            <assignToReference>varR_UpdateAccountAddresses</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>Iterate_Previous_Primary_Billing</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Iterate_Previous_Primary_Billing</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Fill the VarT_FlowElement with &apos;Get_AccountAddressesBilling&apos; if the Element fails.</description>
+        <name>Assign_VarT_FlowElementGet_AccountAddressesBilling</name>
+        <label>VarT_FlowElement - Get_AccountAddressesBilling</label>
+        <locationX>578</locationX>
+        <locationY>350</locationY>
+        <assignmentItems>
+            <assignToReference>VarT_FlowElement</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Get_AccountAddressesBilling</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Subflow_PublishFlowFaultEvent</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Fill the VarT_FlowElement with &apos;Get_AccountAddressesShipping&apos; if the Element fails.</description>
+        <name>Assign_VarT_FlowElementGet_AccountAddressesShipping</name>
+        <label>VarT_FlowElement - Get_AccountAddressesShipping</label>
+        <locationX>578</locationX>
+        <locationY>1364</locationY>
+        <assignmentItems>
+            <assignToReference>VarT_FlowElement</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Get_AccountAddressesShipping</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Subflow_PublishFlowFaultEvent</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Fill the VarT_FlowElement with &apos;Update_AccountAddressesBilling&apos; if the Element fails.</description>
+        <name>Assign_VarT_FlowElementUpdate_AccountAddressesBilling</name>
+        <label>VarT_FlowElement - Update_AccountAddressesBilling</label>
+        <locationX>314</locationX>
+        <locationY>866</locationY>
+        <assignmentItems>
+            <assignToReference>VarT_FlowElement</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Update_AccountAddressesBilling</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <isGoTo>true</isGoTo>
+            <targetReference>Subflow_PublishFlowFaultEvent</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Fill the VarT_FlowElement with &apos;Update_AccountAddressesShipping&apos; if the Element fails.</description>
+        <name>Assign_VarT_FlowElementUpdate_AccountAddressesShipping</name>
+        <label>VarT_FlowElement - Update_AccountAddressesShipping</label>
+        <locationX>314</locationX>
+        <locationY>1880</locationY>
+        <assignmentItems>
+            <assignToReference>VarT_FlowElement</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Update_AccountAddressesShipping</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Subflow_PublishFlowFaultEvent</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Unchecks the primary box and fills in end date</description>
+        <name>Unprimary_Previous_Primary_Billing_Record</name>
+        <label>Unprimary Previous Primary Billing Record</label>
+        <locationX>138</locationX>
+        <locationY>458</locationY>
+        <assignmentItems>
+            <assignToReference>Iterate_Previous_Primary_Billing.Is_Primary__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Iterate_Previous_Primary_Billing.End_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>forD_PrimaryBillingAccountAddressEndDate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Add_To_New_List</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Unchecks primary and fills end date</description>
+        <name>Unprimary_Previous_Primary_Shipping</name>
+        <label>Unprimary Previous Primary Shipping</label>
+        <locationX>138</locationX>
+        <locationY>1472</locationY>
+        <assignmentItems>
+            <assignToReference>Iterate_Previous_Primary_Shipping.Is_Primary__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Iterate_Previous_Primary_Shipping.End_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>forD_PrimaryShippingAccountAddressEndDate</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Add_Record_To_List</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>Has the primary Billing or Shipping address change</description>
+        <name>Primary_Billing_Address_Changed</name>
+        <label>Primary Billing Address Changed</label>
+        <locationX>446</locationX>
+        <locationY>134</locationY>
+        <defaultConnector>
+            <targetReference>Primary_Shipping_Address_Changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No change</defaultConnectorLabel>
+        <rules>
+            <name>Primary_Billing_Changed</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>varR_AccountPriorValues.Primary_Billing_Address__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>varR_Account.Primary_Billing_Address__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_AccountAddressesBilling</targetReference>
+            </connector>
+            <label>Primary Billing Changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Did the shipping primary change?</description>
+        <name>Primary_Shipping_Address_Changed</name>
+        <label>Primary Shipping Address Changed</label>
+        <locationX>446</locationX>
+        <locationY>1148</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Shipping_Changed</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varR_AccountPriorValues.Primary_Shipping_Address__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>varR_Account.Primary_Shipping_Address__c</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_AccountAddressesShipping</targetReference>
+            </connector>
+            <label>Shipping Changed</label>
+        </rules>
+    </decisions>
+    <description>Updates the Account Addresses when a change is made to the primary Billing or Shipping address</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>forD_CurrentDate</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()</expression>
+    </formulas>
+    <formulas>
+        <name>forD_PrimaryBillingAccountAddressEndDate</name>
+        <dataType>Date</dataType>
+        <expression>IF({!Iterate_Previous_Primary_Billing.Start_Date__c}=TODAY(), TODAY(), TODAY()-1)</expression>
+    </formulas>
+    <formulas>
+        <name>forD_PrimaryShippingAccountAddressEndDate</name>
+        <dataType>Date</dataType>
+        <expression>IF({!Iterate_Previous_Primary_Shipping.Start_Date__c}=TODAY(), TODAY(), TODAY()-1)</expression>
+    </formulas>
+    <formulas>
+        <description>Creates the full Billing Address for the Netherlands</description>
+        <name>forT_DutchBillingAddressStreetCombination</name>
+        <dataType>String</dataType>
+        <expression>IF(
+   AND(
+           NOT(ISBLANK({!varR_Account.Primary_Billing_Address__r.House_Number_Addition__c})),
+           NOT(ISBLANK({!varR_Account.Primary_Billing_Address__r.House_Letter__c}))
+          ), 
+            {!varR_Account.Primary_Billing_Address__r.Street__c}&amp;&quot; &quot;&amp;{!varR_Account.Primary_Billing_Address__r.House_Number__c}&amp; 
+            {!varR_Account.Primary_Billing_Address__r.House_Letter__c}&amp;{!varR_Account.Primary_Billing_Address__r.House_Number_Addition__c}, 
+IF(
+   AND(
+           NOT(ISBLANK({!varR_Account.Primary_Billing_Address__r.House_Number_Addition__c})),
+           ISBLANK({!varR_Account.Primary_Billing_Address__r.House_Letter__c})
+           ), 
+            {!varR_Account.Primary_Billing_Address__r.Street__c}&amp;&quot; &quot;&amp;{!varR_Account.Primary_Billing_Address__r.House_Number__c}&amp; 
+            {!varR_Account.Primary_Billing_Address__r.House_Number_Addition__c}, 
+IF(
+   AND(
+           ISBLANK({!varR_Account.Primary_Billing_Address__r.House_Number_Addition__c}),
+           NOT(ISBLANK({!varR_Account.Primary_Billing_Address__r.House_Letter__c}))
+           ), {!varR_Account.Primary_Billing_Address__r.Street__c}&amp;&quot; &quot;&amp;{!varR_Account.Primary_Billing_Address__r.House_Number__c}&amp;{!varR_Account.Primary_Billing_Address__r.House_Letter__c}, 
+IF(
+   AND(
+           ISBLANK({!varR_Account.Primary_Billing_Address__r.House_Number_Addition__c}),
+           ISBLANK({!varR_Account.Primary_Billing_Address__r.House_Letter__c})
+           ), 
+            {!varR_Account.Primary_Billing_Address__r.Street__c}&amp;&quot; &quot;&amp;{!varR_Account.Primary_Billing_Address__r.House_Number__c}, &quot;&quot;))))</expression>
+    </formulas>
+    <formulas>
+        <description>Creates the full PO Box or Freepost Billing Address for the Netherlands</description>
+        <name>forT_DutchPOBoxFreepostBillingAddressStreetCombination</name>
+        <dataType>String</dataType>
+        <expression>IF(NOT(ISNULL({!varR_Account.Primary_Billing_Address__r.PO_Box_Number__c})), &quot;Postbus &quot;&amp;{!varR_Account.Primary_Billing_Address__r.PO_Box_Number__c},
+&quot;Antwoordnummer &quot;&amp;{!varR_Account.Primary_Billing_Address__r.Freepost_number__c})</expression>
+    </formulas>
+    <formulas>
+        <description>Used for Dutch addresses. It comprises of the full address for the Shipping Address.</description>
+        <name>forT_DutchShippingAddressStreetCombination</name>
+        <dataType>String</dataType>
+        <expression>IF(
+   AND(
+           NOT(ISBLANK({!varR_Account.Primary_Shipping_Address__r.House_Number_Addition__c})),
+           NOT(ISBLANK({!varR_Account.Primary_Shipping_Address__r.House_Letter__c}))
+          ), 
+            {!varR_Account.Primary_Shipping_Address__r.Street__c}&amp;&quot; &quot;&amp;{!varR_Account.Primary_Shipping_Address__r.House_Number__c}&amp; 
+            {!varR_Account.Primary_Shipping_Address__r.House_Letter__c}&amp; 
+            {!varR_Account.Primary_Shipping_Address__r.House_Number_Addition__c}, 
+IF(
+   AND(
+           NOT(ISBLANK({!varR_Account.Primary_Shipping_Address__r.House_Number_Addition__c})),
+           ISBLANK({!varR_Account.Primary_Shipping_Address__r.House_Letter__c})
+           ), 
+            {!varR_Account.Primary_Shipping_Address__r.Street__c}&amp;&quot; &quot;&amp;{!varR_Account.Primary_Shipping_Address__r.House_Number__c}&amp; 
+            {!varR_Account.Primary_Shipping_Address__r.House_Number_Addition__c}, 
+IF(
+   AND(
+           ISBLANK({!varR_Account.Primary_Shipping_Address__r.House_Number_Addition__c}),
+           NOT(ISBLANK({!varR_Account.Primary_Shipping_Address__r.House_Letter__c}))
+           ), {!varR_Account.Primary_Shipping_Address__r.Street__c}&amp;&quot; &quot;&amp;{!varR_Account.Primary_Shipping_Address__r.House_Number__c}&amp;{!varR_Account.Primary_Shipping_Address__r.House_Letter__c}, 
+IF(
+   AND(
+           ISBLANK({!varR_Account.Primary_Shipping_Address__r.House_Number_Addition__c}),
+           ISBLANK({!varR_Account.Primary_Shipping_Address__r.House_Letter__c})
+           ), 
+            {!varR_Account.Primary_Shipping_Address__r.Street__c}&amp;&quot; &quot;&amp;{!varR_Account.Primary_Shipping_Address__r.House_Number__c}, &quot;&quot;))))</expression>
+    </formulas>
+    <formulas>
+        <description>Used for foreign addresses. It comprises of the full address for the Billing Address.</description>
+        <name>forT_ForeignBillingAddressStreetCombination</name>
+        <dataType>String</dataType>
+        <expression>IF(
+   AND(
+           NOT(ISBLANK({!varR_Account.Primary_Billing_Address__r.Address_Line_1__c})),
+           NOT(ISBLANK({!varR_Account.Primary_Billing_Address__r.Address_Line_2__c}))
+          ), {!varR_Account.Primary_Billing_Address__r.Address_Line_1__c}&amp;&quot; &quot;&amp;{!varR_Account.Primary_Billing_Address__r.Address_Line_2__c},
+IF(
+   AND(
+           NOT(ISBLANK({!varR_Account.Primary_Billing_Address__r.Address_Line_1__c})),
+           ISBLANK({!varR_Account.Primary_Billing_Address__r.Address_Line_2__c})
+           ), {!varR_Account.Primary_Billing_Address__r.Address_Line_1__c},
+IF(
+   AND(
+           ISBLANK({!varR_Account.Primary_Billing_Address__r.Address_Line_1__c}),
+           NOT(ISBLANK({!varR_Account.Primary_Billing_Address__r.Address_Line_2__c}))
+           ), {!varR_Account.Primary_Billing_Address__r.Address_Line_2__c},
+IF(
+   AND(
+           ISBLANK({!varR_Account.Primary_Billing_Address__r.Address_Line_1__c}),
+           ISBLANK({!varR_Account.Primary_Billing_Address__r.Address_Line_2__c})
+           ), &quot;&quot;, &quot;&quot;))))</expression>
+    </formulas>
+    <formulas>
+        <description>Used for foreign addresses. It comprises of the full address for the Shipping Address.</description>
+        <name>forT_ForeignShippingAddressStreetCombination</name>
+        <dataType>String</dataType>
+        <expression>IF(
+   AND(
+           NOT(ISBLANK({!varR_Account.Primary_Shipping_Address__r.Address_Line_1__c})),
+           NOT(ISBLANK({!varR_Account.Primary_Shipping_Address__r.Address_Line_2__c}))
+          ), {!varR_Account.Primary_Shipping_Address__r.Address_Line_1__c}&amp;&quot; &quot;&amp;{!varR_Account.Primary_Shipping_Address__r.Address_Line_2__c},
+IF(
+   AND(
+           NOT(ISBLANK({!varR_Account.Primary_Shipping_Address__r.Address_Line_1__c})),
+           ISBLANK({!varR_Account.Primary_Shipping_Address__r.Address_Line_2__c})
+           ), {!varR_Account.Primary_Shipping_Address__r.Address_Line_1__c},
+IF(
+   AND(
+           ISBLANK({!varR_Account.Primary_Shipping_Address__r.Address_Line_1__c}),
+           NOT(ISBLANK({!varR_Account.Primary_Shipping_Address__r.Address_Line_2__c}))
+           ), {!varR_Account.Primary_Shipping_Address__r.Address_Line_2__c},
+IF(
+   AND(
+           ISBLANK({!varR_Account.Primary_Shipping_Address__r.Address_Line_1__c}),
+           ISBLANK({!varR_Account.Primary_Shipping_Address__r.Address_Line_2__c})
+           ), &quot;&quot;, &quot;&quot;))))</expression>
+    </formulas>
+    <interviewLabel>AL - Update Account Addresses {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>AL - Update Account Addresses</label>
+    <loops>
+        <description>Iterate through the previous Primary Billing Account Addresses</description>
+        <name>Iterate_Previous_Primary_Billing</name>
+        <label>Iterate Previous Primary Billing</label>
+        <locationX>50</locationX>
+        <locationY>350</locationY>
+        <collectionReference>Get_AccountAddressesBilling</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Unprimary_Previous_Primary_Billing_Record</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Update_AccountAddressesBilling</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <description>Iterate through the previous Primary Shipping Account Addresses</description>
+        <name>Iterate_Previous_Primary_Shipping</name>
+        <label>Iterate Previous Primary Shipping</label>
+        <locationX>50</locationX>
+        <locationY>1364</locationY>
+        <collectionReference>Get_AccountAddressesShipping</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Unprimary_Previous_Primary_Shipping</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Update_AccountAddressesShipping</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Gets the Account Addresses that were primary prior to this change</description>
+        <name>Get_AccountAddressesBilling</name>
+        <label>Account Addresses - Billing</label>
+        <locationX>50</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Iterate_Previous_Primary_Billing</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Assign_VarT_FlowElementGet_AccountAddressesBilling</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Is_Primary__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Address__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varR_AccountPriorValues.Primary_Billing_Address__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Start_Date__c</field>
+            <operator>LessThanOrEqualTo</operator>
+            <value>
+                <elementReference>forD_CurrentDate</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>POS</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varR_Account.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Account_Address__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Gets the Account Addresses that were primary prior to this change</description>
+        <name>Get_AccountAddressesShipping</name>
+        <label>Account Addresses - Shipping</label>
+        <locationX>50</locationX>
+        <locationY>1256</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Iterate_Previous_Primary_Shipping</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Assign_VarT_FlowElementGet_AccountAddressesShipping</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Is_Primary__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Address__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <elementReference>varR_Account.Primary_Shipping_Address__c</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Start_Date__c</field>
+            <operator>LessThanOrEqualTo</operator>
+            <value>
+                <elementReference>forD_CurrentDate</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Type__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>WOO</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Account__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varR_Account.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Account_Address__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Store the updated previous Primary Billing Account Addresses, normally this should only be one</description>
+        <name>Update_AccountAddressesBilling</name>
+        <label>Account Addresses - Billing</label>
+        <locationX>50</locationX>
+        <locationY>758</locationY>
+        <connector>
+            <targetReference>Primary_Shipping_Address_Changed</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Assign_VarT_FlowElementUpdate_AccountAddressesBilling</targetReference>
+        </faultConnector>
+        <inputReference>varR_UpdateAccountAddresses</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Store the updated previous Primary Shipping Account Addresses, normally this should only be one</description>
+        <name>Update_AccountAddressesShipping</name>
+        <label>Account Addresses - Shipping</label>
+        <locationX>50</locationX>
+        <locationY>1772</locationY>
+        <faultConnector>
+            <targetReference>Assign_VarT_FlowElementUpdate_AccountAddressesShipping</targetReference>
+        </faultConnector>
+        <inputReference>varR_UpdateAccountAddresses</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>320</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Primary_Billing_Address_Changed</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <description>Publish the Flow Fault Platform Event.</description>
+        <name>Subflow_PublishFlowFaultEvent</name>
+        <label>Publish Flow Fault Event</label>
+        <locationX>314</locationX>
+        <locationY>1988</locationY>
+        <flowName>AL_Publish_Flow_Fault_event</flowName>
+        <inputAssignments>
+            <name>faultMessage</name>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>flowContext</name>
+            <value>
+                <stringValue>AL_Update_Account_Addresses</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>flowElement</name>
+            <value>
+                <elementReference>VarT_FlowElement</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>flowGuid</name>
+            <value>
+                <elementReference>$Flow.InterviewGuid</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>triggeringRecord</name>
+            <value>
+                <elementReference>varR_Account.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>userId</name>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <variables>
+        <name>varR_Account</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+    <variables>
+        <description>The prior values of the Account&apos;s primary Billing and Shipping addresses</description>
+        <name>varR_AccountPriorValues</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+    <variables>
+        <name>varR_UpdateAccount</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+    <variables>
+        <name>varR_UpdateAccountAddress</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account_Address__c</objectType>
+    </variables>
+    <variables>
+        <name>varR_UpdateAccountAddresses</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account_Address__c</objectType>
+    </variables>
+    <variables>
+        <name>varT_AccountAddressType</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>This variable is used to store the Flow Element name if a flow errors.</description>
+        <name>VarT_FlowElement</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

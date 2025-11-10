@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Default_Bank_Account__c</fullName>
+    <businessStatus>Active</businessStatus>
+    <complianceGroup>GDPR (Salesforce Id)</complianceGroup>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The current default bank account for this Account</description>
+    <label>Default Bank Account</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Bank_Account__c.Account__c</field>
+            <operation>equals</operation>
+            <valueField>$Source.Id</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Bank_Account__c</referenceTo>
+    <relationshipLabel>Default For Accounts</relationshipLabel>
+    <relationshipName>Default_For_Accounts</relationshipName>
+    <required>false</required>
+    <securityClassification>Internal</securityClassification>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Lookup</type>
+</CustomField>

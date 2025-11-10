@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Enter the date when this interaction took place. Required when status is Completed. --></help>
+    <label><!-- Contact Moment Date --></label>
+    <name>Contact_Moment_Date__c</name>
+</CustomFieldTranslation>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Determines whether the User acknowledged the notice about DevOps Testing in the Promote Options Dialog. --></help>
+    <label><!-- DevOps Testing Acknowledged --></label>
+    <name>sf_devops__DevOps_Testing_Acknowledged__c</name>
+</CustomFieldTranslation>

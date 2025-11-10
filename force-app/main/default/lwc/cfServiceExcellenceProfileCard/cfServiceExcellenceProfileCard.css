@@ -1,0 +1,16 @@
+.disabled-link {
+  pointer-events: none;
+}
+
+.mask {
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+img {
+    max-width: 100%;
+}

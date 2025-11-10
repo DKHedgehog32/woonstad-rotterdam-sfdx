@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>BET</fullName>
+        <default>false</default>
+        <label>Betaler</label>
+    </customValue>
+    <customValue>
+        <fullName>BEW</fullName>
+        <default>false</default>
+        <label>Bewoner</label>
+    </customValue>
+    <customValue>
+        <fullName>EIG</fullName>
+        <default>false</default>
+        <label>Eigenaar</label>
+    </customValue>
+    <customValue>
+        <fullName>HUU</fullName>
+        <default>false</default>
+        <label>Huurder</label>
+    </customValue>
+    <customValue>
+        <fullName>KOP</fullName>
+        <default>false</default>
+        <label>Koper</label>
+    </customValue>
+    <customValue>
+        <fullName>MDH</fullName>
+        <default>false</default>
+        <label>Medehuurder</label>
+    </customValue>
+    <customValue>
+        <fullName>MDW</fullName>
+        <default>false</default>
+        <label>Medewerker</label>
+    </customValue>
+    <customValue>
+        <fullName>MED</fullName>
+        <default>false</default>
+        <label>Mede aanvrager</label>
+    </customValue>
+    <customValue>
+        <fullName>NOT</fullName>
+        <default>false</default>
+        <label>Notaris</label>
+    </customValue>
+    <customValue>
+        <fullName>VMA</fullName>
+        <default>false</default>
+        <label>Verkopende makelaar</label>
+    </customValue>
+    <customValue>
+        <fullName>VVE</fullName>
+        <default>false</default>
+        <label>Vereniging van Eigenaren</label>
+    </customValue>
+    <customValue>
+        <fullName>WON</fullName>
+        <default>false</default>
+        <label>Woningzoekende</label>
+    </customValue>
+    <customValue>
+        <fullName>ERF</fullName>
+        <default>false</default>
+        <label>Erfpachter</label>
+    </customValue>
+    <customValue>
+        <fullName>Secretary</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Secretary</label>
+    </customValue>
+    <customValue>
+        <fullName>Seller</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Seller</label>
+    </customValue>
+    <customValue>
+        <fullName>Chairman</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Chairman</label>
+    </customValue>
+    <customValue>
+        <fullName>HOA-Member</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>HOA-Member</label>
+    </customValue>
+    <customValue>
+        <fullName>Housing Consultant</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Housing Consultant</label>
+    </customValue>
+    <customValue>
+        <fullName>Housing Cooperative</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Housing Cooperative</label>
+    </customValue>
+    <customValue>
+        <fullName>Guarantor</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Guarantor</label>
+    </customValue>
+    <customValue>
+        <fullName>Approver</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Approver</label>
+    </customValue>
+    <customValue>
+        <fullName>Bailiff</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Bailiff</label>
+    </customValue>
+    <customValue>
+        <fullName>Contact</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Contact</label>
+    </customValue>
+    <customValue>
+        <fullName>Collatoral Taker</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Collatoral Taker</label>
+    </customValue>
+    <customValue>
+        <fullName>Housing Cooperative Member</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Housing Cooperative Member</label>
+    </customValue>
+    <customValue>
+        <fullName>Receiver</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Receiver</label>
+    </customValue>
+    <customValue>
+        <fullName>Budget Coach</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Budget Coach</label>
+    </customValue>
+    <customValue>
+        <fullName>Board Member</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Board Member</label>
+    </customValue>
+    <customValue>
+        <fullName>Educational Institution</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Educational Institution</label>
+    </customValue>
+    <customValue>
+        <fullName>Practitioner</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Practitioner</label>
+    </customValue>
+    <customValue>
+        <fullName>Asset Manager</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Asset Manager</label>
+    </customValue>
+    <customValue>
+        <fullName>Purchasing Agent</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Purchasing Agent</label>
+    </customValue>
+    <customValue>
+        <fullName>Ambulatory Attendant</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Ambulatory Attendant</label>
+    </customValue>
+    <customValue>
+        <fullName>Administrator</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Administrator</label>
+    </customValue>
+    <customValue>
+        <fullName>Treasurer</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Treasurer</label>
+    </customValue>
+    <customValue>
+        <fullName>Prospect</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Prospect</label>
+    </customValue>
+    <description>Contract RELATIEROLSOORT
+
+https://www.coraveraonline.nl/index.php/Referentiedata:RELATIEROLSOORT</description>
+    <masterLabel>Contract Roles</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

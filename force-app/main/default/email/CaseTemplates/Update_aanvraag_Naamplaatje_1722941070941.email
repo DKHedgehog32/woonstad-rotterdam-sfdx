@@ -1,0 +1,14 @@
+<html>
+ <head>
+  <title></title>
+ </head>
+ <body style="height: auto; min-height: auto;">
+  <span style="color:#005896;"><span style="font-size:12px;"><span style="font-family:Verdana,Arial,Helvetica,sans-serif;">Beste {{{Case.Email_Template_Salutation__c}}},</span></span></span><br /> <br /> <span style="color:#005896;"><span style="font-size:12px;"><span style="font-family:Verdana,Arial,Helvetica,sans-serif;">Jouw aanvraag voor een naamplaatje met kenmerk {{{Case.CaseNumber}}} is in behandeling genomen.<br /> <br /> Met vriendelijke groet,<br /> <br /> <strong>{{{Sender.FirstName}}}</strong><br /> <br /> Postbus 2370<br /> 3000 CJ Rotterdam</span></span></span><br /> <br /> <a href="https://www.woonstadrotterdam.nl"><span style="color:#005896;"><span style="font-size:12px;"><span style="font-family:Verdana,Arial,Helvetica,sans-serif;">www.woonstadrotterdam.nl</span></span></span></a><br /> <br /> <a href="https://www.woonstadrotterdam.nl"><img alt="Woonstad Logo Blauw Klein" src="{[devName:Woonstad_Logo_Blauw_Kleinpng]}" style="max-width: 1242.1777648925781px" title="Woonstad Logo Blauw Klein" /></a><br /> &nbsp; 
+  <div id="" style="left: 8px; top: 156px;">
+   &nbsp;
+  </div>
+  <div id="" style="left: 8px; top: 156px;">
+   &nbsp;
+  </div>
+ </body>
+</html>

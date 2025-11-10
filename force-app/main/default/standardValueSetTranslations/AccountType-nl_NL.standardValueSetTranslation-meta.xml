@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>Bewindvoerder</masterLabel>
+        <translation><!-- Bewindvoerder --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Bewonersvereniging</masterLabel>
+        <translation><!-- Bewonersvereniging --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Deurwaarder</masterLabel>
+        <translation><!-- Deurwaarder --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Huurcommissie</masterLabel>
+        <translation><!-- Huurcommissie --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Makelaar</masterLabel>
+        <translation><!-- Makelaar --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Notaris</masterLabel>
+        <translation><!-- Notaris --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Overig</masterLabel>
+        <translation>Anders</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Taxateur</masterLabel>
+        <translation><!-- Taxateur --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Zorginstantie</masterLabel>
+        <translation><!-- Zorginstantie --></translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

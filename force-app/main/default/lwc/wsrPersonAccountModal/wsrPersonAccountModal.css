@@ -1,0 +1,79 @@
+/*************************************************************************************************
+ * Component       : wsrPersonAccountModal.css
+ * Purpose         : Clean container (no SLDS modal scaffold), visible header + close button.
+ * Notes           : Parent shell provides overlay/chrome; keep overflow visible to avoid clipping.
+ *
+ * Owner           : Woonstad KC
+ * Author          : Dennis van Musschenbroek
+ * Created         : 2025-08-26
+ * Last Modified   : 2025-09-01
+ * ===============================================================================================
+ * Change Log
+ * ===============================================================================================
+ * 2025-09-01 | DvM | Added close-button styles matching woonstadFlowRelationAction for visibility.
+ * 2025-08-26 | DvM | Initial styles with lightning-button-icon approach.
+ *************************************************************************************************/
+
+:host {
+  display: block;
+  position: relative;   /* allow safe z-index if parent overlay is present */
+}
+
+/* Root content (not the overlay shell) */
+.wsr-modal {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: visible;               /* do NOT clip the header's right edge */
+  min-height: 320px;
+}
+
+/* Woonstad header */
+.woonstad-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  /* title left, close right */
+  background-color: #0061cd;
+  color: #ffffff;
+  padding: 1rem 1.5rem;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+}
+
+.woonstad-header-title {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Close button styling - matches woonstadFlowRelationAction for consistency */
+.close-button {
+    font-size: 2.5rem;                /* Large enough for easy clicking */
+    font-weight: 300;                 /* Light weight for the × symbol */
+    color: white;                     /* Matches header text color */
+    background: none;                 /* Removes default button styling */
+    border: none;                     /* Removes default border */
+    cursor: pointer;                  /* Shows it's clickable */
+    line-height: 1;                   /* Prevents extra spacing around × */
+    padding: 0 0.5rem;                /* Small padding for click target */
+}
+
+/* Hover state for better user feedback */
+.close-button:hover {
+    opacity: 0.7;                     /* Subtle transparency on hover */
+}
+
+/* Flow area */
+.flow-wrapper {
+  padding: 1rem;
+  flex: 1 1 auto;
+  min-height: 200px;
+  overflow: auto;
+}

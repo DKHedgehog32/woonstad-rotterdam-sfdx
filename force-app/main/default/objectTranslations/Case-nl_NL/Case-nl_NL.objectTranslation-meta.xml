@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Zaak</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Zaken</value>
+    </caseValues>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Case Request Page Layout</layout>
+        <sections>
+            <label>Additionele Informatie</label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label>Case Informatie</label>
+            <section>Case Information</section>
+        </sections>
+        <sections>
+            <label>Handige Linkjes</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>Beschrijving</label>
+            <section>Description Information</section>
+        </sections>
+        <sections>
+            <label>Systeeminformatie</label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label>Webinformatie</label>
+            <section>Web Information</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <aspect>Master</aspect>
+        <label>Afhandelen in Wocas</label>
+        <name>Case_Handling_in_Wocas</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- CloseCaseLightning --></label>
+        <name>CloseCaseLightning</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Log a Call --></label>
+        <name>LogACall</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Email --></label>
+        <name>LogAnEmail</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewChildCase --></label>
+        <name>NewChildCase</name>
+    </quickActions>
+    <quickActions>
+        <aspect>Master</aspect>
+        <label>Nieuwe Aanvraag</label>
+        <name>New_Request</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- SendEmail --></label>
+        <name>SendEmail</name>
+    </quickActions>
+    <recordTypes>
+        <description>Een vraag ter ondersteuning indienen</description>
+        <label>Vraag</label>
+        <name>Question</name>
+    </recordTypes>
+    <recordTypes>
+        <description>Een aanvraag voor een dienst.</description>
+        <label>Aanvraag</label>
+        <name>Request</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage>Een Case mag vanuit Status &quot;Gesloten&quot; alleen naar &quot;Heropend&quot;</errorMessage>
+        <name>Case_Closed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Een Case mag alleen vanuit Status &quot;Gesloten&quot; naar &quot;Heropend&quot;</errorMessage>
+        <name>Case_Reopen</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Het veld is leeg. Vul het veld &apos;Type&apos; in voordat je de zaak sluit.</errorMessage>
+        <name>Case_Type</name>
+    </validationRules>
+</CustomObjectTranslation>

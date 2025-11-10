@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Wat was de reden voor het heropenen van de zaak.</help>
+    <label>Heropen Reden</label>
+    <name>Case_Reopen_Reason__c</name>
+    <picklistValues>
+        <masterLabel>Answer was not sufficient</masterLabel>
+        <translation>Antwoord was niet voldoende</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Request was not fulfilled</masterLabel>
+        <translation>Aanvraag was niet vervuld</translation>
+    </picklistValues>
+</CustomFieldTranslation>

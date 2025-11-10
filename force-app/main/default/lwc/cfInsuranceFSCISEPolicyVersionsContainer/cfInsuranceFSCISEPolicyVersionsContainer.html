@@ -1,0 +1,97 @@
+<template>
+            <div class="slds-grid slds-wrap slds-is-relative ">
+            <div style="position: fixed;z-index: 999999;top: 0;right: 0;">
+  <omnistudio-toast class="flexcard-toast-element" theme="slds" title="" message="" styletype=""> </omnistudio-toast>
+</div>
+            <div if:true={showLoader} class="slds-is-absolute vloc-loader_override" style="height: 100%; width: 100%; min-height:50px; background: transparent; z-index: 99;">
+  <div>
+   <omnistudio-spinner
+      variant="brand"
+      alternative-text="Loading content..."
+      size="medium"
+      theme="slds"
+      ></omnistudio-spinner>
+  </div>
+</div>
+            <template if:false={hasPermission}>
+              You don't have required permissions to view this card.
+            </template>
+            <template if:true={hasPermission}>
+              <template if:true={hasRecords}>
+                      <omnistudio-flex-card-state   data-statue="true"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12 "  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-p-vertical_x-small slds-m-around_none " style="      
+         ">
+          <div data-style-id="state0element0" class="slds-col   slds-p-around_x-small  slds-size_12-of-12  " data-rindex={rindex} style="background-color:#F3F3F3;      
+         box-shadow: 0px 1px 0px #C9C9C9;" >
+    <omnistudio-block data-style-id="state0element0_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element0" class="slds-col   slds-size_2-of-12  " data-rindex={rindex} style="      
+        color:#444444; " ><omnistudio-output-field data-style-id="state0element0block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%3E%3Cstrong%3EPolicy%20Number%3C/strong%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element1" class="slds-col  slds-p-right_x-small  slds-size_5-of-12  " data-rindex={rindex} style="      
+        color:#444444; " ><omnistudio-output-field data-style-id="state0element0block_element1_child"   card={card}  record={record}  merge-field="%3Cdiv%3E%3Cstrong%3EPolicy%20Name%3C/strong%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element2" class="slds-col   slds-size_2-of-12  " data-rindex={rindex} style="      
+        color:#444444; " ><omnistudio-output-field data-style-id="state0element0block_element2_child"   card={card}  record={record}  merge-field="%3Cdiv%3E%3Cstrong%3EStatus%3C/strong%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element3" class="slds-col   slds-size_3-of-12  " data-rindex={rindex} style="      
+        color:#444444; " ><omnistudio-output-field data-style-id="state0element0block_element3_child"   card={card}  record={record}  merge-field="%3Cdiv%3E%3Cstrong%3EOriginal%20Policy%3C/strong%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element1" class="slds-col   slds-size_12-of-12 " data-rindex={rindex} style="" ><c-cf-insurance-f-s-c-i-s-e-policy-versions-child data-style-id="state0element1_child"  tracking-obj={_childCardTrackingObj}  is-inside-parent={insideParent} parent-uniquekey={uniqueKey}  card-node="\{records}"  parent-record={record}  records={_records}  parent-mergefields={card}  record-id={recordId}  is-child-card-tracking-enabled="false"  object-api-name={objectApiName}  theme="slds"   onupdateparent={updateParentData}></c-cf-insurance-f-s-c-i-s-e-policy-versions-child>
+    </div>
+        </div>
+      </omnistudio-flex-card-state><omnistudio-flex-card-state   data-statue="true"  data-index="1" data-rindex={rindex} class="cf-vlocity-state-1 cf-vlocity-state slds-size_12-of-12 "  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-p-around_x-small slds-m-around_none " style="      
+         ">
+          <div data-style-id="state1element0" class="slds-col   slds-size_12-of-12 " data-rindex={rindex} style="" ><omnistudio-flex-img data-style-id="state1element0_child"   card={card}  record={record}  size=""  extraclass="slds-align_absolute-center"  state-img='\{"imgsrc":"/_slds/images/illustrations/empty-states/desertSmall.svg","alternativeText":""}'  theme="slds"  ></omnistudio-flex-img>
+      </div><div data-style-id="state1element1" class="slds-col  slds-text-align_center slds-p-bottom_x-small slds-text-title_bold slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#444444; " ><omnistudio-output-field data-style-id="state1element1_child"   card={card}  record={record}  merge-field="%3Cdiv%3ENo%20policy%20versions%20to%20display.%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state1element2" class="slds-col  slds-text-align_center  slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#444444; " ><omnistudio-output-field data-style-id="state1element2_child"   card={card}  record={record}  merge-field="%3Cdiv%3E%3Cspan%20style=%22font-weight:%20400;%22%3EWhen%20the%20policy%20is%20renewed%20or%20endorsed,%20you&rsquo;ll%20see%20the%20versions%20here.%3C/span%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div>
+      </omnistudio-flex-card-state>
+                </template>
+                <template if:false={hasRecords}>
+                      <omnistudio-flex-card-state   data-statue="false"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12 "  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-p-vertical_x-small slds-m-around_none " style="      
+         ">
+          <div data-style-id="state0element0" class="slds-col   slds-p-around_x-small  slds-size_12-of-12  " data-rindex={rindex} style="background-color:#F3F3F3;      
+         box-shadow: 0px 1px 0px #C9C9C9;" >
+    <omnistudio-block data-style-id="state0element0_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element0" class="slds-col   slds-size_2-of-12  " data-rindex={rindex} style="      
+        color:#444444; " ><omnistudio-output-field data-style-id="state0element0block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%3E%3Cstrong%3EPolicy%20Number%3C/strong%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element1" class="slds-col  slds-p-right_x-small  slds-size_5-of-12  " data-rindex={rindex} style="      
+        color:#444444; " ><omnistudio-output-field data-style-id="state0element0block_element1_child"   card={card}  record={record}  merge-field="%3Cdiv%3E%3Cstrong%3EPolicy%20Name%3C/strong%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element2" class="slds-col   slds-size_2-of-12  " data-rindex={rindex} style="      
+        color:#444444; " ><omnistudio-output-field data-style-id="state0element0block_element2_child"   card={card}  record={record}  merge-field="%3Cdiv%3E%3Cstrong%3EStatus%3C/strong%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element3" class="slds-col   slds-size_3-of-12  " data-rindex={rindex} style="      
+        color:#444444; " ><omnistudio-output-field data-style-id="state0element0block_element3_child"   card={card}  record={record}  merge-field="%3Cdiv%3E%3Cstrong%3EOriginal%20Policy%3C/strong%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element1" class="slds-col   slds-size_12-of-12 " data-rindex={rindex} style="" ><c-cf-insurance-f-s-c-i-s-e-policy-versions-child data-style-id="state0element1_child"  tracking-obj={_childCardTrackingObj}  is-inside-parent={insideParent} parent-uniquekey={uniqueKey}  card-node="\{records}"  parent-record={record}  records={_records}  parent-mergefields={card}  record-id={recordId}  is-child-card-tracking-enabled="false"  object-api-name={objectApiName}  theme="slds"   onupdateparent={updateParentData}></c-cf-insurance-f-s-c-i-s-e-policy-versions-child>
+    </div>
+        </div>
+      </omnistudio-flex-card-state><omnistudio-flex-card-state   data-statue="false"  data-index="1" data-rindex={rindex} class="cf-vlocity-state-1 cf-vlocity-state slds-size_12-of-12 "  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-p-around_x-small slds-m-around_none " style="      
+         ">
+          <div data-style-id="state1element0" class="slds-col   slds-size_12-of-12 " data-rindex={rindex} style="" ><omnistudio-flex-img data-style-id="state1element0_child"   card={card}  record={record}  size=""  extraclass="slds-align_absolute-center"  state-img='\{"imgsrc":"/_slds/images/illustrations/empty-states/desertSmall.svg","alternativeText":""}'  theme="slds"  ></omnistudio-flex-img>
+      </div><div data-style-id="state1element1" class="slds-col  slds-text-align_center slds-p-bottom_x-small slds-text-title_bold slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#444444; " ><omnistudio-output-field data-style-id="state1element1_child"   card={card}  record={record}  merge-field="%3Cdiv%3ENo%20policy%20versions%20to%20display.%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state1element2" class="slds-col  slds-text-align_center  slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#444444; " ><omnistudio-output-field data-style-id="state1element2_child"   card={card}  record={record}  merge-field="%3Cdiv%3E%3Cspan%20style=%22font-weight:%20400;%22%3EWhen%20the%20policy%20is%20renewed%20or%20endorsed,%20you&rsquo;ll%20see%20the%20versions%20here.%3C/span%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div>
+      </omnistudio-flex-card-state>
+                </template>
+            </template>
+            <template if:true={hasError}>
+            {error}
+            </template>
+            
+      <omnistudio-action action-wrapperclass="slds-hide" re-render-flyout class="action-trigger slds-col" onupdateos={updateOmniscript} onselectcards={updateSelectedCards} onsetvalue={updateAction} onfireactionevent={actionEvtHandler}>
+      
+      </omnistudio-action>
+  
+            <omnistudio-action class="execute-action" re-render-flyout action-wrapperclass="slds-hide" onupdateos={updateOmniscript} onselectcards={updateSelectedCards} onsetvalue={updateAction} onfireactionevent={actionEvtHandler}>
+            
+            </omnistudio-action>
+            </div>
+          </template>

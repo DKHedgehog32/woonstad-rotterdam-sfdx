@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OmniDataTransform xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <assignmentRulesUsed>false</assignmentRulesUsed>
+    <deletedOnSuccess>false</deletedOnSuccess>
+    <errorIgnored>false</errorIgnored>
+    <expectedInputJson>{
+  &quot;PublicComplaintID&quot; : &quot;&quot;,
+  &quot;CaseDetails&quot; : {
+    &quot;NewCaseDetails&quot; : {
+      &quot;Subject&quot; : &quot;Some isue&quot;,
+      &quot;Account-Block&quot; : {
+        &quot;Account&quot; : &quot;PizzaHut License No. 1&quot;,
+        &quot;Name&quot; : &quot;PizzaHut License No. 1&quot;,
+        &quot;Id&quot; : &quot;001RO000002yGl4YAE&quot;
+      },
+      &quot;Reason&quot; : &quot;Installation&quot;,
+      &quot;Priority&quot; : &quot;High&quot;,
+      &quot;Origin&quot; : &quot;Phone&quot;,
+      &quot;Status&quot; : &quot;New&quot;,
+      &quot;Description&quot; : &quot;soe description&quot;
+    },
+    &quot;NewOrExistingCase&quot; : &quot;StartANewCase&quot;
+  },
+  &quot;Participants&quot; : {
+    &quot;addNewParticipants&quot; : {
+      &quot;firstName&quot; : &quot;first&quot;,
+      &quot;lastName&quot; : &quot;last&quot;,
+      &quot;city&quot; : &quot;city&quot;,
+      &quot;selectAndBuildList&quot; : {
+        &quot;selectedIdList&quot; : {
+          &quot;selectedIds&quot; : [ {
+            &quot;id&quot; : &quot;003RO000002IUe4YAG&quot;,
+            &quot;role&quot; : &quot;Victim&quot;,
+            &quot;status&quot; : &quot;Active&quot;,
+            &quot;caseId&quot; : &quot;500RO000001X14rYAC&quot;
+          } ]
+        }
+      }
+    }
+  }
+}</expectedInputJson>
+    <fieldLevelSecurityEnabled>false</fieldLevelSecurityEnabled>
+    <inputType>JSON</inputType>
+    <isManagedUsingStdDesigner>false</isManagedUsingStdDesigner>
+    <name>PSSDRSaveReferralCase</name>
+    <nullInputsIncludedInOutput>true</nullInputsIncludedInOutput>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>PSSDRSaveReferralCase4526504716623274</globalKey>
+        <inputFieldName>CaseDetails:NewCaseDetails:Status</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>PSSDRSaveReferralCase</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>Status</outputFieldName>
+        <outputObjectName>Case</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>PSSDRSaveReferralCase3187610565310577</globalKey>
+        <inputFieldName>CaseDetails:NewCaseDetails:Subject</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>PSSDRSaveReferralCase</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>Subject</outputFieldName>
+        <outputObjectName>Case</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <transformValuesMappings>{ }</transformValuesMappings>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>PSSDRSaveReferralCase7713029990577822</globalKey>
+        <inputFieldName>CaseDetails:NewCaseDetails:Type</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>PSSDRSaveReferralCase</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>Type</outputFieldName>
+        <outputObjectName>Case</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>PSSDRSaveReferralCase20589614976637916</globalKey>
+        <inputFieldName>CaseDetails:NewCaseDetails:Account-Block:Id</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>PSSDRSaveReferralCase</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>AccountId</outputFieldName>
+        <outputObjectName>Case</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>PSSDRSaveReferralCase02638755949020899</globalKey>
+        <inputFieldName>CaseDetails:NewCaseDetails:Origin</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>PSSDRSaveReferralCase</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>Origin</outputFieldName>
+        <outputObjectName>Case</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>PSSDRSaveReferralCase19212250807732856</globalKey>
+        <inputFieldName>CaseDetails:NewCaseDetails:Description</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>PSSDRSaveReferralCase</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>Description</outputFieldName>
+        <outputObjectName>Case</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>PSSDRSaveReferralCase37276891816121727</globalKey>
+        <inputFieldName>CaseDetails:NewCaseDetails:Reason</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>PSSDRSaveReferralCase</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>Reason</outputFieldName>
+        <outputObjectName>Case</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>true</disabled>
+        <filterGroup>0.0</filterGroup>
+        <filterOperator>=</filterOperator>
+        <globalKey>PSSDRSaveReferralCase4857960847175671</globalKey>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <migrationValue>FAKEMAPPING</migrationValue>
+        <name>PSSDRSaveReferralCase</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>Id</outputFieldName>
+        <outputObjectName>Case</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <defaultValue>Medium</defaultValue>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>PSSDRSaveReferralCase6299149761927423</globalKey>
+        <inputFieldName>CaseDetails:NewCaseDetails:Priority</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>PSSDRSaveReferralCase</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>Priority</outputFieldName>
+        <outputObjectName>Case</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <outputType>SObject</outputType>
+    <previewJsonData>{
+  &quot;ContextId&quot; : &quot;a0GRO0000009lEx2AI&quot;,
+  &quot;timeStamp&quot; : &quot;2022-09-22T09:38:11.800Z&quot;,
+  &quot;userProfile&quot; : &quot;System Administrator&quot;,
+  &quot;userTimeZoneName&quot; : &quot;America/Los_Angeles&quot;,
+  &quot;userTimeZone&quot; : &quot;-420&quot;,
+  &quot;userCurrencyCode&quot; : &quot;USD&quot;,
+  &quot;userName&quot; : &quot;cintake1@demo.com&quot;,
+  &quot;userId&quot; : &quot;005RO000000ZwqXYAS&quot;,
+  &quot;ReferralID&quot; : &quot;a0GRO0000009lEx2AI&quot;,
+  &quot;FetchReferralDetails&quot; : {
+    &quot;Subject&quot; : &quot;Referral&quot;,
+    &quot;ReferralType&quot; : &quot;Ref1&quot;,
+    &quot;Category&quot; : &quot;CAT1&quot;,
+    &quot;Status&quot; : &quot;In Review&quot;
+  },
+  &quot;Case Details&quot; : {
+    &quot;NewCaseDetails&quot; : {
+      &quot;Subject&quot; : &quot;Referral&quot;
+    }
+  }
+}</previewJsonData>
+    <processSuperBulk>false</processSuperBulk>
+    <responseCacheTtlMinutes>0.0</responseCacheTtlMinutes>
+    <rollbackOnError>true</rollbackOnError>
+    <sourceObject>json</sourceObject>
+    <sourceObjectDefault>false</sourceObjectDefault>
+    <synchronousProcessThreshold>0.0</synchronousProcessThreshold>
+    <type>Load</type>
+    <uniqueName>PSSDRSaveReferralCase_1</uniqueName>
+    <versionNumber>1.0</versionNumber>
+    <xmlDeclarationRemoved>false</xmlDeclarationRemoved>
+</OmniDataTransform>

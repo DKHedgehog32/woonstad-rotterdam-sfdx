@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>Business space</masterLabel>
+        <translation>Zakelijke ruimte</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Inpatient healthcare real estate</masterLabel>
+        <translation>Intramuraal zorgvastgoed</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Living space</masterLabel>
+        <translation>Woonverblijf</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Other</masterLabel>
+        <translation>Andere</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Parking space</masterLabel>
+        <translation>Parkeerplaats</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Recreational real estate</masterLabel>
+        <translation>Recreatief vastgoed</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Social real estate</masterLabel>
+        <translation>Sociaal vastgoed</translation>
+    </valueTranslation>
+</GlobalValueSetTranslation>

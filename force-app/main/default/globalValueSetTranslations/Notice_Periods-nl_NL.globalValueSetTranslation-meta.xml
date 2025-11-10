@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>1 month</masterLabel>
+        <translation>1 maand</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>12 months</masterLabel>
+        <translation>12 maanden</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>14 days</masterLabel>
+        <translation>14 dagen</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>2 months</masterLabel>
+        <translation>2 maanden</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>3 months</masterLabel>
+        <translation>3 maanden</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>4 weeks</masterLabel>
+        <translation>4 weken</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>6 months</masterLabel>
+        <translation>6 maanden</translation>
+    </valueTranslation>
+</GlobalValueSetTranslation>

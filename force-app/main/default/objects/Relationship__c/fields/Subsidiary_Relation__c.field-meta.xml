@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Subsidiary_Relation__c</fullName>
+    <businessStatus>Active</businessStatus>
+    <complianceGroup>GDPR (Salesforce Id)</complianceGroup>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>Subsidiary personaccount or contact in this relation</description>
+    <label>Subsidiary Relation</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Relationships (Subsidiary Relation)</relationshipLabel>
+    <relationshipName>Subsidiary_Account_In_Relationships</relationshipName>
+    <required>false</required>
+    <securityClassification>Internal</securityClassification>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

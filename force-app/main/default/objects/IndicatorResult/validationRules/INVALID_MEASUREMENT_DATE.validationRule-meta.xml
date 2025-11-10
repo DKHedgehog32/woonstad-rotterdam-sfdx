@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>INVALID_MEASUREMENT_DATE</fullName>
+    <active>true</active>
+    <description>The measurement date must be on or between the start and end date specified in the time period of the related Indicator Performance Period</description>
+    <errorConditionFormula>(MeasurementDate  &lt; DATEVALUE(IndicatorPerformancePeriod.TimePeriod.StartDate)    
+ ||  MeasurementDate &gt;  DATEVALUE(IndicatorPerformancePeriod.TimePeriod.EndDate))</errorConditionFormula>
+    <errorDisplayField>MeasurementDate</errorDisplayField>
+    <errorMessage>Select a date that&apos;s on or between the Time Period start and end dates of the related indicator performance period.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- /*************************************************************************************************
+ * Component       : woonstadFlowBussConfirmForm (meta)
+ * Purpose         : Expose business confirmation screen with editing capability to Flow.
+ * Notes           : All business properties now support inputOutput for bidirectional data flow.
+ * Last Modified   : 2025-09-02
+ ************************************************************************************************--> 
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Woonstad Bedrijf Adres Bevestiging</masterLabel>
+    <description>Twee-koloms bevestigingsscherm voor bedrijfs- en adresgegevens met inline bewerkingsmogelijkheid en Terug/Volgende navigatie.</description>
+    
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <!-- ==========================================
+                 BUSINESS DATA PROPERTIES - INPUT
+                 Receive initial data from Flow
+                 ========================================== -->
+            <property name="companyName" type="String" label="Bedrijfsnaam" role="inputOnly" 
+                     description="Naam van het bedrijf (verplicht veld)"/>
+                     
+            <property name="kvkNumber" type="String" label="KVK nummer" role="inputOnly" 
+                     description="KVK (Kamer van Koophandel) nummer (verplicht veld)"/>
+                     
+            <property name="vatNumber" type="String" label="BTW nummer" role="inputOnly" 
+                     description="BTW (belasting toegevoegde waarde) nummer (optioneel)"/>
+                     
+            <property name="phone1" type="String" label="Telefoonnummer" role="inputOnly" 
+                     description="Primair telefoonnummer van het bedrijf (verplicht veld)"/>
+                     
+            <property name="phone2" type="String" label="Mobielnummer" role="inputOnly" 
+                     description="Secundair telefoonnummer van het bedrijf (optioneel)"/>
+                     
+            <property name="email" type="String" label="E-mail" role="inputOnly" 
+                     description="E-mailadres van het bedrijf (verplicht veld)"/>
+
+            <!-- ==========================================
+                 DUTCH ADDRESS PROPERTIES - INPUT ONLY
+                 For addresses within the Netherlands (READ-ONLY in UI)
+                 ========================================== -->
+            <property name="streetName" type="String" label="(NL) Straatnaam" role="inputOnly" 
+                     description="Nederlandse straatnaam zonder huisnummer"/>
+                     
+            <property name="houseNumberOutput" type="String" label="(NL) Huisnummer" role="inputOnly" 
+                     description="Nederlands huisnummer (numeriek deel)"/>
+                     
+            <property name="houseLetter" type="String" label="(NL) Huisletter" role="inputOnly" 
+                     description="Nederlandse huisletter (bijv. A, B, C)"/>
+                     
+            <property name="houseNumberAddition" type="String" label="(NL) Huisnummer toevoeging" role="inputOnly" 
+                     description="Nederlandse huisnummer toevoeging (bijv. bis, ter, II)"/>
+                     
+            <property name="postalCodeOutput" type="String" label="(NL) Postcode" role="inputOnly" 
+                     description="Nederlandse postcode in 1234AB formaat"/>
+                     
+            <property name="city" type="String" label="(NL) Plaats" role="inputOnly" 
+                     description="Nederlandse plaatsnaam"/>
+
+            <!-- ==========================================
+                 INTERNATIONAL ADDRESS PROPERTIES - INPUT ONLY
+                 For addresses outside the Netherlands (READ-ONLY in UI)
+                 ========================================== -->
+            <property name="intlStreet" type="String" label="(INTL) Straat" role="inputOnly" 
+                     description="Internationale straatnaam zonder huisnummer"/>
+                     
+            <property name="intlHouseNumber" type="String" label="(INTL) Huisnummer" role="inputOnly" 
+                     description="Internationaal huisnummer"/>
+                     
+            <property name="intlHouseAddition" type="String" label="(INTL) Huisnummer toevoeging" role="inputOnly" 
+                     description="Internationale huisnummer toevoeging (apt, suite, etc.)"/>
+                     
+            <property name="intlPostalCode" type="String" label="(INTL) Postcode" role="inputOnly" 
+                     description="Internationale postcode/zip code"/>
+                     
+            <property name="intlCity" type="String" label="(INTL) Plaats" role="inputOnly" 
+                     description="Internationale plaatsnaam/stad"/>
+                     
+            <property name="intlState" type="String" label="(INTL) Staat/Provincie" role="inputOnly" 
+                     description="Internationale staat/provincie (vooral relevant voor VS/Canada/Australië)"/>
+                     
+            <property name="intlCountry" type="String" label="(INTL) Land" role="inputOnly" 
+                     description="Internationale landnaam of ISO country code"/>
+                     
+            <!-- ==========================================
+                 OUTPUT PROPERTIES FOR EDITED BUSINESS DATA
+                 Send modified business data back to Flow after editing
+                 ========================================== -->
+            <property name="companyNameOut" type="String" label="Bedrijfsnaam (Gewijzigd)" role="outputOnly" 
+                     description="Gewijzigde bedrijfsnaam"/>
+                     
+            <property name="kvkNumberOut" type="String" label="KVK nummer (Gewijzigd)" role="outputOnly" 
+                     description="Gewijzigd KVK nummer"/>
+                     
+            <property name="vatNumberOut" type="String" label="BTW nummer (Gewijzigd)" role="outputOnly" 
+                     description="Gewijzigd BTW nummer"/>
+                     
+            <property name="phone1Out" type="String" label="Telefoonnummer (Gewijzigd)" role="outputOnly" 
+                     description="Gewijzigd primair telefoonnummer"/>
+                     
+            <property name="phone2Out" type="String" label="Mobielnummer (Gewijzigd)" role="outputOnly" 
+                     description="Gewijzigd secundair telefoonnummer"/>
+                     
+            <property name="emailOut" type="String" label="E-mail (Gewijzigd)" role="outputOnly" 
+                     description="Gewijzigd e-mailadres"/>
+
+            <!-- Address Outputs (MAINTAINED FOR FLOW COMPATIBILITY) -->
+            <property name="streetNameOut" type="String" label="(NL) Straatnaam (Gewijzigd)" role="outputOnly" 
+                     description="Gewijzigde Nederlandse straatnaam (niet bewerkbaar via UI)"/>
+                     
+            <property name="houseNumberOutputOut" type="String" label="(NL) Huisnummer (Gewijzigd)" role="outputOnly" 
+                     description="Gewijzigd Nederlands huisnummer (niet bewerkbaar via UI)"/>
+                     
+            <property name="houseLetterOut" type="String" label="(NL) Huisletter (Gewijzigd)" role="outputOnly" 
+                     description="Gewijzigde Nederlandse huisletter (niet bewerkbaar via UI)"/>
+                     
+            <property name="houseNumberAdditionOut" type="String" label="(NL) Huisnummer toevoeging (Gewijzigd)" role="outputOnly" 
+                     description="Gewijzigde Nederlandse huisnummer toevoeging (niet bewerkbaar via UI)"/>
+                     
+            <property name="postalCodeOutputOut" type="String" label="(NL) Postcode (Gewijzigd)" role="outputOnly" 
+                     description="Gewijzigde Nederlandse postcode (niet bewerkbaar via UI)"/>
+                     
+            <property name="cityOut" type="String" label="(NL) Plaats (Gewijzigd)" role="outputOnly" 
+                     description="Gewijzigde Nederlandse plaatsnaam (niet bewerkbaar via UI)"/>
+
+            <!-- International Address Outputs (MAINTAINED FOR FLOW COMPATIBILITY) -->
+            <property name="intlStreetOut" type="String" label="(INTL) Straat (Gewijzigd)" role="outputOnly" 
+                     description="Gewijzigde internationale straatnaam (niet bewerkbaar via UI)"/>
+                     
+            <property name="intlHouseNumberOut" type="String" label="(INTL) Huisnummer (Gewijzigd)" role="outputOnly" 
+                     description="Gewijzigd internationaal huisnummer (niet bewerkbaar via UI)"/>
+                     
+            <property name="intlHouseAdditionOut" type="String" label="(INTL) Huisnummer toevoeging (Gewijzigd)" role="outputOnly" 
+                     description="Gewijzigde internationale huisnummer toevoeging (niet bewerkbaar via UI)"/>
+                     
+            <property name="intlPostalCodeOut" type="String" label="(INTL) Postcode (Gewijzigd)" role="outputOnly" 
+                     description="Gewijzigde internationale postcode (niet bewerkbaar via UI)"/>
+                     
+            <property name="intlCityOut" type="String" label="(INTL) Plaats (Gewijzigd)" role="outputOnly" 
+                     description="Gewijzigde internationale plaatsnaam (niet bewerkbaar via UI)"/>
+                     
+            <property name="intlStateOut" type="String" label="(INTL) Staat/Provincie (Gewijzigd)" role="outputOnly" 
+                     description="Gewijzigde internationale staat/provincie (niet bewerkbaar via UI)"/>
+                     
+            <property name="intlCountryOut" type="String" label="(INTL) Land (Gewijzigd)" role="outputOnly" 
+                     description="Gewijzigde internationale landnaam (niet bewerkbaar via UI)"/>
+
+            <!-- ==========================================
+                 CONTROL FLAGS
+                 ========================================== -->
+            <property name="wasModified" type="Boolean" label="Data Gewijzigd" role="outputOnly" 
+                     description="Geeft aan of er bedrijfsgegevens zijn gewijzigd tijdens het bewerken"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

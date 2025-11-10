@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <quickActions>
+        <label><!-- Update Contact --></label>
+        <name>Update_Contact_Case</name>
+    </quickActions>
+    <validationRules>
+        <errorMessage>Het ingegeven telefoonnummer is van onjuist formaat.</errorMessage>
+        <name>CorrectMobileNumber</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Het ingegeven telefoonnummer is van onjuist formaat.</errorMessage>
+        <name>CorrectPhoneNumber</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Ongeldige postcode voor het postadres.</errorMessage>
+        <name>Validate_Dutch_Mailing_Postal_Code</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>Ongeldige postcode voor het bezoekadres</errorMessage>
+        <name>Validate_Dutch_Other_Postal_Code</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- GoogleMaps --></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleSearch --></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- SendGmail --></label>
+        <name>SendGmail</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- YahooMaps --></label>
+        <name>YahooMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- YahooWeather --></label>
+        <name>YahooWeather</name>
+    </webLinks>
+</CustomObjectTranslation>

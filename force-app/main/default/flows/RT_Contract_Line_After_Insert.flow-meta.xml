@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <description>Record-Triggered flow after creation of a new Contract Line</description>
+    <environments>Default</environments>
+    <interviewLabel>RT - Contract Line - After Insert {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>RT - Contract Line - After Insert</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Subflow_To_Update_Related_Contract_Lines_Real_Estate_Contract_Status</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Source_System__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>WOCAS</stringValue>
+            </value>
+        </filters>
+        <object>Contract_Line__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <description>Subflow will update the previous versions and also enables us to shows inactive and active contract line (history tracking) on the real estate contract</description>
+        <name>Subflow_To_Update_Related_Contract_Lines_Real_Estate_Contract_Status</name>
+        <label>Subflow To Update Related Contract Lines &amp; Real Estate Contract Status</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <flowName>AL_Update_Contract_Line_History_Real_Estate_Contract_Status</flowName>
+        <inputAssignments>
+            <name>varR_ContractLine</name>
+            <value>
+                <elementReference>$Record</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+</Flow>

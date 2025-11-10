@@ -1,0 +1,219 @@
+<!-- **********************************************************************************************
+     Component       : kadasterLookupFlow (HTML)
+     Layer           : Lightning Web Component Template
+     Purpose         : NL Kadaster lookup + flat right preview + non-NL manual form.
+     Notes           : Uses getters (no function calls). Right-hand preview header always visible.
+     Author          : Dennis van Musschenbroek
+     Last Modified   : 2025-08-27
+     ==============================================================================================
+     Change Log
+     ==============================================================================================
+     2025-08-27 | DvM | Added "Ingangsdatum" date field: next to "Postcode" (NL) + required; also added to non-NL + required.
+     2025-08-26 | DvM | Flat centered preview with persistent header.
+     2025-08-25 | DvM | Added NL/INTL split + "Volgende".
+************************************************************************************************* -->
+<template>
+    <div class="woonstad">
+        <!-- Title -->
+        <h2 class="form-title">Adres zoeken</h2>
+
+        <!-- Country -->
+        <lightning-combobox
+            class="form-input"
+            label="Land"
+            value={country}
+            options={countryOptions}
+            onchange={handleCountryChange}>
+        </lightning-combobox>
+
+        <!-- NL: Kadaster lookup + flat right preview -->
+        <template if:true={isNl}>
+            <div class="slds-grid slds-wrap slds-gutters slds-grid_vertical-align-center address-layout">
+                <!-- Left: NL inputs -->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-3">
+
+                    <!-- Row: Postcode + Ingangsdatum (NEW) -->
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-input
+                                class="form-input"
+                                type="text"
+                                label="Postcode"
+                                placeholder="1234AB"
+                                field-level-help="4 cijfers + 2 hoofdletters, zonder spatie."
+                                value={postalCodeInput}
+                                onchange={handlePostalCodeChange}
+                                message-when-pattern-mismatch="Gebruik 4 cijfers + 2 hoofdletters, zonder spatie (bijv. 1234AB)."
+                                pattern="[0-9]{4}[A-Za-z]{2}"
+                                required>
+                            </lightning-input>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-input
+                                class="form-input"
+                                type="date"
+                                label="Ingangsdatum"
+                                value={ingangsdatum}
+                                onchange={handleIngangsdatumChange}
+                                required>
+                            </lightning-input>
+                        </div>
+                    </div>
+
+                    <lightning-input
+                        class="form-input"
+                        type="number"
+                        label="Huisnummer"
+                        placeholder="21"
+                        field-level-help="Voer het huisnummer in."
+                        value={houseNumberInput}
+                        onchange={handleHouseNumberChange}
+                        required>
+                    </lightning-input>
+
+                    <template if:true={loading}>
+                        <lightning-spinner alternative-text="Zoeken..." size="small"></lightning-spinner>
+                    </template>
+
+                    <template if:true={addressOptions.length}>
+                        <lightning-combobox
+                            class="form-input"
+                            name="addressSelection"
+                            label="Selecteer een adres"
+                            options={addressOptions}
+                            value={selectedAddressIndex}
+                            onchange={handleAddressSelect}
+                            required>
+                        </lightning-combobox>
+                    </template>
+                </div>
+
+                <!-- Right: flat preview (header always visible, content centered) -->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3">
+                    <div class="nl-preview-flat">
+                        <div class="nl-preview-title">Het gekozen adres:</div>
+
+                        <template if:true={hasNlSelection}>
+                            <div class="nl-preview-line">{nlStreetLine}</div>
+                            <div class="nl-preview-line">{nlCityLine}</div>
+                            <div class="nl-preview-line">{nlCountryLabel}</div>
+                        </template>
+
+                        <template if:false={hasNlSelection}>
+                            <div class="nl-preview-placeholder">Nog geen adres gekozen</div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <!-- Non-NL: Manual form -->
+        <template if:false={isNl}>
+            <lightning-input
+                class="form-input"
+                type="text"
+                name="street"
+                label="Straat"
+                value={manual.street}
+                onchange={handleManualChange}
+                required>
+            </lightning-input>
+
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_2-of-3">
+                    <lightning-input
+                        class="form-input"
+                        type="text"
+                        name="houseNumber"
+                        label="Huisnummer"
+                        value={manual.houseNumber}
+                        onchange={handleManualChange}
+                        required>
+                    </lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-3">
+                    <lightning-input
+                        class="form-input"
+                        type="text"
+                        name="addition"
+                        label="Toevoeging"
+                        value={manual.addition}
+                        onchange={handleManualChange}>
+                    </lightning-input>
+                </div>
+            </div>
+
+            <lightning-input
+                class="form-input"
+                type="text"
+                name="postalCode"
+                label="Postcode"
+                value={manual.postalCode}
+                onchange={handleManualChange}
+                required>
+            </lightning-input>
+
+            <lightning-input
+                class="form-input"
+                type="text"
+                name="city"
+                label="Plaats"
+                value={manual.city}
+                onchange={handleManualChange}
+                required>
+            </lightning-input>
+
+            <lightning-input
+                class="form-input"
+                type="text"
+                name="state"
+                label="Staat/Provincie"
+                value={manual.state}
+                onchange={handleManualChange}>
+            </lightning-input>
+
+            <!-- NEW: Ingangsdatum for non-NL -->
+            <lightning-input
+                class="form-input"
+                type="date"
+                label="Ingangsdatum"
+                value={ingangsdatum}
+                onchange={handleIngangsdatumChange}
+                required>
+            </lightning-input>
+        </template>
+
+        <!-- Error banner -->
+        <template if:true={error}>
+            <div
+                class="slds-m-top_large slds-scoped-notification slds-media slds-media_center slds-theme_warning"
+                role="status">
+                <div class="slds-media__figure">
+                    <lightning-icon
+                        icon-name="utility:warning"
+                        alternative-text="Waarschuwing"
+                        size="small">
+                    </lightning-icon>
+                </div>
+                <div class="slds-media__body">
+                    <p>{error}</p>
+                </div>
+            </div>
+        </template>
+
+        <!-- Legacy action bar -->
+        <div class="nav-container">
+            <div class="right-buttons">
+                <button class="woonstad-svg-button" onclick={handleNext} title="Volgende">
+                    <span>Volgende</span>
+                    <span class="icon-wrapper">
+                        <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</template>

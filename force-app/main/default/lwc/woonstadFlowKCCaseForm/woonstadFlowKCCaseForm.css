@@ -1,0 +1,341 @@
+/*************************************************************************************************
+ * Component       : woonstadFlowKCCaseForm.css
+ * Layer           : UI Styles (Scoped CSS)
+ * Purpose         : Provides the legacy Woonstad look for the Open Cases grid with:
+ *                   - 2-row blue header (title + search/pagination, then field labels)
+ *                   - Clickable, keyboard-accessible rows
+ *                   - Modal styling for in-flow Case creation
+ *
+ * Responsibilities:
+ *  - Title bar styling with action button
+ *  - Grid styling for open Cases (search, pagination, rows)
+ *  - Warning list styling for "open cases exist" message
+ *  - Modal layout for embedded Flow
+ *
+ * Accessibility   :
+ *  - Search input is labeled (HTML template)
+ *  - Rows support focus and selection indication
+ *  - Modal uses backdrop blur and z-index for prominence
+ *
+ * Security        :
+ *  - UI-only; Apex controller enforces CRUD/FLS
+ *
+ * Owner           : Woonstad KC
+ * Author          : Dennis van Musschenbroek
+ * Created         : 2025-08-14
+ * Last Modified   : 2025-08-25
+ * ===============================================================================================
+ * Change Log:
+ * 2025-08-25 | DvM | Added full header documentation, clarified warning list styling.
+ * 2025-08-15 | DvM | Adjusted bullet point list for warning message.
+ * 2025-08-14 | DvM | Initial version (legacy Woonstad grid & modal).
+ *************************************************************************************************/
+
+.ws-root {
+  display: block;
+}
+
+/* Page bar (title + action) */
+.ws-pagebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 0.5rem 0;
+}
+
+.ws-pagebar__title {
+  font-family: 'Arboria', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ws-blue-600, #003c80);
+  margin: 0;
+}
+
+.ws-new-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  background: #ffffff;
+  color: var(--ws-text-dark, #002244);
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  border-radius: 999px;
+  padding: 0.55rem 1rem 0.55rem 0.6rem;
+  min-height: 42px;
+  border: 1px solid #E0E8F6;
+  box-shadow: 0 4px 10px rgba(0, 97, 205, 0.15);
+}
+
+/* Section wrapper */
+.ws-section {
+  margin-bottom: 1rem;
+}
+
+/* Header band (row 1): title + search + pagination */
+.ws-band {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px 10px 0 0;
+  padding: 0.45rem 0.6rem;
+  background: #85BDED;
+  color: #001a33;
+}
+
+.ws-band__left {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ws-band__title {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.ws-badge {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 0 8px;
+  min-width: 24px;
+  height: 24px;
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #002244;
+}
+
+.ws-band__right {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: nowrap;
+}
+
+/* Search pill */
+.ws-input-wrap {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 999px;
+  padding: 0.2rem 0.25rem 0.2rem 0.6rem;
+  max-width: 420px;
+  width: 100%;
+}
+
+.ws-search-input {
+  flex: 1 1 auto;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.9rem;
+  padding: 0.35rem 0.4rem;
+  color: var(--ws-text-dark, #002244);
+}
+
+.ws-search-button {
+  border: 2px solid #85e3f9;
+  background: #ffffff;
+  border-radius: 50%;
+  width: 1.9rem;
+  height: 1.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ws-search-button lightning-icon {
+  --slds-c-icon-color-foreground-default: var(--ws-text-dark, #002244);
+}
+
+/* Pagination (pill buttons) */
+.ws-pager {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  height: 28px;
+}
+
+.ws-pill-btn {
+  height: 26px;
+  padding: 0 10px;
+  border-radius: 9999px;
+  border: 0;
+  font-size: 12px;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.92);
+  color: #002244;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.ws-pill-primary {
+  background: #ffffff;
+}
+
+.ws-pill-btn:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.ws-pill-info {
+  height: 26px;
+  padding: 0 12px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.85);
+  color: #002244;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  white-space: nowrap;
+  min-width: 64px;
+}
+
+/* Header band (row 2): field label grid */
+.ws-headgrid {
+  display: grid;
+  grid-template-columns: 120px 110px 140px minmax(220px, 1fr) minmax(380px, 1.5fr) 170px;
+  gap: 0;
+  align-items: center;
+  padding: 0.5rem 0.6rem;
+  width: 100%;
+  background: #85BDED;
+  color: #001a33;
+}
+
+.ws-headcell {
+  font-weight: 700;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+/* Rows */
+.ws-rows {
+  background: #ffffff;
+  border: 1px solid #E0E8F6;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  overflow: hidden;
+}
+
+.ws-row {
+  display: grid;
+  grid-template-columns: 120px 110px 140px minmax(220px, 1fr) minmax(380px, 1.5fr) 170px;
+  gap: 0;
+  padding: 0.6rem 0.6rem;
+  align-items: center;
+  border-bottom: 1px solid #F0F3FA;
+}
+
+.ws-row:last-child {
+  border-bottom: none;
+}
+
+/* Clickable + selected states */
+.ws-row--click {
+  cursor: pointer;
+}
+
+.ws-row--click:hover {
+  background: #f9fbff;
+}
+
+.ws-row[aria-selected="true"] {
+  background: #eef5ff;
+}
+
+/* Cells & truncation */
+.ws-cell {
+  min-width: 0;
+}
+
+.ws-nowrap {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ws-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* Empty state */
+.ws-empty {
+  padding: 0.9rem;
+  font-size: 0.95rem;
+  color: #5b6b7a;
+}
+
+/* Optional modal (Flow) */
+.ws-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9000;
+}
+
+.ws-modal__container {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  width: 85vw;
+  max-width: 1200px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.ws-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--ws-blue-300, #0061cd);
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+}
+
+.ws-modal__title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.ws-modal__content {
+  background: #ffffff;
+  padding: 0.5rem;
+  overflow: auto;
+}
+
+/* Warning Bullet Point Style */
+.ws-warning-list {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+}
+
+.ws-warning-list li {
+  color: var(--ws-text-dark, #002244);
+  line-height: 1.6;
+}

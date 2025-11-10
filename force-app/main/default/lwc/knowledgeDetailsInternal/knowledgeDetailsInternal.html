@@ -1,0 +1,210 @@
+<!--
+═══════════════════════════════════════════════════════════════════════════════════════════════════
+KNOWLEDGE DETAILS INTERNAL - HTML TEMPLATE
+═══════════════════════════════════════════════════════════════════════════════════════════════════
+
+@description    Lightning Web Component template for displaying Salesforce Knowledge article details
+                Provides responsive layout with loading states, error handling, and accessibility features
+
+@author         Dennis van Musschenbroek
+@created        2025-01-24
+@version        2.0.0
+@component      knowledgeDetailsInternal
+
+═══════════════════════════════════════════════════════════════════════════════════════════════════
+TEMPLATE STRUCTURE
+═══════════════════════════════════════════════════════════════════════════════════════════════════
+
+This template follows Salesforce Lightning Design System (SLDS) standards and provides:
+- Accessible markup with proper ARIA attributes
+- Responsive design with SLDS utility classes
+- Loading state with spinner component
+- Error state with user-friendly messaging
+- Article content with proper semantic HTML
+- Topic navigation with badge-style links
+- Dutch language localization
+
+═══════════════════════════════════════════════════════════════════════════════════════════════════
+CHANGELOG
+═══════════════════════════════════════════════════════════════════════════════════════════════════
+
+Version 2.0.0 (2025-01-24) - Dennis van Musschenbroek
+─────────────────────────────────────────────────────────────────────────────────────────────────
+- ADDED: Comprehensive header documentation
+- ADDED: Improved accessibility with ARIA attributes and semantic HTML
+- ADDED: Enhanced responsive design with better mobile support
+- ADDED: Conditional rendering using computed properties
+- IMPROVED: SLDS utility class usage for consistency
+- IMPROVED: Topic section layout with better responsive wrapping
+- IMPROVED: Error message styling and user experience
+- IMPROVED: Code structure and readability
+
+Version 1.0.0 (Original) - Dennis van Musschenbroek
+─────────────────────────────────────────────────────────────────────────────────────────────────
+- Initial template with basic article display
+- Loading state with spinner
+- Basic topic links
+- Simple error handling
+
+═══════════════════════════════════════════════════════════════════════════════════════════════════
+-->
+
+<template>
+    <!-- ═══════════════════════════════════════════════════════════════════════════════════════ -->
+    <!-- LOADING STATE                                                                            -->
+    <!-- ═══════════════════════════════════════════════════════════════════════════════════════ -->
+    
+    <template if:true={loading}>
+        <div class="slds-p-around_medium slds-text-align_center" role="status" aria-live="polite">
+            <lightning-spinner 
+                alternative-text="Laden van artikel..."
+                size="medium"
+                variant="base">
+            </lightning-spinner>
+            <p class="slds-m-top_small slds-text-color_weak">
+                Artikel wordt geladen...
+            </p>
+        </div>
+    </template>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════════════════════ -->
+    <!-- ARTICLE CONTENT                                                                          -->
+    <!-- ═══════════════════════════════════════════════════════════════════════════════════════ -->
+    
+    <template if:true={hasArticle}>
+        <article class="knowledge-article" role="main" aria-labelledby="article-title">
+            
+            <!-- Article Header -->
+            <header class="slds-m-bottom_large">
+                <h1 
+                    id="article-title"
+                    class="slds-var-m-top_x-large slds-var-m-bottom_small slds-text-heading_large">
+                    {article.title}
+                </h1>
+
+                <div class="slds-var-m-bottom_medium slds-text-color_weak">
+                    <p class="slds-text-body_small">
+                        Laatst bijgewerkt op:&nbsp;
+                        <lightning-formatted-date-time
+                            value={article.lastPublishedDate}
+                            year="numeric" 
+                            month="long" 
+                            day="2-digit" 
+                            hour="2-digit" 
+                            minute="2-digit">
+                        </lightning-formatted-date-time>
+                    </p>
+                </div>
+            </header>
+
+            <!-- Article Content -->
+            <div class="article-content">
+                
+                <!-- Question Section -->
+                <section class="slds-m-bottom_large" aria-labelledby="question-heading">
+                    <h2 
+                        id="question-heading"
+                        class="slds-var-m-top_x-large slds-var-m-bottom_small slds-text-heading_medium">
+                        Vraag
+                    </h2>
+                    <div class="content-wrapper">
+                        <lightning-formatted-rich-text 
+                            value={article.question}
+                            disable-linkify="false">
+                        </lightning-formatted-rich-text>
+                    </div>
+                </section>
+
+                <!-- Answer Section -->
+                <section class="slds-m-bottom_large" aria-labelledby="answer-heading">
+                    <h2 
+                        id="answer-heading"
+                        class="slds-var-m-top_x-large slds-var-m-bottom_small slds-text-heading_medium">
+                        Antwoord
+                    </h2>
+                    <div class="content-wrapper">
+                        <lightning-formatted-rich-text 
+                            value={article.answerHtml}
+                            disable-linkify="false">
+                        </lightning-formatted-rich-text>
+                    </div>
+                </section>
+
+                <!-- Topics Section -->
+                <template if:true={shouldDisplayTopics}>
+                    <section 
+                        class="slds-m-top_x-large slds-p-top_medium slds-border_top" 
+                        aria-labelledby="topics-heading">
+                        
+                        <h2 
+                            id="topics-heading"
+                            class="slds-var-m-bottom_small slds-text-heading_small slds-assistive-text">
+                            Gerelateerde onderwerpen
+                        </h2>
+                        
+                        <div class="topics-container">
+                            <div 
+                                class="slds-grid slds-wrap slds-gutters_xx-small"
+                                role="list"
+                                aria-label="Gerelateerde onderwerpen">
+                                
+                                <template for:each={article.topics} for:item="topic">
+                                    <div 
+                                        key={topic.id} 
+                                        class="slds-col slds-m-bottom_x-small"
+                                        role="listitem">
+                                        
+                                        <a 
+                                            href={topic.url}
+                                            class="slds-badge slds-badge_lightest slds-p-vertical_small slds-p-horizontal_large topic-link"
+                                            role="button"
+                                            title={topic.name}
+                                            aria-label={topic.name}>
+                                            {topic.name}
+                                        </a>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </section>
+                </template>
+
+            </div>
+        </article>
+    </template>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════════════════════ -->
+    <!-- ERROR STATE                                                                              -->
+    <!-- ═══════════════════════════════════════════════════════════════════════════════════════ -->
+    
+    <template if:true={shouldShowError}>
+        <div 
+            class="slds-p-around_large slds-text-align_center error-state" 
+            role="alert" 
+            aria-live="assertive">
+            
+            <div class="slds-illustration slds-illustration_small">
+                <lightning-icon 
+                    icon-name="utility:error" 
+                    size="large" 
+                    variant="error"
+                    alternative-text="Fout">
+                </lightning-icon>
+                
+                <h3 class="slds-text-heading_medium slds-m-top_medium">
+                    Artikel niet gevonden
+                </h3>
+                
+                <p class="slds-text-body_regular slds-m-top_small slds-text-color_weak">
+                    Het gevraagde artikel kon niet worden gevonden of u heeft geen rechten om dit artikel te bekijken.
+                </p>
+                
+                <div class="slds-m-top_medium">
+                    <p class="slds-text-body_small slds-text-color_weak">
+                        Controleer de URL of neem contact op met uw beheerder als dit probleem blijft bestaan.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </template>
+</template>

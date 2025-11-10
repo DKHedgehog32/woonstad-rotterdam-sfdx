@@ -1,0 +1,73 @@
+<template>
+            <div class="slds-grid slds-wrap slds-is-relative ">
+            <div style="position: fixed;z-index: 999999;top: 0;right: 0;">
+  <omnistudio-toast class="flexcard-toast-element" theme="slds" title="" message="" styletype=""> </omnistudio-toast>
+</div>
+            <div if:true={showLoader} class="slds-is-absolute vloc-loader_override" style="height: 100%; width: 100%; min-height:50px; background: transparent; z-index: 99;">
+  <div>
+   <omnistudio-spinner
+      variant="brand"
+      alternative-text="Loading content..."
+      size="medium"
+      theme="slds"
+      ></omnistudio-spinner>
+  </div>
+</div>
+            <template if:false={hasPermission}>
+              You don't have required permissions to view this card.
+            </template>
+            <template if:true={hasPermission}>
+              <template if:true={hasRecords}>
+                        <template for:each={_records} for:item="record" for:index="rindex">
+                            <omnistudio-flex-card-state if:true={record}  key={record._flex.uniqueKey} data-recordid={record.Id} record={record} data-statue="true"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12 "  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-p-around_x-small slds-m-around_none " style="      
+         box-shadow: 0px 1px 0px #C9C9C9;">
+          <div data-style-id="state0element0" class="slds-col   slds-size_2-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-flex-action data-style-id="state0element0_child"  tracking-obj={_childCardTrackingObj}  class= "state0element0_child flexActionElement" 
+        data-action-element-class="state0element0_child" data-action-key="state0element0" onexecuteaction={performAction} data-show-spinner="false"
+        data-element-label="action1"   state-obj={record}  card={card}  record={record}  label="\{Name}"  icon-name="standard-default"  action-list='\[{"stateAction":{"id":"flex-action-1644830716802","type":"Custom","targetType":"Record","openUrlIn":"New Tab/Window","Record":{"targetAction":"view","targetName":"CustomerProperty","targetId":"{Id}"}},"key":"1644570591481-qhkp9tsi0","label":"Action","draggable":false,"isOpen":true,"actionIndex":0}]'  hide-action-icon="true"  styles='\{"label":{"color":"#0176D3","textDecoration":"underline"}}'  flyout-details='\{}'  theme="slds"  ></omnistudio-flex-action>
+      </div><div data-style-id="state0element1" class="slds-col  slds-p-right_x-small  slds-size_5-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-output-field data-style-id="state0element1_child"   card={card}  record={record}  placeholder=""  type="text"  field-name="PolicyName"  styles='\{"value":{"textDecoration":"","color":"#181818"}}'  label=""  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element2" class="slds-col   slds-size_2-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-output-field data-style-id="state0element2_child"   card={card}  record={record}  placeholder=""  type="text"  field-name="Status"  locale="en-US"  currency="USD"  styles='\{"value":{"color":"#181818"}}'  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element3" class="slds-col   slds-size_3-of-12  " data-rindex={rindex} style="" ><omnistudio-flex-action data-style-id="state0element3_child"  tracking-obj={_childCardTrackingObj}  class= "state0element3_child flexActionElement" 
+        data-action-element-class="state0element3_child" data-action-key="state0element3" onexecuteaction={performAction} data-show-spinner="false"
+        data-element-label="action1clone0"   state-obj={record}  card={card}  record={record}  label="\{OriginalPolicyName}"  icon-name="standard-default"  action-list='\[{"stateAction":{"id":"flex-action-1644830393835","type":"Custom","targetType":"Record","openUrlIn":"New Tab/Window","Record":{"targetName":"InsurancePolicy","targetAction":"view","targetId":"{OriginalPolicyId}"}},"key":"1644570635277-tz5u55gl7","label":"Action","draggable":true,"isOpen":true,"actionIndex":0}]'  hide-action-icon="true"  styles='\{"label":{"color":"#0176D3","textDecoration":"underline"}}'  flyout-details='\{}'  theme="slds"  ></omnistudio-flex-action>
+      </div>
+        </div>
+      </omnistudio-flex-card-state>
+                        </template>
+                      </template>
+                      <template if:false={hasRecords}>
+                            <omnistudio-flex-card-state  record={record} data-statue="false"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12 "  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-p-around_x-small slds-m-around_none " style="      
+         box-shadow: 0px 1px 0px #C9C9C9;">
+          <div data-style-id="state0element0" class="slds-col   slds-size_2-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-flex-action data-style-id="state0element0_child"  tracking-obj={_childCardTrackingObj}  class= "state0element0_child flexActionElement" 
+        data-action-element-class="state0element0_child" data-action-key="state0element0" onexecuteaction={performAction} data-show-spinner="false"
+        data-element-label="action1"   state-obj={record}  card={card}  record={record}  label="\{Name}"  icon-name="standard-default"  action-list='\[{"stateAction":{"id":"flex-action-1644830716802","type":"Custom","targetType":"Record","openUrlIn":"New Tab/Window","Record":{"targetAction":"view","targetName":"CustomerProperty","targetId":"{Id}"}},"key":"1644570591481-qhkp9tsi0","label":"Action","draggable":false,"isOpen":true,"actionIndex":0}]'  hide-action-icon="true"  styles='\{"label":{"color":"#0176D3","textDecoration":"underline"}}'  flyout-details='\{}'  theme="slds"  ></omnistudio-flex-action>
+      </div><div data-style-id="state0element1" class="slds-col  slds-p-right_x-small  slds-size_5-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-output-field data-style-id="state0element1_child"   card={card}  record={record}  placeholder=""  type="text"  field-name="PolicyName"  styles='\{"value":{"textDecoration":"","color":"#181818"}}'  label=""  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element2" class="slds-col   slds-size_2-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-output-field data-style-id="state0element2_child"   card={card}  record={record}  placeholder=""  type="text"  field-name="Status"  locale="en-US"  currency="USD"  styles='\{"value":{"color":"#181818"}}'  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element3" class="slds-col   slds-size_3-of-12  " data-rindex={rindex} style="" ><omnistudio-flex-action data-style-id="state0element3_child"  tracking-obj={_childCardTrackingObj}  class= "state0element3_child flexActionElement" 
+        data-action-element-class="state0element3_child" data-action-key="state0element3" onexecuteaction={performAction} data-show-spinner="false"
+        data-element-label="action1clone0"   state-obj={record}  card={card}  record={record}  label="\{OriginalPolicyName}"  icon-name="standard-default"  action-list='\[{"stateAction":{"id":"flex-action-1644830393835","type":"Custom","targetType":"Record","openUrlIn":"New Tab/Window","Record":{"targetName":"InsurancePolicy","targetAction":"view","targetId":"{OriginalPolicyId}"}},"key":"1644570635277-tz5u55gl7","label":"Action","draggable":true,"isOpen":true,"actionIndex":0}]'  hide-action-icon="true"  styles='\{"label":{"color":"#0176D3","textDecoration":"underline"}}'  flyout-details='\{}'  theme="slds"  ></omnistudio-flex-action>
+      </div>
+        </div>
+      </omnistudio-flex-card-state>
+                      </template>
+            </template>
+            <template if:true={hasError}>
+            {error}
+            </template>
+            
+      <omnistudio-action action-wrapperclass="slds-hide" re-render-flyout class="action-trigger slds-col" onupdateos={updateOmniscript} onselectcards={updateSelectedCards} onsetvalue={updateAction} onfireactionevent={actionEvtHandler}>
+      
+      </omnistudio-action>
+  
+            <omnistudio-action class="execute-action" re-render-flyout action-wrapperclass="slds-hide" onupdateos={updateOmniscript} onselectcards={updateSelectedCards} onsetvalue={updateAction} onfireactionevent={actionEvtHandler}>
+            
+            </omnistudio-action>
+            </div>
+          </template>

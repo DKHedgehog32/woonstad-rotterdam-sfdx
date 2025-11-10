@@ -1,0 +1,96 @@
+/* ===============================================================================================
+ * Component : woonstadNameplateForm
+ * Purpose   : Minimal styling. Validation borders use native SLDS (no custom border CSS needed).
+ * Note      : Asterisks before required labels are best-effort; may be ignored by some themes.
+ * =============================================================================================== */
+
+/* Error banner */
+.woonstad-error-banner {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: #FFCCCC;
+  border: 1px solid #C51616;
+  padding: 0.5rem 0.75rem;
+}
+.woonstad-error-banner h2 {
+  color: #C51616;
+  font-weight: bold;
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+.woonstad-error-banner .slds-icon-utility-error { fill: #C51616; }
+
+/* Container & title */
+.woonstad-form {
+  padding: 0;
+  margin: 0;
+  background: #fff;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  font-family: 'Apercu Pro', sans-serif;
+  width: 364px;
+}
+.form-title {
+  font-family: 'Arboria', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ws-blue-600, #003c80);
+  margin: 0 0 1.5rem 0;
+  text-align: left;
+}
+
+/* Labels & suggestion text */
+lightning-input::part(label),
+lightning-combobox::part(label) {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: 'Arboria', sans-serif;
+  color: var(--ws-text-dark, #002244);
+  text-align: left;
+}
+.suggestion-text {
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: -8px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-align: left;
+}
+
+/* Required asterisk (nice-to-have; if blocked, native "required" still works) */
+lightning-input[required]::part(label)::before,
+lightning-combobox[required]::part(label)::before {
+  content: '*';
+  color: #d02c2c;
+  margin-right: 4px;
+  font-weight: bold;
+}
+
+/* Spacing */
+.form-input { margin-bottom: 1.5rem; width: 100%; }
+
+/* Actions */
+.nav-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem 0 0 0;
+}
+.right-buttons { display: flex; gap: 1rem; align-items: center; }
+.woonstad-svg-button {
+  display: inline-flex; align-items: center; justify-content: flex-start;
+  height: 42px; background-color: #85E3F9; border: none; border-radius: 40px;
+  font-family: 'Apercu Pro', sans-serif; font-size: 16px; font-weight: 500; color: #00215B;
+  padding-left: 16px; padding-right: 48px; position: relative; cursor: pointer; white-space: nowrap;
+}
+.icon-wrapper {
+  width: 32px; height: 32px; background: #fff; border-radius: 50%;
+  box-shadow: 0px 2px 4px rgba(0, 33, 91, 0.25);
+  display: flex; align-items: center; justify-content: center;
+  position: absolute; top: 5px; right: 5px;
+}
+.arrow-icon { width: 18px; height: 18px; display: block; fill: #00215B; }

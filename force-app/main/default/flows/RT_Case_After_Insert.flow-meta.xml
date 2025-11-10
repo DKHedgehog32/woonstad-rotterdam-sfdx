@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>Fill the VarT_FlowElement with &apos;Get_Account&apos; if the Element fails.</description>
+        <name>Assign_VarT_FlowElementUpdate_Case</name>
+        <label>VarT_FlowElement - Update_Case</label>
+        <locationX>314</locationX>
+        <locationY>708</locationY>
+        <assignmentItems>
+            <assignToReference>VarT_FlowElement</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Update_Case</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Subflow_PublishFlowFaultEvent</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>If Case Label is Null, the Case Label should be determined based on the Account&apos;s Contract Parties.</description>
+        <name>Is_Case_Label_Null</name>
+        <label>Is Case Label Null?</label>
+        <locationX>314</locationX>
+        <locationY>384</locationY>
+        <defaultConnectorLabel>Case Label Is Not Null</defaultConnectorLabel>
+        <rules>
+            <name>Case_Label_Is_Null</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Label__c</leftValueReference>
+                <operator>EqualTo</operator>
+            </conditions>
+            <connector>
+                <targetReference>Determine_The_Account_Contract_Parties_For_Case_Label</targetReference>
+            </connector>
+            <label>Case Label Is Null</label>
+        </rules>
+    </decisions>
+    <description>After Insert Record Triggered flow for Case object with only after insert functions</description>
+    <environments>Default</environments>
+    <interviewLabel>RT - Case - After Insert {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>RT - Case - After Insert</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>Update the Case record with the new Label value</description>
+        <name>Update_Case</name>
+        <label>Case</label>
+        <locationX>50</locationX>
+        <locationY>600</locationY>
+        <faultConnector>
+            <targetReference>Assign_VarT_FlowElementUpdate_Case</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>Label__c</field>
+            <value>
+                <elementReference>varT_CaseLabel</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>452</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Assign_The_Contact_If_The_Account_Is_A_PersonAccount</targetReference>
+        </connector>
+        <object>Case</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <scheduledPaths>
+            <connector>
+                <targetReference>Determine_The_Case_Label_Based_From_Email_To_Case</targetReference>
+            </connector>
+            <pathType>AsyncAfterCommit</pathType>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <description>If the Account on the Case is a PersonAccount, this subflow assigns the right Contact</description>
+        <name>Assign_The_Contact_If_The_Account_Is_A_PersonAccount</name>
+        <label>Assign The Contact If The Account Is A PersonAccount</label>
+        <locationX>314</locationX>
+        <locationY>276</locationY>
+        <connector>
+            <targetReference>Is_Case_Label_Null</targetReference>
+        </connector>
+        <flowName>AL_Case_Assign_PersonAccount_Contact</flowName>
+        <inputAssignments>
+            <name>varR_NewCase</name>
+            <value>
+                <elementReference>$Record</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <subflows>
+        <description>Send the case confirmation email to the customer.</description>
+        <name>Case_Confirmation_Email</name>
+        <label>Case Confirmation Email</label>
+        <locationX>842</locationX>
+        <locationY>384</locationY>
+        <flowName>AL_Case_Confirmation_Email</flowName>
+        <inputAssignments>
+            <name>varR_Case</name>
+            <value>
+                <elementReference>$Record</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <subflows>
+        <description>For the Case Label, get the related Account&apos;s Contract Parties</description>
+        <name>Determine_The_Account_Contract_Parties_For_Case_Label</name>
+        <label>Determine The Account Contract Parties For Case Label</label>
+        <locationX>50</locationX>
+        <locationY>492</locationY>
+        <connector>
+            <targetReference>Update_Case</targetReference>
+        </connector>
+        <flowName>AL_Get_Account_Contract_Parties</flowName>
+        <inputAssignments>
+            <name>recordId</name>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </inputAssignments>
+        <outputAssignments>
+            <assignToReference>varT_CaseLabel</assignToReference>
+            <name>varT_AccountContractParty</name>
+        </outputAssignments>
+    </subflows>
+    <subflows>
+        <description>Determine the Case label based on the To Address of the Email-to-Case.</description>
+        <name>Determine_The_Case_Label_Based_From_Email_To_Case</name>
+        <label>Determine The Case Label Based From Email-To-Case</label>
+        <locationX>842</locationX>
+        <locationY>276</locationY>
+        <connector>
+            <targetReference>Case_Confirmation_Email</targetReference>
+        </connector>
+        <flowName>AL_Determine_Email_to_Case_Label</flowName>
+        <inputAssignments>
+            <name>varR_Case</name>
+            <value>
+                <elementReference>$Record</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <subflows>
+        <description>Publish the Flow Fault Platform Event.</description>
+        <name>Subflow_PublishFlowFaultEvent</name>
+        <label>Publish Flow Fault Event</label>
+        <locationX>314</locationX>
+        <locationY>816</locationY>
+        <flowName>AL_Publish_Flow_Fault_event</flowName>
+        <inputAssignments>
+            <name>faultMessage</name>
+            <value>
+                <elementReference>$Flow.FaultMessage</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>flowContext</name>
+            <value>
+                <stringValue>RT_Case_After_Insert</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>flowElement</name>
+            <value>
+                <elementReference>VarT_FlowElement</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>flowGuid</name>
+            <value>
+                <elementReference>$Flow.InterviewGuid</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>triggeringRecord</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>userId</name>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <variables>
+        <name>varT_CaseLabel</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>This variable is used to store the Flow Element name if a flow errors.</description>
+        <name>VarT_FlowElement</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

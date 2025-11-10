@@ -1,0 +1,114 @@
+<!-- **********************************************************************************************
+     Component       : woonstadBussDuplicateCheck (HTML)
+     Layer           : Lightning Web Component Template (Flow Screen)
+     Purpose         : Show possible duplicate Business Accounts; allow proceeding with a new business via
+                       Woonstad SVG pill button that enables after checking the checkbox.
+     Owner           : Woonstad KC
+     Author          : Dennis van Musschenbroek
+     Created         : 2025-08-29
+     Last Modified   : 2025-08-29
+     ==============================================================================================
+     Change Log
+     ==============================================================================================
+     2025-08-29 | DvM | Created business duplicate checker based on customer duplicate checker.
+     2025-08-29 | DvM | Modified for business-specific search and display fields.
+************************************************************************************************* -->
+<template>
+    <div class="woonstad wc-root">
+        <!-- Title -->
+        <h2 class="wc-title">Controleer bedrijfsgegevens</h2>
+
+        <!-- Instruction list (above the header) -->
+        <template if:true={hasRows}>
+            <ul class="wc-instructions-list" role="list">
+                <li class="wc-instructions-item">
+                    We hebben op basis van de ingevoerde gegevens onderstaande bedrijven gevonden.
+                    Kijk of het bedrijf hier tussen zit.
+                </li>
+                <li class="wc-instructions-item">
+                    Als het bedrijf dat je zoekt hier tussen zit, klik dan op het bedrijf
+                    en je wordt automatisch naar de bedrijfskaart gestuurd om vanuit daar het proces verder te starten.
+                </li>
+                <li class="wc-instructions-item">
+                    Staat het bedrijf er niet tussen of wil je een nieuw bedrijf aanmaken?
+                    Vink dan de onderstaande checkbox aan. Daarna wordt de knop beschikbaar om verder te gaan.
+                </li>
+
+                <!-- Checkbox + Woonstad SVG pill inline -->
+                <li class="wc-instructions-item wc-instructions-item--checkbox">
+                    <label class="wc-check">
+                        <input type="checkbox" onchange={handleNewBusinessCheckbox} />
+                        <span>Ik wil een nieuw bedrijf aanmaken</span>
+                    </label>
+
+                    <button class="woonstad-svg-button"
+                            onclick={handleNext}
+                            title="Nieuw bedrijf aanmaken"
+                            disabled={isCreateBtnDisabled}
+                            aria-disabled={isCreateBtnDisabled}
+                            type="button">
+                        <span>Nieuw bedrijf aanmaken</span>
+                        <span class="icon-wrapper" aria-hidden="true">
+                            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg"
+                                 viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"/>
+                            </svg>
+                        </span>
+                    </button>
+                </li>
+            </ul>
+        </template>
+
+        <!-- Header bar (always visible) - reduced to 4 columns -->
+        <div class="wc-header" role="row">
+            <div class="wc-col" role="columnheader">Bedrijfsnaam</div>
+            <div class="wc-col" role="columnheader">KVK nummer</div>
+            <div class="wc-col" role="columnheader">Telefoon</div>
+            <div class="wc-col" role="columnheader">E-mail</div>
+        </div>
+
+        <!-- Results -->
+        <template if:true={hasRows}>
+            <div class="wc-rows">
+                <template for:each={rows} for:item="r">
+                    <button
+                        key={r.Id}
+                        class="wc-row"
+                        role="row"
+                        type="button"
+                        data-id={r.Id}
+                        onclick={handleRowClick}
+                        onkeydown={handleRowKeydown}
+                        title="Selecteer dit bedrijf"
+                        data-debug-id={r.Id}>
+                        <div class="wc-cell" title={r.Name}>{r.Name}</div>
+                        <div class="wc-cell">{r.KvkNumber}</div>
+                        <div class="wc-cell">
+                            <div>{r.Phone}</div>
+                            <div class="wc-sub">{r.MobilePhone}</div>
+                        </div>
+                        <div class="wc-cell">{r.Email}</div>
+                    </button>
+                </template>
+            </div>
+        </template>
+
+        <!-- Loading -->
+        <template if:true={loading}>
+            <div class="wc-loading">
+                <lightning-spinner alternative-text="Zoeken…" size="small"></lightning-spinner>
+                <div class="wc-loading__msg">Zoeken op ingevoerde bedrijfsgegevens…</div>
+            </div>
+        </template>
+
+        <!-- Empty state (after completed fetch with inputs) -->
+        <template if:true={showEmptyState}>
+            <div class="wc-empty">
+                <div class="wc-empty__msg">{message}</div>
+                <div class="wc-countdown" aria-live="polite">
+                    Doorgaan in <span class="wc-countdown__num">{secondsRemaining}</span> seconden…
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

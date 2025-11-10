@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- Describe what action needs to be taken next for this contact moment. --></help>
+    <label><!-- Next Action --></label>
+    <name>Next_Action__c</name>
+</CustomFieldTranslation>

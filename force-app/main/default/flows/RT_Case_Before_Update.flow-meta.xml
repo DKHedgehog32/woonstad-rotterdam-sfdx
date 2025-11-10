@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <customErrors>
+        <description>Custom Error which is shown to the user if they update the status to closed, while the work is open in Wocas.</description>
+        <name>Custom_Error_Dont_Close_The_Case_Manual</name>
+        <label>Custom Error - Don&apos;t Close The Case Manual</label>
+        <locationX>50</locationX>
+        <locationY>911</locationY>
+        <customErrorMessages>
+            <errorMessage>This Case is not yet closed in Wocas. If you handle the case in Wocas, the status in Salesforce will be updated automatically.</errorMessage>
+            <isFieldError>false</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <decisions>
+        <description>Has the Case Status changed?</description>
+        <name>Case_Is_Reopened</name>
+        <label>Case Is Reopened</label>
+        <locationX>578</locationX>
+        <locationY>287</locationY>
+        <defaultConnector>
+            <targetReference>Decision_Case_Is_Closed_With_External_Status</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Reopened</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Reopened</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Reopened_Case</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Reopened</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>We don&apos;t want that users close a case if the external status is not a closed status. We check if the external status is filled and case status is changed to &apos;Closed&apos; or &apos;Closed - Accepted&apos;.</description>
+        <name>Decision_Case_Is_Closed_With_External_Status</name>
+        <label>Case Is Closed With External Status</label>
+        <locationX>578</locationX>
+        <locationY>587</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Outcome_Case_Is_Closed_With_External_Status</name>
+            <conditionLogic>1 AND 2 AND (3 OR 4 OR 5)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.External_Status__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed-Accepted</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed-Rejected</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Wocas_Case_Status</targetReference>
+            </connector>
+            <label>Case Is Closed With External Status</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If the record is found we check if the Salesforce status is &apos;Closed&apos; Or &apos;Closed - Accepted&apos;. If not we show an error. 
+
+If the record is not found we can assume that the external status is not a closed status and we show the error as well.</description>
+        <name>Wocas_Case_Status_Found_And_Not_Closed_Status</name>
+        <label>Wocas Case Status Found And Not Closed Status</label>
+        <locationX>314</locationX>
+        <locationY>803</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Record_Found_And_Not_Closed_Status</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Wocas_Case_Status</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Wocas_Case_Status.Case_Question_Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Wocas_Case_Status.Case_Request_Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed-Accepted</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Get_Wocas_Case_Status.Case_Request_Status__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed-Rejected</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Custom_Error_Dont_Close_The_Case_Manual</targetReference>
+            </connector>
+            <label>Record Found And Not Closed Status</label>
+        </rules>
+        <rules>
+            <name>No_Record_Found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Wocas_Case_Status</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <isGoTo>true</isGoTo>
+                <targetReference>Custom_Error_Dont_Close_The_Case_Manual</targetReference>
+            </connector>
+            <label>No Record Found</label>
+        </rules>
+    </decisions>
+    <description>Before update flow for Case object</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>forD_Now</name>
+        <dataType>DateTime</dataType>
+        <expression>NOW()</expression>
+    </formulas>
+    <interviewLabel>RT - Case - Before Update {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>RT - Case - Before Update</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>On The Wocas Case Status we created a mapping between the Wocas Status and the correct Salesforce status for the Wocas Status.</description>
+        <name>Get_Wocas_Case_Status</name>
+        <label>Get Wocas Case Status</label>
+        <locationX>314</locationX>
+        <locationY>695</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Wocas_Case_Status_Found_And_Not_Closed_Status</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Wocas_Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.External_Status__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Wocas_Case_Status__mdt</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Update the Case to set the checkbox to &quot;Reopened&quot;</description>
+        <name>Update_Reopened_Case</name>
+        <label>Update Reopened Case</label>
+        <locationX>446</locationX>
+        <locationY>395</locationY>
+        <connector>
+            <targetReference>Decision_Case_Is_Closed_With_External_Status</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Case_Reopened_Date_and_Time__c</field>
+            <value>
+                <elementReference>forD_Now</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Case_Reopened__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>452</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Case_Is_Reopened</targetReference>
+        </connector>
+        <object>Case</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

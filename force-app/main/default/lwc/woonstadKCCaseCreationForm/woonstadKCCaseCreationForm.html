@@ -1,0 +1,248 @@
+<!--
+/*************************************************************************************************
+ * Component       : WoonstadKCCaseCreationForm (woonstadKCCaseCreationForm.html)
+ * Layer           : UI Markup (Lightning Web Component)
+ * Purpose         : Guided Case creation within KC context, with:
+ *                   - Left column: manual entry of case fields (all required: Type, Origin, Contact, Subject, Description)
+ *                   - Right column: live context of open Cases (filter by subject)
+ *                   - Enhanced validation that triggers when the user clicks "Opslaan"
+ *                   - Proper required field indicators using Lightning standard approach
+ *
+ * Responsibilities:
+ *  - Render a responsive 2-column layout (5/12 + 7/12 on large screens)
+ *  - Provide inputs for Type, Herkomst, Contactpersoon (required), Onderwerp, Omschrijving (required)
+ *  - Show a validation summary area for comprehensive field validation
+ *  - Display a contextual table of open Cases with pagination
+ *  - Expose accessible, semantic controls (<button>) for actions
+ *
+ * Accessibility   :
+ *  - Uses semantic <button> elements (not clickable <div>s)
+ *  - Required field indicators using Lightning standard 'required' attribute
+ *  - Announces page changes via visible text and aria-live on pagination info
+ *  - Error messages are surfaced via JS setCustomValidity/reportValidity on save
+ *
+ * Security        :
+ *  - No client-side data access; all data is loaded via Apex (which must enforce FLS/CRUD)
+ *  - Do not place sensitive values in data attributes
+ *
+ * Owner           : Woonstad KC
+ * Author          : Dennis van Musschenbroek
+ * Created         : 2025-08-18
+ * Last Modified   : 2025-09-18
+ * ===============================================================================================
+ * Change Log
+ * -----------------------------------------------------------------------------------------------
+ * 2025-09-18 | DvM | Fixed required field indicators using standard Lightning 'required' attribute approach
+ * 2025-09-18 | DvM | Added required indicators to Contact and Description fields for comprehensive validation
+ * 2025-08-25 | DvM | Deferred validation to Save only (removed 'required'; added data-required).
+ * 2025-08-21 | DvM | Permanent 2-col layout, slim banner, aligned table headers.
+ * 2025-08-18 | DvM | Initial version.
+ *************************************************************************************************/
+-->
+
+<template>
+  <!-- Info banner -->
+  <template if:true={hasMatches}>
+    <div class="info-banner">
+      Er is een openstaande zaak gevonden die mogelijk overeenkomt.
+      Klik op de zaak om een nieuw contactmoment vast te leggen.
+    </div>
+  </template>
+
+  <!-- Root grid (Form + Context) -->
+  <div class="slds-grid slds-wrap slds-gutters grid-root">
+
+    <!-- Left column: Case creation form -->
+    <div class="slds-col slds-size_1-of-1 slds-large-size_5-of-12">
+      <div class="woonstad-form-container">
+        <div class="woonstad-form">
+          <h2 class="form-title">Zaak Aanmaken</h2>
+
+          <!-- Validation summary -->
+          <div if:true={validationMessage} class="validation-message-box slds-m-bottom_small">
+            {validationMessage}
+          </div>
+          <lightning-messages></lightning-messages>
+
+          <!-- Form fields -->
+          <div class="slds-grid slds-wrap slds-gutters_small">
+
+            <!-- Type (Required) -->
+            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+              <div class="form-input">
+                <lightning-combobox
+                  name="type"
+                  label="Type"
+                  value={caseType}
+                  placeholder="Selecteer een type..."
+                  options={typeOptions}
+                  onchange={handleTypeChange}
+                  dropdown-alignment="auto"
+                  variant="label-stacked"
+                  required
+                  data-required="true">
+                </lightning-combobox>
+              </div>
+            </div>
+
+            <!-- Herkomst (Required) -->
+            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+              <div class="form-input">
+                <lightning-combobox
+                  name="origin"
+                  label="Herkomst"
+                  value={caseOrigin}
+                  placeholder="Selecteer herkomst..."
+                  options={originOptions}
+                  onchange={handleOriginChange}
+                  dropdown-alignment="auto"
+                  variant="label-stacked"
+                  required
+                  data-required="true">
+                </lightning-combobox>
+              </div>
+            </div>
+
+            <!-- Contactpersoon (Required) -->
+            <div class="slds-col slds-size_1-of-1">
+              <div class="form-input">
+                <lightning-combobox
+                  name="contact"
+                  label="Contactpersoon"
+                  value={contactId}
+                  placeholder="Selecteer een contactpersoon..."
+                  options={contactOptions}
+                  onchange={handleContactChange}
+                  dropdown-alignment="auto"
+                  variant="label-stacked"
+                  required
+                  data-required="true">
+                </lightning-combobox>
+              </div>
+            </div>
+
+            <!-- Onderwerp (Required) -->
+            <div class="slds-col slds-size_1-of-1">
+              <div class="form-input">
+                <lightning-input
+                  label="Onderwerp"
+                  value={subject}
+                  onkeyup={handleSubjectKeyUp}
+                  placeholder="Voer onderwerp in..."
+                  variant="label-stacked"
+                  required
+                  data-required="true">
+                </lightning-input>
+              </div>
+            </div>
+
+            <!-- Omschrijving (Required) -->
+            <div class="slds-col slds-size_1-of-1">
+              <div class="form-input">
+                <lightning-textarea
+                  label="Omschrijving"
+                  value={description}
+                  onchange={handleDescriptionChange}
+                  placeholder="Voer omschrijving in..."
+                  variant="label-stacked"
+                  required
+                  data-required="true">
+                </lightning-textarea>
+              </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="slds-col slds-size_1-of-1">
+              <div class="nav-container">
+                <div class="right-buttons">
+                  <button
+                    class="woonstad-svg-button"
+                    type="button"
+                    onclick={handleSave}
+                    disabled={isLoading}>
+                    <span if:false={isLoading}>Opslaan</span>
+                    <span if:true={isLoading}>Bezig...</span>
+                    <span class="icon-wrapper" aria-hidden="true">
+                      <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /Form fields -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Right column: Open cases context -->
+    <div class="slds-col slds-size_1-of-1 slds-large-size_7-of-12">
+      <div class="table-container">
+
+        <!-- Table header -->
+        <div class="wc-header" role="row">
+          <div class="wc-col" role="columnheader">Zaaknr</div>
+          <div class="wc-col" role="columnheader">Status</div>
+          <div class="wc-col" role="columnheader">Omschrijving</div>
+        </div>
+
+        <!-- Table rows / empty state -->
+        <div class="wc-rows">
+          <template if:true={hasMatches}>
+            <template for:each={paginatedCases} for:item="caseRec">
+              <button
+                key={caseRec.Id}
+                class="wc-row"
+                type="button"
+                data-id={caseRec.Id}
+                onclick={handleRowClick}
+                aria-label="Open zaak"
+                title="Open zaak">
+                <div class="wc-cell" role="cell">{caseRec.CaseNumber}</div>
+                <div class="wc-cell" role="cell">{caseRec.Status}</div>
+                <div class="wc-cell" role="cell" title={caseRec.Description}>
+                  {caseRec.Description}
+                </div>
+              </button>
+            </template>
+          </template>
+          <template if:false={hasMatches}>
+            <div class="wc-empty slds-p-around_medium">Geen overeenkomende zaken gevonden.</div>
+          </template>
+        </div>
+
+        <!-- Pagination -->
+        <div if:true={showPagination} class="pagination-container" aria-label="Paginering">
+          <button
+            class="pagination-svg-button"
+            type="button"
+            onclick={handlePreviousPage}
+            disabled={isFirstPage}>
+            <span>Vorige</span>
+            <span class="pagination-icon-wrapper" aria-hidden="true">
+              <svg class="pagination-arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="transform: scaleX(-1);">
+                <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+              </svg>
+            </span>
+          </button>
+          <span class="page-info" aria-live="polite">Pagina {currentPage} van {totalPages}</span>
+          <button
+            class="pagination-svg-button"
+            type="button"
+            onclick={handleNextPage}
+            disabled={isLastPage}>
+            <span>Volgende</span>
+            <span class="pagination-icon-wrapper" aria-hidden="true">
+              <svg class="pagination-arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+              </svg>
+            </span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</template>

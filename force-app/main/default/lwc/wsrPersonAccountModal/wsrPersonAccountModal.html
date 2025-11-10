@@ -1,0 +1,38 @@
+<!--
+/*************************************************************************************************
+ * Component       : wsrPersonAccountModal.html
+ * Purpose         : Lightweight modal body (no SLDS modal scaffold) with Woonstad header + Flow
+ * Parity          : Mirrors KCCaseAction structure; parent (Quick Action / VF/Aura/LWC) supplies shell
+ *
+ * Owner           : Woonstad KC
+ * Author          : Dennis van Musschenbroek
+ * Created         : 2025-08-26
+ * Last Modified   : 2025-09-01
+ * ===============================================================================================
+ * Change Log
+ * ===============================================================================================
+ * 2025-09-01 | DvM | Fixed close button visibility using HTML button approach like woonstadFlowRelationAction.
+ * 2025-08-26 | DvM | Initial version with lightning-button-icon close button.
+ *************************************************************************************************/
+-->
+<template>
+  <div class="wsr-modal">
+    <!-- Woonstad Header with visible close button -->
+    <div class="woonstad-header-bar">
+      <h1 class="woonstad-header-title">{headerTitle}</h1>
+
+      <!-- Close button using HTML button for better visibility (same as woonstadFlowRelationAction) -->
+      <button class="close-button" onclick={closeModal} title="Sluiten">×</button>
+    </div>
+
+    <!-- Flow Content -->
+    <div class="flow-wrapper">
+      <!-- Flow for creating new person accounts -->
+      <lightning-flow
+        flow-api-name="Screen_Flow_Create_New_Person_Account_V2"
+        flow-input-variables={flowInputs}
+        onstatuschange={handleStatusChange}>
+      </lightning-flow>
+    </div>
+  </div>
+</template>

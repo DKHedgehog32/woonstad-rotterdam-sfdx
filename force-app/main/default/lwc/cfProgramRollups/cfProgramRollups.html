@@ -1,0 +1,293 @@
+<template>
+            <div class="slds-grid slds-wrap slds-is-relative ">
+            <div style="position: fixed;z-index: 999999;top: 0;right: 0;">
+  <omnistudio-toast class="flexcard-toast-element" theme="slds" title="" message="" styletype=""> </omnistudio-toast>
+</div>
+            <div if:true={showLoader} class="slds-is-absolute vloc-loader_override" style="height: 100%; width: 100%; min-height:50px; background: transparent; z-index: 99;">
+  <div>
+   <omnistudio-spinner
+      variant="brand"
+      alternative-text="Loading content..."
+      size="medium"
+      theme="slds"
+      ></omnistudio-spinner>
+  </div>
+</div>
+            <template if:false={hasPermission}>
+              You don't have required permissions to view this card.
+            </template>
+            <template if:true={hasPermission}>
+              <template if:true={hasRecords}>
+                        <template for:each={_records} for:item="record" for:index="rindex">
+                            <omnistudio-flex-card-state if:true={record}  key={record._flex.uniqueKey} data-recordid={record.Id} record={record} data-statue="true"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12"  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-card slds-p-around_x-small slds-m-bottom_x-small" style="">
+          <div data-style-id="state0element0" class="slds-col   slds-p-around_x-small  slds-size_12-of-12  " data-rindex={rindex} style="      
+         " >
+    <omnistudio-block data-style-id="state0element0_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element0" class="slds-col  slds-p-bottom_small  slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#181818; font-style: normal; 
+font-weight: 400; 
+font-size: 14px; " ><omnistudio-output-field data-style-id="state0element0block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%3E{Label.ProgramHelpText.DPEHelpText}%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element1" class="slds-col    slds-p-right_x-small slds-p-top_xx-small  slds-size_6-of-12  " data-rindex={rindex} style="      
+    border-radius:10px;     " >
+    <omnistudio-block data-style-id="state0element0block_element1_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element1block_element0" class="slds-col   slds-border_top slds-border_right slds-border_bottom slds-border_left slds-p-around_x-small  slds-size_12-of-12  " data-rindex={rindex} style="background-color:#C2E8FF;     border-top: #cccccc 1px solid;border-right: #cccccc 1px solid;border-bottom: #cccccc 1px solid;border-left: #cccccc 1px solid; 
+     height:56px;      border-top-left-radius: 4px;
+  border-top-right-radius: 4px;" >
+    <omnistudio-block data-style-id="state0element0block_element1block_element0_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element1block_element0block_element0" class="slds-col  slds-text-align_center slds-p-top_xx-small slds-p-bottom_xx-small  slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#000000; font-style: normal;
+font-weight: 700;
+font-size: 17px;" ><omnistudio-output-field data-style-id="state0element0block_element1block_element0block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%3E{Label.RollupsFlexcard.ProgramParticipants}%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element0block_element1block_element1" class="slds-col   slds-border_right slds-border_bottom slds-border_left slds-p-around_small  slds-size_12-of-12  " data-rindex={rindex} style="     border-right: #cccccc 1px solid;border-bottom: #cccccc 1px solid;border-left: #cccccc 1px solid; 
+          border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;" >
+    <omnistudio-block data-style-id="state0element0block_element1block_element1_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element1block_element1block_element0" class="slds-col   slds-p-around_x-small slds-size_6-of-12  " data-rindex={rindex} style="" >
+    <omnistudio-block data-style-id="state0element0block_element1block_element1block_element0_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element1block_element1block_element0block_element0" class="slds-col  slds-text-align_center  slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#606060; font-style: Lato;
+font-weight: 400;
+font-size: 13px;
+line-height: 16px;" ><omnistudio-output-field data-style-id="state0element0block_element1block_element1block_element0block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%3E{Label.RollupsFlexcard.All}%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element1block_element1block_element0block_element1" class="slds-col  slds-text-align_center  slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#3E3E3C; font-style: Lato;
+font-weight: 700;
+font-size: 20px;
+line-height: 22px;" ><omnistudio-output-field data-style-id="state0element0block_element1block_element1block_element0block_element1_child"   card={card}  record={record}  merge-field="%3Cdiv%3E%7BTotalEnrolleeCount%7D%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element0block_element1block_element1block_element1" class="slds-col   slds-p-around_x-small slds-size_6-of-12  " data-rindex={rindex} style="" >
+    <omnistudio-block data-style-id="state0element0block_element1block_element1block_element1_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element1block_element1block_element1block_element0" class="slds-col  slds-text-align_center  slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#606060; font-style: Lato;
+font-weight: 400;
+font-size: 13px;
+line-height: 16px;
+line-height: 15.6px;" ><omnistudio-output-field data-style-id="state0element0block_element1block_element1block_element1block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%3E{Label.RollupsFlexcard.Active}%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element1block_element1block_element1block_element1" class="slds-col  slds-text-align_center  slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#3E3E3C; font-style: Lato;
+font-weight: 700;
+font-size: 20px;
+line-height: 22px;" ><omnistudio-output-field data-style-id="state0element0block_element1block_element1block_element1block_element1_child"   card={card}  record={record}  merge-field="%3Cdiv%3E%7BActiveEnrolleeCount%7D%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div></omnistudio-block>
+    </div>
+        </div></omnistudio-block>
+    </div>
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element0block_element2" class="slds-col    slds-p-top_xx-small  slds-size_6-of-12  " data-rindex={rindex} style="      
+    border-radius:10px;     " >
+    <omnistudio-block data-style-id="state0element0block_element2_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element2block_element0" class="slds-col   slds-border_top slds-border_right slds-border_bottom slds-border_left slds-p-around_x-small  slds-size_12-of-12  " data-rindex={rindex} style="background-color:#C2E8FF;     border-top: #cccccc 1px solid;border-right: #cccccc 1px solid;border-bottom: #cccccc 1px solid;border-left: #cccccc 1px solid; 
+     height:56px;     border-top-left-radius: 4px;
+  border-top-right-radius: 4px;" >
+    <omnistudio-block data-style-id="state0element0block_element2block_element0_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element2block_element0block_element0" class="slds-col  slds-text-align_center slds-p-top_xx-small slds-p-bottom_xx-small  slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#000000; font-style: normal;
+font-weight: 700;
+font-size: 17px;" ><omnistudio-output-field data-style-id="state0element0block_element2block_element0block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%3E{Label.RollupsFlexcard.BenefitDisbursements}%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element0block_element2block_element1" class="slds-col   slds-border_right slds-border_bottom slds-border_left slds-p-around_small  slds-size_12-of-12  " data-rindex={rindex} style="     border-right: #cccccc 1px solid;border-bottom: #cccccc 1px solid;border-left: #cccccc 1px solid; 
+          border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;" >
+    <omnistudio-block data-style-id="state0element0block_element2block_element1_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element2block_element1block_element0" class="slds-col   slds-p-around_x-small slds-size_4-of-12  " data-rindex={rindex} style="" >
+    <omnistudio-block data-style-id="state0element0block_element2block_element1block_element0_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element2block_element1block_element0block_element0" class="slds-col  slds-text-align_center  slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#606060; font-style: Lato;
+font-weight: 400;
+font-size: 13px;
+line-height: 16px;" ><omnistudio-output-field data-style-id="state0element0block_element2block_element1block_element0block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%3E{Label.RollupsFlexcard.PreviousYear}%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element2block_element1block_element0block_element1" class="slds-col  slds-text-align_center  slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#3E3E3C; font-style: Lato;
+font-weight: 700;
+font-size: 20px;
+line-height: 22px;" ><omnistudio-output-field data-style-id="state0element0block_element2block_element1block_element0block_element1_child"   card={card}  record={record}  merge-field="%3Cdiv%3E%7BPreviousYearDisbursedCount%7D%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element0block_element2block_element1block_element1" class="slds-col   slds-p-around_x-small slds-size_4-of-12  " data-rindex={rindex} style="" >
+    <omnistudio-block data-style-id="state0element0block_element2block_element1block_element1_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element2block_element1block_element1block_element0" class="slds-col  slds-text-align_center  slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#606060; ffont-style: Lato;
+font-weight: 400;
+font-size: 13px;
+line-height: 16px;" ><omnistudio-output-field data-style-id="state0element0block_element2block_element1block_element1block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%3E{Label.RollupsFlexcard.YeartoDate}%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element2block_element1block_element1block_element1" class="slds-col  slds-text-align_center  slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#3E3E3C; font-style: Lato;
+font-weight: 700;
+font-size: 20px;
+line-height: 22px;" ><omnistudio-output-field data-style-id="state0element0block_element2block_element1block_element1block_element1_child"   card={card}  record={record}  merge-field="%3Cdiv%3E%7BCurrentYearDisbursedCount%7D%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element0block_element2block_element1block_element2" class="slds-col   slds-p-around_x-small slds-size_4-of-12  " data-rindex={rindex} style="" >
+    <omnistudio-block data-style-id="state0element0block_element2block_element1block_element2_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element2block_element1block_element2block_element0" class="slds-col  slds-text-align_center  slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#606060; font-style: Lato;
+font-weight: 400;
+font-size: 13px;
+line-height: 16px;" ><omnistudio-output-field data-style-id="state0element0block_element2block_element1block_element2block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%3E{Label.RollupsFlexcard.MonthtoDate}%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element2block_element1block_element2block_element1" class="slds-col  slds-text-align_center  slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#3E3E3C; font-style: Lato;
+font-weight: 700;
+font-size: 20px;
+line-height: 22px;" ><omnistudio-output-field data-style-id="state0element0block_element2block_element1block_element2block_element1_child"   card={card}  record={record}  merge-field="%3Cdiv%3E%7BCurrentMonthDisbursedCount%7D%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div></omnistudio-block>
+    </div>
+        </div></omnistudio-block>
+    </div>
+        </div></omnistudio-block>
+    </div>
+        </div></omnistudio-block>
+    </div>
+        </div>
+      </omnistudio-flex-card-state>
+                        </template>
+                      </template>
+                      <template if:false={hasRecords}>
+                            <omnistudio-flex-card-state  record={record} data-statue="false"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12"  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-card slds-p-around_x-small slds-m-bottom_x-small" style="">
+          <div data-style-id="state0element0" class="slds-col   slds-p-around_x-small  slds-size_12-of-12  " data-rindex={rindex} style="      
+         " >
+    <omnistudio-block data-style-id="state0element0_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element0" class="slds-col  slds-p-bottom_small  slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#181818; font-style: normal; 
+font-weight: 400; 
+font-size: 14px; " ><omnistudio-output-field data-style-id="state0element0block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%3E{Label.ProgramHelpText.DPEHelpText}%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element1" class="slds-col    slds-p-right_x-small slds-p-top_xx-small  slds-size_6-of-12  " data-rindex={rindex} style="      
+    border-radius:10px;     " >
+    <omnistudio-block data-style-id="state0element0block_element1_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element1block_element0" class="slds-col   slds-border_top slds-border_right slds-border_bottom slds-border_left slds-p-around_x-small  slds-size_12-of-12  " data-rindex={rindex} style="background-color:#C2E8FF;     border-top: #cccccc 1px solid;border-right: #cccccc 1px solid;border-bottom: #cccccc 1px solid;border-left: #cccccc 1px solid; 
+     height:56px;      border-top-left-radius: 4px;
+  border-top-right-radius: 4px;" >
+    <omnistudio-block data-style-id="state0element0block_element1block_element0_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element1block_element0block_element0" class="slds-col  slds-text-align_center slds-p-top_xx-small slds-p-bottom_xx-small  slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#000000; font-style: normal;
+font-weight: 700;
+font-size: 17px;" ><omnistudio-output-field data-style-id="state0element0block_element1block_element0block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%3E{Label.RollupsFlexcard.ProgramParticipants}%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element0block_element1block_element1" class="slds-col   slds-border_right slds-border_bottom slds-border_left slds-p-around_small  slds-size_12-of-12  " data-rindex={rindex} style="     border-right: #cccccc 1px solid;border-bottom: #cccccc 1px solid;border-left: #cccccc 1px solid; 
+          border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;" >
+    <omnistudio-block data-style-id="state0element0block_element1block_element1_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element1block_element1block_element0" class="slds-col   slds-p-around_x-small slds-size_6-of-12  " data-rindex={rindex} style="" >
+    <omnistudio-block data-style-id="state0element0block_element1block_element1block_element0_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element1block_element1block_element0block_element0" class="slds-col  slds-text-align_center  slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#606060; font-style: Lato;
+font-weight: 400;
+font-size: 13px;
+line-height: 16px;" ><omnistudio-output-field data-style-id="state0element0block_element1block_element1block_element0block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%3E{Label.RollupsFlexcard.All}%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element1block_element1block_element0block_element1" class="slds-col  slds-text-align_center  slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#3E3E3C; font-style: Lato;
+font-weight: 700;
+font-size: 20px;
+line-height: 22px;" ><omnistudio-output-field data-style-id="state0element0block_element1block_element1block_element0block_element1_child"   card={card}  record={record}  merge-field="%3Cdiv%3E%7BTotalEnrolleeCount%7D%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element0block_element1block_element1block_element1" class="slds-col   slds-p-around_x-small slds-size_6-of-12  " data-rindex={rindex} style="" >
+    <omnistudio-block data-style-id="state0element0block_element1block_element1block_element1_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element1block_element1block_element1block_element0" class="slds-col  slds-text-align_center  slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#606060; font-style: Lato;
+font-weight: 400;
+font-size: 13px;
+line-height: 16px;
+line-height: 15.6px;" ><omnistudio-output-field data-style-id="state0element0block_element1block_element1block_element1block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%3E{Label.RollupsFlexcard.Active}%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element1block_element1block_element1block_element1" class="slds-col  slds-text-align_center  slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#3E3E3C; font-style: Lato;
+font-weight: 700;
+font-size: 20px;
+line-height: 22px;" ><omnistudio-output-field data-style-id="state0element0block_element1block_element1block_element1block_element1_child"   card={card}  record={record}  merge-field="%3Cdiv%3E%7BActiveEnrolleeCount%7D%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div></omnistudio-block>
+    </div>
+        </div></omnistudio-block>
+    </div>
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element0block_element2" class="slds-col    slds-p-top_xx-small  slds-size_6-of-12  " data-rindex={rindex} style="      
+    border-radius:10px;     " >
+    <omnistudio-block data-style-id="state0element0block_element2_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element2block_element0" class="slds-col   slds-border_top slds-border_right slds-border_bottom slds-border_left slds-p-around_x-small  slds-size_12-of-12  " data-rindex={rindex} style="background-color:#C2E8FF;     border-top: #cccccc 1px solid;border-right: #cccccc 1px solid;border-bottom: #cccccc 1px solid;border-left: #cccccc 1px solid; 
+     height:56px;     border-top-left-radius: 4px;
+  border-top-right-radius: 4px;" >
+    <omnistudio-block data-style-id="state0element0block_element2block_element0_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element2block_element0block_element0" class="slds-col  slds-text-align_center slds-p-top_xx-small slds-p-bottom_xx-small  slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#000000; font-style: normal;
+font-weight: 700;
+font-size: 17px;" ><omnistudio-output-field data-style-id="state0element0block_element2block_element0block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%3E{Label.RollupsFlexcard.BenefitDisbursements}%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element0block_element2block_element1" class="slds-col   slds-border_right slds-border_bottom slds-border_left slds-p-around_small  slds-size_12-of-12  " data-rindex={rindex} style="     border-right: #cccccc 1px solid;border-bottom: #cccccc 1px solid;border-left: #cccccc 1px solid; 
+          border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;" >
+    <omnistudio-block data-style-id="state0element0block_element2block_element1_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element2block_element1block_element0" class="slds-col   slds-p-around_x-small slds-size_4-of-12  " data-rindex={rindex} style="" >
+    <omnistudio-block data-style-id="state0element0block_element2block_element1block_element0_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element2block_element1block_element0block_element0" class="slds-col  slds-text-align_center  slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#606060; font-style: Lato;
+font-weight: 400;
+font-size: 13px;
+line-height: 16px;" ><omnistudio-output-field data-style-id="state0element0block_element2block_element1block_element0block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%3E{Label.RollupsFlexcard.PreviousYear}%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element2block_element1block_element0block_element1" class="slds-col  slds-text-align_center  slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#3E3E3C; font-style: Lato;
+font-weight: 700;
+font-size: 20px;
+line-height: 22px;" ><omnistudio-output-field data-style-id="state0element0block_element2block_element1block_element0block_element1_child"   card={card}  record={record}  merge-field="%3Cdiv%3E%7BPreviousYearDisbursedCount%7D%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element0block_element2block_element1block_element1" class="slds-col   slds-p-around_x-small slds-size_4-of-12  " data-rindex={rindex} style="" >
+    <omnistudio-block data-style-id="state0element0block_element2block_element1block_element1_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element2block_element1block_element1block_element0" class="slds-col  slds-text-align_center  slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#606060; ffont-style: Lato;
+font-weight: 400;
+font-size: 13px;
+line-height: 16px;" ><omnistudio-output-field data-style-id="state0element0block_element2block_element1block_element1block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%3E{Label.RollupsFlexcard.YeartoDate}%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element2block_element1block_element1block_element1" class="slds-col  slds-text-align_center  slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#3E3E3C; font-style: Lato;
+font-weight: 700;
+font-size: 20px;
+line-height: 22px;" ><omnistudio-output-field data-style-id="state0element0block_element2block_element1block_element1block_element1_child"   card={card}  record={record}  merge-field="%3Cdiv%3E%7BCurrentYearDisbursedCount%7D%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element0block_element2block_element1block_element2" class="slds-col   slds-p-around_x-small slds-size_4-of-12  " data-rindex={rindex} style="" >
+    <omnistudio-block data-style-id="state0element0block_element2block_element1block_element2_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element2block_element1block_element2block_element0" class="slds-col  slds-text-align_center  slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#606060; font-style: Lato;
+font-weight: 400;
+font-size: 13px;
+line-height: 16px;" ><omnistudio-output-field data-style-id="state0element0block_element2block_element1block_element2block_element0_child"   card={card}  record={record}  merge-field="%3Cdiv%3E{Label.RollupsFlexcard.MonthtoDate}%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element2block_element1block_element2block_element1" class="slds-col  slds-text-align_center  slds-size_12-of-12  " data-rindex={rindex} style="      
+        color:#3E3E3C; font-style: Lato;
+font-weight: 700;
+font-size: 20px;
+line-height: 22px;" ><omnistudio-output-field data-style-id="state0element0block_element2block_element1block_element2block_element1_child"   card={card}  record={record}  merge-field="%3Cdiv%3E%7BCurrentMonthDisbursedCount%7D%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div></omnistudio-block>
+    </div>
+        </div></omnistudio-block>
+    </div>
+        </div></omnistudio-block>
+    </div>
+        </div></omnistudio-block>
+    </div>
+        </div>
+      </omnistudio-flex-card-state>
+                      </template>
+            </template>
+            <template if:true={hasError}>
+            {error}
+            </template>
+            
+      <omnistudio-action action-wrapperclass="slds-hide" re-render-flyout class="action-trigger slds-col" onupdateos={updateOmniscript} onselectcards={updateSelectedCards} onsetvalue={updateAction} onfireactionevent={actionEvtHandler}>
+      
+      </omnistudio-action>
+  
+            <omnistudio-action class="execute-action" re-render-flyout action-wrapperclass="slds-hide" onupdateos={updateOmniscript} onselectcards={updateSelectedCards} onsetvalue={updateAction} onfireactionevent={actionEvtHandler}>
+            
+            </omnistudio-action>
+            </div>
+          </template>

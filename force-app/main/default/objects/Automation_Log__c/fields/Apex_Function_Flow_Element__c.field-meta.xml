@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Apex_Function_Flow_Element__c</fullName>
+    <businessStatus>Active</businessStatus>
+    <description>This field stores the Apex Function or Flow Element where the error occurred.</description>
+    <externalId>false</externalId>
+    <label>Apex Function / Flow Element</label>
+    <length>255</length>
+    <required>false</required>
+    <securityClassification>Internal</securityClassification>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

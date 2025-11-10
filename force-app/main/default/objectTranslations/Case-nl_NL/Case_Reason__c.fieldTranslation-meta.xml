@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>Registreer de reden voor het indienen van de zaak, afhankelijk van het type.</help>
+    <label>Reden</label>
+    <name>Case_Reason__c</name>
+    <picklistValues>
+        <masterLabel>⛓️‍💥 Vandalism/stolen</masterLabel>
+        <translation>⛓️‍💥 Vernieling/gestolen</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>🏠 New tenant</masterLabel>
+        <translation>🏠 Nieuwe huurder</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>🏠 Question about my rental property</masterLabel>
+        <translation>Vraag over mijn huurwoning</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>🏡 Question about my owner-occupied home</masterLabel>
+        <translation>Vraag over mijn huis in eigendom</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>📑 Undesirable handling of application</masterLabel>
+        <translation>📑 Ongewenste afhandeling van aanvraag</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>🔊 Noise polution</masterLabel>
+        <translation>🔊 Geluidsoverlast</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>🔍 Could not find information</masterLabel>
+        <translation>🔍 Kon informatie niet vinden</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>🔤 Incorrect name spelling</masterLabel>
+        <translation>🔤 Foute spelling van de naam</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>🤼 Behaviour of an employee</masterLabel>
+        <translation>🤼 Gedrag van een medewerker</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>🧑‍🧑‍🧒 New composition of residency</masterLabel>
+        <translation>🧑‍🧑‍🧒 Nieuwe woonsamenstelling</translation>
+    </picklistValues>
+</CustomFieldTranslation>

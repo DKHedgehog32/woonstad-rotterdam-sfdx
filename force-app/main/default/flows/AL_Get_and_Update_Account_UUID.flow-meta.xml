@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Get and assign UUID</description>
+        <name>Get_UUID</name>
+        <label>Get UUID</label>
+        <locationX>182</locationX>
+        <locationY>134</locationY>
+        <actionName>InvocableUUID</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Update_Account</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>recordIds</name>
+            <value>
+                <elementReference>varR_Account.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>InvocableUUID</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <description>Decides if this is a person account</description>
+        <name>Account_Type</name>
+        <label>Account Type</label>
+        <locationX>182</locationX>
+        <locationY>350</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Is_Person_Account</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varR_Account.IsPersonAccount</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Person_Account</targetReference>
+            </connector>
+            <label>Is Person Account</label>
+        </rules>
+    </decisions>
+    <description>Get, assign and update the UUID of the Account (and with Person Accounts also the Contact) when it is not yet known</description>
+    <environments>Default</environments>
+    <interviewLabel>AL - Get and Update UUID {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>AL - Get and Update Account UUID</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>Store account with the assigned UUID</description>
+        <name>Update_Account</name>
+        <label>Update Account</label>
+        <locationX>182</locationX>
+        <locationY>242</locationY>
+        <connector>
+            <targetReference>Account_Type</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varR_Account.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>UUID__c</field>
+            <value>
+                <elementReference>Get_UUID</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Also fills the UUID on the contact side of the person account</description>
+        <name>Update_Person_Account</name>
+        <label>Update Person Account</label>
+        <locationX>50</locationX>
+        <locationY>458</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varR_Account.PersonContactId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Contact_UUID__c</field>
+            <value>
+                <elementReference>Get_UUID</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Contact</object>
+    </recordUpdates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_UUID</targetReference>
+        </connector>
+    </start>
+    <status>Draft</status>
+    <variables>
+        <description>Structure to hold account soort (ReferentieCodeModel)</description>
+        <name>accountSoort</name>
+        <apexClass>ReferentieCodeModel</apexClass>
+        <dataType>Apex</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Structure to hold postadres (PersoonAdresModel)</description>
+        <name>postAdres</name>
+        <apexClass>PersoonAdresModel</apexClass>
+        <dataType>Apex</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Input variable for Account</description>
+        <name>varR_Account</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Account</objectType>
+    </variables>
+</Flow>

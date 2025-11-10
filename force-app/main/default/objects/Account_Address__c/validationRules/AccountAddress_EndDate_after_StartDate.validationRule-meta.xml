@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AccountAddress_EndDate_after_StartDate</fullName>
+    <active>true</active>
+    <description>This validation rule checks if the entered end date is after start date.</description>
+    <errorConditionFormula>End_Date__c &lt; Start_Date__c</errorConditionFormula>
+    <errorMessage>The Start Date of this Account Address could not be later than the selected End Date.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="salutation" type="String" label="Aanhef" role="outputOnly"/>
+            <property name="firstName" type="String" label="Voornaam" role="outputOnly"/>
+            <property name="middleName" type="String" label="Tussenvoegsel" role="outputOnly"/>
+            <property name="lastName" type="String" label="Achternaam" role="outputOnly"/>
+            <property name="birthdate" type="String" label="Geboortedatum" role="outputOnly"/>
+            <property name="phone1" type="String" label="Telefoonnummer" role="outputOnly"/>
+            <property name="phone2" type="String" label="Mobielnummer" role="outputOnly"/>
+            <property name="email" type="String" label="E-mail" role="outputOnly"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

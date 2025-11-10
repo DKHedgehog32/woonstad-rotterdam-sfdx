@@ -1,0 +1,946 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>AccountAddresses</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountAddresses</shortDescription>
+        <value>Account Addresses</value>
+    </labels>
+    <labels>
+        <fullName>AccountDetails</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountDetails</shortDescription>
+        <value>Account Details</value>
+    </labels>
+    <labels>
+        <fullName>Active</fullName>
+        <categories>Flow Translation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Active</shortDescription>
+        <value>Active</value>
+    </labels>
+    <labels>
+        <fullName>ActiveContractLines</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActiveContractLines</shortDescription>
+        <value>Active Contract Lines</value>
+    </labels>
+    <labels>
+        <fullName>ActiveContracts</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ActiveContracts</shortDescription>
+        <value>Active Contracts</value>
+    </labels>
+    <labels>
+        <fullName>Address</fullName>
+        <categories>Flow Translation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Address</shortDescription>
+        <value>Address</value>
+    </labels>
+    <labels>
+        <fullName>Addresses</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Addresses</shortDescription>
+        <value>Addresses</value>
+    </labels>
+    <labels>
+        <fullName>AdministratorOrCurator</fullName>
+        <categories>Flow Translation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AdministratorOrCurator</shortDescription>
+        <value>Administrator or Curator</value>
+    </labels>
+    <labels>
+        <fullName>ArticleDetails</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>nl_NL</language>
+        <protected>false</protected>
+        <shortDescription>ArticleDetails</shortDescription>
+        <value>Article Details</value>
+    </labels>
+    <labels>
+        <fullName>BankAccounts</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BankAccounts</shortDescription>
+        <value>Bank Accounts</value>
+    </labels>
+    <labels>
+        <fullName>BasicCompanyInformation</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BasicCompanyInformation</shortDescription>
+        <value>Company Information</value>
+    </labels>
+    <labels>
+        <fullName>BasicPersonInformation</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BasicPersonInformation</shortDescription>
+        <value>Person Information</value>
+    </labels>
+    <labels>
+        <fullName>Birthdate</fullName>
+        <categories>Flow Translation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Birthdate</shortDescription>
+        <value>Birthdate</value>
+    </labels>
+    <labels>
+        <fullName>BusinessAccount</fullName>
+        <categories>Flow Translation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BusinessAccount</shortDescription>
+        <value>Business Account</value>
+    </labels>
+    <labels>
+        <fullName>CaseDescription</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CaseDescription</shortDescription>
+        <value>Case Description</value>
+    </labels>
+    <labels>
+        <fullName>CaseDetails</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CaseDetails</shortDescription>
+        <value>Case Details</value>
+    </labels>
+    <labels>
+        <fullName>Cases</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cases</shortDescription>
+        <value>Cases</value>
+    </labels>
+    <labels>
+        <fullName>ClusterUnits</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ClusterUnits</shortDescription>
+        <value>Cluster Units</value>
+    </labels>
+    <labels>
+        <fullName>ContactMoments</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ContactMoments</shortDescription>
+        <value>Contact Moments</value>
+    </labels>
+    <labels>
+        <fullName>ContractContactRoles</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ContractContactRoles</shortDescription>
+        <value>Contract Contact Roles</value>
+    </labels>
+    <labels>
+        <fullName>ContractLines</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>nl_NL</language>
+        <protected>false</protected>
+        <shortDescription>ContractLines</shortDescription>
+        <value>Contract Lines</value>
+    </labels>
+    <labels>
+        <fullName>ContractRoles</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contract Roles</shortDescription>
+        <value>Contract Roles</value>
+    </labels>
+    <labels>
+        <fullName>ContractUnits</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ContractUnits</shortDescription>
+        <value>Contract Units</value>
+    </labels>
+    <labels>
+        <fullName>Contracts</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contracts</shortDescription>
+        <value>Contracts</value>
+    </labels>
+    <labels>
+        <fullName>Email</fullName>
+        <categories>Flow Translation; Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email</shortDescription>
+        <value>Email</value>
+    </labels>
+    <labels>
+        <fullName>EndDate</fullName>
+        <categories>Flow Translation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EndDate</shortDescription>
+        <value>End Date</value>
+    </labels>
+    <labels>
+        <fullName>ErrorScreenMessage</fullName>
+        <categories>Flow Translation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ErrorScreenMessage</shortDescription>
+        <value>Something went wrong. Please try again. &lt;br&gt;
+Create a Topdesk ticket if the error persists.</value>
+    </labels>
+    <labels>
+        <fullName>HistoricContractLines</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>HistoricContractLines</shortDescription>
+        <value>Historic Contract Lines</value>
+    </labels>
+    <labels>
+        <fullName>House_Number</fullName>
+        <categories>KadasterLWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>House Number</shortDescription>
+        <value>House Number</value>
+    </labels>
+    <labels>
+        <fullName>House_Number_Help_Text</fullName>
+        <categories>KadasterLWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>House Number Help Text</shortDescription>
+        <value>House number Only. No house letter or house number addition. Based on the housenumber we show all options.</value>
+    </labels>
+    <labels>
+        <fullName>InactiveContracts</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>InactiveContracts</shortDescription>
+        <value>Inactive Contracts</value>
+    </labels>
+    <labels>
+        <fullName>Initials</fullName>
+        <categories>Flow Translation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Initials</shortDescription>
+        <value>Initials</value>
+    </labels>
+    <labels>
+        <fullName>Knowledge</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Knowledge</shortDescription>
+        <value>Knowledge</value>
+    </labels>
+    <labels>
+        <fullName>Multiple_Results</fullName>
+        <categories>Address Entry</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Multiple Results</shortDescription>
+        <value>Multiple results</value>
+    </labels>
+    <labels>
+        <fullName>NoTriggeringRecordLinked</fullName>
+        <categories>Formula Field</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NoTriggeringRecordLinked</shortDescription>
+        <value>No Triggering Record Linked</value>
+    </labels>
+    <labels>
+        <fullName>No_Address_Found</fullName>
+        <categories>KadasterLWC</categories>
+        <language>nl_NL</language>
+        <protected>false</protected>
+        <shortDescription>No Address Found</shortDescription>
+        <value>No Address Found</value>
+    </labels>
+    <labels>
+        <fullName>No_Results</fullName>
+        <categories>Address Entry</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No Results</shortDescription>
+        <value>No results</value>
+    </labels>
+    <labels>
+        <fullName>OpenAccount</fullName>
+        <categories>Flow Translation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OpenAccount</shortDescription>
+        <value>Open Klant</value>
+    </labels>
+    <labels>
+        <fullName>OpenCase</fullName>
+        <categories>Flow Translation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OpenCase</shortDescription>
+        <value>Open Case</value>
+    </labels>
+    <labels>
+        <fullName>POBoxFreePost</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>POBoxFreePost</shortDescription>
+        <value>PO Box/Free Post</value>
+    </labels>
+    <labels>
+        <fullName>PersonAccount</fullName>
+        <categories>Flow Translation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PersonAccount</shortDescription>
+        <value>Person Account</value>
+    </labels>
+    <labels>
+        <fullName>Postal_Code</fullName>
+        <categories>KadasterLWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Postal Code</shortDescription>
+        <value>Postal Code</value>
+    </labels>
+    <labels>
+        <fullName>Postal_Code_Help_Text</fullName>
+        <categories>KadasterLWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Postal Code Help Text</shortDescription>
+        <value>Format: 1234AB</value>
+    </labels>
+    <labels>
+        <fullName>Primary</fullName>
+        <categories>Flow Translation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Primary</shortDescription>
+        <value>Primary</value>
+    </labels>
+    <labels>
+        <fullName>PrimaryBillingAddressForAccounts</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PrimaryBillingAddressForAccounts</shortDescription>
+        <value>Primary Billing Address for Accounts</value>
+    </labels>
+    <labels>
+        <fullName>PrimaryRelation</fullName>
+        <categories>Flow Translation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PrimaryRelation</shortDescription>
+        <value>Primary Relation</value>
+    </labels>
+    <labels>
+        <fullName>PrimaryShippingAddressForAccounts</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PrimaryShippingAddressForAccounts</shortDescription>
+        <value>Primary Shipping Address for Accounts</value>
+    </labels>
+    <labels>
+        <fullName>RealEstateContracts</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>RealEstateContracts</shortDescription>
+        <value>Real Estate Contracts</value>
+    </labels>
+    <labels>
+        <fullName>RelatedAccounts</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>RelatedAccounts</shortDescription>
+        <value>Related Accounts</value>
+    </labels>
+    <labels>
+        <fullName>RelatedContacts</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>RelatedContacts</shortDescription>
+        <value>Related Contacts</value>
+    </labels>
+    <labels>
+        <fullName>Relationships</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Relationships</shortDescription>
+        <value>Relationships</value>
+    </labels>
+    <labels>
+        <fullName>Requests</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Requests</shortDescription>
+        <value>Requests</value>
+    </labels>
+    <labels>
+        <fullName>RoleRelation</fullName>
+        <categories>Flow Translation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>RoleRelation</shortDescription>
+        <value>Role Relation</value>
+    </labels>
+    <labels>
+        <fullName>Select_An_Address</fullName>
+        <categories>KadasterLWC</categories>
+        <language>nl_NL</language>
+        <protected>false</protected>
+        <shortDescription>Select An Address</shortDescription>
+        <value>Select An Address</value>
+    </labels>
+    <labels>
+        <fullName>ShippingPostalCode</fullName>
+        <categories>Flow Translation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ShippingPostalCode</shortDescription>
+        <value>Shipping Postal Code</value>
+    </labels>
+    <labels>
+        <fullName>ShipppingStreet</fullName>
+        <categories>Flow Translation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ShipppingStreet</shortDescription>
+        <value>Shipping Street</value>
+    </labels>
+    <labels>
+        <fullName>SpecialRelationshipAsPrimaryPerson</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SpecialRelationshipAsPrimaryPerson</shortDescription>
+        <value>Special Relationship As Primary Person</value>
+    </labels>
+    <labels>
+        <fullName>SpecialRelationshipAsSubsidiaryPerson</fullName>
+        <categories>Lightning Record Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SpecialRelationshipAsSubsidiaryPerson</shortDescription>
+        <value>Special Relationship As Subsidiary Person</value>
+    </labels>
+    <labels>
+        <fullName>StartDate</fullName>
+        <categories>Flow Translation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>StartDate</shortDescription>
+        <value>Start Date</value>
+    </labels>
+    <labels>
+        <fullName>SubsidiaryRelation</fullName>
+        <categories>Flow Translation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SubsidiaryRelation</shortDescription>
+        <value>Subsidiary Relation</value>
+    </labels>
+    <labels>
+        <fullName>TriggeringRecord</fullName>
+        <categories>Formula Field</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TriggeringRecord</shortDescription>
+        <value>Triggering Record</value>
+    </labels>
+    <labels>
+        <fullName>Unknown</fullName>
+        <categories>Flow Translation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Unknown</shortDescription>
+        <value>Unknown</value>
+    </labels>
+    <labels>
+        <fullName>ers_CancelButton</fullName>
+        <categories>buttons</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>ers_ClearFilterAction</fullName>
+        <categories>actions</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Clear Filter</shortDescription>
+        <value>Clear Filter</value>
+    </labels>
+    <labels>
+        <fullName>ers_ClearFilterButton</fullName>
+        <categories>buttons</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Clear All Filters</shortDescription>
+        <value>Clear All Filters</value>
+    </labels>
+    <labels>
+        <fullName>ers_ClearSelectionButton</fullName>
+        <categories>buttons</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Clear Selection</shortDescription>
+        <value>Clear Selection</value>
+    </labels>
+    <labels>
+        <fullName>ers_ColumnHeader</fullName>
+        <categories>headers</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Column</shortDescription>
+        <value>Column</value>
+    </labels>
+    <labels>
+        <fullName>ers_EmptyTableMessage</fullName>
+        <categories>messages</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Empty</shortDescription>
+        <value>This table currently has no data to display</value>
+    </labels>
+    <labels>
+        <fullName>ers_ErrorRequiredEntry</fullName>
+        <categories>messages</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Required</shortDescription>
+        <value>This is a required entry.  At least 1 row must be selected.</value>
+    </labels>
+    <labels>
+        <fullName>ers_FilterHeader</fullName>
+        <categories>headers</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Filter</shortDescription>
+        <value>Filter</value>
+    </labels>
+    <labels>
+        <fullName>ers_FirstButton</fullName>
+        <categories>buttons</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>First Page</shortDescription>
+        <value>First</value>
+    </labels>
+    <labels>
+        <fullName>ers_LabelHeader</fullName>
+        <categories>headers</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label</shortDescription>
+        <value>Label</value>
+    </labels>
+    <labels>
+        <fullName>ers_LastButton</fullName>
+        <categories>buttons</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Last Page</shortDescription>
+        <value>Last</value>
+    </labels>
+    <labels>
+        <fullName>ers_NextButton</fullName>
+        <categories>buttons</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Next Page</shortDescription>
+        <value>Next</value>
+    </labels>
+    <labels>
+        <fullName>ers_PreviousButton</fullName>
+        <categories>buttons</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Previous Page</shortDescription>
+        <value>Prev</value>
+    </labels>
+    <labels>
+        <fullName>ers_RecordsPerPage</fullName>
+        <categories>labels</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Records per Page input label</shortDescription>
+        <value>Records per Page</value>
+    </labels>
+    <labels>
+        <fullName>ers_SaveButton</fullName>
+        <categories>buttons</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Save</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>ers_SearchPlaceholder</fullName>
+        <categories>messages</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Search Term</shortDescription>
+        <value>Enter search term ...</value>
+    </labels>
+    <labels>
+        <fullName>ers_SetFilterAction</fullName>
+        <categories>actions</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Set Filter</shortDescription>
+        <value>Set Filter</value>
+    </labels>
+    <labels>
+        <fullName>ers_ShowingPageMiddle</fullName>
+        <categories>labels</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Showing Page x of y Pages input label middle</shortDescription>
+        <value>of</value>
+    </labels>
+    <labels>
+        <fullName>ers_ShowingPagePrefix</fullName>
+        <categories>labels</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Showing Page x of y Pages input label prefix</shortDescription>
+        <value>Showing Page</value>
+    </labels>
+    <labels>
+        <fullName>ers_ShowingPageSuffix</fullName>
+        <categories>labels</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Showing Page x of y Pages input label suffix</shortDescription>
+        <value>Pages</value>
+    </labels>
+    <labels>
+        <fullName>fsc_AccessLevel</fullName>
+        <categories>labels</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccessLevel</shortDescription>
+        <value>Access Level</value>
+    </labels>
+    <labels>
+        <fullName>fsc_Back</fullName>
+        <categories>Buttons,Filters,Title</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Back</shortDescription>
+        <value>Back</value>
+    </labels>
+    <labels>
+        <fullName>fsc_ButtonIsNotSupportedMessage</fullName>
+        <categories>messages</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ButtonIsNotSupportedMessage</shortDescription>
+        <value>Following buttons are note supported:</value>
+    </labels>
+    <labels>
+        <fullName>fsc_ConditionLogicHelpText</fullName>
+        <categories>labels</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ConditionLogicHelpText</shortDescription>
+        <value>Use parentheses, AND, OR, and NOT to customize the logic. For example, if you enter “(1 AND 2 AND 3) OR 4”, the flow evaluates whether the first three conditions are true or only the fourth condition is true.</value>
+    </labels>
+    <labels>
+        <fullName>fsc_Delete</fullName>
+        <categories>labels, buttons</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Delete</shortDescription>
+        <value>Delete</value>
+    </labels>
+    <labels>
+        <fullName>fsc_FieldIsNotSupportedMessage</fullName>
+        <categories>messages</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FieldIsNotSupportedMessage</shortDescription>
+        <value>Following fields are not supported:</value>
+    </labels>
+    <labels>
+        <fullName>fsc_FieldTypeNotSuportedMessage</fullName>
+        <categories>messages</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>fsc_FieldTypeNotSuportedMessage</shortDescription>
+        <value>You provided an unsupported value for the DataTypeFilter input on Object and Field Picker. Currently the only supported value is ’picklist’</value>
+    </labels>
+    <labels>
+        <fullName>fsc_For</fullName>
+        <categories>Buttons</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>For</shortDescription>
+        <value>For</value>
+    </labels>
+    <labels>
+        <fullName>fsc_Key_Label</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Key Label</shortDescription>
+        <value>Key</value>
+    </labels>
+    <labels>
+        <fullName>fsc_LackingPermissions</fullName>
+        <categories>messages</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LackingPermissions</shortDescription>
+        <value>You don\&apos;t have the proper permissions for ths action</value>
+    </labels>
+    <labels>
+        <fullName>fsc_ManagerEmptyMessage</fullName>
+        <categories>messages</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ManagerEmptyMessage</shortDescription>
+        <value>&quot;Manager APEX Class&quot; can not be empty</value>
+    </labels>
+    <labels>
+        <fullName>fsc_MultipleGroupsForRole</fullName>
+        <categories>messages</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MultipleGroupsForRole</shortDescription>
+        <value>There are multiple groups for that role</value>
+    </labels>
+    <labels>
+        <fullName>fsc_Name</fullName>
+        <categories>quicklinks, Labels</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Name</shortDescription>
+        <value>Name</value>
+    </labels>
+    <labels>
+        <fullName>fsc_NonePicklistValueLabel</fullName>
+        <categories>messages</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NonePicklistValueLabel</shortDescription>
+        <value>-- None --</value>
+    </labels>
+    <labels>
+        <fullName>fsc_OWDReadWrite</fullName>
+        <categories>messages</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OWDReadWrite</shortDescription>
+        <value>Sharing Settings must be private or public read/write to enable manual sharing</value>
+    </labels>
+    <labels>
+        <fullName>fsc_OwnerAdminModify</fullName>
+        <categories>messages</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OwnerAdminModify</shortDescription>
+        <value>Only the record owner or administrators can modify permissions</value>
+    </labels>
+    <labels>
+        <fullName>fsc_PublicGroups</fullName>
+        <categories>labels</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PublicGroups</shortDescription>
+        <value>Public Groups</value>
+    </labels>
+    <labels>
+        <fullName>fsc_Queues</fullName>
+        <categories>labels</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Queues</shortDescription>
+        <value>Queues</value>
+    </labels>
+    <labels>
+        <fullName>fsc_Read</fullName>
+        <categories>labels, buttons</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Read</shortDescription>
+        <value>Read</value>
+    </labels>
+    <labels>
+        <fullName>fsc_ReadWrite</fullName>
+        <categories>labels, buttons</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ReadWrite</shortDescription>
+        <value>Read / Write</value>
+    </labels>
+    <labels>
+        <fullName>fsc_Reason</fullName>
+        <categories>labels</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Reason</shortDescription>
+        <value>Reason</value>
+    </labels>
+    <labels>
+        <fullName>fsc_RelatedUsers</fullName>
+        <categories>labels</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>RelatedUsers</shortDescription>
+        <value>Related Users</value>
+    </labels>
+    <labels>
+        <fullName>fsc_Roles</fullName>
+        <categories>labels</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Roles</shortDescription>
+        <value>Roles</value>
+    </labels>
+    <labels>
+        <fullName>fsc_Search</fullName>
+        <categories>Actions,Buttons,quicklinks</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Search in</shortDescription>
+        <value>Search in</value>
+    </labels>
+    <labels>
+        <fullName>fsc_SearchFor</fullName>
+        <categories>labels</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SearchFor</shortDescription>
+        <value>For</value>
+    </labels>
+    <labels>
+        <fullName>fsc_SetAccessLevel</fullName>
+        <categories>labels</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SetAccessLevel</shortDescription>
+        <value>Set Access Level</value>
+    </labels>
+    <labels>
+        <fullName>fsc_SupportedAddCapabilitiesEmptyMessage</fullName>
+        <categories>messages</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SupportedAddCapabilitiesEmptyMessage</shortDescription>
+        <value>&quot;Add Capabilities&quot; can not be empty</value>
+    </labels>
+    <labels>
+        <fullName>fsc_SupportedButtonsEmptyMessage</fullName>
+        <categories>messages</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SupportedButtonsEmptyMessage</shortDescription>
+        <value>&quot;Supported Buttons&quot; can not be empty</value>
+    </labels>
+    <labels>
+        <fullName>fsc_SupportedEditCapabilitiesEmptyMessage</fullName>
+        <categories>messages</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SupportedEditCapabilitiesEmptyMessage</shortDescription>
+        <value>&quot;Edit Capabilities&quot; can not be empty</value>
+    </labels>
+    <labels>
+        <fullName>fsc_TooManyResultsMessage</fullName>
+        <categories>messages</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TooManyResultsMessage</shortDescription>
+        <value>Your search found more than 200 results.  Keep typing to make it more specific</value>
+    </labels>
+    <labels>
+        <fullName>fsc_Type</fullName>
+        <categories>Buttons,Filters,Title</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Type</shortDescription>
+        <value>Type</value>
+    </labels>
+    <labels>
+        <fullName>fsc_UserOrGroup</fullName>
+        <categories>labels</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>UserOrGroup</shortDescription>
+        <value>User Or Group</value>
+    </labels>
+    <labels>
+        <fullName>fsc_Users</fullName>
+        <categories>labels</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Users</shortDescription>
+        <value>Users</value>
+    </labels>
+    <labels>
+        <fullName>fsc_Value_Label</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Value Label</shortDescription>
+        <value>Value</value>
+    </labels>
+    <labels>
+        <fullName>tabFile</fullName>
+        <categories>tab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>tabFile</shortDescription>
+        <value>File</value>
+    </labels>
+    <labels>
+        <fullName>tabUnit</fullName>
+        <categories>tab</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>tabUnit</shortDescription>
+        <value>Unit</value>
+    </labels>
+</CustomLabels>

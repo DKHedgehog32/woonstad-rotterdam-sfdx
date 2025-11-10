@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ActionPlanTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionPlanTemplateItem>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>OmniAssessmentTask</itemEntityType>
+            <name>Name</name>
+            <valueLiteral>28Mar - Assess Eligibility Requirements to Yoga Program</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <actionPlanTemplateItemValue>
+            <itemEntityType>OmniAssessmentTask</itemEntityType>
+            <name>DefinitionReferenceId</name>
+            <valueLiteral>0os060000008PDvAAM</valueLiteral>
+        </actionPlanTemplateItemValue>
+        <isRequired>false</isRequired>
+        <itemEntityType>OmniAssessmentTask</itemEntityType>
+        <name>28Mar - Assess Eligibility Requirements to Yoga Program</name>
+        <uniqueName>X28Mar_Assess_Eligibility_Requirements_to_4613e0b5_ce1b_11ed_99f5_d78063a99825</uniqueName>
+    </actionPlanTemplateItem>
+    <actionPlanType>Retail</actionPlanType>
+    <isAdHocItemCreationEnabled>true</isAdHocItemCreationEnabled>
+    <name>28Mar - Eligibility Requirements to Yoga Program</name>
+    <targetEntityType>CarePlan</targetEntityType>
+    <uniqueName>X28Mar_Eligibility_Requirements_to_Yoga_Pr_2d4aaa57_ce1b_11ed_99f5_111baac1eeb8</uniqueName>
+</ActionPlanTemplate>
