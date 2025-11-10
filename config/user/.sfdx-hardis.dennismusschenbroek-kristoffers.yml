@@ -1,2 +1,4 @@
 installedApps:
   - git
+  - openssl
+userEmail: denniskristoffers@cobracrm.nl

@@ -1,0 +1,7 @@
+mergeTargets:
+  - wsrtest
+  - wsrpreprod
+  - wsrtrain
+  - wsruat
+targetUsername: denniskristoffers@cobracrm.nl.woonstad
+instanceUrl: https://woonstadrotterdam.my.salesforce.com
