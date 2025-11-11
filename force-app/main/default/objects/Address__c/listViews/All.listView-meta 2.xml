@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Unique_Key__c</columns>
+    <columns>Postal_Code__c</columns>
+    <columns>House_Letter__c</columns>
+    <columns>House_Number__c</columns>
+    <columns>House_Number_Addition__c</columns>
+    <columns>City__c</columns>
+    <columns>Country__c</columns>
+    <columns>Freepost_number__c</columns>
+    <columns>PO_Box_Number__c</columns>
+    <columns>LAST_UPDATE</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <label>Alle Adressen</label>
+</ListView>

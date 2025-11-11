@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <baseObject>IndicatorResult</baseObject>
+    <category>other</category>
+    <deployed>true</deployed>
+    <description>Explore indicator results.</description>
+    <label>Indicator Results</label>
+    <sections>
+        <masterLabel>Indicator Results</masterLabel>
+    </sections>
+    <sections>
+        <masterLabel>Indicator Performance Period</masterLabel>
+    </sections>
+</ReportType>

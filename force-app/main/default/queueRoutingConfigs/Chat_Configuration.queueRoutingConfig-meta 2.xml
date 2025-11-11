@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QueueRoutingConfig xmlns="http://soap.sforce.com/2006/04/metadata">
+    <capacityType>INHERITED</capacityType>
+    <capacityWeight>3.0</capacityWeight>
+    <isAttributeBased>false</isAttributeBased>
+    <label>Chat Configuration</label>
+    <pushTimeout>10</pushTimeout>
+    <routingModel>MOST_AVAILABLE</routingModel>
+    <routingPriority>2</routingPriority>
+</QueueRoutingConfig>

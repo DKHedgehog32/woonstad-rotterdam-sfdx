@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Contract_Lines</fullName>
+    <columns>NAME</columns>
+    <columns>Contract_Number__c</columns>
+    <columns>Account__c</columns>
+    <columns>Contract_Unit__c</columns>
+    <columns>Price__c</columns>
+    <columns>Status__c</columns>
+    <columns>Active_from_Date__c</columns>
+    <columns>Active_to_Date__c</columns>
+    <columns>Real_Estate_Contract__c</columns>
+    <columns>External_Id__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Product_Description__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Product_Description__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>Alle Contractregels</label>
+</ListView>

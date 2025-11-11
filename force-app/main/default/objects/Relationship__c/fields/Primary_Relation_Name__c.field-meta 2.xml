@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Primary_Relation_Name__c</fullName>
+    <businessStatus>Active</businessStatus>
+    <complianceGroup>GDPR</complianceGroup>
+    <description>Describes the relation from the primary contact</description>
+    <externalId>false</externalId>
+    <formula>&quot;Is &quot;&amp;TEXT(Type__c)&amp;&quot; voor &quot;&amp; 
+IF(
+	Subsidiary_Relation__r.IsPersonAccount, 
+	Subsidiary_Relation__r.FirstName&amp;&quot; &quot;&amp;
+	IF(
+		NOT(ISBLANK(Subsidiary_Relation__r.MiddleName)),
+		Subsidiary_Relation__r.MiddleName&amp;&quot; &quot;&amp;Subsidiary_Relation__r.LastName,
+		Subsidiary_Relation__r.LastName
+	),
+	Subsidiary_Relation__r.Name
+)</formula>
+    <inlineHelpText>Describes the relation from the primary contact</inlineHelpText>
+    <label>Primary Relation Name</label>
+    <required>false</required>
+    <securityClassification>Confidential</securityClassification>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

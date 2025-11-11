@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <groupingStringEnum>SvcApptStatusCategory</groupingStringEnum>
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Geen</fullName>
+        <default>true</default>
+        <label>Geen</label>
+        <groupingString>None</groupingString>
+    </standardValue>
+    <standardValue>
+        <fullName>Gepland</fullName>
+        <default>false</default>
+        <label>Gepland</label>
+        <groupingString>Scheduled</groupingString>
+    </standardValue>
+    <standardValue>
+        <fullName>Uitgezonden</fullName>
+        <default>false</default>
+        <label>Uitgezonden</label>
+        <groupingString>Dispatched</groupingString>
+    </standardValue>
+    <standardValue>
+        <fullName>Bezig</fullName>
+        <default>false</default>
+        <label>Bezig</label>
+        <groupingString>InProgress</groupingString>
+    </standardValue>
+    <standardValue>
+        <fullName>Kan niet voltooien</fullName>
+        <default>false</default>
+        <label>Kan niet voltooien</label>
+        <groupingString>CannotComplete</groupingString>
+    </standardValue>
+    <standardValue>
+        <fullName>Voltooid</fullName>
+        <default>false</default>
+        <label>Voltooid</label>
+        <groupingString>Completed</groupingString>
+    </standardValue>
+    <standardValue>
+        <fullName>Geannuleerd</fullName>
+        <default>false</default>
+        <label>Geannuleerd</label>
+        <groupingString>Canceled</groupingString>
+    </standardValue>
+    <standardValue>
+        <fullName>Ingecheckt</fullName>
+        <default>false</default>
+        <label>Ingecheckt</label>
+        <groupingString>CheckedIn</groupingString>
+    </standardValue>
+</StandardValueSet>

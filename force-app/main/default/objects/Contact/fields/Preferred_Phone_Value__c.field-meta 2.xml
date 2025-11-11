@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Preferred_Phone_Value__c</fullName>
+    <businessStatus>DeprecateCandidate</businessStatus>
+    <description>Based on the Preferred_Phone__c, this field is filled with the right phone number. It is a phone number field, because formula fields are not clickable with CTI integrations.</description>
+    <label>Preferred Phone Value</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Phone</type>
+</CustomField>

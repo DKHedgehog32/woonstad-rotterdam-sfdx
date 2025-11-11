@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Reason__c</fullName>
+    <description>This field is used to register the reason for this case, depending on the type of case.</description>
+    <inlineHelpText>This field is used to register the reason for this case, depending on the type of case.</inlineHelpText>
+    <label>Case Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Type</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New tenant</fullName>
+                <default>false</default>
+                <label>🏠 New tenant</label>
+            </value>
+            <value>
+                <fullName>New composition of residency</fullName>
+                <default>false</default>
+                <label>🧑‍🧑‍🧒 New composition of residency</label>
+            </value>
+            <value>
+                <fullName>Incorrect name spelling</fullName>
+                <default>false</default>
+                <label>🔤 Incorrect name spelling</label>
+            </value>
+            <value>
+                <fullName>Vandalism/stolen</fullName>
+                <default>false</default>
+                <label>⛓️‍💥 Vandalism/stolen</label>
+            </value>
+            <value>
+                <fullName>Behaviour of an employee</fullName>
+                <default>false</default>
+                <label>🤼 Behaviour of an employee</label>
+            </value>
+            <value>
+                <fullName>Noise polution</fullName>
+                <default>false</default>
+                <label>🔊 Noise polution</label>
+            </value>
+            <value>
+                <fullName>Undesirable handling of application</fullName>
+                <default>false</default>
+                <label>📑 Undesirable handling of application</label>
+            </value>
+            <value>
+                <fullName>Could not find information</fullName>
+                <default>false</default>
+                <label>🔍 Could not find information</label>
+            </value>
+            <value>
+                <fullName>Question about my rental property</fullName>
+                <default>false</default>
+                <label>🏠 Question about my rental property</label>
+            </value>
+            <value>
+                <fullName>Question about my owner-occupied home</fullName>
+                <default>false</default>
+                <label>🏡 Question about my owner-occupied home</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Inquiry</controllingFieldValue>
+            <valueName>Could not find information</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Name Plate</controllingFieldValue>
+            <valueName>New tenant</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Name Plate</controllingFieldValue>
+            <valueName>New composition of residency</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Name Plate</controllingFieldValue>
+            <valueName>Incorrect name spelling</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Name Plate</controllingFieldValue>
+            <controllingFieldValue>Repair Request</controllingFieldValue>
+            <valueName>Vandalism/stolen</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Klantcontact</name>
+    <queueMembers>
+        <users>
+            <user>amandia.rodrigues.monteiro@woonstadrotterdam.nl</user>
+            <user>damian.van.beveren@woonstadrotterdam.nl</user>
+            <user>dounia.zahaf@woonstadrotterdam.nl</user>
+            <user>justus.hoogendoorn@woonstadrotterdam.nl</user>
+            <user>mana.mirroknian@woonstadrotterdam.nl</user>
+            <user>matthew.van.goch@woonstadrotterdam.nl</user>
+            <user>naomi.biton@woonstadrotterdam.nl</user>
+            <user>rob.driessen@woonstadrotterdam.nl</user>
+            <user>robin.van.ravens@woonstadrotterdam.nl</user>
+            <user>ronald.andriessen@woonstadrotterdam.nl</user>
+            <user>sharon.westphal@woonstadrotterdam.nl</user>
+            <user>siham.ajdid@woonstadrotterdam.nl</user>
+            <user>souhaila.ijdad@woonstadrotterdam.nl</user>
+            <user>timon@woonstadrotterdam.org</user>
+        </users>
+    </queueMembers>
+    <queueRoutingConfig>Case_Configuration</queueRoutingConfig>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

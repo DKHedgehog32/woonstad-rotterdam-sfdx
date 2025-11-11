@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <businessStatus>Active</businessStatus>
+    <complianceGroup>GDPR (Sensitive)</complianceGroup>
+    <description>The type of this indication</description>
+    <label>Type</label>
+    <required>false</required>
+    <securityClassification>Confidential</securityClassification>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Schrijfverbod</fullName>
+                <default>false</default>
+                <label>Writing ban</label>
+            </value>
+            <value>
+                <fullName>Belverbod</fullName>
+                <default>false</default>
+                <label>Call ban</label>
+            </value>
+            <value>
+                <fullName>Kantoorverbod</fullName>
+                <default>false</default>
+                <label>Visiting ban</label>
+            </value>
+            <value>
+                <fullName>Bezoek met 2</fullName>
+                <default>false</default>
+                <label>Visiting with 2</label>
+            </value>
+            <value>
+                <fullName>Curatele / Bewind</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Guardianship / Administration</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

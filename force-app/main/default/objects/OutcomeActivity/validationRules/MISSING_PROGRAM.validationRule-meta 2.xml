@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MISSING_PROGRAM</fullName>
+    <active>true</active>
+    <description>Program is a required field when the value in the Outcome Activity Type field is Program.</description>
+    <errorConditionFormula>ISPICKVAL( OutcomeActivityType,&quot;Program&quot;) &amp;&amp;  ISBLANK( ProgramId )</errorConditionFormula>
+    <errorDisplayField>ProgramId</errorDisplayField>
+    <errorMessage>Complete this field.</errorMessage>
+</ValidationRule>

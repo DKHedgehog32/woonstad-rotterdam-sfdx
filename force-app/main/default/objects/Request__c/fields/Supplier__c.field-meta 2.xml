@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Supplier__c</fullName>
+    <businessStatus>Active</businessStatus>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The supplier / partner organization to be assigned on this request</description>
+    <inlineHelpText>Assign the supplier / partner organization that has to manage this request</inlineHelpText>
+    <label>Supplier</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Assigned Requests</relationshipLabel>
+    <relationshipName>External_Requests</relationshipName>
+    <required>false</required>
+    <securityClassification>Internal</securityClassification>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

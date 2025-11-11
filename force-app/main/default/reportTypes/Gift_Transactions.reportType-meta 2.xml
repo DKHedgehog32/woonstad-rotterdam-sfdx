@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <baseObject>GiftTransaction</baseObject>
+    <category>other</category>
+    <deployed>true</deployed>
+    <description>Explore gift transactions.</description>
+    <label>Gift Transactions</label>
+    <sections>
+        <masterLabel>Gift Transactions</masterLabel>
+    </sections>
+</ReportType>

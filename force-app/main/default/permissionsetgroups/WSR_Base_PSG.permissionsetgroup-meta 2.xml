@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This base permission set group is assigned to all (internal) users. So all the permissions in this group are for every user.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>WSR Base PSG</label>
+    <permissionSets>Kadaster_Outbound</permissionSets>
+    <permissionSets>OKAPI_Outbound</permissionSets>
+    <permissionSets>WSR_Base</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

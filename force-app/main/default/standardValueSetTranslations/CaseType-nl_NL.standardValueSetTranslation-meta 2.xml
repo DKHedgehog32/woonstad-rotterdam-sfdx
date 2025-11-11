@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>Inquiry</masterLabel>
+        <translation>Informatieverzoek</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Maintenance Inspection</masterLabel>
+        <translation>Onderhoudsinspectie</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Name Plate</masterLabel>
+        <translation>Naamplaatje</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Repair Request</masterLabel>
+        <translation>Reparatieverzoek</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Self-Installed Facility</masterLabel>
+        <translation>Zelf-Aangebrachte Voorziening</translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

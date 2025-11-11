@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Show_Warning_Details__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used to select a checkbox in case someone want to see the warning details of this relation.</description>
+    <inlineHelpText>Used to select a checkbox in case someone want to see the warning details of this relation.</inlineHelpText>
+    <label>Show Warning Details</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

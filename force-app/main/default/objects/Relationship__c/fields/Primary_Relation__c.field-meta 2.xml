@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Primary_Relation__c</fullName>
+    <businessStatus>Active</businessStatus>
+    <complianceGroup>GDPR (Salesforce Id)</complianceGroup>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>Primary account/contact for the relation</description>
+    <label>Primary Relation</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Relationships (Primary Relation)</relationshipLabel>
+    <relationshipName>Primary_Account_In_Relationships</relationshipName>
+    <required>false</required>
+    <securityClassification>Internal</securityClassification>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

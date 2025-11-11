@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sub_Status__c</fullName>
+    <businessStatus>Active</businessStatus>
+    <description>To register the sub-status of the Contract Unit</description>
+    <inlineHelpText>To register the sub-status of the Contract Unit</inlineHelpText>
+    <label>Sub Status</label>
+    <required>false</required>
+    <securityClassification>Internal</securityClassification>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Status__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ANT</fullName>
+                <default>false</default>
+                <label>Rented anti-squat</label>
+            </value>
+            <value>
+                <fullName>BOU</fullName>
+                <default>false</default>
+                <label>Building plans</label>
+            </value>
+            <value>
+                <fullName>BRU</fullName>
+                <default>false</default>
+                <label>Loan</label>
+            </value>
+            <value>
+                <fullName>EPA</fullName>
+                <default>false</default>
+                <label>Awaiting Energy Performance Advice</label>
+            </value>
+            <value>
+                <fullName>MUT</fullName>
+                <default>false</default>
+                <label>Mutation</label>
+            </value>
+            <value>
+                <fullName>NIB</fullName>
+                <default>false</default>
+                <label>Waiting for new tenant - non-regular</label>
+            </value>
+            <value>
+                <fullName>NIE</fullName>
+                <default>false</default>
+                <label>New build</label>
+            </value>
+            <value>
+                <fullName>NIH</fullName>
+                <default>false</default>
+                <label>Awaiting new tenant - regular</label>
+            </value>
+            <value>
+                <fullName>OPL</fullName>
+                <default>false</default>
+                <label>Completion</label>
+            </value>
+            <value>
+                <fullName>PER</fullName>
+                <default>false</default>
+                <label>Rented out permanently</label>
+            </value>
+            <value>
+                <fullName>PRO</fullName>
+                <default>false</default>
+                <label>Project vacancy</label>
+            </value>
+            <value>
+                <fullName>STR</fullName>
+                <default>false</default>
+                <label>Structural vacancy</label>
+            </value>
+            <value>
+                <fullName>TIJD</fullName>
+                <default>false</default>
+                <label>Rented temporary</label>
+            </value>
+            <value>
+                <fullName>VEK</fullName>
+                <default>false</default>
+                <label>Sale</label>
+            </value>
+            <value>
+                <fullName>VER</fullName>
+                <default>false</default>
+                <label>Permit granted</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>LEE</controllingFieldValue>
+            <valueName>EPA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>LEE</controllingFieldValue>
+            <valueName>MUT</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>LEE</controllingFieldValue>
+            <valueName>NIB</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>LEE</controllingFieldValue>
+            <valueName>NIH</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>LEE</controllingFieldValue>
+            <valueName>PRO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>LEE</controllingFieldValue>
+            <valueName>STR</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>LEE</controllingFieldValue>
+            <valueName>VEK</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>ONT</controllingFieldValue>
+            <valueName>BOU</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>ONT</controllingFieldValue>
+            <valueName>NIE</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>ONT</controllingFieldValue>
+            <valueName>OPL</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>ONT</controllingFieldValue>
+            <valueName>VER</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VEH</controllingFieldValue>
+            <valueName>ANT</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VEH</controllingFieldValue>
+            <valueName>BRU</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VEH</controllingFieldValue>
+            <valueName>PER</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>VEH</controllingFieldValue>
+            <valueName>TIJD</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

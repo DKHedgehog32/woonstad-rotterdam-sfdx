@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Set up for Backoffice employees. Gives wider access to Backoffice employees than given to Customer Service employees.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Backoffice Medewerker</label>
+    <permissionSets>Knowledge_Article_Feedback</permissionSets>
+    <permissionSets>Knowledge_Channel_Announcements</permissionSets>
+    <permissionSets>Knowledge_Channel_Stadswonen</permissionSets>
+    <permissionSets>Knowledge_Channel_Website</permissionSets>
+    <permissionSets>Knowledge_Channel_Woonstad</permissionSets>
+    <permissionSets>Knowledge_Organisation_Collections</permissionSets>
+    <permissionSets>Knowledge_Organisation_Maintenance</permissionSets>
+    <permissionSets>Knowledge_Organisation_Rental</permissionSets>
+    <permissionSets>Knowledge_Organisation_Social_Management</permissionSets>
+    <permissionSets>OKAPI_Outbound</permissionSets>
+    <permissionSets>Relationship_Management</permissionSets>
+    <permissionSets>Request_Permissions</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

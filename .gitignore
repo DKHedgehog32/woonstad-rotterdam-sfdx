@@ -29,20 +29,3 @@ Thumbs.db
 ehthumbs.db
 [Dd]esktop.ini
 $RECYCLE.BIN/
-# Local environment variables
-.env
-# Python Salesforce Functions
-**/__pycache__/
-**/.venv/
-**/venv/
-.cache/
-config/user/
-hardis-report/
-site/
-tmp/
-**/__tests__/**
-**/cleanDataServices/
-**/siteDotComSites/*.site
-**/data/**/source/**
-**/data/**/target/**
-force-app/main/default/appMenus/AppSwitcher.appMenu-meta.xml
