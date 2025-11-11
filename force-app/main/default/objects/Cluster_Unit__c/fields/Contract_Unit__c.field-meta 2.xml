@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contract_Unit__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>To register the Contract Unit this Cluster Unit refers to</description>
+    <inlineHelpText>To register the Contract Unit this Cluster Unit refers to</inlineHelpText>
+    <label>Contract Unit</label>
+    <referenceTo>Contract_Unit__c</referenceTo>
+    <relationshipName>Cluster_Units</relationshipName>
+    <required>true</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

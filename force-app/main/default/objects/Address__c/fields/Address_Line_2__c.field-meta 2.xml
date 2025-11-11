@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Address_Line_2__c</fullName>
+    <description>To register the precise location of the recipient’s apartment, unit, room, or floor number</description>
+    <inlineHelpText>To register the precise location of the recipient’s apartment, unit, room, or floor number</inlineHelpText>
+    <label>Address Line 2</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

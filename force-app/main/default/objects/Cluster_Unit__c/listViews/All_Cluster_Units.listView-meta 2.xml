@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Cluster_Units</fullName>
+    <columns>NAME</columns>
+    <columns>Cluster__c</columns>
+    <columns>Contract_Unit__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <label>Alle Cluster Eenheden</label>
+</ListView>

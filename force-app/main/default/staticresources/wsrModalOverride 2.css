@@ -1,0 +1,40 @@
+/* ==========================================================
+   Static Resource - Final Version with Absolute Centering
+   ========================================================== */
+
+/* --- 1. The Main Modal Container --- */
+.slds-modal__container {
+    /* --- SIZING & CENTERING --- */
+    /*
+     * This is the definitive fix for centering.
+     * Absolute positioning is more forceful than margin: auto
+     * and guarantees the modal will be perfectly centered.
+    */
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important; /* Reset margin */
+
+    /* --- Sizing logic (remains the same) --- */
+    width: max-content !important;
+    height: auto !important;
+    max-width: 90vw !important;
+    max-height: 90vh !important;
+    min-width: 500px !important;
+
+    /* --- APPEARANCE (remains the same) --- */
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* --- 2. Standard Salesforce Modal Parts (remains the same) --- */
+.slds-modal__header,
+.slds-modal__footer,
+.slds-modal__close {
+    display: none !important;
+}
+.slds-modal__content {
+    padding: 0 !important;
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contract_Line__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Role applies to this contract line</description>
+    <label>Contract Line</label>
+    <referenceTo>Contract_Line__c</referenceTo>
+    <relationshipName>Contract_Contact_Rollen</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,113 @@
+@font-face {
+  font-family: 'Apercu Bold Pro';
+  src: url(../resource/KnowledgeBaseFonts/ttf/ApercuPro/ApercuBoldPro.ttf?orgId=00D06000001Ta17);
+}
+
+@font-face {
+  font-family: 'Apercu Extralight Pro';
+  src: url(../resource/KnowledgeBaseFonts/ttf/ApercuPro/ApercuExtralightPro.ttf?orgId=00D06000001Ta17);
+}
+
+@font-face {
+  font-family: 'Apercu Medium Pro';
+  src: url(../resource/KnowledgeBaseFonts/ttf/ApercuPro/ApercuMediumPro.ttf?orgId=00D06000001Ta17);
+}
+
+@font-face {
+  font-family: 'Apercu Regular Pro';
+  src: url(../resource/KnowledgeBaseFonts/ttf/ApercuPro/ApercuRegularPro.ttf?orgId=00D06000001Ta17);
+}
+
+@font-face {
+  font-family: 'Arboria-Black';
+  src: url(../resource/KnowledgeBaseFonts/ttf/Arboria/Arboria-Black.ttf?orgId=00D06000001Ta17);
+}
+
+@font-face {
+  font-family: 'Arboria-Bold';
+  src: url(../resource/KnowledgeBaseFonts/ttf/Arboria/Arboria-Bold.ttf?orgId=00D06000001Ta17);
+}
+
+@font-face {
+  font-family: 'Arboria-Book';
+  src: url(../resource/KnowledgeBaseFonts/ttf/Arboria/Arboria-Book.ttf?orgId=00D06000001Ta17);
+}
+
+@font-face {
+  font-family: 'Arboria-Light';
+  src: url(../resource/KnowledgeBaseFonts/ttf/Arboria/Arboria-Light.ttf?orgId=00D06000001Ta17);
+}
+
+.topicLabel {
+  font-size: 16px !important;
+}
+
+.topicHeaderLink {
+  display: none;
+}
+
+.article-title.slds-truncate.uiOutputText {
+  font-size: 16px;
+}
+
+.slds-button.slds-button_neutral {
+  font-size: 14px;
+}
+
+.article-head.selfServiceArticleHeaderDetail {
+  font-size: 20px !important;
+}
+
+.slds-text-heading_small.slds-m-right_xx-small.slds-col.slds-hyphenate {
+  font-size: 16px;
+  font-family: 'Arboria-Bold', sans-serif !important;
+}
+
+.slds-text-body_small.slds-hyphenate {
+  font-size: 16px;
+}
+
+.slds-card {
+  font-size: 14px;
+}
+
+.slds-text-heading_small.slds-p-right_small {
+  font-size: 14px;
+}
+
+.slds-form-element__label {
+  font-size: 14px;
+}
+
+.gridTitle.slds-card__header-title.slds-text-color_default {
+  font-size: 20px;
+}
+
+.kbResultStencil.slds-item.slds-var-p-vertical_small.slds-var-p-horizontal_large.slds-theme--default.forceRecordLayout {
+  font-size: 16px;
+  font-family: 'Apercu Regular Pro', sans-serif !important;
+}
+
+.slds-border_right.slds-medium-size_1-of-6 {
+  font-size: 14px;
+}
+
+.article-head {
+  font-family: 'Arboria-Bold', sans-serif !important;
+}
+
+.view-count {
+  font-size: 14px;
+}
+
+.date {
+  font-size: 14px;
+}
+
+.article-type {
+  font-size: 14px;
+}
+
+:root {
+  --dxp-c-section-columns-max-width: 1170px;
+}

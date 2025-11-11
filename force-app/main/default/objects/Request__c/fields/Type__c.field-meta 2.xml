@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <businessStatus>Active</businessStatus>
+    <description>What is the Type of customer Request?</description>
+    <inlineHelpText>What is the Type of customer Request?</inlineHelpText>
+    <label>Type</label>
+    <required>false</required>
+    <securityClassification>Internal</securityClassification>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Name Plate</fullName>
+                <default>false</default>
+                <label>Name Plate</label>
+            </value>
+            <value>
+                <fullName>Landlord Statement</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Landlord Statement</label>
+            </value>
+            <value>
+                <fullName>Maintenance Inspection</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Maintenance Inspection</label>
+            </value>
+            <value>
+                <fullName>Payment Arrangement</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Payment Arrangement</label>
+            </value>
+            <value>
+                <fullName>Repair Request</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Repair Request</label>
+            </value>
+            <value>
+                <fullName>Self-Installed Facility</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Self-Installed Facility</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

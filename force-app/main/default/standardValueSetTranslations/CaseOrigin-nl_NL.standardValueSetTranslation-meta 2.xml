@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>✉️ Email</masterLabel>
+        <translation>✉️ Email</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>📞 Phone</masterLabel>
+        <translation>📞 Telefoon</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>🖥️ Web</masterLabel>
+        <translation>🖥️ Website</translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

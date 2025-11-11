@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Duration_Minutes__c</fullName>
+    <description>Duration of the contact moment in minutes</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Enter the duration in minutes. Required for Phone and Face2Face interactions. Maximum 480 minutes (8 hours).</inlineHelpText>
+    <label>Duration (Minutes)</label>
+    <precision>5</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

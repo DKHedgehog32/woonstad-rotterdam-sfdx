@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Name Plate</fullName>
+        <default>false</default>
+        <label>Name Plate</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Self-Installed Facility</fullName>
+        <default>false</default>
+        <label>Self-Installed Facility</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Maintenance Inspection</fullName>
+        <default>false</default>
+        <label>Maintenance Inspection</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Repair Request</fullName>
+        <default>false</default>
+        <label>Repair Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Inquiry</fullName>
+        <default>false</default>
+        <label>Inquiry</label>
+    </standardValue>
+</StandardValueSet>

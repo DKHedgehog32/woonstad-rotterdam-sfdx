@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServiceChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <capacityModel>STATUS_BASED</capacityModel>
+    <doesCheckCapOnOwnerChange>true</doesCheckCapOnOwnerChange>
+    <doesCheckCapOnStatusChange>true</doesCheckCapOnStatusChange>
+    <doesMinimizeWidgetOnAccept>true</doesMinimizeWidgetOnAccept>
+    <hasAutoAcceptEnabled>false</hasAutoAcceptEnabled>
+    <isInterruptible>false</isInterruptible>
+    <label>Case</label>
+    <relatedEntityType>Case</relatedEntityType>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>✅ Closed</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>❌ Closed-Rejected</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>COMPLETED</type>
+        <value>✅ Closed-Accepted</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>IN_PROGRESS</type>
+        <value>⭐️ New</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>IN_PROGRESS</type>
+        <value>📋 Assigned</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>IN_PROGRESS</type>
+        <value>🧠 In Progress</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>IN_PROGRESS</type>
+        <value>📨 Response Received</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>IN_PROGRESS</type>
+        <value>⬆️ Escalated</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>IN_PROGRESS</type>
+        <value>📬 Reopened</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>PAUSED</type>
+        <value>🧑🏽‍💻 External</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>PAUSED</type>
+        <value>✉️ Response Sent</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>PAUSED</type>
+        <value>⏳ Waiting on Third Party</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>PAUSED</type>
+        <value>⏳ Waiting on Customer</value>
+    </serviceChannelStatusFieldMappings>
+    <serviceChannelStatusFieldMappings>
+        <type>PAUSED</type>
+        <value>✋ On Hold</value>
+    </serviceChannelStatusFieldMappings>
+    <statusField>Status</statusField>
+</ServiceChannel>

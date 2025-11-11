@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Valid_End_Date</fullName>
+    <active>true</active>
+    <description>To validate is the End Date is not registered earlier than the Start Date.</description>
+    <errorConditionFormula>AND(
+NOT(ISBLANK(  Valid_To__c  )),
+ Valid_To__c  &lt;=  Valid_From__c 
+)</errorConditionFormula>
+    <errorMessage>Please correct the valid until date the IBAN.</errorMessage>
+</ValidationRule>

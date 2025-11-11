@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Thrown when a fault occurs in flows</description>
+    <eventType>HighVolume</eventType>
+    <label>Flow Fault</label>
+    <pluralLabel>Flow Faults</pluralLabel>
+    <publishBehavior>PublishImmediately</publishBehavior>
+</CustomObject>
