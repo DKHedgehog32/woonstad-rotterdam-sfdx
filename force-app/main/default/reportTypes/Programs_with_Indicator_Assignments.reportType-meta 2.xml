@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <baseObject></baseObject>
+    <category>other</category>
+    <deployed>true</deployed>
+    <description>Explore programs and related indicator assignments.</description>
+    <label>Programs with Indicator Assignments</label>
+    <sections>
+        <masterLabel>Programs</masterLabel>
+    </sections>
+    <sections>
+        <masterLabel>Indicator Assignments</masterLabel>
+    </sections>
+    <sections>
+        <masterLabel>Indicator Definition</masterLabel>
+    </sections>
+</ReportType>

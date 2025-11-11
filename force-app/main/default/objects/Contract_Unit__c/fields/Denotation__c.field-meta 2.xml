@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Denotation__c</fullName>
+    <description>Extra field to store additional data (e.g. a parking spot) on the contract unit</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Use this field to store additional data (e.g. a parking spot) on the contract unit</inlineHelpText>
+    <label>Denotation</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

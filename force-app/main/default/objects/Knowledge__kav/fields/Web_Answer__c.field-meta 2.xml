@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Web_Answer__c</fullName>
+    <description>The answer to the question in the knowledge article designed specifically for web use.</description>
+    <inlineHelpText>This is the answer that will be shown on the website knowledge base.</inlineHelpText>
+    <label>Web Answer</label>
+    <length>65536</length>
+    <type>Html</type>
+    <visibleLines>25</visibleLines>
+</CustomField>

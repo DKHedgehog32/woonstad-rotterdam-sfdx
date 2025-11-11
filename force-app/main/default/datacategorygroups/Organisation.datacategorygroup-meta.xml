@@ -23,7 +23,7 @@
     </dataCategory>
     <label>Organisation</label>
     <objectUsage>
-        <object>KnowledgeArticleVersion</object>
         <object>SvcCatalogItemDef</object>
+        <object>KnowledgeArticleVersion</object>
     </objectUsage>
 </DataCategoryGroup>

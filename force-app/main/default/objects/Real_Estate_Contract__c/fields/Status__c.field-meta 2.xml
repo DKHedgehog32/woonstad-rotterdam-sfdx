@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <businessStatus>Active</businessStatus>
+    <description>Status of the contract</description>
+    <inlineHelpText>Status of the contract</inlineHelpText>
+    <label>Status</label>
+    <required>false</required>
+    <securityClassification>Internal</securityClassification>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>BEE</fullName>
+                <default>false</default>
+                <label>Beeindigd</label>
+            </value>
+            <value>
+                <fullName>GEA</fullName>
+                <default>false</default>
+                <label>Geannuleerd</label>
+            </value>
+            <value>
+                <fullName>GOE</fullName>
+                <default>false</default>
+                <label>Goedgekeurd</label>
+            </value>
+            <value>
+                <fullName>LOP</fullName>
+                <default>false</default>
+                <label>Lopend</label>
+            </value>
+            <value>
+                <fullName>ONT</fullName>
+                <default>false</default>
+                <label>Ontbonden</label>
+            </value>
+            <value>
+                <fullName>OPG</fullName>
+                <default>false</default>
+                <label>Opgezegd</label>
+            </value>
+            <value>
+                <fullName>VER</fullName>
+                <default>false</default>
+                <label>Vernietigd</label>
+            </value>
+            <value>
+                <fullName>VOO</fullName>
+                <default>false</default>
+                <label>Voorlopig</label>
+            </value>
+            <value>
+                <fullName>VOP</fullName>
+                <default>false</default>
+                <label>Voorlopig opgezegd</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

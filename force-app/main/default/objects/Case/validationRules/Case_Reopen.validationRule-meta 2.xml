@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Reopen</fullName>
+    <active>true</active>
+    <description>A Case can only be Reopened from a Closed status</description>
+    <errorConditionFormula>AND(
+ ISCHANGED(Status),
+    ISPICKVAL(Status, &quot;Reopened&quot;),
+            NOT(ISPICKVAL(PRIORVALUE(Status), &quot;Closed&quot;)),
+            NOT(ISPICKVAL(PRIORVALUE(Status), &quot;Closed-Accepted&quot;)),
+            NOT(ISPICKVAL(PRIORVALUE(Status), &quot;Closed-Rejected&quot;))
+    )</errorConditionFormula>
+    <errorMessage>Een Case mag alleen vanuit Status &quot;Gesloten&quot; naar &quot;Heropend&quot;</errorMessage>
+</ValidationRule>

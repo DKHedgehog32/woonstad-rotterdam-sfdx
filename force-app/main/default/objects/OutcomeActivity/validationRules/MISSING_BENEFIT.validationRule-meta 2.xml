@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MISSING_BENEFIT</fullName>
+    <active>true</active>
+    <description>Benefit is a required field when the value in the Outcome Activity Type field is Benefit.</description>
+    <errorConditionFormula>ISPICKVAL( OutcomeActivityType,&quot;Benefit&quot;) &amp;&amp;  ISBLANK( BenefitId )</errorConditionFormula>
+    <errorDisplayField>BenefitId</errorDisplayField>
+    <errorMessage>Complete this field.</errorMessage>
+</ValidationRule>
