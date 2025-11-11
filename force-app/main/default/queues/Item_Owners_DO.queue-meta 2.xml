@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Itemeigenaren DO</name>
+    <queueMembers>
+        <users>
+            <user>melanie.van.der.vlist@woonstadrotterdam.nl</user>
+            <user>renee.uljee@woonstadrotterdam.nl</user>
+            <user>sharan.bhikharie@woonstadrotterdam.nl</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>ApprovalSubmission</sobjectType>
+    </queueSobject>
+    <queueSobject>
+        <sobjectType>FlowOrchestrationWorkItem</sobjectType>
+    </queueSobject>
+    <queueSobject>
+        <sobjectType>KnowledgeArticleVersion</sobjectType>
+    </queueSobject>
+</Queue>

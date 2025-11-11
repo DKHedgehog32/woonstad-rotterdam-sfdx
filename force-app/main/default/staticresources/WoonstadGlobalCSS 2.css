@@ -1,0 +1,525 @@
+/* =============================================
+   Woonstad Global Design System - SLDS Extension
+   =============================================
+   Scope: SLDS-compatible styling overrides
+   Author: Woonstad Rotterdam
+   Last Updated: 2025-08-07
+   Usage: Apply styles using a top-level `.woonstad` wrapper or scoped class names
+============================================= */
+
+/* ----------- Color Tokens (with Fallbacks) ----------- */
+:root {
+    --ws-blue-600: #003c80;
+    --ws-blue-300: #0061cd;
+    --ws-blue-50: #f2f5fc;
+    --ws-red-600: #d02c2c;
+    --ws-text-dark: #002244;
+}
+
+/* ----------- Headings & Typography ----------- */
+.woonstad .slds-text-heading_medium,
+.woonstad .form-title {
+    font-family: 'Arboria', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--ws-blue-600, #003c80);
+}
+
+/* ----------- Buttons ----------- */
+.woonstad .slds-button_brand {
+    background-color: var(--ws-blue-300, #0061cd) !important;
+    border-color: var(--ws-blue-300, #0061cd) !important;
+    border-radius: 8px !important;
+    font-weight: 600;
+    color: #ffffff !important;
+}
+.woonstad .slds-button_brand:hover {
+    background-color: #004999 !important;
+}
+
+/* ----------- Inputs and Labels ----------- */
+.woonstad lightning-input::part(label),
+.woonstad lightning-combobox::part(label) {
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Arboria', sans-serif;
+    color: var(--ws-text-dark, #002244);
+    text-align: left;
+}
+.woonstad .form-input {
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+.woonstad .input-error lightning-combobox::part(combobox),
+.woonstad .input-error lightning-input::part(input) {
+    border: 2px solid var(--ws-red-600, #d02c2c);
+    border-radius: 4px;
+}
+
+/* ----------- Modal ----------- */
+
+/* ----------- Modal Backdrop ----------- */
+.woonstad-backdrop {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 9998;
+}
+
+/* ----------- Modal Overlay ----------- */
+.woonstad-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+/* ----------- Modal Container ----------- */
+.woonstad-modal__container {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    width: auto;
+    min-width: 65vw;
+    max-width: 95vw;
+    height: auto;
+    max-height: 94vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 0; /* Prevent double padding */
+}
+
+/* ----------- Modal Content ----------- */
+.woonstad-modal__content {
+    flex: 1;
+    overflow-y: auto; /* only inner scroll when needed */
+    padding: 2rem;     /* padding goes here instead */
+    box-sizing: border-box;
+}
+
+/* ----------- Flow Scaling ----------- */
+.flow-scale-wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.flow-container {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    width: 100%;
+}
+
+.woonstad lightning-flow {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    min-height: 0;
+    overflow: hidden;
+}
+
+/* ----------- Header Bar ----------- */
+.woonstad .woonstad-header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: var(--ws-blue-300, #0061cd);
+    padding: 1rem 2rem;
+    width: 100%;
+    box-sizing: border-box;
+    color: white;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+.woonstad .woonstad-header-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* ----------- Form Wrapper ----------- */
+.woonstad .woonstad-form {
+    padding: 2rem;
+    background: #ffffff;
+    border: none;
+    box-shadow: none;
+    font-family: 'Apercu Pro', sans-serif;
+    border-radius: 0;
+    margin: 2rem 0;
+    width: 100%;
+    max-width: 900px;
+}
+@media (max-width: 600px) {
+    .woonstad .woonstad-form {
+        padding: 1rem;
+    }
+}
+
+/* ----------- Step Path ----------- */
+.woonstad .step-path {
+    display: flex;
+    gap: 3rem;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.woonstad .step-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.6rem;
+    position: relative;
+    z-index: 2;
+}
+.woonstad .step-circle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+    background-color: #d3d3d3;
+    color: #4a5568;
+}
+.woonstad .step-circle.active {
+    background-color: var(--ws-blue-300, #0061cd);
+    color: #ffffff;
+}
+.woonstad .step-circle.completed {
+    background-color: #1b8562;
+    color: #ffffff;
+}
+.woonstad .step-label.active {
+    font-weight: 700;
+    color: var(--ws-text-dark, #002244);
+}
+
+/* ----------- Flow Choice Buttons ----------- */
+.woonstad .button-container,
+.woonstad .choice-card,
+.woonstad .card-content.horizontal,
+.woonstad .woonstad-svg-button {
+    flex-direction: row !important;
+}
+
+.woonstad .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.woonstad .choice-card {
+    flex: 1 1 250px;
+    max-width: 300px;
+    min-width: 250px;
+    height: auto;
+    aspect-ratio: 5 / 2;
+    background: #ffffff;
+    border: 1px solid #E0E8F6;
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 #e3edfa;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+    text-align: center;
+}
+.woonstad .choice-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 6px 6px 12px rgba(0,0,0,0.1);
+}
+.woonstad .card-content.horizontal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    white-space: nowrap;
+}
+.woonstad .card-icon,
+.woonstad .arrow-icon,
+.woonstad .icon-wrapper img {
+    margin-right: 0.5rem;
+    align-self: center;
+    justify-self: flex-start;
+}
+.woonstad .card-label {
+    font-size: 1.25rem;
+    color: #00215B;
+    font-weight: 600;
+    min-height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* ----------- Tooltip ----------- */
+.woonstad .custom-tooltip {
+    position: fixed;
+    background-color: #003c80;
+    color: white;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    min-width: 260px;
+    max-width: 320px;
+    text-align: center;
+    z-index: 9999;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    animation: fadeIn 0.2s ease-in-out;
+    line-height: 1.5;
+    pointer-events: none;
+}
+.woonstad .custom-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px;
+    border-style: solid;
+    border-color: #003c80 transparent transparent transparent;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -110%); }
+    to   { opacity: 1; transform: translate(-50%, -120%); }
+}
+
+/* ----------- Navigation and Action Buttons ----------- */
+.woonstad .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+.woonstad .right-buttons {
+    display: flex;
+    gap: 1rem;
+}
+.woonstad .woonstad-cancel-button {
+    background: none;
+    border: none;
+    color: #0061CD;
+    font-family: 'Apercu Pro', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: underline;
+    line-height: 42px;
+    padding: 0;
+}
+.woonstad .woonstad-back-button {
+    background: none;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #0061CD;
+    font-family: 'Apercu Pro', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0;
+}
+.woonstad .back-arrow {
+    width: 18px;
+    height: 18px;
+    transform: scaleX(-1);
+}
+.woonstad .woonstad-svg-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 42px;
+    background-color: #85E3F9;
+    border: none;
+    border-radius: 40px;
+    font-family: 'Apercu Pro', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #00215B;
+    padding-left: 16px;
+    padding-right: 48px;
+    position: relative;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.woonstad .icon-wrapper {
+    width: 32px;
+    height: 32px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0px 2px 4px rgba(0, 33, 91, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+.woonstad .arrow-icon {
+    width: 18px;
+    height: 18px;
+    display: block;
+}
+
+/* =============================================
+   Icon-Label Spacing Adjustment (Woonstad)
+   =============================================
+   Reduces gap between icon and label for better alignment
+============================================= */
+
+.woonstad .card-content.horizontal {
+    gap: 0.6rem; /* tighter space */
+}
+
+.woonstad .card-icon {
+    margin-right: 0.25rem; /* reduce default spacing */
+}
+
+/* =============================================
+   Icon-Label Spacing Adjustment (Tighter)
+   =============================================
+   Applies even smaller spacing between icon and text
+============================================= */
+
+.woonstad .card-content.horizontal {
+    gap: 0.3rem; /* tighter spacing */
+}
+
+.woonstad .card-icon {
+    margin-right: 0.15rem; /* minimal space */
+}
+
+/*==============================================
+    Grid Layout Adjustments
+==============================================*/
+.cockpit-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.cockpit-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: flex-start;
+}
+
+/* =============================================
+   Search Bar Button Styles (Global Woonstad)
+   ============================================= */
+.woonstad .search-button {
+    border: none;
+    background: #b2f0ff;
+    border-radius: 50%;
+    padding: 0.5rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.5rem;
+    box-shadow: 0px 4px 8px rgba(0, 97, 205, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.woonstad .search-button:hover {
+    transform: scale(1.05);
+}
+
+.woonstad .search-icon {
+    --slds-c-icon-color-foreground-default: #003e7e;
+    font-size: 1.1rem;
+}
+
+/* =============================================
+   Woonstad Pill Action Button (Universal)
+   =============================================
+   Reusable pill-style button for actions.
+   Apply with: .woonstad .pill-action
+   Icon size and label text adapt automatically.
+============================================= */
+
+.woonstad .pill-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #ffffff;
+    border: 1px solid #E0E8F6;
+    border-radius: 9999px;           /* pill shape */
+    padding: 0.45rem 0.9rem;
+    box-shadow: 4px 4px 0 #e3edfa;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.woonstad .pill-action:hover {
+    transform: translateY(-1px);
+    box-shadow: 6px 6px 12px rgba(0,0,0,0.08);
+}
+
+.woonstad .pill-icon {
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+    border-radius: 4px;
+    object-fit: contain;
+}
+
+.woonstad .pill-label {
+    font-family: 'Arboria', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--ws-text-dark, #002244);
+    line-height: 1;
+}
+
+/* Optional disabled state */
+.woonstad .pill-action[disabled],
+.woonstad .pill-action.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}

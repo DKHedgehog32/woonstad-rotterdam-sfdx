@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Real_Estate_Contract_Compact_Layout</fullName>
+    <fields>Contract_Number__c</fields>
+    <fields>Name</fields>
+    <fields>Contract_Party__c</fields>
+    <fields>Contract_Type__c</fields>
+    <fields>Status__c</fields>
+    <label>Real Estate Contract Compact Layout</label>
+</CompactLayout>

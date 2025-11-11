@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <description>The type of communication channel used for this contact moment</description>
+    <inlineHelpText>Select how the customer contacted you or how you contacted the customer. This field is required.</inlineHelpText>
+    <label>Interaction Type</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Email</fullName>
+                <default>false</default>
+                <label>Email</label>
+            </value>
+            <value>
+                <fullName>Phone</fullName>
+                <default>false</default>
+                <label>Phone</label>
+            </value>
+            <value>
+                <fullName>Website</fullName>
+                <default>false</default>
+                <label>Website</label>
+            </value>
+            <value>
+                <fullName>Letter</fullName>
+                <default>false</default>
+                <label>Letter</label>
+            </value>
+            <value>
+                <fullName>Self Service</fullName>
+                <default>false</default>
+                <label>Self Service</label>
+            </value>
+            <value>
+                <fullName>Face2Face</fullName>
+                <default>false</default>
+                <label>Face2Face</label>
+            </value>
+            <value>
+                <fullName>Service Desk</fullName>
+                <default>true</default>
+                <label>Service Desk</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

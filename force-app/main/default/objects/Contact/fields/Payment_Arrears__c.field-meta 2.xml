@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Arrears__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Select this checkbox if the relation had payment arrears.</description>
+    <inlineHelpText>Select this checkbox if the relation had payment arrears.</inlineHelpText>
+    <label>Payment Arrears</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Checkbox</type>
+</CustomField>

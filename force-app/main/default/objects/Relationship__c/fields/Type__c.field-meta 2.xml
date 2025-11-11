@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type__c</fullName>
+    <description>Type of this relation</description>
+    <inlineHelpText>Type of this relation</inlineHelpText>
+    <label>Type</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>SHV</fullName>
+                <default>false</default>
+                <label>Schuldhulpverlener</label>
+            </value>
+            <value>
+                <fullName>BWI</fullName>
+                <default>false</default>
+                <label>Bewindvoerder</label>
+            </value>
+            <value>
+                <fullName>MLZ</fullName>
+                <default>false</default>
+                <label>Mantelzorger</label>
+            </value>
+            <value>
+                <fullName>MTW</fullName>
+                <default>false</default>
+                <label>Maatschappelijk Werker</label>
+            </value>
+            <value>
+                <fullName>CUR</fullName>
+                <default>false</default>
+                <label>Curator</label>
+            </value>
+            <value>
+                <fullName>ERG</fullName>
+                <default>false</default>
+                <label>Erfgenaam</label>
+            </value>
+            <value>
+                <fullName>advct</fullName>
+                <default>false</default>
+                <label>Advocaat</label>
+            </value>
+            <value>
+                <fullName>DEU</fullName>
+                <default>false</default>
+                <label>Deurwaarder</label>
+            </value>
+            <value>
+                <fullName>extst</fullName>
+                <default>false</default>
+                <label>Executeur-Testamentair</label>
+            </value>
+            <value>
+                <fullName>exwgm</fullName>
+                <default>false</default>
+                <label>Expert Wonen Gemeente</label>
+            </value>
+            <value>
+                <fullName>mntrs</fullName>
+                <default>false</default>
+                <label>Mentorschap</label>
+            </value>
+            <value>
+                <fullName>swkgm</fullName>
+                <default>false</default>
+                <label>Sociaal Wijkteam Gemeente</label>
+            </value>
+            <value>
+                <fullName>tlkbd</fullName>
+                <default>false</default>
+                <label>Tolk (Beëdigd)</label>
+            </value>
+            <value>
+                <fullName>wkagn</fullName>
+                <default>false</default>
+                <label>Wijkagent</label>
+            </value>
+            <value>
+                <fullName>zrgin</fullName>
+                <default>false</default>
+                <label>Zorginstelling</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

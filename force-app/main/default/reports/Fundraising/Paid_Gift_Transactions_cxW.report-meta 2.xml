@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>A list of paid gift transactions in a specified timeframe.</description>
+    <format>Summary</format>
+    <name>Paid Gift Transactions</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Gift_Transactions__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+</Report>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordActionDeployment xmlns="http://soap.sforce.com/2006/04/metadata">
+    <componentName>ActionLauncher</componentName>
+    <hasComponents>false</hasComponents>
+    <hasGuidedActions>true</hasGuidedActions>
+    <hasOmniscripts>true</hasOmniscripts>
+    <hasRecommendations>false</hasRecommendations>
+    <masterLabel>Referral Processes</masterLabel>
+    <selectableItems>
+        <action>SPCMCreateReferralCaseEnglish_bzs1hzl3vlpb13xwj6anrga35</action>
+        <frequentActionSequenceNbr>1</frequentActionSequenceNbr>
+        <isFrequentAction>true</isFrequentAction>
+        <type>Omniscript</type>
+    </selectableItems>
+    <selectableItems>
+        <action>SPCMEditReferralEnglish_1bfdhnqkr8mc7zl66s24d98xo</action>
+        <frequentActionSequenceNbr>0</frequentActionSequenceNbr>
+        <isFrequentAction>true</isFrequentAction>
+        <type>Omniscript</type>
+    </selectableItems>
+</RecordActionDeployment>

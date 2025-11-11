@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Validate</fullName>
+        <description>Update the validation status to &quot;validated&quot;</description>
+        <field>ValidationStatus</field>
+        <literalValue>Validated</literalValue>
+        <name>Validate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <knowledgePublishes>
+        <fullName>Publication</fullName>
+        <action>Publish</action>
+        <description>This step publishes the Knowledge article after approval.</description>
+        <label>Publication</label>
+        <language>en_US</language>
+        <protected>false</protected>
+    </knowledgePublishes>
+</Workflow>

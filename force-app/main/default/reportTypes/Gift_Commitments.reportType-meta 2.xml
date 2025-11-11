@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <baseObject>GiftCommitment</baseObject>
+    <category>other</category>
+    <deployed>true</deployed>
+    <description>Explore gift commitments.</description>
+    <label>Gift Commitments</label>
+    <sections>
+        <masterLabel>Gift Commitments</masterLabel>
+    </sections>
+</ReportType>

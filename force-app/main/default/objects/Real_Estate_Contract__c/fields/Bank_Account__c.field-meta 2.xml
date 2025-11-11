@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bank_Account__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Coupling a bank account to the contract to determine which from which bank account the contract will be paid.</description>
+    <inlineHelpText>What bank account will be used for this contract?</inlineHelpText>
+    <label>Bank Account</label>
+    <referenceTo>Bank_Account__c</referenceTo>
+    <relationshipName>Real_Estate_Contracts</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

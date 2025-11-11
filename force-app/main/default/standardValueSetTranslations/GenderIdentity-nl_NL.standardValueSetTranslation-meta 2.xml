@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>Female</masterLabel>
+        <translation>Vrouw</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Male</masterLabel>
+        <translation>Man</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Not Listed</masterLabel>
+        <translation>Onbekend</translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

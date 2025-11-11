@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Administration_Id__c</fullName>
+    <defaultValue>&quot;Salesforce&quot;</defaultValue>
+    <description>Identifier to map to the Vera idAdministration. Used in conjunction with External Id</description>
+    <externalId>false</externalId>
+    <label>Administration Id</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

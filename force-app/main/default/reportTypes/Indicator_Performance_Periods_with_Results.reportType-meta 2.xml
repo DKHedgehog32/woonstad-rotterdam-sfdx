@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <baseObject>IndicatorPerformancePeriod</baseObject>
+    <category>other</category>
+    <deployed>true</deployed>
+    <description>Explore indicator performance periods and related indicator results.</description>
+    <join>
+        <outerJoin>false</outerJoin>
+        <relationship>IndicatorResult</relationship>
+    </join>
+    <label>Indicator Performance Periods with Results</label>
+    <sections>
+        <masterLabel>Indicator Performance Periods</masterLabel>
+    </sections>
+    <sections>
+        <masterLabel>Indicator Results</masterLabel>
+    </sections>
+    <sections>
+        <masterLabel>Time Period</masterLabel>
+    </sections>
+    <sections>
+        <masterLabel>Indicator Assignment</masterLabel>
+    </sections>
+</ReportType>

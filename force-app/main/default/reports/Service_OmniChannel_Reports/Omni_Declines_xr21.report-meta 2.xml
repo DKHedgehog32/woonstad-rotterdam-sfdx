@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>AgentWork$Name</field>
+    </columns>
+    <columns>
+        <field>AgentWork$DeclineDateTime</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>AgentWork$AgentCapacityWhenDeclined</field>
+    </columns>
+    <columns>
+        <field>AgentWork$User</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>AgentWork$DeclineReason</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>greaterThan</operator>
+            <value>0</value>
+        </criteriaItems>
+        <language>nl_NL</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>AgentWork$DeclineReason</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Omni Declines by Reason</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Omni_Agent_Work__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>AgentWork$AcceptDateTime</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

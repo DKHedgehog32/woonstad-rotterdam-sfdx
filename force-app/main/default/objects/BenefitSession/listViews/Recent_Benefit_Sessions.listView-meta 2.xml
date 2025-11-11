@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Recent_Benefit_Sessions</fullName>
+    <columns>Name</columns>
+    <columns>BenefitSchedule</columns>
+    <columns>EndDateTime</columns>
+    <columns>Status</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>EndDateTime</field>
+        <operation>greaterOrEqual</operation>
+        <value>TODAY</value>
+    </filters>
+    <label>Recent Benefit Sessions</label>
+</ListView>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Next_Rent_Price_Change_Date__c</fullName>
+    <businessStatus>Active</businessStatus>
+    <description>Date the next change in rent price will occur</description>
+    <inlineHelpText>Date the next change in rent price will occur</inlineHelpText>
+    <label>Next Rent Price Change Date</label>
+    <required>false</required>
+    <securityClassification>Internal</securityClassification>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

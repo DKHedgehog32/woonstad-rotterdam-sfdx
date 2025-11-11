@@ -1,0 +1,287 @@
+/* =============================
+   WOONSTAD UNIVERSAL STYLESHEET
+   ============================= */
+
+/* 🟦 COLORS: Brand Tokens */
+:root {
+  /* Blue */
+  --ws-blue-600: #003c80;
+  --ws-blue-300: #0061cd;
+  --ws-blue-200: #86bede;
+  --ws-blue-100: #cee6f9;
+  --ws-blue-50:  #f2f5fc;
+
+  /* Green */
+  --ws-green-600: #098241;
+  --ws-green-400: #1b8562;
+  --ws-green-300: #60d15d;
+  --ws-green-200: #b3e981;
+  --ws-green-100: #ecf9ec;
+
+  /* Ice */
+  --ws-ice-300: #00c5f2;
+  --ws-ice-200: #85e5f9;
+
+  /* Pink */
+  --ws-pink-300: #f170b8;
+  --ws-pink-200: #f8badd;
+
+  /* Red */
+  --ws-red-600: #d02c2c;
+  --ws-red-300: #f75151;
+  --ws-red-100: #ffefef;
+
+  /* Orange */
+  --ws-orange-300: #ff7842;
+  --ws-orange-200: #fff8a5;
+
+  /* Yellow */
+  --ws-yellow-300: #ffc522;
+  --ws-yellow-200: #ffe291;
+
+  /* Text Colors */
+  --ws-text-dark: #002244;
+  --ws-text-light: #ffffff;
+  --ws-link-hover: #0061cd;
+}
+
+/* ======================
+   TYPOGRAPHY
+   ====================== */
+body, p, div, span {
+  font-family: 'Apercu Pro', sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--ws-text-dark);
+}
+
+/* Titles */
+.title.hero {
+  font-family: 'Arboria', sans-serif;
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 56px;
+}
+
+.title.page {
+  font-family: 'Arboria', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+.title.block {
+  font-family: 'Arboria', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+.title.body {
+  font-family: 'Arboria', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+/* Content and Labels */
+.content.intro,
+.content.body,
+.content.body-bold,
+.label.large,
+.label.regular,
+.label.small,
+.label.xs {
+  font-family: 'Apercu Pro', sans-serif;
+}
+
+.content.intro {
+  font-size: 22px;
+  line-height: 31px;
+}
+
+.content.body {
+  font-size: 18px;
+  line-height: 27px;
+}
+
+.content.body-bold {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.label.large {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.label.regular {
+  font-size: 18px;
+  line-height: 27px;
+}
+
+.label.small {
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.label.xs {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+/* ========================
+   BUTTON STYLES
+   ======================== */
+.button,
+button {
+  font-family: 'Apercu Pro', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background-color: var(--ws-ice-300);
+  color: var(--ws-text-light);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.button:hover {
+  background-color: var(--ws-ice-200);
+}
+
+.button:disabled {
+  background-color: var(--ws-blue-100);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.button.loading {
+  pointer-events: none;
+}
+
+.button.negative {
+  background-color: var(--ws-red-600);
+}
+
+.button.negative:hover {
+  background-color: var(--ws-red-300);
+}
+
+/* =========================
+   MODALS (e.g. Multi-step)
+   ========================= */
+.modal {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+  padding: 2rem;
+  max-width: 700px;
+  width: 100%;
+}
+
+.modal-header {
+  font-family: 'Arboria', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: var(--ws-blue-600);
+}
+
+.modal-stepper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.modal-step {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ws-blue-300);
+}
+
+.modal-step.active {
+  color: var(--ws-green-600);
+}
+
+/* ========================
+   HEADER BAR (Universal)
+   ======================== */
+.woonstad-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: var(--ws-blue-300);
+  color: white;
+  padding: 1.25rem 2rem;
+  width: 100%;
+  box-sizing: border-box;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  gap: 1rem;
+  position: relative;
+}
+
+.woonstad-header-bar img {
+  height: 32px;
+  width: auto;
+  opacity: 0.95;
+}
+
+.woonstad-header-title {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* ========================
+   ICON STYLING (Generic)
+   ======================== */
+.woonstad-icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+/* CASE ICON GLOBAL STYLE */
+.icon-case {
+  content: url("/resource/CaseIcon"); /* Override dynamically in JS */
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* =======================
+   GLOBAL UTILITIES
+   ======================= */
+.bg-blue {
+  background-color: var(--ws-blue-600);
+}
+
+.text-white {
+  color: var(--ws-text-light);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.rounded {
+  border-radius: 8px;
+}
+
+.shadow {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}

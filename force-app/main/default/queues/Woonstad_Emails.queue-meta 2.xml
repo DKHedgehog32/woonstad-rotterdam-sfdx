@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Inbox for all Woonstad Email-to-Case</description>
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Woonstad E-mails</name>
+    <queueRoutingConfig>Case_Configuration</queueRoutingConfig>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

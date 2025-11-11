@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Person__c</fullName>
+    <businessStatus>Active</businessStatus>
+    <complianceGroup>GDPR (Salesforce Id)</complianceGroup>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>The person of this role relation</description>
+    <inlineHelpText>The person of this role relation</inlineHelpText>
+    <label>Person</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Cluster Roles</relationshipLabel>
+    <relationshipName>Cluster_Roles</relationshipName>
+    <required>false</required>
+    <securityClassification>Internal</securityClassification>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

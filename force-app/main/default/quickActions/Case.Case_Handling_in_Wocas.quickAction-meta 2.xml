@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Use this button to launch Screen Flow to send Case to Wocas</description>
+    <flowDefinition>Screen_Flow_Case_Handling_in_Wocas</flowDefinition>
+    <label>Case Handling in Wocas</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>Flow</type>
+</QuickAction>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <baseObject>Outcome</baseObject>
+    <category>other</category>
+    <deployed>true</deployed>
+    <description>Explore outcomes and related indicator results.</description>
+    <join>
+        <join>
+            <join>
+                <outerJoin>false</outerJoin>
+                <relationship>IndicatorResult</relationship>
+            </join>
+            <outerJoin>false</outerJoin>
+            <relationship>IndicatorPerformancePeriod</relationship>
+        </join>
+        <outerJoin>false</outerJoin>
+        <relationship>IndicatorAssignment</relationship>
+    </join>
+    <label>Outcomes with Indicator Results</label>
+    <sections>
+        <masterLabel>Outcomes</masterLabel>
+    </sections>
+    <sections>
+        <masterLabel>Indicator Assignments</masterLabel>
+    </sections>
+    <sections>
+        <masterLabel>Indicator Performance Periods</masterLabel>
+    </sections>
+    <sections>
+        <masterLabel>Indicator Results</masterLabel>
+    </sections>
+</ReportType>
