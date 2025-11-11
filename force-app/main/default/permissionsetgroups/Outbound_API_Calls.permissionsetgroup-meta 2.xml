@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>All API calls from SF to external systems</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Outbound API Calls</label>
+    <permissionSets>Kadaster_Outbound</permissionSets>
+    <permissionSets>OKAPI_Outbound</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

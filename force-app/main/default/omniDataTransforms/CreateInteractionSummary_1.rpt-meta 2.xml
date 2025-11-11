@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OmniDataTransform xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <assignmentRulesUsed>false</assignmentRulesUsed>
+    <deletedOnSuccess>false</deletedOnSuccess>
+    <errorIgnored>false</errorIgnored>
+    <expectedInputJson>{
+  &quot;data&quot; : [ ],
+  &quot;timeStamp&quot; : &quot;2022-05-06T06:02:24.287Z&quot;,
+  &quot;userProfile&quot; : &quot;System Administrator&quot;,
+  &quot;userTimeZoneName&quot; : &quot;America/Los_Angeles&quot;,
+  &quot;userTimeZone&quot; : &quot;-420&quot;,
+  &quot;userCurrencyCode&quot; : &quot;USD&quot;,
+  &quot;userName&quot; : &quot;admin238rfpss@sf.com&quot;,
+  &quot;userId&quot; : &quot;005RQ000000HfNuYAK&quot;,
+  &quot;PublicComplaintId&quot; : &quot;0fhRO00000000MiYAI&quot;,
+  &quot;NewComplaint&quot; : {
+    &quot;AddAdditionalDetails&quot; : false,
+    &quot;Participants&quot; : null,
+    &quot;Allegations&quot; : null,
+    &quot;RequestConfidentiality&quot; : &quot;No&quot;,
+    &quot;ComplaintDetails&quot; : {
+      &quot;Subject&quot; : &quot;subject&quot;,
+      &quot;Priority&quot; : &quot;Critical&quot;,
+      &quot;Status&quot; : &quot;Submitted&quot;,
+      &quot;FirstName&quot; : &quot;reporter firstname&quot;,
+      &quot;LastName&quot; : &quot;reporter lastname&quot;,
+      &quot;Organization&quot; : &quot;org&quot;,
+      &quot;Phone&quot; : &quot;2342342342&quot;,
+      &quot;Email&quot; : &quot;sdfg@sdf.sdfg&quot;,
+      &quot;Address&quot; : &quot;sfgsdfgsfg&quot;,
+      &quot;LocationOfIncident&quot; : &quot;bangalore&quot;,
+      &quot;DateReported&quot; : &quot;2022-05-05&quot;,
+      &quot;Details&quot; : &quot;sdsdfsf&quot;
+    },
+    &quot;RunningNotes&quot; : &quot;Running Notes&quot;
+  }
+}</expectedInputJson>
+    <fieldLevelSecurityEnabled>false</fieldLevelSecurityEnabled>
+    <inputType>JSON</inputType>
+    <isManagedUsingStdDesigner>false</isManagedUsingStdDesigner>
+    <name>CreateInteractionSummary</name>
+    <nullInputsIncludedInOutput>false</nullInputsIncludedInOutput>
+    <omniDataTransformItem>
+        <disabled>true</disabled>
+        <filterGroup>0.0</filterGroup>
+        <filterOperator>=</filterOperator>
+        <globalKey>CreateInteractionSummaryCustom5719</globalKey>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <migrationValue>FAKEMAPPING</migrationValue>
+        <name>CreateInteractionSummary</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>Id</outputFieldName>
+        <outputObjectName>InteractionSummary</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>CreateInteractionSummaryCustom5571</globalKey>
+        <inputFieldName>NewComplaint:ComplaintDetails:Subject</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>CreateInteractionSummary</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>Name</outputFieldName>
+        <outputObjectName>InteractionSummary</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>CreateInteractionSummaryCustom5849</globalKey>
+        <inputFieldName>PublicComplaintId</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>CreateInteractionSummary</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>RelatedRecordId</outputFieldName>
+        <outputObjectName>InteractionSummary</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>CreateInteractionSummaryCustom7007</globalKey>
+        <inputFieldName>NewComplaint:RunningNotes</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>CreateInteractionSummary</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>MeetingNotes</outputFieldName>
+        <outputObjectName>InteractionSummary</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <outputType>SObject</outputType>
+    <previewJsonData>{
+  &quot;data&quot; : [ ],
+  &quot;timeStamp&quot; : &quot;2022-05-06T06:02:24.287Z&quot;,
+  &quot;userProfile&quot; : &quot;System Administrator&quot;,
+  &quot;userTimeZoneName&quot; : &quot;America/Los_Angeles&quot;,
+  &quot;userTimeZone&quot; : &quot;-420&quot;,
+  &quot;userCurrencyCode&quot; : &quot;USD&quot;,
+  &quot;userName&quot; : &quot;admin238rfpss@sf.com&quot;,
+  &quot;userId&quot; : &quot;005RQ000000HfNuYAK&quot;,
+  &quot;DRId_PublicComplaint&quot; : &quot;0fhRO00000000MiYAI&quot;,
+  &quot;NewComplaint&quot; : {
+    &quot;AddAdditionalDetails&quot; : false,
+    &quot;Participants&quot; : null,
+    &quot;Allegations&quot; : null,
+    &quot;RequestConfidentiality&quot; : &quot;No&quot;,
+    &quot;ComplaintDetails&quot; : {
+      &quot;Subject&quot; : &quot;complaint1&quot;,
+      &quot;Priority&quot; : &quot;Critical&quot;,
+      &quot;Status&quot; : &quot;Submitted&quot;,
+      &quot;FirstName&quot; : &quot;brij&quot;,
+      &quot;LastName&quot; : &quot;reporter lastname&quot;,
+      &quot;Organization&quot; : &quot;org&quot;,
+      &quot;Phone&quot; : &quot;2342342342&quot;,
+      &quot;Email&quot; : &quot;sdfg@sdf.sdfg&quot;,
+      &quot;Address&quot; : &quot;sfgsdfgsfg&quot;,
+      &quot;LocationOfIncident&quot; : &quot;bangalore&quot;,
+      &quot;DateReported&quot; : &quot;2022-05-05&quot;,
+      &quot;Details&quot; : &quot;sdsdfsf&quot;
+    },
+    &quot;RunningNotes&quot; : &quot;Running Notes1&quot;
+  }
+}</previewJsonData>
+    <processSuperBulk>false</processSuperBulk>
+    <responseCacheTtlMinutes>0.0</responseCacheTtlMinutes>
+    <rollbackOnError>false</rollbackOnError>
+    <sourceObject>json</sourceObject>
+    <sourceObjectDefault>false</sourceObjectDefault>
+    <synchronousProcessThreshold>0.0</synchronousProcessThreshold>
+    <type>Load</type>
+    <uniqueName>CreateInteractionSummary_1</uniqueName>
+    <versionNumber>1.0</versionNumber>
+    <xmlDeclarationRemoved>false</xmlDeclarationRemoved>
+</OmniDataTransform>

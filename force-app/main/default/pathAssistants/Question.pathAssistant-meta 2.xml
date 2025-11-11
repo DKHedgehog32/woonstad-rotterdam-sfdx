@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Case</entityName>
+    <fieldName>Status</fieldName>
+    <masterLabel>Question</masterLabel>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;The case has been assigned to a case owner. For now, these are only individuals and no departments.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Use the &amp;#39;New Case Assessment&amp;#39; button to complete the case and start processing it.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</info>
+        <picklistValueName>Assigned</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;The case is closed&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Make sure the submitter is filled in as Contact, the Case Type, Case Reason and Case Origin are filled in correctly and the question and answer are recorded correctly in the Description field.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Check if -if possible- a related knowledge article is linked.&lt;/p&gt;</info>
+        <picklistValueName>Closed</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;This status is selected if the case has been sent externally for processing. For now only to Wocas.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;You can find the status in Wocas above under &amp;#39;External Status&amp;#39;.&lt;/p&gt;</info>
+        <picklistValueName>External</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;You can record answers to the customer question as a &amp;#39;Log a Call&amp;#39; or by sending the answer by email.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Once you have followed up, you can set the status to &amp;#39;⏳ Waiting on Customer&amp;#39; and press &amp;#39;Mark status as completed&amp;#39;. This happens automatically when you send an email.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;If the case needs to be handled further in Wocas, you can press the &amp;#39;Handle in Wocas&amp;#39; button. After you have followed the steps in Wocas, set the Case status to &amp;#39;&amp;#129489;&amp;#127997;‍&amp;#128187; External&amp;#39;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Do you think the case was handled immediately? Then set the status to &amp;#39;✅ Closed&amp;#39; and press &amp;#39;Mark status as completed&amp;#39;&lt;/p&gt;</info>
+        <picklistValueName>In Progress</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;This case is new and has not yet been assigned to anyone.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</info>
+        <picklistValueName>New</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Case_Reopen_Reason__c</fieldNames>
+        <info>&lt;p&gt;The case has been reopened by the customer.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;On the left, indicate the reason for reopening the case and either handle the case or create a new underlying case if the customer starts a different topic.&lt;/p&gt;</info>
+        <picklistValueName>Reopened</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;This status is automatically chosen by Salesforce when the customer has sent a response as a reply.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;View the customer&amp;#39;s response and follow up. Once you have followed up, the status will automatically change to &amp;#39;⏳ Waiting on Customer&amp;#39;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Do you think the case was handled immediately? Then set the status to &amp;#39;✅ Closed&amp;#39; and press &amp;#39;Mark status as completed&amp;#39;&lt;/p&gt;</info>
+        <picklistValueName>Response Received</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;This status is automatically selected by Salesforce when you have sent an email to the customer.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Is the case handled immediately in your opinion? Then set the status to &amp;#39;✅ Closed&amp;#39; and press &amp;#39;Mark status as completed&amp;#39;.&lt;/p&gt;</info>
+        <picklistValueName>Waiting on Customer</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>Question</recordTypeName>
+</PathAssistant>

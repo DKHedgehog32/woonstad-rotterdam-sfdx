@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OmniDataTransform xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <assignmentRulesUsed>false</assignmentRulesUsed>
+    <deletedOnSuccess>false</deletedOnSuccess>
+    <errorIgnored>false</errorIgnored>
+    <expectedInputJson>{
+  &quot;timeStamp&quot; : &quot;2022-05-06T09:35:59.069Z&quot;,
+  &quot;userProfile&quot; : &quot;System Administrator&quot;,
+  &quot;userTimeZoneName&quot; : &quot;America/Los_Angeles&quot;,
+  &quot;userTimeZone&quot; : &quot;-420&quot;,
+  &quot;userCurrencyCode&quot; : &quot;USD&quot;,
+  &quot;userName&quot; : &quot;admin238rfpss@sf.com&quot;,
+  &quot;userId&quot; : &quot;005RQ000000HfNuYAK&quot;,
+  &quot;publicComplaintId&quot; : &quot;&quot;,
+  &quot;addParticipants&quot; : {
+    &quot;lastName&quot; : &quot;Shakya&quot;,
+    &quot;selectAndBuildComplaintParticipants&quot; : {
+      &quot;selectedData&quot; : {
+        &quot;selectedData&quot; : [ {
+          &quot;id&quot; : &quot;001RQ000001nFPuYAM&quot;,
+          &quot;role&quot; : &quot;Victim&quot;,
+          &quot;status&quot; : &quot;Active&quot;
+        } ]
+      }
+    }
+  }
+}</expectedInputJson>
+    <fieldLevelSecurityEnabled>false</fieldLevelSecurityEnabled>
+    <inputType>JSON</inputType>
+    <isManagedUsingStdDesigner>false</isManagedUsingStdDesigner>
+    <name>AddComplaintParticipants</name>
+    <nullInputsIncludedInOutput>false</nullInputsIncludedInOutput>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>AddComplaintParticipantsCustom7483</globalKey>
+        <inputFieldName>addParticipants:selectAndBuildComplaintParticipants:selectedData:selectedData:role</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>AddComplaintParticipants</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>Role</outputFieldName>
+        <outputObjectName>ComplaintParticipant</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>AddComplaintParticipantsCustom3476</globalKey>
+        <inputFieldName>publicComplaintId</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>AddComplaintParticipants</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>PublicComplaintId</outputFieldName>
+        <outputObjectName>ComplaintParticipant</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>true</disabled>
+        <filterGroup>0.0</filterGroup>
+        <filterOperator>=</filterOperator>
+        <globalKey>AddComplaintParticipantsCustom1361</globalKey>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <migrationValue>FAKEMAPPING</migrationValue>
+        <name>AddComplaintParticipants</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>Id</outputFieldName>
+        <outputObjectName>ComplaintParticipant</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>AddComplaintParticipantsCustom4557</globalKey>
+        <inputFieldName>addParticipants:selectAndBuildComplaintParticipants:selectedData:selectedData:status</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>AddComplaintParticipants</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>Status</outputFieldName>
+        <outputObjectName>ComplaintParticipant</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>AddComplaintParticipantsCustom6105</globalKey>
+        <inputFieldName>addParticipants:selectAndBuildComplaintParticipants:selectedData:selectedData:id</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>AddComplaintParticipants</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>ParticipantId</outputFieldName>
+        <outputObjectName>ComplaintParticipant</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <outputType>SObject</outputType>
+    <processSuperBulk>false</processSuperBulk>
+    <responseCacheTtlMinutes>0.0</responseCacheTtlMinutes>
+    <rollbackOnError>false</rollbackOnError>
+    <sourceObject>json</sourceObject>
+    <sourceObjectDefault>false</sourceObjectDefault>
+    <synchronousProcessThreshold>0.0</synchronousProcessThreshold>
+    <type>Load</type>
+    <uniqueName>AddComplaintParticipants_1</uniqueName>
+    <versionNumber>1.0</versionNumber>
+    <xmlDeclarationRemoved>false</xmlDeclarationRemoved>
+</OmniDataTransform>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Type</fullName>
+    <active>true</active>
+    <description>Validation Rule which enforces the user to select a Type before closing the case.</description>
+    <errorConditionFormula>AND(
+
+/* This validation rule excludes the integration users */ 
+$User.Is_Integration_User__c = FALSE, 
+
+/* Only triggers if the status is changed */ 
+ISCHANGED(Status),
+
+/* Trigger if status become one of the following statusses */
+OR(
+ISPICKVAL(Status,&apos;Closed&apos;),
+ISPICKVAL(Status,&apos;Closed-Accepted&apos;),
+ISPICKVAL(Status,&apos;Closed-Rejected&apos;)
+), 
+
+/* Type field is mandatory before selecting the status */ 
+
+ISPICKVAL(Type,&apos;&apos;)
+)</errorConditionFormula>
+    <errorDisplayField>Type</errorDisplayField>
+    <errorMessage>Field is empty. Please fill the field &apos;Type&apos; before closing the Case.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,12 @@
+{
+  "h1": "color:#00215B; font-family:'Arboria-Bold', 'Arboria', sans-serif; font-weight:700; font-size:32px; line-height:40px;",
+  "h2": "color:#00215B; font-family:'Arboria-Bold', 'Arboria', sans-serif; font-weight:700; font-size:24px; line-height:28px;",
+  "h3": "color:#00215B; font-family:'Arboria-Bold', 'Arboria', sans-serif; font-weight:700; font-size:20px; line-height:24px;",
+  "h4": "color:#00215B; font-family:'Arboria-Bold', 'Arboria', sans-serif; font-weight:700; font-size:20px; line-height:24px;",
+  "summary": "color:#00215B; font-family:'Apercu Regular Pro', 'Apercu Pro', 'Arboria', sans-serif; font-weight:700; font-size:18px; line-height:27px;",    
+  "p":  "color:#00215B; font-family:'Apercu Regular Pro', 'Apercu Pro', 'Arboria', sans-serif; font-weight:400; font-size:18px; line-height:27px; margin: 0px 0px 10px;",    
+  "a":  "color:#0061cd;",    
+  "td": "color:#00215B; font-family:'Apercu Regular Pro', 'Apercu Pro', 'Arboria', sans-serif; font-weight:400; font-size:18px; line-height:27px;",
+  "ul": "color:#00215B; font-family:'Apercu Regular Pro', 'Apercu Pro', 'Arboria', sans-serif; font-weight:400; font-size:18px; line-height:27px;",
+  "li": "color:#00215B; font-family:'Apercu Regular Pro', 'Apercu Pro', 'Arboria', sans-serif; font-weight:400; font-size:18px; line-height:27px;"
+}

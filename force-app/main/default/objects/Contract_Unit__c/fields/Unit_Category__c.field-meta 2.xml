@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unit_Category__c</fullName>
+    <businessStatus>Active</businessStatus>
+    <description>To register the Unit Category of the Contract Unit: https://www.coraveraonline.nl/index.php/Referentiedata:EENHEIDSOORT</description>
+    <inlineHelpText>To register the Unit Category of the Contract Unit</inlineHelpText>
+    <label>Unit Category</label>
+    <required>false</required>
+    <securityClassification>Internal</securityClassification>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>BED</fullName>
+                <default>false</default>
+                <label>Business Area</label>
+            </value>
+            <value>
+                <fullName>INT</fullName>
+                <default>false</default>
+                <label>Intramural Care Property</label>
+            </value>
+            <value>
+                <fullName>MOG</fullName>
+                <default>false</default>
+                <label>Social Property</label>
+            </value>
+            <value>
+                <fullName>OVE</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>PAR</fullName>
+                <default>false</default>
+                <label>Parking</label>
+            </value>
+            <value>
+                <fullName>REC</fullName>
+                <default>false</default>
+                <label>Recreational</label>
+            </value>
+            <value>
+                <fullName>WOO</fullName>
+                <default>false</default>
+                <label>Residential</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
