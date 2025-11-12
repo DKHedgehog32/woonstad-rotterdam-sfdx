@@ -3,7 +3,7 @@
     <fullName>Searchable_Birthdate__c</fullName>
     <businessStatus>Active</businessStatus>
     <complianceGroup>GDPR</complianceGroup>
-    <description>The standard Birthdate field is not searchable. We copy the value of the Birthdate in this field, so that the user can search person accounts based on birthdate.</description>
+    <description>The standard birthdate field is not searchable in global search. We copy the value of the Birthdate in this field, so that the user can search person accounts based on birthdate.</description>
     <externalId>false</externalId>
     <label>Birthdate</label>
     <length>255</length>
