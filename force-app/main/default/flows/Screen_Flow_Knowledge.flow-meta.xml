@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>63.0</apiVersion>
-    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
-        <description>Assign the User resource</description>
-        <name>Assign_User_Resource</name>
-        <label>Assign User Resource</label>
+        <description>Assign the approver and decision to use in the process</description>
+        <name>Assign_User_And_Decision</name>
+        <label>User and Decision</label>
         <locationX>176</locationX>
         <locationY>350</locationY>
         <assignmentItems>
@@ -13,6 +12,20 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>$User.Username</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>approvalDecision</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>FOR_Approval_Decision</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>approvalComments</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>ApprovalDecisionComments</elementReference>
             </value>
         </assignmentItems>
     </assignments>
@@ -34,14 +47,18 @@
             <stringValue>Reject</stringValue>
         </value>
     </choices>
-    <customProperties>
-        <name>ScreenProgressIndicator</name>
-        <value>
-            <stringValue>{&quot;location&quot;:&quot;top&quot;,&quot;type&quot;:&quot;simple&quot;}</stringValue>
-        </value>
-    </customProperties>
     <description>Evaluate advanced approval requests to approve or deny them while optionally leaving comments.</description>
     <environments>Default</environments>
+    <formulas>
+        <name>FOR_Approval_Decision</name>
+        <dataType>String</dataType>
+        <expression>CASE(
+{!ApprovalButtons.selectedChoice},
+&quot;Goedkeuring&quot;, &quot;Approve&quot;,
+&quot;Afwijzing&quot;, &quot;Reject&quot;,
+&quot;UNDEFINED&quot;
+)</expression>
+    </formulas>
     <interviewLabel>Screen Flow - Knowledge {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Screen Flow - Evaluate Knowledge Approval</label>
     <processMetadataValues>
@@ -65,17 +82,14 @@
     <processType>Flow</processType>
     <recordLookups>
         <description>Get the associated Knowledge article</description>
-        <name>Get_KnowledgeArticle</name>
-        <label>Knowledge Article</label>
+        <name>Get_Knowledge_Article</name>
+        <label>Get Knowledge Article</label>
         <locationX>176</locationX>
         <locationY>134</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>ScreenEvaluateApproval</targetReference>
         </connector>
-        <faultConnector>
-            <targetReference>RollBackRecords</targetReference>
-        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -88,16 +102,6 @@
         <object>Knowledge__kav</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
-    <recordRollbacks>
-        <description>If the Flow Errors we don&apos;t want to stop half way in the process. The whole process should roll back and run again.</description>
-        <name>RollBackRecords</name>
-        <label>Roll Back Records</label>
-        <locationX>440</locationX>
-        <locationY>242</locationY>
-        <connector>
-            <targetReference>Subflow_PublishFlowFaultEvent</targetReference>
-        </connector>
-    </recordRollbacks>
     <runInMode>SystemModeWithoutSharing</runInMode>
     <screens>
         <description>Allows the flow user to approve or reject an approval request, and add comments to the decision.</description>
@@ -105,44 +109,22 @@
         <label>Evaluate Approval Request</label>
         <locationX>176</locationX>
         <locationY>242</locationY>
-        <allowBack>false</allowBack>
+        <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
-        <allowPause>false</allowPause>
+        <allowPause>true</allowPause>
         <connector>
-            <targetReference>Assign_User_Resource</targetReference>
+            <targetReference>Assign_User_And_Decision</targetReference>
         </connector>
         <fields>
-            <name>Header</name>
-            <fieldText>&lt;p&gt;&lt;strong style=&quot;font-size: 20px;&quot;&gt;Kennisartikel Ter Goedkeuring&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px; background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;{!$User.FirstName}, je bent aan zet om deze versie van &lt;/span&gt;&lt;strong style=&quot;font-size: 14px; background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;{!Get_KnowledgeArticle.Title} &lt;/strong&gt;&lt;span style=&quot;font-size: 14px; background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;te beoordelen. Indien nodig kun je een toelichting toevoegen.&lt;/span&gt;&lt;/p&gt;</fieldText>
-            <fieldType>DisplayText</fieldType>
-            <styleProperties>
-                <verticalAlignment>
-                    <stringValue>top</stringValue>
-                </verticalAlignment>
-                <width>
-                    <stringValue>12</stringValue>
-                </width>
-            </styleProperties>
-        </fields>
-        <fields>
-            <name>Question_Section</name>
-            <fieldText>Question</fieldText>
+            <name>ScreenEvaluateApproval_Section1</name>
             <fieldType>RegionContainer</fieldType>
             <fields>
-                <name>Question_Section_Column1</name>
+                <name>ScreenEvaluateApproval_Section1_Column1</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <name>Question</name>
-                    <fieldText>&lt;p&gt;{!Get_KnowledgeArticle.Question__c}&lt;/p&gt;</fieldText>
+                    <name>ApprovalComment</name>
+                    <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 33, 91); font-size: 20px;&quot;&gt;Toelichting van kennisteammedewerker&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 33, 91); font-size: 14px;&quot;&gt;{!Get_Knowledge_Article.Approval_Comment__c}&lt;/span&gt;&lt;/p&gt;</fieldText>
                     <fieldType>DisplayText</fieldType>
-                    <styleProperties>
-                        <verticalAlignment>
-                            <stringValue>top</stringValue>
-                        </verticalAlignment>
-                        <width>
-                            <stringValue>12</stringValue>
-                        </width>
-                    </styleProperties>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -153,242 +135,154 @@
                 <isRequired>false</isRequired>
             </fields>
             <isRequired>false</isRequired>
-            <regionContainerType>SectionWithHeader</regionContainerType>
-            <styleProperties>
-                <verticalAlignment>
-                    <stringValue>top</stringValue>
-                </verticalAlignment>
-                <width>
-                    <stringValue>12</stringValue>
-                </width>
-            </styleProperties>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
         </fields>
         <fields>
-            <name>Answer_Section</name>
-            <fieldText>Answer</fieldText>
+            <name>ScreenEvaluateApproval_Section2</name>
             <fieldType>RegionContainer</fieldType>
             <fields>
-                <name>Answer_Section_Column1</name>
+                <name>ScreenEvaluateApproval_Section2_Column1</name>
                 <fieldType>Region</fieldType>
                 <fields>
-                    <name>Answer</name>
-                    <fieldText>&lt;p&gt;{!Get_KnowledgeArticle.Answer__c}&lt;/p&gt;</fieldText>
-                    <fieldType>DisplayText</fieldType>
-                    <styleProperties>
-                        <verticalAlignment>
-                            <stringValue>top</stringValue>
-                        </verticalAlignment>
-                        <width>
-                            <stringValue>12</stringValue>
-                        </width>
-                    </styleProperties>
-                </fields>
-                <inputParameters>
-                    <name>width</name>
-                    <value>
-                        <stringValue>12</stringValue>
-                    </value>
-                </inputParameters>
-                <isRequired>false</isRequired>
-            </fields>
-            <isRequired>false</isRequired>
-            <regionContainerType>SectionWithHeader</regionContainerType>
-            <styleProperties>
-                <verticalAlignment>
-                    <stringValue>top</stringValue>
-                </verticalAlignment>
-                <width>
-                    <stringValue>12</stringValue>
-                </width>
-            </styleProperties>
-        </fields>
-        <fields>
-            <name>Work_Instruction_Section</name>
-            <fieldText>Work Instruction</fieldText>
-            <fieldType>RegionContainer</fieldType>
-            <fields>
-                <name>Work_Instruction_Section_Column1</name>
-                <fieldType>Region</fieldType>
-                <fields>
-                    <name>Work_Instruction</name>
-                    <fieldText>&lt;p&gt;{!Get_KnowledgeArticle.Work_Instruction__c}&lt;/p&gt;</fieldText>
-                    <fieldType>DisplayText</fieldType>
-                    <styleProperties>
-                        <verticalAlignment>
-                            <stringValue>top</stringValue>
-                        </verticalAlignment>
-                        <width>
-                            <stringValue>12</stringValue>
-                        </width>
-                    </styleProperties>
-                </fields>
-                <inputParameters>
-                    <name>width</name>
-                    <value>
-                        <stringValue>12</stringValue>
-                    </value>
-                </inputParameters>
-                <isRequired>false</isRequired>
-            </fields>
-            <isRequired>false</isRequired>
-            <regionContainerType>SectionWithHeader</regionContainerType>
-            <styleProperties>
-                <verticalAlignment>
-                    <stringValue>top</stringValue>
-                </verticalAlignment>
-                <width>
-                    <stringValue>12</stringValue>
-                </width>
-            </styleProperties>
-            <visibilityRule>
-                <conditionLogic>and</conditionLogic>
-                <conditions>
-                    <leftValueReference>Get_KnowledgeArticle.Contains_Work_Instruction__c</leftValueReference>
-                    <operator>EqualTo</operator>
-                    <rightValue>
-                        <booleanValue>true</booleanValue>
-                    </rightValue>
-                </conditions>
-            </visibilityRule>
-        </fields>
-        <fields>
-            <name>Approval</name>
-            <fieldText>Approval</fieldText>
-            <fieldType>RegionContainer</fieldType>
-            <fields>
-                <name>Approval_Column1</name>
-                <fieldType>Region</fieldType>
-                <fields>
-                    <name>ApprovalDecisionRadioButtons</name>
-                    <choiceReferences>ApproveChoice</choiceReferences>
-                    <choiceReferences>RejectChoice</choiceReferences>
-                    <dataType>String</dataType>
-                    <fieldText>Beoordeling</fieldText>
-                    <fieldType>RadioButtons</fieldType>
-                    <helpText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;Displays radio buttons to approve or reject a request. You can also add comments for your decision.&amp;nbsp;&lt;/span&gt;&lt;/p&gt;</helpText>
+                    <name>ApprovalButtons</name>
+                    <extensionName>c:woonstadFlowChoiceButtons</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>availableChoices</name>
+                        <value>
+                            <stringValue>Goedkeuring, Afwijzing</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>align</name>
+                        <value>
+                            <stringValue>left</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>autoNext</name>
+                        <value>
+                            <booleanValue>false</booleanValue>
+                        </value>
+                    </inputParameters>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
-                    <styleProperties>
-                        <verticalAlignment>
-                            <stringValue>top</stringValue>
-                        </verticalAlignment>
-                        <width>
-                            <stringValue>12</stringValue>
-                        </width>
-                    </styleProperties>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>12</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
+        </fields>
+        <fields>
+            <name>ScreenEvaluateApproval_Section3</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>ScreenEvaluateApproval_Section3_Column1</name>
+                <fieldType>Region</fieldType>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>12</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
+        </fields>
+        <fields>
+            <name>ScreenEvaluateApproval_Section4</name>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>ScreenEvaluateApproval_Section4_Column1</name>
+                <fieldType>Region</fieldType>
                 <fields>
                     <name>ApprovalDecisionComments</name>
-                    <fieldText>Decision Comments</fieldText>
+                    <fieldText>&lt;div style=&quot;color:#00215b;font-size:14px;&quot;&gt;Toelichting&lt;/div&gt;</fieldText>
                     <fieldType>LargeTextArea</fieldType>
-                    <helpText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 13.3333px; font-family: Arial; color: rgb(0, 0, 0);&quot;&gt;Optionally enter comments on the approval request&lt;/span&gt;&lt;/p&gt;</helpText>
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
-                    <isRequired>false</isRequired>
-                    <styleProperties>
-                        <verticalAlignment>
-                            <stringValue>top</stringValue>
-                        </verticalAlignment>
-                        <width>
-                            <stringValue>12</stringValue>
-                        </width>
-                    </styleProperties>
+                    <isRequired>true</isRequired>
                     <validationRule>
                         <errorMessage>&lt;p&gt;&lt;span style=&quot;color: rgb(205, 16, 16);&quot;&gt;De ingevoerde tekst is te lang.&lt;/span&gt;&lt;/p&gt;</errorMessage>
                         <formulaExpression>LEN({!ApprovalDecisionComments}) &lt;= 32000</formulaExpression>
                     </validationRule>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>ApprovalButtons.selectedChoice</leftValueReference>
+                            <operator>EqualTo</operator>
+                            <rightValue>
+                                <stringValue>Afwijzing</stringValue>
+                            </rightValue>
+                        </conditions>
+                    </visibilityRule>
+                </fields>
+                <fields>
+                    <name>FlowButtons</name>
+                    <extensionName>c:woonstadFlowNavigationButtons</extensionName>
+                    <fieldType>ComponentInstance</fieldType>
+                    <inputParameters>
+                        <name>showNext</name>
+                        <value>
+                            <booleanValue>true</booleanValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>alignment</name>
+                        <value>
+                            <stringValue>right</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputParameters>
+                        <name>nextLabel</name>
+                        <value>
+                            <stringValue>Bevestigen</stringValue>
+                        </value>
+                    </inputParameters>
+                    <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+                    <isRequired>true</isRequired>
+                    <storeOutputAutomatically>true</storeOutputAutomatically>
                 </fields>
                 <inputParameters>
                     <name>width</name>
                     <value>
-                        <stringValue>12</stringValue>
+                        <stringValue>10</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>ScreenEvaluateApproval_Section4_Column2</name>
+                <fieldType>Region</fieldType>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>2</stringValue>
                     </value>
                 </inputParameters>
                 <isRequired>false</isRequired>
             </fields>
             <isRequired>false</isRequired>
-            <regionContainerType>SectionWithHeader</regionContainerType>
-            <styleProperties>
-                <verticalAlignment>
-                    <stringValue>top</stringValue>
-                </verticalAlignment>
-                <width>
-                    <stringValue>12</stringValue>
-                </width>
-            </styleProperties>
+            <regionContainerType>SectionWithoutHeader</regionContainerType>
         </fields>
-        <nextOrFinishButtonLabel>Submit</nextOrFinishButtonLabel>
-        <showFooter>true</showFooter>
+        <showFooter>false</showFooter>
         <showHeader>false</showHeader>
     </screens>
     <start>
         <locationX>50</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Get_KnowledgeArticle</targetReference>
+            <targetReference>Get_Knowledge_Article</targetReference>
         </connector>
     </start>
     <status>Active</status>
-    <subflows>
-        <description>Show the generic Screen Flow Error Screen.</description>
-        <name>Subflow_ErrorScreen</name>
-        <label>Error Screen</label>
-        <locationX>440</locationX>
-        <locationY>458</locationY>
-        <flowName>Screen_Flow_Error_Screen</flowName>
-        <inputAssignments>
-            <name>var_FaultMessage</name>
-            <value>
-                <elementReference>$Flow.FaultMessage</elementReference>
-            </value>
-        </inputAssignments>
-    </subflows>
-    <subflows>
-        <description>Publish the Flow Fault Platform Event.</description>
-        <name>Subflow_PublishFlowFaultEvent</name>
-        <label>Publish Flow Fault Event</label>
-        <locationX>440</locationX>
-        <locationY>350</locationY>
-        <connector>
-            <targetReference>Subflow_ErrorScreen</targetReference>
-        </connector>
-        <flowName>AL_Publish_Flow_Fault_event</flowName>
-        <inputAssignments>
-            <name>faultMessage</name>
-            <value>
-                <elementReference>$Flow.FaultMessage</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>flowContext</name>
-            <value>
-                <stringValue>Screen_Flow_Knowledge</stringValue>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>flowElement</name>
-            <value>
-                <stringValue>Get_KnowledgeArticle</stringValue>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>flowGuid</name>
-            <value>
-                <elementReference>$Flow.InterviewGuid</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>triggeringRecord</name>
-            <value>
-                <elementReference>recordId</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>userId</name>
-            <value>
-                <elementReference>$User.Id</elementReference>
-            </value>
-        </inputAssignments>
-    </subflows>
     <variables>
         <name>approvalComments</name>
         <dataType>String</dataType>
@@ -405,9 +299,6 @@
         <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>true</isOutput>
-        <value>
-            <elementReference>ApprovalDecisionRadioButtons</elementReference>
-        </value>
     </variables>
     <variables>
         <description>NOTE: Due to a bug in the Approval Orchestration this variable must be named approvalComments to be able to deliver output to the rest of the Orchestration</description>
