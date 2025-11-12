@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Woonstad Flow Choice Buttons</masterLabel>
+    <description>
+        Selectable cards for Flow. Configure which cards appear with a comma-separated input.
+        Output returns the selected label for downstream Flow logic.
+    </description>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <!-- INPUT: Which cards to show (comma-separated labels) -->
+            <property name="availableChoices"
+                      type="String"
+                      label="Available Choices (comma-separated labels)"
+                      description="Example: Goedkeuring, Afwijzing, Naamplaatje aanvragen"
+                      role="inputOnly"/>
+
+            <!-- INPUT: Go to next screen after selection or not -->
+            <property name="autoNext"
+              type="Boolean"
+              label="Navigate Next on card selection"
+              description="If true (default), clicking a card navigates Next. If false, stay on this screen."
+              default="true"
+              role="inputOnly"/>
+
+            <!-- OUTPUT: Selected label -->
+            <property name="selectedChoice"
+                      type="String"
+                      label="Selected Choice (label)"
+                      description="The exact label the user clicked"
+                      role="outputOnly"/>
+
+            <!-- Layout control -->
+            <property name="align"
+                      type="String"
+                      label="Card alignment"
+                      description="left or center"
+                      default="center"
+                      role="inputOnly"/>
+
+            <!-- Deprecated outputs kept for backward compatibility -->
+            <property name="var_aanvraag"
+                      type="String"
+                      label="[Deprecated] Naamplaatje"
+                      role="outputOnly"/>
+            <property name="var_vraag"
+                      type="String"
+                      label="[Deprecated] Informatie Vraag"
+                      role="outputOnly"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
