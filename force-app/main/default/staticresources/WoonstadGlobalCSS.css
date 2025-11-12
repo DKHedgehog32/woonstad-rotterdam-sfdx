@@ -235,6 +235,17 @@
     margin-top: 2rem;
 }
 
+.woonstad .button-container.align-center,
+.button-container.align-center {
+    justify-content: center;   
+}
+
+.woonstad .button-container.align-left,
+.button-container.align-left {
+    justify-content: flex-start;
+    text-align: left;
+}
+
 .woonstad .choice-card {
     flex: 1 1 250px;
     max-width: 300px;
@@ -283,6 +294,12 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+
+.woonstad .choice-card.selected,
+.choice-card.selected {
+    border: 1px solid var(--ws-blue-600, #003c80);
+    box-shadow: 4px 4px 0 var(--ws-blue-600, #003c80);
 }
 
 /* ----------- Tooltip ----------- */
@@ -424,6 +441,7 @@
     margin-right: 0.15rem; /* minimal space */
 }
 
+
 /*==============================================
     Grid Layout Adjustments
 ==============================================*/
@@ -523,3 +541,4 @@
     box-shadow: none;
     transform: none;
 }
+
