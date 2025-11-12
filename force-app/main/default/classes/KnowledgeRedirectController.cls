@@ -81,7 +81,7 @@ public with sharing class KnowledgeRedirectController {
 
         } catch (Exception e) {
             // Unexpected fault → publish & report cleanly
-            //try { ApexFaultHandler.publish('KnowledgeRedirectController.resolve', e); } catch (Exception ignore) {}
+            try { ApexFaultHandler.publishError(e, 'KnowledgeRedirectController', 'resolve', kavId); } catch (Exception ignore) {}
             res.ok = false;
             res.errorMessage = 'Unexpected error while resolving Online version.';
             return res;
