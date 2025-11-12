@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Account_Type__c</fullName>
     <businessStatus>Active</businessStatus>
-    <description>The type of Account is determined by the Contract Contact Role that the Account has.</description>
+    <description>The Account Type t is determined by the Contract Contact Role that the Account has.</description>
     <inlineHelpText>What type of Account is it, a tenant, former tenant, owner or Account without contract?</inlineHelpText>
     <label>Account Type</label>
     <required>false</required>
