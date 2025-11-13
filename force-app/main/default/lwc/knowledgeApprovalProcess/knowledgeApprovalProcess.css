@@ -1,0 +1,117 @@
+:host {
+    --color-text-dark:     var(--ws-text-dark, #002244);
+    --color-blue-600:      var(--ws-blue-600, #003c80);
+    --color-accent:        #85E3F9;
+    --color-banner-bg:     #FEF2F2;
+    --color-banner-tx:     #B91C1C;
+}
+
+.grid-root {
+    width: 100%;
+}
+
+.woonstad-form-container {
+    padding: 0;
+}
+
+.woonstad-form {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-title {
+    font-family: 'Arboria', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-blue-600);
+    margin-bottom: 1.25rem;
+}
+
+.form-input {
+    margin-bottom: 1.25rem;
+}
+
+.form-input lightning-textarea[data-required="true"]::part(label)::after {
+    content: " *";
+    color: #e32;
+}
+
+.info-banner {
+    border: 1px solid var(--color-banner-tx);
+    background-color: var(--color-banner-bg);
+    color: var(--color-banner-tx);
+    font-weight: 700;
+    font-size: .85rem;
+    line-height: 1.2;
+    padding: .4rem .75rem;
+    border-radius: .25rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.validation-message-box {
+    border: 1px solid var(--color-banner-tx);
+    background-color: var(--color-banner-bg);
+    color: #DC2626;
+    padding: .4rem .75rem;
+    border-radius: .25rem;
+    margin-bottom: .9rem;
+    font-weight: 600;
+    font-size: .85rem;
+    text-align: center;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.right-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.woonstad-svg-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 42px;
+    background-color: var(--color-accent);
+    border: none;
+    border-radius: 40px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #00215B;
+    padding-left: 16px;
+    padding-right: 48px;
+    position: relative;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.woonstad-svg-button:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+.icon-wrapper {
+    width: 32px;
+    height: 32px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 33, 91, .25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.arrow-icon {
+    width: 18px;
+    height: 18px;
+    fill: #00215B;
+}

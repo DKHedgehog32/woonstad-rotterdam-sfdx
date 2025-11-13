@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>63.0</apiVersion>
-    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <assignments>
         <description>Assign the QueueApprover to the Approver variable</description>
         <name>Assign_QueueApprover</name>
@@ -12,7 +11,7 @@
             <assignToReference>Approver</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_User.Username</elementReference>
+                <elementReference>Get_Review_User_Record.Username</elementReference>
             </value>
         </assignmentItems>
     </assignments>
@@ -30,46 +29,11 @@
             </value>
         </assignmentItems>
     </assignments>
-    <assignments>
-        <description>Fill the VarT_FlowElement with &apos;Get_ApprovalWorkItem&apos; if the Element fails.</description>
-        <name>Assign_VarT_FlowElementGet_ApprovalWorkItem</name>
-        <label>VarT_FlowElement - Get_ApprovalWorkItem</label>
-        <locationX>842</locationX>
-        <locationY>350</locationY>
-        <assignmentItems>
-            <assignToReference>VarT_FlowElement</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <stringValue>Get_ApprovalWorkItem</stringValue>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Subflow_PublishFlowFaultEvent</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <description>Assign_VarT_FlowElementGet_User</description>
-        <name>Assign_VarT_FlowElementGet_User</name>
-        <label>VarT_FlowElement - Get_User</label>
-        <locationX>578</locationX>
-        <locationY>458</locationY>
-        <assignmentItems>
-            <assignToReference>VarT_FlowElement</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <stringValue>Get_User</stringValue>
-            </value>
-        </assignmentItems>
-        <connector>
-            <isGoTo>true</isGoTo>
-            <targetReference>Subflow_PublishFlowFaultEvent</targetReference>
-        </connector>
-    </assignments>
     <decisions>
         <description>Determine which value is not empty</description>
         <name>Determine_Approver_Value</name>
         <label>Determine Approver Value</label>
-        <locationX>578</locationX>
+        <locationX>314</locationX>
         <locationY>134</locationY>
         <defaultConnectorLabel>Other</defaultConnectorLabel>
         <rules>
@@ -98,7 +62,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Get_ApprovalWorkItem</targetReference>
+                <targetReference>Get_Approval_Work_Item_for_Reviewer</targetReference>
             </connector>
             <label>Approver Was Queue</label>
         </rules>
@@ -128,20 +92,17 @@
     <processType>AutoLaunchedFlow</processType>
     <recordLookups>
         <description>Retrieve the Approval Work Item of the Knowledge article to determine the Reviewer</description>
-        <name>Get_ApprovalWorkItem</name>
-        <label>Approval Work Item</label>
+        <name>Get_Approval_Work_Item_for_Reviewer</name>
+        <label>Get Approval Work Item for Reviewer</label>
         <locationX>314</locationX>
         <locationY>242</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Get_User</targetReference>
+            <targetReference>Get_Review_User_Record</targetReference>
         </connector>
-        <faultConnector>
-            <targetReference>Assign_VarT_FlowElementGet_ApprovalWorkItem</targetReference>
-        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
-            <field>RelatedRecordId</field>
+            <field>RelatedRecordId__NotFound</field>
             <operator>EqualTo</operator>
             <value>
                 <elementReference>recordId</elementReference>
@@ -150,24 +111,21 @@
         <object>ApprovalWorkItem</object>
         <outputAssignments>
             <assignToReference>varT_ReviewedById</assignToReference>
-            <field>ReviewedById</field>
+            <field>ReviewedById__NotFound</field>
         </outputAssignments>
         <sortField>CreatedDate</sortField>
         <sortOrder>Desc</sortOrder>
     </recordLookups>
     <recordLookups>
         <description>Get the reviewer&apos;s User record to determine the Username</description>
-        <name>Get_User</name>
-        <label>User</label>
+        <name>Get_Review_User_Record</name>
+        <label>Get Review User Record</label>
         <locationX>314</locationX>
         <locationY>350</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Assign_QueueApprover</targetReference>
         </connector>
-        <faultConnector>
-            <targetReference>Assign_VarT_FlowElementGet_User</targetReference>
-        </faultConnector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
@@ -182,57 +140,13 @@
     </recordLookups>
     <runInMode>DefaultMode</runInMode>
     <start>
-        <locationX>452</locationX>
+        <locationX>188</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Determine_Approver_Value</targetReference>
         </connector>
     </start>
     <status>Active</status>
-    <subflows>
-        <description>Publish the Flow Fault Platform Event.</description>
-        <name>Subflow_PublishFlowFaultEvent</name>
-        <label>Publish Flow Fault Event</label>
-        <locationX>842</locationX>
-        <locationY>458</locationY>
-        <flowName>AL_Publish_Flow_Fault_event</flowName>
-        <inputAssignments>
-            <name>faultMessage</name>
-            <value>
-                <elementReference>$Flow.FaultMessage</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>flowContext</name>
-            <value>
-                <stringValue>AL_Knowledge_Determine_Approver_Value</stringValue>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>flowElement</name>
-            <value>
-                <elementReference>VarT_FlowElement</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>flowGuid</name>
-            <value>
-                <elementReference>$Flow.InterviewGuid</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>triggeringRecord</name>
-            <value>
-                <elementReference>recordId</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <name>userId</name>
-            <value>
-                <elementReference>$User.Id</elementReference>
-            </value>
-        </inputAssignments>
-    </subflows>
     <variables>
         <name>Approver</name>
         <dataType>String</dataType>
@@ -259,14 +173,6 @@
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
-        <description>This variable is used to store the Flow Element name if a flow errors.</description>
-        <name>VarT_FlowElement</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
         <isOutput>false</isOutput>
     </variables>
     <variables>
