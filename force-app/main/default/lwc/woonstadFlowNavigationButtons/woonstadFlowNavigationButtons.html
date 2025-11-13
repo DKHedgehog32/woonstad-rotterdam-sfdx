@@ -1,6 +1,6 @@
 <template>
       <div class={containerClass}>
-        <!-- ⬅️ Annuleren -->
+
         <template if:true={showCancel}>
             <button class="woonstad-cancel-button" onclick={handleCancel}>
                 Annuleren
@@ -8,7 +8,6 @@
         </template>
 
         <div class="right-buttons">
-            <!-- 🔙 Vorige -->
             <template if:true={showBack}>
                 <button class="woonstad-back-button" onclick={handleBack}>
                     <svg class="back-arrow" viewBox="0 0 24 24">
@@ -20,7 +19,6 @@
                 </button>
             </template>
 
-            <!-- ➡️ Volgende -->
             <template if:true={showNext}>
                 <button class="woonstad-svg-button" onclick={handleNext}>
                     <span class="label">{nextLabel}</span>
@@ -34,7 +32,6 @@
                 </button>
             </template>
 
-            <!-- ✅ Opslaan -->
             <template if:true={showBevestigen}>
                 <button class="woonstad-svg-button" onclick={handleBevestigen}>
                     <span class="label">Bevestigen</span>
