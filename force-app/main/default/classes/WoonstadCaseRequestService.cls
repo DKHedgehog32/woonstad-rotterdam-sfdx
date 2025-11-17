@@ -18,8 +18,10 @@
  * 2025-08-25 | DvM | Picklist validation incl. Supplier_Name_Plate__c; Origin made picklist-safe.
  * 2025-08-25 | DvM | CRUD via require*; FLS via Security.stripInaccessible.
  *************************************************************************************************/
-public with sharing class WoonstadCaseRequestService {
 
+
+public with sharing class WoonstadCaseRequestService {
+/**
     // ------------ DTOs ------------
     public class Input {
         public Account account;
@@ -158,4 +160,5 @@ public with sharing class WoonstadCaseRequestService {
         System.debug(LoggingLevel.WARN, 'Picklist value not found for ' + debugName + ' -> "' + desired + '". Setting NULL to avoid DML failure.');
         return null;
     }
+    **/
 }
