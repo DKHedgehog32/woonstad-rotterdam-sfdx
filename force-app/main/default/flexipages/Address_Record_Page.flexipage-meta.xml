@@ -2,69 +2,32 @@
 <FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
     <flexiPageRegions>
         <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Name</fieldItem>
-                <identifier>RecordNameField2</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <name>Facet-0d50625d-c275-45f8-bd6a-375b7d1dc7df</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Country__c</fieldItem>
-                <identifier>RecordCountry_cField2</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.City__c</fieldItem>
-                <identifier>RecordCity_cField2</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Unique_Key__c</fieldItem>
-                <identifier>RecordUnique_Key_cField2</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <name>Facet-c7e4579f-4836-4104-89ed-8600de12c1dd</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
             <componentInstance>
+                <componentInstanceProperties>
+                    <name>actionNames</name>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>collapsed</name>
+                    <value>false</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>enableActionsConfiguration</name>
+                    <value>true</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>enableActionsInNative</name>
+                    <value>true</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>hideChatterActions</name>
+                    <value>true</value>
+                </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>numVisibleActions</name>
                     <value>3</value>
                 </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>primaryField</name>
-                    <value>Facet-0d50625d-c275-45f8-bd6a-375b7d1dc7df</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>secondaryFields</name>
-                    <value>Facet-c7e4579f-4836-4104-89ed-8600de12c1dd</value>
-                </componentInstanceProperties>
-                <componentName>record_flexipage:dynamicHighlights</componentName>
-                <identifier>record_flexipage_dynamicHighlights</identifier>
+                <componentName>force:highlightsPanel</componentName>
+                <identifier>force_highlightsPanel</identifier>
             </componentInstance>
         </itemInstances>
         <mode>Replace</mode>
@@ -122,8 +85,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.House_Number_Addition__c</fieldItem>
-                <identifier>RecordHouse_Number_Addition_cField</identifier>
+                <fieldItem>Record.House_Letter__c</fieldItem>
+                <identifier>RecordHouse_Letter_cField</identifier>
                 <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Country__c}</leftValue>
@@ -139,8 +102,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.House_Letter__c</fieldItem>
-                <identifier>RecordHouse_Letter_cField</identifier>
+                <fieldItem>Record.House_Number_Addition__c</fieldItem>
+                <identifier>RecordHouse_Number_Addition_cField</identifier>
                 <visibilityRule>
                     <criteria>
                         <leftValue>{!Record.Country__c}</leftValue>
@@ -235,6 +198,23 @@
                 </visibilityRule>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Unique_Key__c</fieldItem>
+                <identifier>RecordUnique_Key_cField</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.Country__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>NL</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-c88dc1a8-e986-4d0b-bbc4-647112b27d31</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -319,23 +299,6 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Unique_Key__c</fieldItem>
-                <identifier>RecordUnique_Key_cField</identifier>
-                <visibilityRule>
-                    <criteria>
-                        <leftValue>{!Record.Country__c}</leftValue>
-                        <operator>EQUAL</operator>
-                        <rightValue>NL</rightValue>
-                    </criteria>
-                </visibilityRule>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
                     <value>readonly</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.CreatedById</fieldItem>
@@ -396,7 +359,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>label</name>
-                    <value>Adres Informatie</value>
+                    <value>@@@SFDCAddress_InformationSFDC@@@</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:fieldSection</componentName>
                 <identifier>flexipage_fieldSection</identifier>
@@ -414,7 +377,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>label</name>
-                    <value>Postbus/Antwoordnummer</value>
+                    <value>{!$Label.POBoxFreePost}</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:fieldSection</componentName>
                 <identifier>flexipage_fieldSection3</identifier>
@@ -432,7 +395,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>label</name>
-                    <value>Systeem Informatie</value>
+                    <value>@@@SFDCAppraisalSystemInformationSFDC@@@</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:fieldSection</componentName>
                 <identifier>flexipage_fieldSection2</identifier>
@@ -505,7 +468,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>relatedListLabel</name>
-                    <value>Account Adressen</value>
+                    <value>{!$Label.AccountAddresses}</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>showActionBar</name>
@@ -563,7 +526,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>relatedListLabel</name>
-                    <value>Contract Eenheden</value>
+                    <value>{!$Label.ContractUnits}</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>showActionBar</name>
@@ -579,32 +542,6 @@
                 </componentInstanceProperties>
                 <componentName>lst:dynamicRelatedList</componentName>
                 <identifier>lst_dynamicRelatedList4</identifier>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>parentFieldApiName</name>
-                    <value>Address__c.Id</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListApiName</name>
-                    <value>CombinedAttachments</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListComponentOverride</name>
-                    <value>NONE</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>rowsToDisplay</name>
-                    <value>10</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>showActionBar</name>
-                    <value>true</value>
-                </componentInstanceProperties>
-                <componentName>force:relatedListSingleContainer</componentName>
-                <identifier>force_relatedListSingleContainer</identifier>
             </componentInstance>
         </itemInstances>
         <mode>Replace</mode>
@@ -651,10 +588,6 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentInstanceProperties>
-                    <name>label</name>
-                    <value>Tabs</value>
-                </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>tabs</name>
                     <value>maintabs</value>
@@ -708,7 +641,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>relatedListLabel</name>
-                    <value>Hoofdpostadres van Accounts</value>
+                    <value>{!$Label.PrimaryBillingAddressForAccounts}</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>showActionBar</name>
@@ -766,7 +699,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>relatedListLabel</name>
-                    <value>Hoofdwoonadres van Accounts</value>
+                    <value>{!$Label.PrimaryShippingAddressForAccounts}</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>showActionBar</name>
