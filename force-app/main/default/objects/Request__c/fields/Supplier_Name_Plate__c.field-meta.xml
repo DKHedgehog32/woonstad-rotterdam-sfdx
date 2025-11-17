@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Supplier_Name_Plate__c</fullName>
+    <businessStatus>Active</businessStatus>
+    <description>This field is a temporary field for the name plate proces in phase 1 because we don&apos;t want supplier / creditor accounts in Salesforce in phase 1.</description>
+    <label>Supplier</label>
+    <required>false</required>
+    <securityClassification>Internal</securityClassification>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Kellers IJzerhandel B.V.</fullName>
+                <default>false</default>
+                <label>Keller&apos;s IJzerhandel B.V.</label>
+            </value>
+            <value>
+                <fullName>Het Zuider Sleutelhuis B.V.</fullName>
+                <default>false</default>
+                <label>Het Zuider Sleutelhuis B.V.</label>
+            </value>
+            <value>
+                <fullName>IJzerhandel Overschie</fullName>
+                <default>false</default>
+                <label>IJzerhandel Overschie</label>
+            </value>
+            <value>
+                <fullName>Weijntjes Hang- En Sluitwerk</fullName>
+                <default>false</default>
+                <label>Weijntjes Hang- En Sluitwerk</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
