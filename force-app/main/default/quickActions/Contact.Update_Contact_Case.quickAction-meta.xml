@@ -20,34 +20,16 @@
                 <field>Birthdate</field>
                 <uiBehavior>Edit</uiBehavior>
             </quickActionLayoutItems>
-            <quickActionLayoutItems>
-                <emptySpace>false</emptySpace>
-                <field>Preferred_Communication_Channel__c</field>
-                <uiBehavior>Edit</uiBehavior>
-            </quickActionLayoutItems>
-            <quickActionLayoutItems>
-                <emptySpace>true</emptySpace>
-                <uiBehavior>Edit</uiBehavior>
-            </quickActionLayoutItems>
         </quickActionLayoutColumns>
         <quickActionLayoutColumns>
             <quickActionLayoutItems>
-                <emptySpace>true</emptySpace>
-                <uiBehavior>Edit</uiBehavior>
-            </quickActionLayoutItems>
-            <quickActionLayoutItems>
-                <emptySpace>false</emptySpace>
-                <field>Preferred_Phone__c</field>
-                <uiBehavior>Edit</uiBehavior>
-            </quickActionLayoutItems>
-            <quickActionLayoutItems>
-                <emptySpace>false</emptySpace>
-                <field>HomePhone</field>
-                <uiBehavior>Edit</uiBehavior>
-            </quickActionLayoutItems>
-            <quickActionLayoutItems>
                 <emptySpace>false</emptySpace>
                 <field>Phone</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>MobilePhone</field>
                 <uiBehavior>Edit</uiBehavior>
             </quickActionLayoutItems>
             <quickActionLayoutItems>
