@@ -1,0 +1,10 @@
+<html>
+ <head>
+  <title></title>
+ </head>
+ <body style="height: auto; min-height: auto;">
+  <p><span style="font-size:12px;"><span style="color:#1f497d;"><span style="font-family:Verdana,Arial,Helvetica,sans-serif;">Beste {{{Case.Email_Template_Salutation__c}}},<br /> <br /> <br /> Met vriendelijke groet,<br /> {{{Sender.FirstName}}}</span></span></span></p>
+  <p><span style="font-size:12px;"><span style="font-family: Verdana, Arial, Helvetica, sans-serif; color: rgb(31, 73, 125);">Stadswonen Rotterdam</span><br /> <span style="color:#1f497d;"><span style="font-family:Verdana,Arial,Helvetica,sans-serif;">Eendrachtsplein 19</span></span><br /> <span style="color:#1f497d;"><span style="font-family:Verdana,Arial,Helvetica,sans-serif;">3015 LA Rotterdam</span></span><br /> <span style="color:#1f497d;"><span style="font-family:Verdana,Arial,Helvetica,sans-serif;">010-2456700</span></span><br /> <span style="font-family:Verdana,Arial,Helvetica,sans-serif;"><a href="mailto:info@stadswonenrotterdam.nl" title="mailto:info@stadswonenrotterdam.nl"><span style="color:#1f497d;">info@stadswonenrotterdam.nl</span></a></span></span></p>
+  <p><span style="font-size:12px;"><span style="font-family: Verdana, Arial, Helvetica, sans-serif; color: rgb(31, 73, 125);">Postadres</span><br /> <span style="color:#1f497d;"><span style="font-family:Verdana,Arial,Helvetica,sans-serif;">Postbus 4057</span></span><br /> <span style="font-family:Verdana,Arial,Helvetica,sans-serif;"><span style="color:#1f497d;">3006 AB Rotterdam</span></span></span><br /> <a href="https://www.stadswonenrotterdam.nl/"><img alt="Stadswonen Logo" src="" style="max-width: 1615.9499999999998px" title="Stadswonen Logo" /></a></p>
+ </body>
+</html>

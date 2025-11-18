@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
     <fieldOverrides>
+        <field>Subject</field>
+        <formula>Case.Subject</formula>
+    </fieldOverrides>
+    <fieldOverrides>
         <field>ToIds</field>
         <formula>Case.ContactId</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>ValidatedFromAddress</field>
+        <formula>Case.Default_From_Mail__c</formula>
     </fieldOverrides>
     <optionsCreateFeedItem>true</optionsCreateFeedItem>
     <quickActionLayout>
@@ -41,6 +49,9 @@
         </quickActionLayoutColumns>
         <quickActionLayoutColumns/>
     </quickActionLayout>
+    <quickActionSendEmailOptions>
+        <ignoreDefaultEmailTemplateSubject>true</ignoreDefaultEmailTemplateSubject>
+    </quickActionSendEmailOptions>
     <standardLabel>SendEmail</standardLabel>
     <targetObject>EmailMessage</targetObject>
     <targetParentField>Parent</targetParentField>
