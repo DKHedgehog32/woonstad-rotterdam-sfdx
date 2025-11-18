@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Incorrect_Mail_For_Case_Label_Stadswonen</fullName>
+    <active>true</active>
+    <description>This validation rule prevents users from using the woonstad email address for stadswonen cases</description>
+    <errorConditionFormula>AND(
+NOT(ISBLANK( ParentId )),
+FromAddress  !=  $User.Email, 
+ISPICKVAL( Parent.Label__c , &apos;stadswonen&apos;), 
+NOT(CONTAINS( FromAddress  , &apos;stadswonen&apos;))
+)</errorConditionFormula>
+    <errorDisplayField>ValidatedFromAddress</errorDisplayField>
+    <errorMessage>You want to send an email from @woonstadrotterdam.nl, but the case has the label &apos;Stadswonen&apos;.
+Please select an @stadswonenrotterdam.nl email address.</errorMessage>
+</ValidationRule>
