@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>63.0</apiVersion>
-    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <description>Record-Triggered Flow on Contract Contact Role to determine and display the Account Type when a triggering record is created or updated.</description>
     <environments>Default</environments>
     <interviewLabel>RT - Contract Contact Role - After Insert/Update {!$Flow.CurrentDateTime}</interviewLabel>
@@ -46,7 +45,7 @@
         </scheduledPaths>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <subflows>
         <description>Based on the triggering Contract Contact Role, the Account Label of the related Account needs to be verified.</description>
         <name>Determine_The_Account_Label_Based_On_The_Contract_Role</name>
