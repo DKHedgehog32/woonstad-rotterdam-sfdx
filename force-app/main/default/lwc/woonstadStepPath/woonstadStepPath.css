@@ -1,0 +1,229 @@
+/* =============================================
+   WoonstadStepPath.css
+   =============================================
+   Date: 2025-08-06
+   Last Changed: 2025-08-06
+   Description:
+   Stylesheet for Woonstad Step Path component.
+   - Left-aligned horizontal stepper (circle + label inline).
+   - Active/completed/inactive step states.
+   - Bottom connecting line placed in its own row.
+   - Single global tooltip fixed above the path (modal-safe).
+   - Accessibility & responsive refinements.
+   ============================================= */
+
+/* =========================
+   Main Container
+   ========================= */
+.step-path-container {
+    display: flex;
+    flex-direction: column;          /* stack steps row + line row */
+    align-items: flex-start;         /* align content to the left */
+    width: 100%;
+    padding: 1rem 0;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* =========================
+   Steps Row
+   ========================= */
+.step-path {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 3rem;                       /* spacing between steps */
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;             /* space between steps and bottom line */
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Optional container padding alignment with layouts */
+.step-path-container.align-edge {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* =========================
+   Individual Step (inline)
+   ========================= */
+.step-item {
+    display: flex;
+    flex-direction: row;             /* circle + label inline */
+    align-items: center;
+    gap: 0.6rem;
+    position: relative;
+    z-index: 2;                      /* always above the line */
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+/* Hover affordance (no color change for now, just cursor) */
+.step-item:hover {
+    cursor: default;
+}
+
+/* =========================
+   Step Circles
+   ========================= */
+.step-circle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+    background-color: #d3d3d3;       /* inactive base */
+    color: #4a5568;
+    line-height: 1;
+    box-sizing: border-box;
+}
+
+.step-circle.active {
+    background-color: #0061cd;       /* Woonstad Blue */
+    color: #ffffff;
+}
+
+.step-circle.inactive {
+    background-color: #d3d3d3;
+    color: #4a5568;
+}
+
+.step-circle.completed {
+    background-color: #1b8562;       /* Woonstad Green */
+    color: #ffffff;
+}
+
+/* Focus ring for keyboard nav (a11y) */
+.step-item:focus-within .step-circle {
+    outline: 2px solid #85E3F9;
+    outline-offset: 2px;
+}
+
+/* =========================
+   Step Labels
+   ========================= */
+.step-label {
+    font-size: 15px;
+    color: #4a5568;
+    line-height: 1.25;
+}
+
+.step-label.active {
+    font-weight: 700;
+    color: #00215B;
+}
+
+.step-label.inactive {
+    font-weight: 400;
+    color: #7d8a9c;
+}
+
+/* Completed label keeps regular weight to emphasize current step */
+.step-item .step-label.completed {
+    font-weight: 400;
+}
+
+/* =========================
+   Bottom Connecting Line
+   ========================= */
+.step-line {
+    width: 100%;
+    height: 1px;
+    background-color: #d9d9d9;       /* neutral grey line */
+    position: relative;               /* separate row, not behind steps */
+    box-sizing: border-box;
+}
+
+/* Optional: blue progress fill (render an extra div over the line) */
+.step-line--progress {
+    position: absolute;
+    left: 0;
+    height: 1px;
+    background-color: #0061cd;
+    top: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* =========================
+   Global Tooltip (fixed)
+   =========================
+   - One tooltip for the whole path.
+   - Position is controlled via inline style from JS (top/left/width).
+   - Always above modals/headers (z-index).
+*/
+.custom-tooltip.fixed-tooltip {
+    position: fixed;                  /* detach from stacking contexts */
+    background-color: #003c80;        /* Woonstad Dark Blue */
+    color: #ffffff;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.5;
+    min-width: 260px;                 /* JS clamps width, this is baseline */
+    max-width: 320px;
+    z-index: 9999;                    /* sit on top of modals */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    pointer-events: none;             /* never block hover */
+    box-sizing: border-box;
+}
+
+/* Tooltip arrow */
+.custom-tooltip.fixed-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px;
+    border-style: solid;
+    border-color: #003c80 transparent transparent transparent;
+}
+
+/* =========================
+   Motion & Transitions
+   ========================= */
+@media (prefers-reduced-motion: no-preference) {
+    .custom-tooltip.fixed-tooltip {
+        animation: ws-fade-in 180ms ease-in-out;
+    }
+}
+
+@keyframes ws-fade-in {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================
+   Responsive Enhancements
+   ========================= */
+@media screen and (max-width: 1024px) {
+    .step-path { gap: 2rem; }
+    .step-label { font-size: 14px; }
+}
+
+@media screen and (max-width: 768px) {
+    .step-path {
+        gap: 1.25rem;
+        flex-wrap: wrap;              /* allow wrap on very small widths */
+    }
+    .step-item { margin-bottom: 0.25rem; }
+    /* Keep the line visually separated even when steps wrap */
+    .step-path + .step-line { margin-top: 0.5rem; }
+}
+
+@media screen and (max-width: 480px) {
+    .step-circle {
+        width: 26px;
+        height: 26px;
+        font-size: 13px;
+    }
+    .step-label { font-size: 13px; }
+}
