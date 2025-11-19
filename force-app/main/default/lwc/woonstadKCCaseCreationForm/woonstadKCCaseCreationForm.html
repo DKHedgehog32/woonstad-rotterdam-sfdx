@@ -3,21 +3,19 @@
  * Component       : WoonstadKCCaseCreationForm (woonstadKCCaseCreationForm.html)
  * Layer           : UI Markup (Lightning Web Component)
  * Purpose         : Guided Case creation within KC context, with:
- *                   - Left column: manual entry of case fields (all required: Type, Origin, Contact, Subject, Description)
+ *                   - Left column: manual entry of case fields
  *                   - Right column: live context of open Cases (filter by subject)
- *                   - Enhanced validation that triggers when the user clicks "Opslaan"
- *                   - Proper required field indicators using Lightning standard approach
+ *                   - Validation that triggers ONLY when the user clicks "Opslaan"
  *
  * Responsibilities:
  *  - Render a responsive 2-column layout (5/12 + 7/12 on large screens)
- *  - Provide inputs for Type, Herkomst, Contactpersoon (required), Onderwerp, Omschrijving (required)
- *  - Show a validation summary area for comprehensive field validation
+ *  - Provide inputs for Type, Herkomst, Contactpersoon, Onderwerp, Omschrijving
+ *  - Show a validation summary area for JS-triggered validation
  *  - Display a contextual table of open Cases with pagination
  *  - Expose accessible, semantic controls (<button>) for actions
  *
  * Accessibility   :
  *  - Uses semantic <button> elements (not clickable <div>s)
- *  - Required field indicators using Lightning standard 'required' attribute
  *  - Announces page changes via visible text and aria-live on pagination info
  *  - Error messages are surfaced via JS setCustomValidity/reportValidity on save
  *
@@ -28,12 +26,10 @@
  * Owner           : Woonstad KC
  * Author          : Dennis van Musschenbroek
  * Created         : 2025-08-18
- * Last Modified   : 2025-09-18
+ * Last Modified   : 2025-08-25
  * ===============================================================================================
  * Change Log
  * -----------------------------------------------------------------------------------------------
- * 2025-09-18 | DvM | Fixed required field indicators using standard Lightning 'required' attribute approach
- * 2025-09-18 | DvM | Added required indicators to Contact and Description fields for comprehensive validation
  * 2025-08-25 | DvM | Deferred validation to Save only (removed 'required'; added data-required).
  * 2025-08-21 | DvM | Permanent 2-col layout, slim banner, aligned table headers.
  * 2025-08-18 | DvM | Initial version.
@@ -67,7 +63,7 @@
           <!-- Form fields -->
           <div class="slds-grid slds-wrap slds-gutters_small">
 
-            <!-- Type (Required) -->
+            <!-- Type -->
             <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
               <div class="form-input">
                 <lightning-combobox
@@ -79,32 +75,48 @@
                   onchange={handleTypeChange}
                   dropdown-alignment="auto"
                   variant="label-stacked"
-                  required
                   data-required="true">
                 </lightning-combobox>
               </div>
             </div>
 
-            <!-- Herkomst (Required) -->
+            <!-- Herkomst -->
             <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
               <div class="form-input">
                 <lightning-combobox
                   name="origin"
                   label="Herkomst"
                   value={caseOrigin}
-                  placeholder="Selecteer herkomst..."
+                  placeholder="Selecteer de herkomst..."
                   options={originOptions}
                   onchange={handleOriginChange}
                   dropdown-alignment="auto"
                   variant="label-stacked"
-                  required
                   data-required="true">
                 </lightning-combobox>
               </div>
             </div>
 
-            <!-- Contactpersoon (Required) -->
-            <div class="slds-col slds-size_1-of-1">
+            
+            <!-- Label -->
+            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
+              <div class="form-input">
+                <lightning-combobox
+                  name="label"
+                  label="Label"
+                  value={caseLabel}
+                  placeholder="Selecteer het label..."
+                  options={labelOptions}
+                  onchange={handleLabelChange}
+                  dropdown-alignment="auto"
+                  variant="label-stacked"
+                  data-required="true">
+                </lightning-combobox>
+              </div>
+            </div>
+
+            <!-- Contactpersoon -->
+            <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2">
               <div class="form-input">
                 <lightning-combobox
                   name="contact"
@@ -114,14 +126,12 @@
                   options={contactOptions}
                   onchange={handleContactChange}
                   dropdown-alignment="auto"
-                  variant="label-stacked"
-                  required
-                  data-required="true">
+                  variant="label-stacked">
                 </lightning-combobox>
               </div>
             </div>
 
-            <!-- Onderwerp (Required) -->
+            <!-- Onderwerp -->
             <div class="slds-col slds-size_1-of-1">
               <div class="form-input">
                 <lightning-input
@@ -130,13 +140,12 @@
                   onkeyup={handleSubjectKeyUp}
                   placeholder="Voer onderwerp in..."
                   variant="label-stacked"
-                  required
                   data-required="true">
                 </lightning-input>
               </div>
             </div>
 
-            <!-- Omschrijving (Required) -->
+            <!-- Omschrijving -->
             <div class="slds-col slds-size_1-of-1">
               <div class="form-input">
                 <lightning-textarea
@@ -144,9 +153,7 @@
                   value={description}
                   onchange={handleDescriptionChange}
                   placeholder="Voer omschrijving in..."
-                  variant="label-stacked"
-                  required
-                  data-required="true">
+                  variant="label-stacked">
                 </lightning-textarea>
               </div>
             </div>
