@@ -9,25 +9,6 @@
         <value><!-- Article Feedback --></value>
     </caseValues>
     <gender><!-- Neuter --></gender>
-    <layouts>
-        <layout>Article Feedback Layout</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label><!-- Feedback --></label>
-            <section>Feedback</section>
-        </sections>
-        <sections>
-            <label><!-- Feedback Follow Up --></label>
-            <section>Feedback Follow Up</section>
-        </sections>
-        <sections>
-            <label><!-- Related Article Information --></label>
-            <section>Related Article Information</section>
-        </sections>
-    </layouts>
     <nameFieldLabel><!-- Article Feedback Name --></nameFieldLabel>
     <recordTypes>
         <description><!-- record type needed to use get picklist values for reason picklist --></description>
