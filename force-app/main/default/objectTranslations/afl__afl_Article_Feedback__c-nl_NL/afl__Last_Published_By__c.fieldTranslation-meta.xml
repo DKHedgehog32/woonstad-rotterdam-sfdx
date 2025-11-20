@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Last Published By --></label>
+    <name>afl__Last_Published_By__c</name>
+    <relationshipLabel><!-- Article Feedback (Last Published By) --></relationshipLabel>
+</CustomFieldTranslation>
