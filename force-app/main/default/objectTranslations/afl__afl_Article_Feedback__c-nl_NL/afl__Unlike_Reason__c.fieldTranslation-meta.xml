@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Feedback Reason Picklist Values --></label>
+    <name>afl__Unlike_Reason__c</name>
+    <picklistValues>
+        <masterLabel>Information inaccurate</masterLabel>
+        <translation>Informatie klopt niet</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Link broken</masterLabel>
+        <translation>Link werkt niet</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Other</masterLabel>
+        <translation>Anders</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Outdated  (needs update)</masterLabel>
+        <translation>Informatie ontbreekt</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Poorly Written (not clear)</masterLabel>
+        <translation>Informatie onduidelijk</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Positive feedback</masterLabel>
+        <translation>Compliment</translation>
+    </picklistValues>
+</CustomFieldTranslation>
