@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>59.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Knowledge Approval Process</masterLabel>
+    <description>Collects a comment for Knowledge validation and updates the article version.</description>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property
+                name="recordId"
+                type="String"
+                label="Knowledge Article Version Id"
+                description="Id of the Knowledge article version (e.g. Knowledge__kav) to update."/>
+            <property
+                name="approvalComment"
+                type="String"
+                label="Approval Comment (output)"
+                description="Returns the comment to the Flow."
+                role="outputOnly"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

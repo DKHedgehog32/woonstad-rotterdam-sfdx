@@ -15,6 +15,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>ApprovalWorkItem.Approval_Submitter_Comment__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>ApprovalWorkItem.AssignedToId</field>
         <readable>true</readable>
@@ -60,6 +65,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Knowledge__kav.Approval_Comment__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Knowledge__kav.Contains_Work_Instruction__c</field>
         <readable>true</readable>
@@ -93,7 +103,6 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Knowledge__kav</object>
-        <viewAllFields>false</viewAllFields>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <recordTypeVisibilities>
@@ -103,6 +112,10 @@
     <tabSettings>
         <tab>Knowledge__kav</tab>
         <visibility>Available</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>standard-ApprovalWorkItem</tab>
+        <visibility>Visible</visibility>
     </tabSettings>
     <userPermissions>
         <enabled>true</enabled>
