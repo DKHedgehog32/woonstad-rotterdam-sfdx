@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Thumb Vote --></label>
+    <name>afl__Thumb_Vote__c</name>
+    <picklistValues>
+        <masterLabel>Thumbs down</masterLabel>
+        <translation>Duim omlaag</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Thumbs up</masterLabel>
+        <translation>Duim omhoog</translation>
+    </picklistValues>
+</CustomFieldTranslation>
