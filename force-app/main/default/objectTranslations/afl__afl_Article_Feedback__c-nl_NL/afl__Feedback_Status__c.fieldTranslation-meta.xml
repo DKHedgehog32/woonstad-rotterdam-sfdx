@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Feedback Status --></label>
+    <name>afl__Feedback_Status__c</name>
+    <picklistValues>
+        <masterLabel>Assigned</masterLabel>
+        <translation>Toegewezen</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Closed</masterLabel>
+        <translation>Afgesloten</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>In Progress</masterLabel>
+        <translation>In Behandeling</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New</masterLabel>
+        <translation>Nieuw</translation>
+    </picklistValues>
+</CustomFieldTranslation>
