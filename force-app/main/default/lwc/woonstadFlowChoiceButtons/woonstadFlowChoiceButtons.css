@@ -1,0 +1,9 @@
+/* =============================================
+   Placeholder: Local styles disabled
+   =============================================
+   Global styles from WoonstadGlobalCSS are now used.
+*/
+
+:host {
+    display: block;
+}
