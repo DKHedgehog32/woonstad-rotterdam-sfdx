@@ -10,5 +10,5 @@
         <operation>equals</operation>
         <value>AS</value>
     </filters>
-    <label>Assigned Approval Work Items</label>
+    <label>Toegewezen werkitems voor goedkeuring</label>
 </ListView>
