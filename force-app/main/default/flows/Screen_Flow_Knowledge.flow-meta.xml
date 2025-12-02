@@ -237,7 +237,7 @@
                     <inputParameters>
                         <name>alignment</name>
                         <value>
-                            <stringValue>right</stringValue>
+                            <stringValue>left</stringValue>
                         </value>
                     </inputParameters>
                     <inputParameters>
@@ -249,6 +249,13 @@
                     <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
                     <isRequired>true</isRequired>
                     <storeOutputAutomatically>true</storeOutputAutomatically>
+                    <visibilityRule>
+                        <conditionLogic>and</conditionLogic>
+                        <conditions>
+                            <leftValueReference>ApprovalButtons.selectedChoice</leftValueReference>
+                            <operator>NotEqualTo</operator>
+                        </conditions>
+                    </visibilityRule>
                 </fields>
                 <inputParameters>
                     <name>width</name>
