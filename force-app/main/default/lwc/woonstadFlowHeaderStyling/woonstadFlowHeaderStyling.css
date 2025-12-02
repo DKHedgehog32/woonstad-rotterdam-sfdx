@@ -1,0 +1,6 @@
+.header-container {
+    position: relative; /* Ensures absolute positioning is scoped here */
+    width: 100%;
+    height: auto;
+    margin-top: 20px; /* optional tweak */
+}
