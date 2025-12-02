@@ -1,0 +1,47 @@
+<template>
+    <div class="slds-grid slds-wrap slds-gutters grid-root">
+        <div class="slds-col slds-size_1-of-1">
+            <div class="woonstad-form-container">
+                <div class="woonstad-form">
+                    <h2 class="form-title">Toelichting voor de beoordelaar van dit kennisartikel</h2>
+
+                    <template if:true={validationMessage}>
+                        <div class="validation-message-box slds-m-bottom_small">
+                            {validationMessage}
+                        </div>
+                    </template>
+
+                    <div class="form-input">
+                        <lightning-textarea
+                            label="Toelichting"
+                            value={comment}
+                            onchange={handleCommentChange}
+                            placeholder="Bijvoorbeeld: waarom je het artikel hebt aangepast, wat er is aangepast, of waar de beoordelaar speciaal op moet letten."
+                            variant="label-stacked"
+                            data-required="true">
+                        </lightning-textarea>
+                    </div>
+
+                    <div class="nav-container">
+                        <div class="right-buttons">
+                            <button
+                                class="woonstad-svg-button"
+                                type="button"
+                                onclick={handleSave}
+                                disabled={isSaving}>
+                                <span if:false={isSaving}>Bevestigen</span>
+                                <span if:true={isSaving}>Bezig...</span>
+                                <span class="icon-wrapper" aria-hidden="true">
+                                    <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

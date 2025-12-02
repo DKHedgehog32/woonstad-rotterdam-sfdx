@@ -18,7 +18,7 @@
             <template>Toc</template>
         </articleTypeTemplates>
     </articleTypeChannelDisplay>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayoutAssignment>Knowledge_Compact_Layout</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>

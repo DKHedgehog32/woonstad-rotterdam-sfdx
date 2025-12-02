@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="showCancel" type="Boolean" default="false" label="Show Cancel Button"/>
+            <property name="showBack" type="Boolean" default="false" label="Show Back Button"/>
+            <property name="showNext" type="Boolean" default="false" label="Show Next Button"/>
+            <property name="nextLabel" type="String" default="Volgende" label="Next Button Label" description="Volgende of Bevestigen"/>
+            <property name="showBevestigen" type="Boolean" default="false" label="Show Bevestigen Button"/>
+            <property name="invalidVar" type="Boolean" role="inputOnly" label="Invalid Indicator"/>
+            <property name="alignment" type="String" default="right" label="Button Alignment" description="right of left"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
