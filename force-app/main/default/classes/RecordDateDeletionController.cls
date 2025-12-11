@@ -1,8 +1,7 @@
 /**
  * @description Controller class for deleting records by creation date
  * @author Dylan Pluk
- * @date 2025
- * @group Data Management
+ * @date december 2025
  */
 public with sharing class RecordDateDeletionController {
     
