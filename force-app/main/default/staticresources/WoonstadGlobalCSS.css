@@ -25,6 +25,8 @@
     color: var(--ws-blue-600, #003c80);
 }
 
+
+
 /* ----------- Buttons ----------- */
 .woonstad .slds-button_brand {
     background-color: var(--ws-blue-300, #0061cd) !important;
@@ -54,6 +56,27 @@
 .woonstad .input-error lightning-input::part(input) {
     border: 2px solid var(--ws-red-600, #d02c2c);
     border-radius: 4px;
+}
+
+.form-checkbox-value {
+    
+}
+
+.woonstad-label_large {
+    font-size: 20px; 
+    font-weight: 600; 
+    font-family: 'Arboria', sans-serif; 
+    color: #002244; 
+    margin-bottom: 0.5rem; 
+    display: block;
+}
+
+.woonstad-checkbox__label, .woonstad-list{
+    font-size: 1rem; 
+    font-family: 'Arboria', sans-serif; 
+    color: #002244; 
+    margin-bottom: 0.5rem; 
+    margin-left: 0.5rem;
 }
 
 /* ----------- Modal ----------- */
@@ -413,6 +436,17 @@
     display: block;
 }
 
+.woonstad .woonstad-svg-button[disabled],
+.woonstad-svg-button[disabled],
+.woonstad .woonstad-svg-button.disabled,
+.woonstad-svg-button.disabled
+ {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
 /* =============================================
    Icon-Label Spacing Adjustment (Woonstad)
    =============================================
@@ -489,56 +523,5 @@
     font-size: 1.1rem;
 }
 
-/* =============================================
-   Woonstad Pill Action Button (Universal)
-   =============================================
-   Reusable pill-style button for actions.
-   Apply with: .woonstad .pill-action
-   Icon size and label text adapt automatically.
-============================================= */
 
-.woonstad .pill-action {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    background: #ffffff;
-    border: 1px solid #E0E8F6;
-    border-radius: 9999px;           /* pill shape */
-    padding: 0.45rem 0.9rem;
-    box-shadow: 4px 4px 0 #e3edfa;
-    cursor: pointer;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.woonstad .pill-action:hover {
-    transform: translateY(-1px);
-    box-shadow: 6px 6px 12px rgba(0,0,0,0.08);
-}
-
-.woonstad .pill-icon {
-    width: 22px;
-    height: 22px;
-    display: inline-block;
-    border-radius: 4px;
-    object-fit: contain;
-}
-
-.woonstad .pill-label {
-    font-family: 'Arboria', sans-serif;
-    font-weight: 700;
-    font-size: 1.05rem;
-    color: var(--ws-text-dark, #002244);
-    line-height: 1;
-}
-
-/* Optional disabled state */
-.woonstad .pill-action[disabled],
-.woonstad .pill-action.disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    box-shadow: none;
-    transform: none;
-}
 

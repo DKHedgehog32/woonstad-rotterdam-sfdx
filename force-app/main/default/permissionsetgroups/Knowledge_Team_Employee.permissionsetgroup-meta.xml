@@ -15,5 +15,6 @@
     <permissionSets>Knowledge_Organisation_Rental</permissionSets>
     <permissionSets>Knowledge_Organisation_Social_Management</permissionSets>
     <permissionSets>Request_Permissions</permissionSets>
+    <permissionSets>Reset_Training_Data</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>
