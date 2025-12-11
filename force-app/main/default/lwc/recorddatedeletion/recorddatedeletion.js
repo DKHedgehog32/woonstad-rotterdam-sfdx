@@ -1,7 +1,7 @@
 /**
  * @description Lightning Web Component controller for deleting records by creation date
  * @author Dylan Pluk
- * @date 2025
+ * @date december 2025
  */
 import { LightningElement, track, wire } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
