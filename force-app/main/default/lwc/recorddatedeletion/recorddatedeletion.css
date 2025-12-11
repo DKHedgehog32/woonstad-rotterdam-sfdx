@@ -1,0 +1,48 @@
+/* Custom input styling */
+.woonstad-input {
+    font-weight: 400;
+    color: #002244; 
+}
+
+.woonstad-label_large {
+    font-size: 20px; 
+    font-weight: 600; 
+    font-family: 'Arboria', sans-serif; 
+    color: #002244; 
+    margin-bottom: 0.5rem; 
+    display: block;
+}
+
+.woonstad-checkbox__label, .woonstad-list{
+    font-size: 1rem; 
+    font-family: 'Arboria', sans-serif; 
+    color: #002244; 
+    margin-bottom: 0.5rem; 
+    margin-left: 0.5rem;
+}
+
+.woonstad-list {
+    list-style: none;
+}
+
+/* Form element container */
+.woonstad-form-element {
+    margin-bottom: 1.5rem;
+}
+/* Optional disabled state */
+.woonstad .pill-action[disabled],
+.woonstad .pill-action.disabled,
+.woonstad .woonstad-svg-button[disabled],
+.woonstad-svg-button[disabled],
+.woonstad .woonstad-svg-button.disabled,
+.woonstad-svg-button.disabled
+ {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+.woonstad-theme_shade {
+    background-color: #ffefe9;
+}
