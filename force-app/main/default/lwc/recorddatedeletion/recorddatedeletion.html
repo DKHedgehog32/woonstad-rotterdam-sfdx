@@ -1,0 +1,185 @@
+<!--
+/**
+ * @description Lightning Web Component for deleting records created on a specific date
+ * @author Dylan Pluk
+ * @date 2025
+ */
+-->
+<template>
+    <div class="woonstad">
+        <div class="woonstad-modal__container">
+            <div class="woonstad-modal__content">
+                <!-- Title -->
+                <h2 class="form-title">Verwijder records op basis van aanmaakdatum</h2>
+
+                <!-- Two Column Grid for Date and Objects -->
+                <div class="slds-grid slds-gutters slds-m-bottom_medium slds-m-top_medium">
+                    <!-- Left Column: Date-Time Range Selection -->
+                    <div class="slds-col slds-size_1-of-2">
+                        <div class="woonstad-form-element slds-m-bottom_medium">
+                            <label class="woonstad-label_large">
+                                Records aangemaakt vanaf
+                            </label>
+                            <lightning-input
+                                type="datetime"
+                                name="startDateTime"
+                                class="woonstad-input"
+                                value={startDateTime}
+                                max={currentDateTime}
+                                onchange={handleStartDateTimeChange}
+                                required>
+                            </lightning-input>
+                        </div>
+                        <div class="woonstad-form-element">
+                            <label class="woonstad-label_large">
+                                tot en met
+                            </label>
+                            <lightning-input
+                                type="datetime"
+                                name="endDateTime"
+                                class="woonstad-input"
+                                value={endDateTime}
+                                min={startDateTime}
+                                max={currentDateTime}
+                                onchange={handleEndDateTimeChange}
+                                required>
+                            </lightning-input>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Object Selection -->
+                    <div class="slds-col slds-size_1-of-2">
+                        <div class="form-input">
+                            <label class="woonstad-label_large">
+                                Records van volgende objecten verwijderen
+                            </label>
+                            <div class="slds-form-element__control">
+                                <template if:true={availableObjects}>
+                                    <template for:each={availableObjects} for:item="obj">
+                                        <div key={obj.apiName} class="slds-checkbox slds-m-bottom_medium">
+                                            <input
+                                                type="checkbox"
+                                                name={obj.apiName}
+                                                id={obj.apiName}
+                                                value={obj.apiName}
+                                                checked={obj.isChecked}
+                                                onchange={handleCheckboxChange} />
+                                            <label class="slds-checkbox__label" for={obj.apiName}>
+                                                <span class="slds-checkbox_faux"></span>
+                                                <span class="woonstad-checkbox__label">{obj.displayLabel}</span>
+                                            </label>
+                                        </div>
+                                    </template>
+                                </template>
+                                <template if:false={availableObjects}>
+                                    <p class="slds-text-color_weak">Geen objecten geconfigureerd voor verwijdering.</p>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Summary Section -->
+                <template if:true={showSummary}>
+                    <div class="slds-box woonstad-theme_shade slds-m-bottom_medium">
+                            <label class="woonstad-label_large">
+                                Gevonden records
+                            </label>
+                        <ul class="slds-list woonstad-list slds-m-top_x-small">
+                            <template for:each={summaryItems} for:item="item">
+                                <li key={item.apiName}>
+                                    {item.displayLabel}: {item.count}
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                </template>
+
+                <!-- Loading Spinner -->
+                <template if:true={isLoading}>
+                    <div class="slds-align_absolute-center slds-m-vertical_medium">
+                        <lightning-spinner
+                            alternative-text="Bezig met verwerken..."
+                            size="medium">
+                        </lightning-spinner>
+                    </div>
+                </template>
+
+                <!-- Success Message -->
+                <template if:true={successMessage}>
+                    <div class="slds-m-bottom_medium">
+                        <div class="slds-notify slds-notify_alert slds-theme_success" role="alert">
+                            <span class="slds-assistive-text">Succes</span>
+                            <h2 class="slds-text-heading_small">{successMessage}</h2>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- Error Message -->
+                <template if:true={errorMessage}>
+                    <div class="slds-m-bottom_medium">
+                        <div class="slds-notify slds-notify_alert slds-theme_error" role="alert">
+                            <span class="slds-assistive-text">Fout</span>
+                            <h2 class="slds-text-heading_small">{errorMessage}</h2>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- Deletion Errors Details -->
+                <template if:true={showDeletionErrors}>
+                    <div class="slds-m-bottom_medium">
+                        <div class="slds-notify slds-notify_alert slds-theme_warning" role="alert">
+                            <span class="slds-assistive-text">Waarschuwing</span>
+                            <h2 class="slds-text-heading_small">De volgende record(s) konden niet worden verwijderd:</h2>
+                        </div>
+                        <div class="slds-box slds-box_small slds-m-top_x-small">
+                            <template for:each={deletionErrors} for:item="error">
+                                <div key={error.id} class="slds-m-bottom_small">
+                                    <p class="slds-text-body_small">
+                                        <strong>{error.objectType}:</strong> {error.recordName}
+                                    </p>
+                                    <p class="slds-text-color_error slds-text-body_small slds-m-left_medium">
+                                        {error.errorMessage}
+                                    </p>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- Navigation Container with Buttons -->
+                <div class="nav-container">
+                    <div class="right-buttons">
+                        <!-- Preview Button -->
+                        <button
+                        class="woonstad-svg-button"
+                        type="button"
+                        onclick={handlePreview}
+                        disabled={isPreviewDisabled}>
+                        <span>Zoek records</span>
+                        <span class="icon-wrapper" aria-hidden="true">
+                            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                            </svg>
+                        </span>
+                        </button>
+
+                        <!-- Delete Button (using pill-action style for destructive) -->
+                        <button 
+                            class="pill-action"
+                            style="background-color: #f8d7da; border-color: #f5c6cb;"
+                            onclick={handleDelete}
+                            disabled={isDeleteDisabled}
+                            title="Verwijder geselecteerde records">
+                            <svg class="pill-icon" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24" fill="#c23934" aria-hidden="true">
+                                <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                            </svg>
+                            <span class="pill-label" style="color: #721c24;">Verwijder records</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
