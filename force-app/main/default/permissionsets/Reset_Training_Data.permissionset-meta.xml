@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <classAccesses>
+        <apexClass>RecordDateDeletionController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Reset Training Data</label>
+    <tabSettings>
+        <tab>Reset_Training_Data</tab>
+        <visibility>Available</visibility>
+    </tabSettings>
+</PermissionSet>
