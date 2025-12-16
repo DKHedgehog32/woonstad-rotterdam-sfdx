@@ -1,7 +1,38 @@
 /**
- * @description Lightning Web Component controller for deleting records by creation date
- * @author Dylan Pluk
- * @date december 2025
+ * @description Lightning Web Component for deleting Salesforce records within a datetime range
+ * @author Dylan Pluk - Woonstad Rotterdam
+ * @date 2025-12
+ * @version 1.0.0
+ * 
+ * EXPLANATION:
+ * This component allows users to delete records created within a specified datetime range.
+ * It provides:
+ * - Dynamic object selection via Custom Metadata configuration
+ * - Datetime range picker with validation (past dates only, end > start)
+ * - Preview functionality to count records before deletion
+ * - Safe deletion order (junction → children → parents)
+ * - Three-state error handling (success / partial / failure)
+ * - Detailed error reporting for failed deletions
+ * - Dutch localization for all user-facing messages
+ * 
+ * DEPENDENCIES:
+ * - RecordDateDeletionController (Apex)
+ * - WoonstadGlobalCSS (Static Resource)
+ * - Record_Date_Deletion_Configuration__mdt (Custom Metadata)
+ * - ApexFaultHandler (Apex) - for technical error logging
+ * 
+ * CHANGELOG:
+ * Version | Date       | Author | Description
+ * --------|------------|--------|------------------------------------------
+ * 1.0.0   | 2025-12-09 | DP     | Initial creation
+ * 
+ * SECURITY:
+ * - All data operations via Apex with sharing enforcement
+ * - SOQL injection prevention via String.escapeSingleQuotes()
+ * - ApexFaultHandler logs technical errors only
+ * 
+ * USAGE:
+ * Add component to Lightning page and configure objects via Custom Metadata
  */
 import { LightningElement, track, wire } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
@@ -11,7 +42,7 @@ import getAvailableObjects from '@salesforce/apex/RecordDateDeletionController.g
 import previewRecords from '@salesforce/apex/RecordDateDeletionController.previewRecords';
 import deleteRecordsByDate from '@salesforce/apex/RecordDateDeletionController.deleteRecordsByDate';
 
-export default class recordDateDeletion extends LightningElement {
+export default class RecordDateDeletion extends LightningElement {
     /**
      * @description The start date-time for filtering records
      * @type {String}
@@ -25,10 +56,10 @@ export default class recordDateDeletion extends LightningElement {
     @track endDateTime;
 
     /**
-     * @description Set of selected object API names
-     * @type {Set<String>}
+     * @description Array of selected object API names (changed from Set for LWC reactivity)
+     * @type {Array<String>}
      */
-    @track selectedObjects = new Set();
+    selectedObjects = [];
 
     /**
      * @description Record counts by object type
@@ -40,31 +71,25 @@ export default class recordDateDeletion extends LightningElement {
      * @description Loading state indicator
      * @type {Boolean}
      */
-    @track isLoading = false;
+    isLoading = false;
 
     /**
      * @description Success message to display
      * @type {String}
      */
-    @track successMessage = '';
+    successMessage = '';
 
     /**
      * @description Error message to display
      * @type {String}
      */
-    @track errorMessage = '';
+    errorMessage = '';
 
     /**
      * @description List of available objects from Custom Metadata
      * @type {Array}
      */
     @track availableObjects = [];
-
-    /**
-     * @description Map to track checkbox states dynamically
-     * @type {Map}
-     */
-    checkboxStates = new Map();
 
     /**
      * @description List of deletion errors with details
@@ -95,7 +120,7 @@ export default class recordDateDeletion extends LightningElement {
 
     /**
      * @description Wire service to get available objects from Custom Metadata
-     * @param {Object} result - The wire service result
+     * @param {Object} result - The wire service result containing error and data
      */
     @wire(getAvailableObjects)
     wiredAvailableObjects({ error, data }) {
@@ -106,7 +131,6 @@ export default class recordDateDeletion extends LightningElement {
                 deletionOrder: obj.deletionOrder,
                 isChecked: false
             }));
-            this.error = undefined;
         } else if (error) {
             this.errorMessage = 'Fout bij het laden van beschikbare objecten: ' + this.getErrorMessage(error);
             this.showToast('Fout', this.errorMessage, 'error');
@@ -124,10 +148,9 @@ export default class recordDateDeletion extends LightningElement {
 
     /**
      * @description Computed property to get current datetime in ISO format for max attribute
-     * @returns {String} Current datetime in ISO format
+     * @returns {String} Current datetime in ISO format (YYYY-MM-DDTHH:mm)
      */
     get currentDateTime() {
-        // Return current datetime in ISO format (YYYY-MM-DDTHH:mm)
         const now = new Date();
         const year = now.getFullYear();
         const month = String(now.getMonth() + 1).padStart(2, '0');
@@ -168,7 +191,7 @@ export default class recordDateDeletion extends LightningElement {
      * @returns {Boolean} True if datetime range or objects not selected
      */
     get isPreviewDisabled() {
-        return !this.startDateTime || !this.endDateTime || this.selectedObjects.size === 0 || this.isLoading;
+        return !this.startDateTime || !this.endDateTime || this.selectedObjects.length === 0 || this.isLoading;
     }
 
     /**
@@ -205,8 +228,8 @@ export default class recordDateDeletion extends LightningElement {
             
             if (endDate < startDate) {
                 this.errorMessage = 'Einddatum moet na de startdatum liggen.';
-                this.endDateTime = ''; // Clear invalid value
-                event.target.value = ''; // Clear the input
+                this.endDateTime = '';
+                event.target.value = '';
             }
         }
     }
@@ -219,13 +242,14 @@ export default class recordDateDeletion extends LightningElement {
         const objectName = event.target.value;
         const isChecked = event.target.checked;
 
+        // Update selectedObjects array (triggers LWC reactivity)
         if (isChecked) {
-            this.selectedObjects.add(objectName);
+            this.selectedObjects = [...this.selectedObjects, objectName];
         } else {
-            this.selectedObjects.delete(objectName);
+            this.selectedObjects = this.selectedObjects.filter(name => name !== objectName);
         }
 
-        // Update the checkbox state in our availableObjects array
+        // Update the checkbox state in availableObjects array
         this.availableObjects = this.availableObjects.map(obj => {
             if (obj.apiName === objectName) {
                 return { ...obj, isChecked: isChecked };
@@ -246,11 +270,10 @@ export default class recordDateDeletion extends LightningElement {
         this.recordCounts = {};
 
         try {
-            const selectedObjectsList = Array.from(this.selectedObjects);
             const counts = await previewRecords({
                 startDateTime: this.startDateTime,
                 endDateTime: this.endDateTime,
-                objectNames: selectedObjectsList
+                objectNames: this.selectedObjects
             });
 
             this.recordCounts = counts;
@@ -258,7 +281,7 @@ export default class recordDateDeletion extends LightningElement {
             if (Object.keys(counts).length === 0) {
                 this.showToast('Info', 'Geen records gevonden voor de geselecteerde periode.', 'info');
             } else {
-                this.showToast('Succes', 'Record(s) gevonden.', 'success');
+                this.showToast('Succes', 'Records gevonden.', 'success');
             }
         } catch (error) {
             this.errorMessage = 'Fout bij het laden van het voorbeeld: ' + this.getErrorMessage(error);
@@ -277,11 +300,10 @@ export default class recordDateDeletion extends LightningElement {
         this.deletionErrors = [];
 
         try {
-            const selectedObjectsList = Array.from(this.selectedObjects);
             const result = await deleteRecordsByDate({
                 startDateTime: this.startDateTime,
                 endDateTime: this.endDateTime,
-                objectNames: selectedObjectsList
+                objectNames: this.selectedObjects
             });
 
             // Check if there are any errors and if any records were successfully deleted
@@ -330,7 +352,7 @@ export default class recordDateDeletion extends LightningElement {
      * @description Resets all checkboxes to unchecked state
      */
     resetCheckboxes() {
-        this.selectedObjects.clear();
+        this.selectedObjects = [];
         this.availableObjects = this.availableObjects.map(obj => ({
             ...obj,
             isChecked: false
