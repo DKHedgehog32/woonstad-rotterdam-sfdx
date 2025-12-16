@@ -228,8 +228,8 @@ public with sharing class WoonstadEmailService {
         EmailMessage emDraft = new EmailMessage(
             ParentId    = c.Id,
             Status      = '3', // Sent
-            FromAddress = sender.Email,
-            FromName    = sender.FirstName != null ? (sender.FirstName + ' ' + (sender.LastName != null ? sender.LastName : '')) : (sender.LastName != null ? sender.LastName : ''),
+            FromAddress = orgWideFromEmail,
+            FromName    = orgWideFromEmail,
             ToAddress   = toAddress,
             Subject     = mo.subjectMerged,
             HtmlBody    = mo.bodyHtmlMerged,
