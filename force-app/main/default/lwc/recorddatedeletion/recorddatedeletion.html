@@ -1,8 +1,39 @@
 <!--
 /**
- * @description Lightning Web Component for deleting records created on a specific date
- * @author Dylan Pluk
- * @date december 2025
+ * @description Lightning Web Component template for deleting Salesforce records within a datetime range
+ * @author Dylan Pluk - Woonstad Rotterdam
+ * @date 2025-12
+ * @version 1.0.0
+ * 
+ * EXPLANATION:
+ * This template provides the user interface for the Record Date Deletion component.
+ * It displays:
+ * - Two-column layout with datetime range selection and object checkboxes
+ * - Start and end datetime pickers with validation (past dates only)
+ * - Dynamic checkbox list from Custom Metadata configuration
+ * - Record count summary showing preview results
+ * - Loading spinner during async operations
+ * - Success/error/warning messages with detailed deletion errors
+ * - Action buttons: "Zoek records" (preview) and "Verwijder records" (delete)
+ * - Woonstad Rotterdam design system styling
+ * 
+ *
+ * CHANGELOG:
+ * Version | Date       | Author | Description
+ * --------|------------|--------|------------------------------------------
+ * 1.0.0   | 2025-12-09 | DP     | Initial HTML template
+ * 
+ *
+ * SECURITY:
+ * - No inline event handlers (uses Lightning framework)
+ * - No direct DOM manipulation
+ * - All data binding via Lightning framework
+ * - CSRF protection via Lightning platform
+ * 
+ * 
+ * USAGE:
+ * This template is rendered by the RecordDateDeletion JavaScript controller.
+ * No direct usage - add the LWC component to a Lightning page.
  */
 -->
 <template>
