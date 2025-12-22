@@ -12,10 +12,19 @@
     <layouts>
         <layout>Knowledge Layout</layout>
         <sections>
+            <label><!-- Article Details --></label>
+            <section>Article Details</section>
+        </sections>
+        <sections>
             <label>Koppelingen</label>
             <section>Custom Links</section>
         </sections>
     </layouts>
+    <quickActions>
+        <aspect>Master</aspect>
+        <label>Indienen Ter Goedkeuring</label>
+        <name>Submit_For_Approval</name>
+    </quickActions>
     <recordTypes>
         <description>Vraag en Antwoord</description>
         <label>Vraag en Antwoord</label>

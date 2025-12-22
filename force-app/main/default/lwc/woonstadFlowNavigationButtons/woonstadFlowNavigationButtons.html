@@ -1,0 +1,49 @@
+<template>
+      <div class={containerClass}>
+
+        <template if:true={showCancel}>
+            <button class="woonstad-cancel-button" onclick={handleCancel}>
+                Annuleren
+            </button>
+        </template>
+
+        <div class="right-buttons">
+            <template if:true={showBack}>
+                <button class="woonstad-back-button" onclick={handleBack}>
+                    <svg class="back-arrow" viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7" fill="none"
+                              stroke="#0061CD" stroke-width="2"
+                              stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="label">Vorige</span>
+                </button>
+            </template>
+
+            <template if:true={showNext}>
+                <button class="woonstad-svg-button" onclick={handleNext}>
+                    <span class="label">{nextLabel}</span>
+                    <span class="icon-wrapper">
+                        <svg class="arrow-icon" viewBox="0 0 24 24">
+                            <path d="M5 12h14M12 5l7 7-7 7" fill="none"
+                                  stroke="#00215B" stroke-width="2"
+                                  stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </button>
+            </template>
+
+            <template if:true={showBevestigen}>
+                <button class="woonstad-svg-button" onclick={handleBevestigen}>
+                    <span class="label">Bevestigen</span>
+                    <span class="icon-wrapper">
+                        <svg class="arrow-icon" viewBox="0 0 24 24">
+                            <path d="M5 12h14M12 5l7 7-7 7" fill="none"
+                                  stroke="#00215B" stroke-width="2"
+                                  stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </button>
+            </template>
+        </div>
+    </div>
+</template>

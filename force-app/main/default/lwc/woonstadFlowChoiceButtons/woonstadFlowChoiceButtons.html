@@ -1,0 +1,74 @@
+<!--
+/*************************************************************************************************
+ * Component       : WoonstadFlowChoiceButtons (template)
+ * Layer           : Presentation (HTML Template)
+ * Purpose         : Display configurable choice cards for Flow.
+ *                   Adds selected styling (blue border #0061cd) when a card is clicked.
+ *************************************************************************************************/
+-->
+<template>
+    <div class="woonstad">
+        <div class={containerClass}>
+
+            <!-- Informatie vraag -->
+            <template if:true={showInfoVraag}>
+                <div class="choice-card"
+                     data-label="Informatie vraag"
+                     onclick={handleClick}
+                     role="button"
+                     tabindex="0"
+                     onkeydown={handleKeydown}>
+                    <div class="card-content horizontal">
+                        <img src={iconVraag} alt="Info Icon" class="card-icon" />
+                        <span class="card-label">Informatie vraag</span>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Naamplaatje aanvragen -->
+            <template if:true={showNaamplaatje}>
+                <div class="choice-card"
+                     data-label="Naamplaatje aanvragen"
+                     onclick={handleClick}
+                     role="button"
+                     tabindex="0"
+                     onkeydown={handleKeydown}>
+                    <div class="card-content horizontal">
+                        <img src={iconAanvraag} alt="Naamplaatje Icon" class="card-icon" />
+                        <span class="card-label">Naamplaatje aanvragen</span>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Goedkeuring -->
+            <template if:true={showGoedkeuring}>
+                <div class="choice-card"
+                     data-label="Goedkeuring"
+                     onclick={handleClick}
+                     role="button"
+                     tabindex="0"
+                     onkeydown={handleKeydown}>
+                    <div class="card-content horizontal">
+                        <img src={iconGoedkeuring} alt="Goedkeuren Icon" class="card-icon" />
+                        <span class="card-label">Goedkeuren</span>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Afwijzing -->
+            <template if:true={showAfwijzing}>
+                <div class="choice-card"
+                     data-label="Afwijzing"
+                     onclick={handleClick}
+                     role="button"
+                     tabindex="0"
+                     onkeydown={handleKeydown}>
+                    <div class="card-content horizontal">
+                        <img src={iconAfwijzing} alt="Afwijzing Icon" class="card-icon" />
+                        <span class="card-label">Afwijzen</span>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>
