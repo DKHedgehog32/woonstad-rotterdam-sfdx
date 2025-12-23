@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prevent_Mail_From_Personal_Mail_Address</fullName>
+    <active>true</active>
+    <description>This validation rule prevents users to use the personal email address if they are not allowed.</description>
+    <errorConditionFormula>AND(
+NOT(ISBLANK(ParentId)), 
+FromAddress =  $User.Email 
+)</errorConditionFormula>
+    <errorDisplayField>ValidatedFromAddress</errorDisplayField>
+    <errorMessage>You are not allowed to send emails from your personal email address. Please select the correct email address.</errorMessage>
+</ValidationRule>
