@@ -21,18 +21,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Parent_Contract_Number__c</fieldItem>
-                <identifier>RecordParent_Contract_Number_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Contract_Party__c</fieldItem>
-                <identifier>RecordContract_Party_cField</identifier>
+                <fieldItem>Record.Contract_Number__c</fieldItem>
+                <identifier>RecordContract_Number_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -53,6 +43,16 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Status__c</fieldItem>
                 <identifier>RecordStatus_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Contract_Party__c</fieldItem>
+                <identifier>RecordContract_Party_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-28ecea1b-c1b0-4ee9-a103-8e007b9c4bb8</name>
@@ -89,10 +89,10 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>readonly</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Name</fieldItem>
-                <identifier>RecordNameField2</identifier>
+                <fieldItem>Record.Contract_Number__c</fieldItem>
+                <identifier>RecordContract_Number_cField2</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -101,8 +101,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Contract_Party__c</fieldItem>
-                <identifier>RecordContract_Party_cField2</identifier>
+                <fieldItem>Record.Contract_Unit__c</fieldItem>
+                <identifier>RecordContract_Unit_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -111,8 +111,18 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Contract_Type__c</fieldItem>
-                <identifier>RecordContract_Type_cField2</identifier>
+                <fieldItem>Record.Product_Description__c</fieldItem>
+                <identifier>RecordProduct_Description_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Actual_Usage__c</fieldItem>
+                <identifier>RecordActual_Usage_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-824aed13-c49c-45d0-8cc1-d7f65da0e84d</name>
@@ -125,8 +135,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Parent_Contract_Number__c</fieldItem>
-                <identifier>RecordParent_Contract_Number_cField2</identifier>
+                <fieldItem>Record.Contract_Type__c</fieldItem>
+                <identifier>RecordContract_Type_cField2</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -193,8 +203,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Bank_Account__c</fieldItem>
-                <identifier>RecordBank_Account_cField</identifier>
+                <fieldItem>Record.Gross_Rent__c</fieldItem>
+                <identifier>RecordGross_Rent_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -203,8 +213,8 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Bank_Account_IBAN__c</fieldItem>
-                <identifier>RecordBank_Account_IBAN__cField</identifier>
+                <fieldItem>Record.Next_Rent_Price_Change_Date__c</fieldItem>
+                <identifier>RecordNext_Rent_Price_Change_Date_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-4cd75461-afb7-4581-9577-b2d9d16dfa88</name>
@@ -217,8 +227,42 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Gross_Rent__c</fieldItem>
-                <identifier>RecordGross_Rent_cField</identifier>
+                <fieldItem>Record.Bank_Account__c</fieldItem>
+                <identifier>RecordBank_Account_cField</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.Bank_Account__r.Name}</leftValue>
+                        <operator>NE</operator>
+                    </criteria>
+                </visibilityRule>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Bank_Account__r.IBAN__c</fieldItem>
+                <identifier>RecordBank_Account_rIBAN_cField</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.Bank_Account__r.Name}</leftValue>
+                        <operator>NE</operator>
+                    </criteria>
+                </visibilityRule>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Bank_Account_IBAN__c</fieldItem>
+                <identifier>RecordBank_Account_IBAN__cField</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.Bank_Account_IBAN__c}</leftValue>
+                        <operator>NE</operator>
+                    </criteria>
+                </visibilityRule>
             </fieldInstance>
         </itemInstances>
         <name>Facet-f021d7cf-bf47-41cb-a042-6adff6ad12db</name>
@@ -257,6 +301,16 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.CreatedById</fieldItem>
                 <identifier>RecordCreatedByIdField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>readonly</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Name</fieldItem>
+                <identifier>RecordNameField2</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-ba0dee28-75cc-49e3-909a-f5deb50af3d3</name>
@@ -313,7 +367,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>label</name>
-                    <value>Contract Details</value>
+                    <value>@@@SFDCAccountPlanRelaObjAnalysisInfoLabelSFDC@@@</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:fieldSection</componentName>
                 <identifier>flexipage_fieldSection</identifier>
@@ -331,7 +385,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>label</name>
-                    <value>Betalingsinformatie</value>
+                    <value>@@@SFDCPayment_DetailsSFDC@@@</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:fieldSection</componentName>
                 <identifier>flexipage_fieldSection2</identifier>
@@ -380,87 +434,6 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>adminFilters</name>
-                    <valueList>
-                        <valueListItems>
-                            <value>Active_Contract_Line__c|EQUALS|true</value>
-                        </valueListItems>
-                    </valueList>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>maxRecordsToDisplay</name>
-                    <value>10</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>parentFieldApiName</name>
-                    <value>Real_Estate_Contract__c.Id</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListApiName</name>
-                    <value>Contract_Contact_Rollen__r</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListDisplayType</name>
-                    <value>ADVGRID</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListFieldAliases</name>
-                    <valueList>
-                        <valueListItems>
-                            <value>NAME</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>Contract_Line__c</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>Contact_Account__c</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>Role__c</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>Start_Date__c</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>End_Date__c</value>
-                        </valueListItems>
-                    </valueList>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListLabel</name>
-                    <value>Contract Rollen</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>showActionBar</name>
-                    <value>true</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>sortFieldAlias</name>
-                    <value>__DEFAULT__</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>sortFieldOrder</name>
-                    <value>Default</value>
-                </componentInstanceProperties>
-                <componentName>lst:dynamicRelatedList</componentName>
-                <identifier>lst_dynamicRelatedList2</identifier>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-24b6e2b0-5f6e-4830-9a2b-ad37e0ac4a63</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>actionNames</name>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>adminFilters</name>
-                    <valueList>
-                        <valueListItems>
-                            <value>Active__c|EQUALS|false</value>
-                        </valueListItems>
-                    </valueList>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>maxRecordsToDisplay</name>
@@ -482,34 +455,22 @@
                     <name>relatedListFieldAliases</name>
                     <valueList>
                         <valueListItems>
-                            <value>NAME</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>Contract_Number__c</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>Account__c</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>Contract_Unit__c</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>Product_Description__c</value>
-                        </valueListItems>
-                        <valueListItems>
                             <value>Active_from_Date__c</value>
                         </valueListItems>
                         <valueListItems>
                             <value>Active_to_Date__c</value>
                         </valueListItems>
                         <valueListItems>
-                            <value>Price__c</value>
+                            <value>Total_Price__c</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>NAME</value>
                         </valueListItems>
                     </valueList>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>relatedListLabel</name>
-                    <value>Inactieve Contractregels</value>
+                    <value>{!$Label.ContractLines}</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>showActionBar</name>
@@ -517,11 +478,11 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>sortFieldAlias</name>
-                    <value>__DEFAULT__</value>
+                    <value>Active_from_Date__c</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>sortFieldOrder</name>
-                    <value>Default</value>
+                    <value>Descending</value>
                 </componentInstanceProperties>
                 <componentName>lst:dynamicRelatedList</componentName>
                 <identifier>lst_dynamicRelatedList</identifier>
@@ -554,25 +515,11 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>body</name>
-                    <value>Facet-24b6e2b0-5f6e-4830-9a2b-ad37e0ac4a63</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>title</name>
-                    <value>Contract Rollen</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:tab</componentName>
-                <identifier>flexipage_tab</identifier>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>body</name>
                     <value>relatedTabContent</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>title</name>
-                    <value>Contract Historie</value>
+                    <value>{!$Label.ContractLines}</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
                 <identifier>relatedListsTab</identifier>
@@ -585,10 +532,6 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentInstanceProperties>
-                    <name>label</name>
-                    <value>Tabs</value>
-                </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>tabs</name>
                     <value>maintabs</value>
@@ -609,11 +552,6 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>adminFilters</name>
-                    <valueList>
-                        <valueListItems>
-                            <value>Active__c|EQUALS|true</value>
-                        </valueListItems>
-                    </valueList>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>maxRecordsToDisplay</name>
@@ -625,7 +563,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>relatedListApiName</name>
-                    <value>Contract_Lines__r</value>
+                    <value>Contract_Contact_Rollen__r</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>relatedListDisplayType</name>
@@ -635,22 +573,28 @@
                     <name>relatedListFieldAliases</name>
                     <valueList>
                         <valueListItems>
+                            <value>Contact_Account__c</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>Role__c</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>Start_Date__c</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>End_Date__c</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>Active__c</value>
+                        </valueListItems>
+                        <valueListItems>
                             <value>NAME</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>Account__c</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>Contract_Unit__c</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>Price__c</value>
                         </valueListItems>
                     </valueList>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>relatedListLabel</name>
-                    <value>Actieve Contractregels</value>
+                    <value>{!$Label.ContractRoles}</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>showActionBar</name>
@@ -658,14 +602,46 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>sortFieldAlias</name>
-                    <value>__DEFAULT__</value>
+                    <value>Active__c</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>sortFieldOrder</name>
-                    <value>Default</value>
+                    <value>Descending</value>
                 </componentInstanceProperties>
                 <componentName>lst:dynamicRelatedList</componentName>
-                <identifier>lst_dynamicRelatedList3</identifier>
+                <identifier>lst_dynamicRelatedList2</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-d95fbd63-0385-4dfc-a426-b2a4f58bd646</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-d95fbd63-0385-4dfc-a426-b2a4f58bd646</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>{!$Label.ContractRoles}</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:tab</componentName>
+                <identifier>flexipage_tab3</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-1ac93b5d-bac0-4fcb-b005-d049d1982fe0</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>tabs</name>
+                    <value>Facet-1ac93b5d-bac0-4fcb-b005-d049d1982fe0</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:tabset</componentName>
+                <identifier>flexipage_tabset2</identifier>
             </componentInstance>
         </itemInstances>
         <mode>Replace</mode>
