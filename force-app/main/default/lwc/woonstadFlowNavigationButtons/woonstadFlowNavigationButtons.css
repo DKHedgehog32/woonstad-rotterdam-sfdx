@@ -1,0 +1,94 @@
+.nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .right-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* Annuleren link */
+        .woonstad-cancel-button {
+            background: none;
+            border: none;
+            color: #0061CD;
+            font-family: 'Apercu Pro', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: underline;
+            line-height: 42px;
+            padding: 0;
+        }
+
+        /* Vorige: flat style using the same arrow SVG */
+        .woonstad-back-button {
+            background: none;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: #0061CD;
+            font-family: 'Apercu Pro', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .back-arrow {
+            width: 18px;
+            height: 18px;
+            transform: scaleX(-1); /* Flip the arrow horizontally */
+        }
+
+        /* Woonstad pill buttons */
+        .woonstad-svg-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 42px;
+            background-color: #85E3F9;
+            border: none;
+            border-radius: 40px;
+            font-family: 'Apercu Pro', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            color: #00215B;
+            padding-left: 16px;
+            padding-right: 48px;
+            position: relative;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .icon-wrapper {
+            width: 32px;
+            height: 32px;
+            background: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0px 2px 4px rgba(0, 33, 91, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 5px;
+            right: 5px;
+        }
+
+        .arrow-icon {
+            width: 18px;
+            height: 18px;
+            display: block;
+        }
+
+        .align-right {
+            justify-content: flex-end;
+        }
+
+        .align-left {
+            justify-content: flex-start;
+        }
