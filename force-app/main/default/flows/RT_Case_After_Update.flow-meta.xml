@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>63.0</apiVersion>
-    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <decisions>
         <description>Has the External Status corresponding to a Contactmoment or Zaak in Wocas changed?</description>
         <name>Case_External_Status_Has_Changed</name>
         <label>Case External Status Has Changed</label>
         <locationX>182</locationX>
-        <locationY>431</locationY>
+        <locationY>731</locationY>
         <defaultConnectorLabel>No Change</defaultConnectorLabel>
         <rules>
             <name>External_Status_Has_Changed</name>
@@ -23,6 +22,67 @@
                 <targetReference>Update_Corresponding_Case_Based_On_External_Status</targetReference>
             </connector>
             <label>External Status Has Changed</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>If the Case has changed to one of the &quot;Paused&quot; values, that are considered inactive from a Omni-Channel perspective, the Case should return to the original Case Owner Queue. Once the Case becomes active again, the Case will be reassigned to an agent. This should be done, only if the current Case Owner is not a Queue. Then the current Queue should remain the same.</description>
+        <name>Has_The_Case_Status_Changed_To_A_Paused_Value</name>
+        <label>Has The Case Status Changed To A &quot;Paused&quot; Value?</label>
+        <locationX>182</locationX>
+        <locationY>431</locationY>
+        <defaultConnector>
+            <targetReference>Case_External_Status_Has_Changed</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Case Status Does Not Have Paused Value</defaultConnectorLabel>
+        <rules>
+            <name>Case_Status_Has_Paused_Value</name>
+            <conditionLogic>(1 OR 2 OR 3 OR 4 OR 5) AND 6</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>External</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Response Sent</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Waiting on Third Party</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Waiting on Customer</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>On Hold</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Owner:Group.Type</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Queue</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Reassign_Case_To_Previous_Queue</targetReference>
+            </connector>
+            <label>Case Status Has Paused Value</label>
         </rules>
     </decisions>
     <description>The record-triggered flow on Case for After Update</description>
@@ -66,7 +126,7 @@
         <locationX>182</locationX>
         <locationY>323</locationY>
         <connector>
-            <targetReference>Case_External_Status_Has_Changed</targetReference>
+            <targetReference>Has_The_Case_Status_Changed_To_A_Paused_Value</targetReference>
         </connector>
         <flowName>AL_Case_Assign_PersonAccount_Contact</flowName>
         <inputAssignments>
@@ -77,11 +137,28 @@
         </inputAssignments>
     </subflows>
     <subflows>
+        <description>If the Case Status has changed to a &quot;Paused&quot; value, the Case should be reassigned to the last Queue that was the Owner.</description>
+        <name>Reassign_Case_To_Previous_Queue</name>
+        <label>Reassign Case To Previous Queue</label>
+        <locationX>50</locationX>
+        <locationY>539</locationY>
+        <connector>
+            <targetReference>Case_External_Status_Has_Changed</targetReference>
+        </connector>
+        <flowName>AL_Reassign_Case_To_Previous_Queue</flowName>
+        <inputAssignments>
+            <name>varR_Case</name>
+            <value>
+                <elementReference>$Record</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <subflows>
         <description>Update the Case that corresponds with the changed external status</description>
         <name>Update_Corresponding_Case_Based_On_External_Status</name>
         <label>Update Corresponding Case Based On External Status</label>
         <locationX>50</locationX>
-        <locationY>539</locationY>
+        <locationY>839</locationY>
         <flowName>AL_Update_Case_Status</flowName>
         <inputAssignments>
             <name>varR_Case</name>
