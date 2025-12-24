@@ -26,18 +26,6 @@
         <closed>false</closed>
     </standardValue>
     <standardValue>
-        <fullName>Response Sent</fullName>
-        <default>false</default>
-        <label>✉️ Response Sent</label>
-        <closed>false</closed>
-    </standardValue>
-    <standardValue>
-        <fullName>Response Received</fullName>
-        <default>false</default>
-        <label>📨 Response Received</label>
-        <closed>false</closed>
-    </standardValue>
-    <standardValue>
         <fullName>Waiting on Third Party</fullName>
         <default>false</default>
         <label>⏳ Waiting on Third Party</label>
@@ -47,6 +35,12 @@
         <fullName>Waiting on Customer</fullName>
         <default>false</default>
         <label>⏳ Waiting on Customer</label>
+        <closed>false</closed>
+    </standardValue>
+    <standardValue>
+        <fullName>Response Received</fullName>
+        <default>false</default>
+        <label>📨 Response Received</label>
         <closed>false</closed>
     </standardValue>
     <standardValue>
