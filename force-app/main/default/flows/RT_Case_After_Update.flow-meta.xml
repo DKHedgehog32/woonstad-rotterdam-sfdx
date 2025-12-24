@@ -118,7 +118,7 @@
         <recordTriggerType>Update</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Obsolete</status>
+    <status>Active</status>
     <subflows>
         <description>If the Account on the Case is a PersonAccount, this subflow assigns the right Contact</description>
         <name>Assign_The_Contact_If_The_Account_Is_A_PersonAccount</name>
