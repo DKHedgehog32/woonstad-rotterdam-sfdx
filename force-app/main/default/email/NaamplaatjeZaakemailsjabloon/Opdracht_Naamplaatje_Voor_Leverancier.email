@@ -1,0 +1,7 @@
+<html>
+ <head>
+  <title></title>
+ </head>
+ <body style="height: auto; min-height: auto;"><span style="font-size:12px;"><span style="font-family:Verdana,Arial,Helvetica,sans-serif;"><span style="color:#005896;">Geachte leverancier,<br /> <br /> Hierbij geef ik opdracht voor het plaatsen van een naamplaatje op:<br /> <br /> <strong>Adres:&nbsp;</strong><br /> <br /> {{{Case.Account_Address__c}}}<br /> <br /> <strong>Tekst op het naamplaatje:</strong><br /> <br /> {{{Case.Nameplate_Text__c}}}<br /> <br /> <strong>Eventuele toelichting:</strong><br /> <br /> {{{Case.Supplier_Information__c}}}&nbsp;<br /> <br /> <strong>Vermeld op het factuur a.u.b. het volgende nummer:&nbsp;</strong><br /> <br /> {{{Case.CaseNumber}}}<br /> <br /> Met vriendelijke groet,<br /> <br /> <strong>{{{Sender.FirstName}}}</strong><br /> <br /> Postbus 2370<br /> 3000 CJ Rotterdam</span><br /> <br /> <a href="https://www.woonstadrotterdam.nl"><span style="color:#005896;">www.woonstadrotterdam.nl</span></a><br /> <br /> <a href="https://www.woonstadrotterdam.nl"><span style="color:#005896;"><img alt="Woonstad Logo Blauw Klein" src="{[devName:Woonstad_Logo_Blauw_Kleinpng]}" style="max-width: 1242.1777648925781px" title="Woonstad Logo Blauw Klein" /></span></a></span></span><br /> &nbsp;
+ </body>
+</html>

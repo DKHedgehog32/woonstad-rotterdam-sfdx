@@ -5,6 +5,45 @@
     <description>Sales contract</description>
     <label>Sales</label>
     <picklistValues>
+        <picklist>Contract_Sub_Type__c</picklist>
+        <values>
+            <fullName>BOG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CAM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>JON</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KGA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MGE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ONB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SHS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TIJ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UIT</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
         <picklist>Contract_Type__c</picklist>
         <values>
             <fullName>HUU</fullName>
@@ -12,6 +51,10 @@
         </values>
         <values>
             <fullName>KOO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SER</fullName>
             <default>false</default>
         </values>
     </picklistValues>

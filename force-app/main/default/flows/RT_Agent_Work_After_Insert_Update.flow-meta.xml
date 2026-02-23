@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <decisions>
+        <description>If the agent work is related to a Case (500 is prefix for Case Object) and the user accepts the agent work we need to call a subflow which updates the case status in certain scenarios.</description>
+        <name>Decision_Accepted_Case</name>
+        <label>Accepted Case?</label>
+        <locationX>182</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Outcome_Accepted_Case</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.WorkItemId</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>500</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Opened</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Subflow_Update_New_Case_Status_To_Assigned</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Accepted Case</label>
+        </rules>
+    </decisions>
+    <description>This flow includes the Case status update if an user accepts the Case.</description>
+    <environments>Default</environments>
+    <interviewLabel>RT - Agent Work - After Insert/Update {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>RT - Agent Work - After Insert/Update</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Decision_Accepted_Case</targetReference>
+        </connector>
+        <object>AgentWork</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <description>We pass the Case Id in the Var_Case_Id. The subflow checks if the case match the criteria and will update the status to assigned if needed.</description>
+        <name>Subflow_Update_New_Case_Status_To_Assigned</name>
+        <label>Update New Case Status To Assigned</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <flowName>AL_Update_New_Case_Status_To_Assigned</flowName>
+        <inputAssignments>
+            <name>Var_Case_Id</name>
+            <value>
+                <elementReference>$Record.WorkItemId</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+</Flow>

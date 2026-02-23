@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>61.0</apiVersion>
-    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <decisions>
         <description>Undefined should not be possible because it&apos;s a boolean.</description>
         <name>Incoming_Or_Outbound_Email</name>
@@ -40,7 +39,7 @@
             <label>Outbound Email</label>
         </rules>
     </decisions>
-    <description>Record Trigger for after insert Email Message object</description>
+    <description>Record Trigger for after insert Email Message object.</description>
     <environments>Default</environments>
     <interviewLabel>RT - Email Message - After Insert {!$Flow.CurrentDateTime}</interviewLabel>
     <label>RT - Email Message - After Insert</label>
@@ -73,7 +72,7 @@
         <recordTriggerType>Create</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
     <subflows>
         <description>When a new incoming email message is created, the subflow should be triggered to update the Case status</description>
         <name>AL_Update_Case_Status_Based_On_Incoming_Email_Message</name>
