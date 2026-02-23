@@ -91,8 +91,28 @@
     <picklistValues>
         <picklist>Type</picklist>
         <values>
-            <fullName>Inquiry</fullName>
-            <default>true</default>
+            <fullName>District Management</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Maintenance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Owners%27 Association</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Payment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rent And Sell</fullName>
+            <default>false</default>
         </values>
     </picklistValues>
 </RecordType>

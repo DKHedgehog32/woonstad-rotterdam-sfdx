@@ -10,7 +10,6 @@
     <trackTrending>false</trackTrending>
     <type>Picklist</type>
     <valueSet>
-        <controllingField>Type</controllingField>
         <restricted>true</restricted>
         <valueSetDefinition>
             <sorted>false</sorted>
@@ -65,26 +64,5 @@
                 <label>🏡 Question about my owner-occupied home</label>
             </value>
         </valueSetDefinition>
-        <valueSettings>
-            <controllingFieldValue>Inquiry</controllingFieldValue>
-            <valueName>Could not find information</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Name Plate</controllingFieldValue>
-            <valueName>New tenant</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Name Plate</controllingFieldValue>
-            <valueName>New composition of residency</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Name Plate</controllingFieldValue>
-            <valueName>Incorrect name spelling</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Name Plate</controllingFieldValue>
-            <controllingFieldValue>Repair Request</controllingFieldValue>
-            <valueName>Vandalism/stolen</valueName>
-        </valueSettings>
     </valueSet>
 </CustomField>

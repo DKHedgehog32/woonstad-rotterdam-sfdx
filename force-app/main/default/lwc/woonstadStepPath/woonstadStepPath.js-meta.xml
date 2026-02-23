@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    =============================================
+    Woonstad Step Path - Meta XML
+    =============================================
+    Date: 2025-07-31
+    Last Changed: 2025-07-31
+    Description:
+    Metadata configuration for the Woonstad Step Path component.
+    - Supports placement on Record Pages, App Pages, Home Pages, and Flow Screens.
+    - Accepts a JSON string defining the steps, labels, and tooltips.
+    - Highlights the active step based on a numeric Flow variable.
+-->
+
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <!-- Use the latest supported API version -->
+    <apiVersion>60.0</apiVersion>
+
+    <!-- Make the component available on multiple Lightning targets -->
+    <isExposed>true</isExposed>
+
+    <!-- Supported targets -->
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightning__FlowScreen</target>
+    </targets>
+
+    <!-- Flow Screen configuration -->
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <!-- JSON array with step configuration -->
+            <property name="jsonInput" 
+                      type="String" 
+                      label="Pad JSON Input" 
+                      description="JSON-array met stappen, labels en tooltips. Voorbeeld: 
+                                   [{ 'number': 1, 'label': 'Start', 'tooltip': 'Begin hier' }]"/>
+            
+            <!-- Current active step (integer) -->
+            <property name="currentStep" 
+                      type="Integer" 
+                      label="Actieve stap" 
+                      description="Het nummer van de actieve stap (bijv. 1, 2, 3...). 
+                                   Voltooid = kleiner, Actief = gelijk, Inactief = groter."/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
