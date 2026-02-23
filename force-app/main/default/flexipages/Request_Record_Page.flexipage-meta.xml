@@ -250,7 +250,7 @@
                     <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Supplier_Name_Plate__c</fieldItem>
-                <identifier>RecordSupplier_Name_Plate__cField</identifier>
+                <identifier>RecordSupplier_Name_Plate_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <name>Facet-f49d79c4-528a-4939-acf4-98a4a7181a74</name>

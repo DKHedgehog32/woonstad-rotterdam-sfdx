@@ -1,0 +1,38 @@
+<!-- 
+    =============================================
+    WoonstadStepPath.html
+    =============================================
+    Date: 2025-08-06
+    Last Changed: 2025-08-06
+    Description:
+    Template for the Woonstad Step Path component.
+    - Left-aligned horizontal stepper from JSON input.
+    - Active shows blue, previous green with check, future grey.
+    - Single global tooltip fixed above the path (only for active step).
+    =============================================
+-->
+<template>
+    <div class="step-path-container">
+        <!-- Fixed tooltip for the whole path -->
+        <template if:true={showTooltip}>
+            <div class="custom-tooltip fixed-tooltip" style={tooltipStyle}>{tooltipText}</div>
+        </template>
+
+        <!-- Row of steps -->
+        <div class="step-path" data-path>
+            <template for:each={steps} for:item="step">
+                <div key={step.number}
+                     class="step-item"
+                     data-id={step.number}
+                     onmouseover={handleMouseOver}
+                     onmouseout={handleMouseOut}>
+                    <div class={step.circleClass}>{step.displayValue}</div>
+                    <span class={step.labelClass}>{step.label}</span>
+                </div>
+            </template>
+        </div>
+
+        <!-- Line as its own row under the steps -->
+        <div class="step-line"></div>
+    </div>
+</template>
