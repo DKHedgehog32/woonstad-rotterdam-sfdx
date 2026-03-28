@@ -40,7 +40,7 @@
             <label>Outbound Email</label>
         </rules>
     </decisions>
-    <description>Record Trigger for after insert Email Message object</description>
+    <description>Record Trigger for after insert Email Message object.</description>
     <environments>Default</environments>
     <interviewLabel>RT - Email Message - After Insert {!$Flow.CurrentDateTime}</interviewLabel>
     <label>RT - Email Message - After Insert</label>
