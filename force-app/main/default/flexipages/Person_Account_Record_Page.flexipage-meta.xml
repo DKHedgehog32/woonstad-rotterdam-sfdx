@@ -15,6 +15,66 @@
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Account_Type__c</fieldItem>
+                <identifier>RecordAccount_Type_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Label__c</fieldItem>
+                <identifier>RecordLabel_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Full_Shipping_Street__c</fieldItem>
+                <identifier>RecordFull_Shipping_Street_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Full_Shipping_Postal_Code__c</fieldItem>
+                <identifier>RecordFull_Shipping_Postal_Code_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.PersonEmail</fieldItem>
+                <identifier>RecordPersonEmailField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Phone</fieldItem>
+                <identifier>RecordPhoneField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-6fb865a9-c8d3-4fd0-b38f-7eb5d22def40</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -24,9 +84,6 @@
                 <componentInstanceProperties>
                     <name>actionNames</name>
                     <valueList>
-                        <valueListItems>
-                            <value>Edit</value>
-                        </valueListItems>
                         <valueListItems>
                             <value>Account.Manage_Addresses</value>
                             <visibilityRule>
@@ -38,23 +95,13 @@
                             </visibilityRule>
                         </valueListItems>
                         <valueListItems>
+                            <value>Account.Nieuwe_Zaak</value>
+                        </valueListItems>
+                        <valueListItems>
                             <value>Account.Manage_Relations</value>
                         </valueListItems>
                         <valueListItems>
-                            <value>Account.New_Request</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>Global.NewCase</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>Account.Request_Person</value>
-                            <visibilityRule>
-                                <criteria>
-                                    <leftValue>{!$User.Profile.Name}</leftValue>
-                                    <operator>CONTAINS</operator>
-                                    <rightValue>Syste</rightValue>
-                                </criteria>
-                            </visibilityRule>
+                            <value>Edit</value>
                         </valueListItems>
                     </valueList>
                 </componentInstanceProperties>
@@ -116,6 +163,23 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.PersonBirthdate</fieldItem>
                 <identifier>RecordPersonBirthdateField2</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.Death_Date__pc</fieldItem>
+                <identifier>RecordDeath_Date_pcField</identifier>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.PersonContact.Deceased__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>true</rightValue>
+                    </criteria>
+                </visibilityRule>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
@@ -439,90 +503,6 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>actionNames</name>
-                    <valueList>
-                        <valueListItems>
-                            <value>New</value>
-                        </valueListItems>
-                    </valueList>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>adminFilters</name>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>maxRecordsToDisplay</name>
-                    <value>5</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>parentFieldApiName</name>
-                    <value>Account.Id</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListApiName</name>
-                    <value>Contract_Lines__r</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListDisplayType</name>
-                    <value>ADVGRID</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListFieldAliases</name>
-                    <valueList>
-                        <valueListItems>
-                            <value>NAME</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>External_Id__c</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>Contract_Unit__c</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>Active__c</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>Active_from_Date__c</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>Active_to_Date__c</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>Status__c</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>Price__c</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>Total_Price__c</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>Real_Estate_Contract__c</value>
-                        </valueListItems>
-                    </valueList>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>relatedListLabel</name>
-                    <value>{!$Label.ContractLines}</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>showActionBar</name>
-                    <value>false</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>sortFieldAlias</name>
-                    <value>__DEFAULT__</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>sortFieldOrder</name>
-                    <value>Default</value>
-                </componentInstanceProperties>
-                <componentName>lst:dynamicRelatedList</componentName>
-                <identifier>lst_dynamicRelatedList9</identifier>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>actionNames</name>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>adminFilters</name>
@@ -547,16 +527,10 @@
                     <name>relatedListFieldAliases</name>
                     <valueList>
                         <valueListItems>
-                            <value>NAME</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>Real_Estate_Contract__c</value>
+                            <value>Real_Estate_Contract_Details__c</value>
                         </valueListItems>
                         <valueListItems>
                             <value>Role__c</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>Active__c</value>
                         </valueListItems>
                         <valueListItems>
                             <value>Start_Date__c</value>
@@ -564,11 +538,14 @@
                         <valueListItems>
                             <value>End_Date__c</value>
                         </valueListItems>
+                        <valueListItems>
+                            <value>Active__c</value>
+                        </valueListItems>
                     </valueList>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>relatedListLabel</name>
-                    <value>{!$Label.ContractContactRoles}</value>
+                    <value>{!$Label.Contracts}</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>showActionBar</name>
@@ -576,11 +553,11 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>sortFieldAlias</name>
-                    <value>__DEFAULT__</value>
+                    <value>Active__c</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>sortFieldOrder</name>
-                    <value>Default</value>
+                    <value>Descending</value>
                 </componentInstanceProperties>
                 <componentName>lst:dynamicRelatedList</componentName>
                 <identifier>lst_dynamicRelatedList10</identifier>
@@ -898,11 +875,11 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>sortFieldAlias</name>
-                    <value>__DEFAULT__</value>
+                    <value>Default__c</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>sortFieldOrder</name>
-                    <value>Default</value>
+                    <value>Descending</value>
                 </componentInstanceProperties>
                 <componentName>lst:dynamicRelatedList</componentName>
                 <identifier>lst_dynamicRelatedList6</identifier>
@@ -1094,75 +1071,19 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
-                    <name>showLegacyActivityComposer</name>
-                    <value>false</value>
-                </componentInstanceProperties>
-                <componentName>runtime_sales_activities:activityPanel</componentName>
-                <identifier>runtime_sales_activities_activityPanel</identifier>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-36e2a081-b974-4d56-b04b-f5ab562dc34e</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentName>forceChatter:recordFeedContainer</componentName>
-                <identifier>forceChatter_recordFeedContainer</identifier>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-9b6689c1-04a3-455b-8288-c79656763335</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>body</name>
-                    <value>Facet-36e2a081-b974-4d56-b04b-f5ab562dc34e</value>
+                    <name>flowArguments</name>
+                    <value>[{&quot;label&quot;:&quot;recordId&quot;,&quot;dataType&quot;:&quot;String&quot;,&quot;supportsRecordId&quot;:true,&quot;value&quot;:&quot;{!Record.Id}&quot;}]</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
-                    <name>label</name>
-                    <value>Standard.Tab.activity</value>
+                    <name>flowLayout</name>
+                    <value>oneColumn</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
-                    <name>name</name>
-                    <value>accordionSection1</value>
+                    <name>flowName</name>
+                    <value>Screen_Flow_Display_Account_Indications</value>
                 </componentInstanceProperties>
-                <componentName>flexipage:accordionSection</componentName>
-                <identifier>flexipage_accordionSection</identifier>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>body</name>
-                    <value>Facet-9b6689c1-04a3-455b-8288-c79656763335</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>label</name>
-                    <value>Standard.Tab.collaborate</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>name</name>
-                    <value>accordionSection2</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:accordionSection</componentName>
-                <identifier>flexipage_accordionSection6</identifier>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-39fb4065-fab2-432c-b725-484da51ecaa4</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>accordionSections</name>
-                    <value>Facet-39fb4065-fab2-432c-b725-484da51ecaa4</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:accordion</componentName>
-                <identifier>flexipage_accordion2</identifier>
+                <componentName>flowruntime:interview</componentName>
+                <identifier>flowruntime_interview2</identifier>
             </componentInstance>
         </itemInstances>
         <name>rightsidebar</name>
