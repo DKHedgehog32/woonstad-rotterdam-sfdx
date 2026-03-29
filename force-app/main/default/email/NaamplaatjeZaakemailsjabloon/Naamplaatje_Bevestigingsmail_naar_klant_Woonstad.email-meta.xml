@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>E-mailbevestiging naar de klant na aanvraag naamplaatje</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Naamplaatje - Bevestigingsmail naar klant Woonstad</name>
+    <pageDevName>Naamplaatje_Bevestigingsmail_naar_klant_Woonstad</pageDevName>
+    <relatedEntityType>Case</relatedEntityType>
+    <style>none</style>
+    <subject>Naamplaatje aangevraagd</subject>
+    <textOnly>**Naamplaatje aangevraagd
+----------------------------------------------------
+
+Beste {{{Case.Email_Template_Salutation__c}}},
+
+We hebben je aanvraag voor een naamplaatje voor {{{Case.Account_Street_Full_Housenumber__c}}} ontvangen.
+
+Tekst op het naamplaatje
+
+{{{Case.Nameplate_Text__c}}}
+
+Wat kun je nu verwachten?
+
+De levertijd van een fysiek naamplaatje is ongeveer vier weken. Wanneer het naamplaatje klaar is, wordt deze gemonteerd door de leverancier. Je hoeft zelf niets te doen. 
+
+Met vriendelijke groeten,
+
+Woonstad Rotterdam
+
+Kunnen we je helpen?
+
+Neem contact met ons op &lt; https://www.woonstadrotterdam.nl/contact &gt; 
+
+© 2025 Woonstad Rotterdam &lt; https://www.woonstadrotterdam.nl/ &gt; 
+
+Privacy Statement &lt; https://www.woonstadrotterdam.nl/privacy-en-cookie-statement &gt; • Disclaimer &lt; https://mijn.woonstadrotterdam.nl/Resources/Documents/Gebruikersvoorwaarden-MijnWoonstad.pdf &gt;</textOnly>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>
