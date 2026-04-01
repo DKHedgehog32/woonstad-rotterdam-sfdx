@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Default_From_Mail__c</fullName>
+    <description>Calculates the preferred from mail for the email editor on case</description>
+    <externalId>false</externalId>
+    <formula>CASE(
+	LOWER(TEXT(Label__c)),
+	&quot;woonstad&quot;, &quot;info@woonstadrotterdam.nl&quot;,
+	&quot;stadswonen&quot;, &quot;info@stadswonenrotterdam.nl&quot;, 
+NULL
+)</formula>
+    <inlineHelpText>Calculates the preferred from mail for the email editor on case</inlineHelpText>
+    <label>Default From Mail</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>
